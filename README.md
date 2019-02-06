@@ -7,3 +7,5 @@
 ### Literature
 
 [Deep learning book](https://www.deeplearningbook.org/)
+
+[Standford University CS231n](http://cs231n.stanford.edu/)
