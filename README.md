@@ -4,4 +4,6 @@
 
 ### Neural network for object recognition.
 
-### [Literature](https://www.deeplearningbook.org/)
+### Literature
+
+[Deep learning book](https://www.deeplearningbook.org/)
