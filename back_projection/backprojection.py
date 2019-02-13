@@ -3,7 +3,7 @@ import numpy as np
 from matplotlib import pyplot as plt
 
 bgr_origi_img = cv2.imread('/mnt/sdb/Robtek/6semester/Bachelorproject/BSc-PRO/back_projection/potato.jpg')
-bgr_roi_img = cv2.imread('/mnt/sdb/Robtek/6semester/Bachelorproject/BSc-PRO/back_projection/resized_potato.jpg')
+bgr_roi_img = cv2.imread('/mnt/sdb/Robtek/6semester/Bachelorproject/BSc-PRO/back_projection/template_bp.jpg')
 
 b, g, r = cv2.split(bgr_origi_img)
 original_image = cv2.merge([r, g, b])
