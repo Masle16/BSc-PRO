@@ -28,7 +28,7 @@ _, mask = cv2.threshold(mask, 100, 255, cv2.THRESH_BINARY)
 mask = cv2.merge((mask, mask, mask))
 result = cv2.bitwise_and(original_image, mask)
 
-# show
+# make figure
 fig = plt.figure(figsize=(9,8))
 
 fig.add_subplot(2, 2, 1)
@@ -47,4 +47,5 @@ fig.add_subplot(2, 2, 4)
 plt.title("result")
 plt.imshow(result)
 
+# show
 plt.show()
