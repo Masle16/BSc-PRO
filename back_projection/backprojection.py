@@ -32,6 +32,8 @@ result = cv2.bitwise_and(original_image, mask)
 kernel = np.ones((12,12), np.uint8)
 opening = cv2.morphologyEx(result, cv2.MORPH_OPEN, kernel)
 
+cv2.imshow("test", opening)
+
 # make figure
 fig = plt.figure(figsize=(9,8))
 
