@@ -2,8 +2,8 @@ import cv2
 import numpy as np
 from matplotlib import pyplot as plt
 
-src = cv2.imread('potato_and_catfood/train/potato/WIN_20190131_10_43_21_Pro (3).jpg')
-template = cv2.imread('template_matching/template_tm.jpg')
+src = cv2.imread('/mnt/sdb/Robtek/6semester/Bachelorproject/BSc-PRO/potato_and_catfood/train/potato/WIN_20190131_10_04_48_Pro (2).jpg')
+template = cv2.imread('/mnt/sdb/Robtek/6semester/Bachelorproject/BSc-PRO/template_matching/template_tm.jpg')
 
 img_gray = cv2.cvtColor(src, cv2.COLOR_BGR2GRAY)
 template = cv2.cvtColor(template, cv2.COLOR_BGR2GRAY)
@@ -30,6 +30,8 @@ for meth in methods:
         top_left = max_loc
     
     bottom_right = (top_left[0] + w, top_left[1] + h)
+
+    print(method)
 
     cv2.rectangle(img, top_left, bottom_right, 255, 2)
 
