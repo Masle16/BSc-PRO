@@ -69,12 +69,12 @@ def get_item(img, origi_img):
     img_crop = cv2.resize(img_crop, (224, 224))
 
     # Store image
-    cv2.imwrite('back_projection/potatoes/potato.jpg', img_crop, [int(cv2.IMWRITE_JPEG_OPTIMIZE), 120])
+    cv2.imwrite('/mnt/sdb/Robtek/6semester/Bachelorproject/BSc-PRO/back-projection/potatoes/potato.jpg', img_crop, [int(cv2.IMWRITE_JPEG_OPTIMIZE), 120])
 
     return img_crop
 
-origi_img = cv2.imread('potato_and_catfood/train/potato/WIN_20190131_09_59_41_Pro.jpg')
-roi_img = cv2.imread('back_projection/template_bp.jpg')
+origi_img = cv2.imread('/mnt/sdb/Robtek/6semester/Bachelorproject/BSc-PRO/potato_and_catfood/train/potato/WIN_20190131_10_00_14_Pro.jpg')
+roi_img = cv2.imread('/mnt/sdb/Robtek/6semester/Bachelorproject/BSc-PRO/back-projection/template_bp.jpg')
 
 img = backproject(roi_img, origi_img)
 
