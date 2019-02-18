@@ -2,15 +2,13 @@ import cv2
 import numpy as np
 from matplotlib import pyplot as plt
 
-#############################################################
-#               Back-projection function                    #
-#                                                           #
-#   - roi:      template image                              #
-#   - img:      image to search in                          #
-#   - return:   Backprojected image                         #
-#                                                           #
-#############################################################
 def backproject(roi, img):
+    """
+    returns backprojected image
+    @roi, region of interest to find
+    @img, image to search ing
+    """
+
     # Convert to HSV
     img_hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
     roi_hsv = cv2.cvtColor(roi, cv2.COLOR_BGR2HSV)
@@ -39,15 +37,13 @@ def backproject(roi, img):
 
     return result
 
-#############################################################
-#       Get bounding rect of largest contour                #
-#                                                           #
-#   - img: backporjected image                              #
-#   - origi_img: original image                             #
-#   - return: cropped image of biggest contour              #
-#                                                           #
-#############################################################
 def get_item(img, origi_img):
+    """
+    returns 224 x 224 image of interesting contour
+    @img: backprojected image
+    @origi_img: original image
+    """
+
     # Find contours
     img_gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     ret, thresh = cv2.threshold(img_gray, 0, 127, 0)
@@ -65,17 +61,40 @@ def get_item(img, origi_img):
 
     # Crop contour form image
     x, y, w, h = cv2.boundingRect(cnt)
+
+    if (x + w != 224):
+        if (x + 224 <= origi_img.shape[1]):
+            w = 224
+        else:
+            margin = origi_img.shape[1] - (x + 224)
+            x -= margin
+            w = 224 - margin
+
+    if (y + h != 224):
+        if (y + 224 <= origi_img.shape[0]):
+            h = 224
+        else:
+            margin = origi_img.shape[0] - (y + 224)
+            y -= margin
+            h = 224 - margin
+
     img_crop = origi_img[y:y+h, x:x+w]
-    img_crop = cv2.resize(img_crop, (224, 224))
 
     # Store image
-    cv2.imwrite('back_projection/potatoes/potato.jpg', img_crop, [int(cv2.IMWRITE_JPEG_OPTIMIZE), 120])
+    cv2.imwrite('/mnt/sdb/Robtek/6semester/Bachelorproject/BSc-PRO/back-projection/potatoes/potato.jpg', img_crop, [int(cv2.IMWRITE_JPEG_OPTIMIZE), 120])
 
     return img_crop
 
-origi_img = cv2.imread('potato_and_catfood/train/potato/WIN_20190131_09_59_41_Pro.jpg')
-roi_img = cv2.imread('back_projection/template_bp.jpg')
+origi_img = cv2.imread('/mnt/sdb/Robtek/6semester/Bachelorproject/BSc-PRO/potato_and_catfood/train/potato/WIN_20190131_09_59_57_Pro.jpg')
+roi_img = cv2.imread('/mnt/sdb/Robtek/6semester/Bachelorproject/BSc-PRO/back-projection/template_bp.jpg')
 
 img = backproject(roi_img, origi_img)
 
 img = get_item(img, origi_img)
+
+print(img.shape)
+
+cv2.imshow("Original image", origi_img)
+cv2.imshow("Potato", img)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
