@@ -61,31 +61,32 @@ def get_item(img, origi_img):
 
     # Crop contour form image
     x, y, w, h = cv2.boundingRect(cnt)
+    x_ctr, y_ctr = int((x + (x + w)) / 2), int((y + (y + h)) / 2)
+    radius = 224
+    x_left, x_right, y_up, y_down = x_ctr - radius, x_ctr + radius, y_ctr - radius, y_ctr + radius 
 
-    if (x + w != 448):
-        if (x + 448 <= origi_img.shape[1]):
-            w = 448
-        else:
-            margin = origi_img.shape[1] - (x + 448)
-            x -= margin
-            w = 448 - margin
+    if (x_right > origi_img.shape[1]):
+        margin = -1 * (origi_img.shape[1] - x_right)
+        x_right -= margin; x_left -= margin
+    elif (x_left < 0):
+        margin = -1 * x_left
+        x_right += margin; x_left += margin
 
-    if (y + h != 448):
-        if (y + 448 <= origi_img.shape[0]):
-            h = 448
-        else:
-            margin = origi_img.shape[0] - (y + 448)
-            y -= margin
-            h = 448 - margin
+    if (y_up < 0):
+        margin = -1 * y_up
+        y_down += margin; y_up += margin
+    elif (y_down > origi_img.shape[0]):
+        margin = -1 * (origi_img.shape[0] - y_down)
+        y_down -= margin; y_up -= margin
 
-    img_crop = origi_img[y:y+h, x:x+w]
+    img_crop = origi_img[y_up : y_down, x_left : x_right]
 
     # Store image
     cv2.imwrite('/mnt/sdb/Robtek/6semester/Bachelorproject/BSc-PRO/preprocessing/back-projection/potatoes/potato.jpg', img_crop, [int(cv2.IMWRITE_JPEG_OPTIMIZE), 120])
 
     return img_crop
 
-origi_img = cv2.imread('/mnt/sdb/Robtek/6semester/Bachelorproject/BSc-PRO/potato_and_catfood/train/potato/WIN_20190131_09_59_57_Pro.jpg')
+origi_img = cv2.imread('/mnt/sdb/Robtek/6semester/Bachelorproject/BSc-PRO/potato_and_catfood/train/potato/WIN_20190131_10_44_34_Pro.jpg')
 roi_img = cv2.imread('/mnt/sdb/Robtek/6semester/Bachelorproject/BSc-PRO/preprocessing/back-projection/template_bp.jpg')
 
 img = backproject(roi_img, origi_img)

@@ -82,12 +82,33 @@ def template_matching(template, src, method=cv2.TM_SQDIFF):
     bottom_right = (top_left[0] + w, top_left[1] + h)
 
     # Display detected area
-    cv2.rectangle(src, top_left, bottom_right, 255, 2)
-    cv2.imshow("Detected point", src)
+    img = src.copy()
+    cv2.rectangle(img, top_left, bottom_right, 255, 2)
+    cv2.imshow("Detected point", img)
     cv2.waitKey(0)
     cv2.destroyWindow("Detected point")
 
-    img_crop = src[top_left[1] : top_left[1] + h, top_left[0] : top_left[0] + w]
+    # Crop region of interest
+    radius = 224
+    x_ctr, y_ctr = int((top_left[0] + bottom_right[0]) / 2), int((top_left[1] + bottom_right[1]) / 2)
+    x_left, x_right, y_up, y_down = x_ctr - radius, x_ctr + radius, y_ctr - radius, y_ctr + radius 
+
+    if (x_right > src.shape[1]):
+        margin = -1 * (src.shape[1] - x_right)
+        x_right -= margin; x_left -= margin
+    elif (x_left < 0):
+        margin = -1 * x_left
+        x_right += margin; x_left += margin
+
+    if (y_up < 0):
+        margin = -1 * y_up
+        y_down += margin; y_up += margin
+    elif (y_down > src.shape[0]):
+        margin = -1 * (src.shape[0] - y_down)
+        y_down -= margin; y_up -= margin
+
+    img_crop = src[y_up : y_down, x_left : x_right]
+
     return img_crop
 
 src = cv2.imread('/mnt/sdb/Robtek/6semester/Bachelorproject/BSc-PRO/potato_and_catfood/train/potato/WIN_20190131_10_04_48_Pro (2).jpg')
