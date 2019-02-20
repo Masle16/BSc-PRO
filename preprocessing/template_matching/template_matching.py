@@ -1,6 +1,7 @@
 import cv2
 import numpy as np
 from matplotlib import pyplot as plt
+import glob
 
 def temp_match_meth(template, src):
     """
@@ -111,13 +112,20 @@ def template_matching(template, src, method=cv2.TM_SQDIFF):
 
     return img_crop
 
-src = cv2.imread('/mnt/sdb/Robtek/6semester/Bachelorproject/BSc-PRO/potato_and_catfood/train/potato/WIN_20190131_10_04_48_Pro (2).jpg')
 template = cv2.imread('/mnt/sdb/Robtek/6semester/Bachelorproject/BSc-PRO/preprocessing/template_matching/template_tm.jpg')
 
-roi = template_matching(template, src)
+potato_fil = glob.glob('/mnt/sdb/Robtek/6semester/Bachelorproject/BSc-PRO/potato_and_catfood/train/potato/*.jpg')
+potato_images = [cv2.imread(img) for img in potato_fil]
 
-print(roi.shape)
+d = 0
+for img in potato_images:
+    roi = template_matching(template, img)
+    cv2.imshow('roi', roi)
+    cv2.waitKey(0)
 
-cv2.imshow("roi", roi)
-cv2.waitKey(0)
+    path = '/mnt/sdb/Robtek/6semester/Bachelorproject/BSc-PRO/preprocessing/template_matching/cropped_potatoes/potato_%d.jpg' %d
+    cv2.imwrite(path, roi)
+    
+    d += 1
+
 cv2.destroyAllWindows()
