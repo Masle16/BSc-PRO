@@ -1,12 +1,13 @@
 import cv2
 import numpy as np
 from matplotlib import pyplot as plt
+import glob
 
 def backproject(roi, img):
     """
     returns backprojected image
     @roi, region of interest to find
-    @img, image to search ing
+    @img, image to search in
     """
 
     # Convert to HSV
@@ -81,21 +82,18 @@ def get_item(img, origi_img):
 
     img_crop = origi_img[y_up : y_down, x_left : x_right]
 
-    # Store image
-    cv2.imwrite('/mnt/sdb/Robtek/6semester/Bachelorproject/BSc-PRO/preprocessing/back-projection/potatoes/potato.jpg', img_crop, [int(cv2.IMWRITE_JPEG_OPTIMIZE), 120])
-
     return img_crop
 
-origi_img = cv2.imread('/mnt/sdb/Robtek/6semester/Bachelorproject/BSc-PRO/potato_and_catfood/train/potato/WIN_20190131_10_44_34_Pro.jpg')
 roi_img = cv2.imread('/mnt/sdb/Robtek/6semester/Bachelorproject/BSc-PRO/preprocessing/back-projection/template_bp.jpg')
 
-img = backproject(roi_img, origi_img)
+potato_fil = glob.glob('/mnt/sdb/Robtek/6semester/Bachelorproject/BSc-PRO/potato_and_catfood/train/potato/*.jpg')
+potato_images = [cv2.imread(img) for img in potato_fil]
 
-img = get_item(img, origi_img)
+d = 0
+for img in potato_images:
+    roi = backproject(roi_img, img)
+    roi = get_item(roi, img)
+    cv2.imshow("Roi", roi)
+    cv2.waitKey(0)
 
-print(img.shape)
-
-cv2.imshow("Original image", origi_img)
-cv2.imshow("Potato", img)
-cv2.waitKey(0)
 cv2.destroyAllWindows()

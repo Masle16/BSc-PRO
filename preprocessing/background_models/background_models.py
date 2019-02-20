@@ -71,10 +71,9 @@ potato_images = [cv2.imread(img) for img in potato_fil]
 background_img = run_avg('/mnt/sdb/Robtek/6semester/Bachelorproject/BSc-PRO/images_1280x720/baggrund/bevægelse')
 
 d = 0
-
 for img in potato_images:
     roi = background_sub(img, background_img)
-    path = '/mnt/sdb/Robtek/6semester/Bachelorproject/BSc-PRO/preprocessing/background_models/cropped_potatoes/potato_%d' % d
+    path = '/mnt/sdb/Robtek/6semester/Bachelorproject/BSc-PRO/preprocessing/background_models/cropped_potatoes/potato_%d.jpg' %d
     cv2.imwrite(path, roi)
     d += 1
 
