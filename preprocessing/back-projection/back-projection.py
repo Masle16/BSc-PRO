@@ -93,7 +93,9 @@ d = 0
 for img in potato_images:
     roi = backproject(roi_img, img)
     roi = get_item(roi, img)
-    cv2.imshow("Roi", roi)
-    cv2.waitKey(0)
+    
+    path = '/mnt/sdb/Robtek/6semester/Bachelorproject/BSc-PRO/preprocessing/back-projection/potatoes/potato_%d.jpg' %d
+    cv2.imwrite(path, roi)
+    d += 1
 
 cv2.destroyAllWindows()
