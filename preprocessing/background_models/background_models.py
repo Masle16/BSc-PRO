@@ -1,26 +1,35 @@
 import cv2
 import numpy as np
 from matplotlib import pyplot as plt
+import glob
 
-def diff(src, background):
-    """
-    returns region of interest when background is subtracted from img
-    @img, image with objects
-    @background, static background with objects which is not interesting
-    """
+filenames = glob.glob("/mnt/sdb/Robtek/6semester/Bachelorproject/BSc-PRO/images_1280x720/baggrund/bevægelse/*.jpg")
+images = [cv2.imread(img) for img in filenames]
 
-    img = cv2.cvtColor(src, cv2.COLOR_BGR2GRAY)
-    background = cv2.cvtColor(background, cv2.COLOR_BGR2GRAY)
+avg = np.float32(images[0]) 
 
-    diff = cv2.absdiff(background, img)
+for img in images:
+    cv2.accumulateWeighted(img, avg, 0.1)
+    result = cv2.convertScaleAbs(avg)
 
-    retval, thresh = cv2.threshold(diff, 250, 255, cv2.THRESH_BINARY)
+#cv2.imshow("Average", result)
 
-    cv2.imshow("diff", diff)
-    cv2.waitKey(0)
-    cv2.destroyAllWindows()
+img = cv2.imread('/mnt/sdb/Robtek/6semester/Bachelorproject/BSc-PRO/images_1280x720/kartofler/bevægelse/WIN_20190131_09_57_44_Pro.jpg')
+#cv2.imshow('img', img)
 
-src = cv2.imread('/mnt/sdb/Robtek/6semester/Bachelorproject/BSc-PRO/potato_and_catfood/train/potato/WIN_20190131_09_59_39_Pro.jpg')
-background = cv2.imread('/mnt/sdb/Robtek/6semester/Bachelorproject/BSc-PRO/background_models/background.jpg')
+diff = cv2.absdiff(result, img)
 
-diff(src, background)
+diff_gray = cv2.cvtColor(diff, cv2.COLOR_BGR2GRAY)
+ret, thresh = cv2.threshold(diff_gray, 50, 255, 0)
+diff_cnts, cnts, hierarchy = cv2.findContours(thresh, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+
+areas = [cv2.contourArea(cnt) for cnt in cnts]
+max_idx = np.argmax(areas)
+cnt = cnts[max_idx]
+
+x, y, w, h = cv2.boundingRect(cnt)
+cv2.rectangle(img, (x,y), (x+w, y+h), 255)
+cv2.imshow('img', img)
+
+cv2.waitKey(0)
+cv2.destroyAllWindows()
