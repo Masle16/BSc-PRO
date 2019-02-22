@@ -3,22 +3,17 @@ import numpy as np
 from matplotlib import pyplot as plt
 import glob
 
-def backproject(roi, img):
+def backproject(roi_hist, img):
     """
     returns backprojected image
-    @roi, region of interest to find
+    @roi_hist, histogram of region of interest to find
     @img, image to search in
     """
 
     # Convert to HSV
     img_hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
-    roi_hsv = cv2.cvtColor(roi, cv2.COLOR_BGR2HSV)
-
-    # Extract hue, saturation and value
-    hue, saturation, value = cv2.split(roi_hsv)
 
     # Create Histogram of roi and create mask from the histogram
-    roi_hist = cv2.calcHist([roi_hsv], [0, 1], None, [180, 256], [0, 180, 0, 256])
     mask = cv2.calcBackProject([img_hsv], [0, 1], roi_hist, [0, 180, 0, 256], 1)
 
     # Remove noise
@@ -84,14 +79,17 @@ def get_item(img, origi_img):
 
     return img_crop
 
-roi_img = cv2.imread('/mnt/sdb/Robtek/6semester/Bachelorproject/BSc-PRO/preprocessing/back-projection/template_bp.jpg')
+"""
+roi_img = cv2.imread('/mnt/sdb/Robtek/6semester/Bachelorproject/BSc-PRO/preprocessing/backprojection/template_bp.jpg')
+roi_hsv = cv2.cvtColor(roi_img, cv2.COLOR_BGR2HSV)
+roi_hist = cv2.calcHist([roi_hsv], [0, 1], None, [180, 256], [0, 180, 0, 256])
 
 potato_fil = glob.glob('/mnt/sdb/Robtek/6semester/Bachelorproject/BSc-PRO/potato_and_catfood/train/potato/*.jpg')
 potato_images = [cv2.imread(img) for img in potato_fil]
 
 d = 0
 for img in potato_images:
-    roi = backproject(roi_img, img)
+    roi = backproject(roi_hist, img)
     roi = get_item(roi, img)
     
     path = '/mnt/sdb/Robtek/6semester/Bachelorproject/BSc-PRO/preprocessing/back-projection/potatoes/potato_%d.jpg' %d
@@ -99,3 +97,4 @@ for img in potato_images:
     d += 1
 
 cv2.destroyAllWindows()
+"""

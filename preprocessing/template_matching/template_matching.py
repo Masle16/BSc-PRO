@@ -111,9 +111,8 @@ def template_matching(template, src, method=cv2.TM_SQDIFF):
     img_crop = src[y_up : y_down, x_left : x_right]
 
     return img_crop
-
+"""
 template = cv2.imread('/mnt/sdb/Robtek/6semester/Bachelorproject/BSc-PRO/preprocessing/template_matching/template_tm.jpg')
-
 potato_fil = glob.glob('/mnt/sdb/Robtek/6semester/Bachelorproject/BSc-PRO/potato_and_catfood/train/potato/*.jpg')
 potato_images = [cv2.imread(img) for img in potato_fil]
 
@@ -129,3 +128,4 @@ for img in potato_images:
     d += 1
 
 cv2.destroyAllWindows()
+"""
