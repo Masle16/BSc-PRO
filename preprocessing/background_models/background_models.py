@@ -65,6 +65,7 @@ def background_sub(img, background):
 
     return roi
 
+"""
 potato_fil = glob.glob('/mnt/sdb/Robtek/6semester/Bachelorproject/BSc-PRO/potato_and_catfood/train/potato/*.jpg')
 potato_images = [cv2.imread(img) for img in potato_fil]
 
@@ -78,3 +79,4 @@ for img in potato_images:
     d += 1
 
 cv2.destroyAllWindows()
+"""
