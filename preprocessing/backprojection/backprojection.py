@@ -27,21 +27,8 @@ def backproject(roi_hist, img):
     kernel = np.ones((12,12), np.uint8)
     result = cv2.morphologyEx(result, cv2.MORPH_OPEN, kernel)
 
-    # Display result
-    #cv2.imshow("Result", result)
-    #cv2.waitKey(0)
-
-    return result
-
-def get_item(img, origi_img):
-    """
-    returns 224 x 224 image of interesting contour
-    @img: backprojected image
-    @origi_img: original image
-    """
-
     # Find contours
-    img_gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+    img_gray = cv2.cvtColor(result, cv2.COLOR_BGR2GRAY)
     ret, thresh = cv2.threshold(img_gray, 0, 127, 0)
     img_contours, contours, hierarchy = cv2.findContours(thresh, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
 
@@ -61,8 +48,8 @@ def get_item(img, origi_img):
     radius = 224
     x_left, x_right, y_up, y_down = x_ctr - radius, x_ctr + radius, y_ctr - radius, y_ctr + radius 
 
-    if (x_right > origi_img.shape[1]):
-        margin = -1 * (origi_img.shape[1] - x_right)
+    if (x_right > img.shape[1]):
+        margin = -1 * (img.shape[1] - x_right)
         x_right -= margin; x_left -= margin
     elif (x_left < 0):
         margin = -1 * x_left
@@ -71,11 +58,11 @@ def get_item(img, origi_img):
     if (y_up < 0):
         margin = -1 * y_up
         y_down += margin; y_up += margin
-    elif (y_down > origi_img.shape[0]):
-        margin = -1 * (origi_img.shape[0] - y_down)
+    elif (y_down > img.shape[0]):
+        margin = -1 * (img.shape[0] - y_down)
         y_down -= margin; y_up -= margin
 
-    img_crop = origi_img[y_up : y_down, x_left : x_right]
+    img_crop = img[y_up : y_down, x_left : x_right]
 
     return img_crop
 
@@ -90,10 +77,15 @@ potato_images = [cv2.imread(img) for img in potato_fil]
 d = 0
 for img in potato_images:
     roi = backproject(roi_hist, img)
-    roi = get_item(roi, img)
+    #roi = get_item(roi, img)
+
+    cv2.imshow('Original image', img)
+    cv2.imshow('Region of interest', roi)
+    cv2.waitKey(0)
     
-    path = '/mnt/sdb/Robtek/6semester/Bachelorproject/BSc-PRO/preprocessing/back-projection/potatoes/potato_%d.jpg' %d
-    cv2.imwrite(path, roi)
+    #path = '/mnt/sdb/Robtek/6semester/Bachelorproject/BSc-PRO/preprocessing/back-projection/potatoes/potato_%d.jpg' %d
+    #cv2.imwrite(path, roi)
+
     d += 1
 
 cv2.destroyAllWindows()
