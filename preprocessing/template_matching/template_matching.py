@@ -216,13 +216,6 @@ def chamferMatch(template, src, method=cv2.TM_SQDIFF):
     
     bottom_right = (top_left[0] + w, top_left[1] + h)
 
-    # Display detected area
-    #img = src.copy()
-    #cv2.rectangle(img, top_left, bottom_right, 255, 2)
-    #cv2.imshow("Detected point", img)
-    #cv2.waitKey(0)
-    #cv2.destroyWindow("Detected point")
-
     # Crop region of interest
     radius = 224
     x_ctr, y_ctr = int((top_left[0] + bottom_right[0]) / 2), int((top_left[1] + bottom_right[1]) / 2)
