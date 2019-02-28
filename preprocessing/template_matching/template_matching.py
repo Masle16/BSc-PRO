@@ -239,27 +239,31 @@ def chamferMatch(template, src, method=cv2.TM_SQDIFF):
 
     return img_crop
 
-"""
-template = cv2.imread('/mnt/sdb/Robtek/6semester/Bachelorproject/BSc-PRO/preprocessing/template_matching/template_tm2.jpg')
-tmp_bw = cv2.cvtColor(template, cv2.COLOR_BGR2GRAY)
-_, tmp_bw = cv2.threshold(tmp_bw, 40, 255, cv2.THRESH_BINARY | cv2.THRESH_OTSU)
-tmp_dist = cv2.distanceTransform(tmp_bw, cv2.DIST_L2, 3)
+def main():
+    template = cv2.imread('/mnt/sdb/Robtek/6semester/Bachelorproject/BSc-PRO/preprocessing/template_matching/template_tm2.jpg')
+    tmp_bw = cv2.cvtColor(template, cv2.COLOR_BGR2GRAY)
+    _, tmp_bw = cv2.threshold(tmp_bw, 40, 255, cv2.THRESH_BINARY | cv2.THRESH_OTSU)
+    tmp_dist = cv2.distanceTransform(tmp_bw, cv2.DIST_L2, 3)
 
-potato_fil = glob.glob('/mnt/sdb/Robtek/6semester/Bachelorproject/BSc-PRO/potato_and_catfood/train/potato/*.jpg')
-potato_images = [cv2.imread(img) for img in potato_fil]
+    potato_fil = glob.glob('/mnt/sdb/Robtek/6semester/Bachelorproject/BSc-PRO/potato_and_catfood/train/potato/*.jpg')
+    potato_images = [cv2.imread(img) for img in potato_fil]
 
-d = 0
-for img in potato_images:
-    roi = chamferMatch(tmp_dist, img)
+    d = 0
+    for img in potato_images:
+        roi_cm = chamferMatch(tmp_dist, img)
+        roi_tm = templateMatch(template, img)
 
-    #cv2.imshow('Original image', img)
-    #cv2.imshow('roi', roi)
-    #cv2.waitKey(0)
+        cv2.imshow('Original image', img)
+        cv2.imshow('Chamfer matching', roi_cm)
+        cv2.imshow('Template matching', roi_tm)
+        cv2.waitKey(0)
 
-    #path = '/mnt/sdb/Robtek/6semester/Bachelorproject/BSc-PRO/preprocessing/template_matching/cropped_potatoes_cm/potato_%d.jpg' %d
-    #cv2.imwrite(path, roi)
-    
-    d += 1
+        #path = '/mnt/sdb/Robtek/6semester/Bachelorproject/BSc-PRO/preprocessing/template_matching/cropped_potatoes_cm/potato_%d.jpg' %d
+        #cv2.imwrite(path, roi)
+        
+        d += 1
 
-cv2.destroyAllWindows()
-"""
+    cv2.destroyAllWindows()
+
+if __name__ == "__main__":
+    main()
