@@ -35,7 +35,7 @@ def background_sub(img, background):
 
     diff_gray = cv2.cvtColor(diff, cv2.COLOR_BGR2GRAY)
     ret, thresh = cv2.threshold(diff_gray, 50, 255, 0)
-    diff_cnts, cnts, hierarchy = cv2.findContours(thresh, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+    cnts, hierachy = cv2.findContours(thresh, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
 
     areas = [cv2.contourArea(cnt) for cnt in cnts]
     max_idx = np.argmax(areas)
@@ -65,18 +65,27 @@ def background_sub(img, background):
 
     return roi
 
-"""
-potato_fil = glob.glob('/mnt/sdb/Robtek/6semester/Bachelorproject/BSc-PRO/potato_and_catfood/train/potato/*.jpg')
-potato_images = [cv2.imread(img) for img in potato_fil]
+def main():
+    potato_fil = glob.glob('/mnt/sdb/Robtek/6semester/Bachelorproject/BSc-PRO/potato_and_catfood/train/potato/*.jpg')
+    potato_images = [cv2.imread(img) for img in potato_fil]
 
-background_img = run_avg('/mnt/sdb/Robtek/6semester/Bachelorproject/BSc-PRO/images_1280x720/baggrund/bevægelse')
+    background_img = run_avg('/mnt/sdb/Robtek/6semester/Bachelorproject/BSc-PRO/images_1280x720/baggrund/bevægelse')
 
-d = 0
-for img in potato_images:
-    roi = background_sub(img, background_img)
-    path = '/mnt/sdb/Robtek/6semester/Bachelorproject/BSc-PRO/preprocessing/background_models/cropped_potatoes/potato_%d.jpg' %d
-    cv2.imwrite(path, roi)
-    d += 1
+    d = 0
+    for img in potato_images:
+        roi = background_sub(img, background_img)
 
-cv2.destroyAllWindows()
-"""
+        cv2.imshow('Roi', roi)
+        cv2.waitKey(0)
+
+        #path = '/mnt/sdb/Robtek/6semester/Bachelorproject/BSc-PRO/preprocessing/background_models/cropped_potatoes/potato_%d.jpg' %d
+        #cv2.imwrite(path, roi)
+        
+        d += 1
+
+    cv2.destroyAllWindows()
+
+    return 0
+
+if __name__ == "__main__":
+    main()

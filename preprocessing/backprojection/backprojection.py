@@ -30,7 +30,7 @@ def backproject(roi_hist, img):
     # Find contours
     img_gray = cv2.cvtColor(result, cv2.COLOR_BGR2GRAY)
     ret, thresh = cv2.threshold(img_gray, 0, 127, 0)
-    img_contours, contours, hierarchy = cv2.findContours(thresh, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+    contours, hierarchy = cv2.findContours(thresh, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
 
     # Draw contours
     #cv2.drawContours(img, contours, -1, (0, 255, 0), 3)
@@ -66,27 +66,29 @@ def backproject(roi_hist, img):
 
     return img_crop
 
-"""
-roi_img = cv2.imread('/mnt/sdb/Robtek/6semester/Bachelorproject/BSc-PRO/preprocessing/backprojection/template_bp.jpg')
-roi_hsv = cv2.cvtColor(roi_img, cv2.COLOR_BGR2HSV)
-roi_hist = cv2.calcHist([roi_hsv], [0, 1], None, [180, 256], [0, 180, 0, 256])
+def main():
+    roi_img = cv2.imread('/mnt/sdb/Robtek/6semester/Bachelorproject/BSc-PRO/preprocessing/backprojection/template_bp.jpg')
+    roi_hsv = cv2.cvtColor(roi_img, cv2.COLOR_BGR2HSV)
+    roi_hist = cv2.calcHist([roi_hsv], [0, 1], None, [180, 256], [0, 180, 0, 256])
 
-potato_fil = glob.glob('/mnt/sdb/Robtek/6semester/Bachelorproject/BSc-PRO/potato_and_catfood/train/potato/*.jpg')
-potato_images = [cv2.imread(img) for img in potato_fil]
+    potato_fil = glob.glob('/mnt/sdb/Robtek/6semester/Bachelorproject/BSc-PRO/potato_and_catfood/train/potato/*.jpg')
+    potato_images = [cv2.imread(img) for img in potato_fil]
 
-d = 0
-for img in potato_images:
-    roi = backproject(roi_hist, img)
-    #roi = get_item(roi, img)
+    d = 0
+    for img in potato_images:
+        roi = backproject(roi_hist, img)
+        #roi = get_item(roi, img)
 
-    cv2.imshow('Original image', img)
-    cv2.imshow('Region of interest', roi)
-    cv2.waitKey(0)
-    
-    #path = '/mnt/sdb/Robtek/6semester/Bachelorproject/BSc-PRO/preprocessing/back-projection/potatoes/potato_%d.jpg' %d
-    #cv2.imwrite(path, roi)
+        cv2.imshow('Original image', img)
+        cv2.imshow('Region of interest', roi)
+        cv2.waitKey(0)
+        
+        #path = '/mnt/sdb/Robtek/6semester/Bachelorproject/BSc-PRO/preprocessing/back-projection/potatoes/potato_%d.jpg' %d
+        #cv2.imwrite(path, roi)
 
-    d += 1
+        d += 1
 
-cv2.destroyAllWindows()
-"""
+    cv2.destroyAllWindows()
+
+if __name__ == "__main__":
+    main()
