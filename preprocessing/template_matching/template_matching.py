@@ -1,7 +1,9 @@
+""" Module for template matching and chamfer matching """
+
+import glob
 import cv2
 import numpy as np
 from matplotlib import pyplot as plt
-import glob
 
 def templateMatchMeth(template, src):
     """

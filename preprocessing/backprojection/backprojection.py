@@ -1,3 +1,5 @@
+""" Module for Back-projection """
+
 import cv2
 import numpy as np
 from matplotlib import pyplot as plt
@@ -24,8 +26,10 @@ def backproject(roi_hist, img):
     mask = cv2.merge((mask, mask, mask))
     result = cv2.bitwise_and(img, mask)
 
-    kernel = np.ones((12,12), np.uint8)
+    kernel = np.ones((12, 12), np.uint8)
     result = cv2.morphologyEx(result, cv2.MORPH_OPEN, kernel)
+
+    cv2.imwrite('/home/mathi/Desktop/bp_img.jpg', result)
 
     # Find contours
     img_gray = cv2.cvtColor(result, cv2.COLOR_BGR2GRAY)
@@ -64,29 +68,43 @@ def backproject(roi_hist, img):
 
     img_crop = img[y_up : y_down, x_left : x_right]
 
+    cv2.imwrite('/home/mathi/Desktop/crop_img.jpg', img_crop)
+
     return img_crop
 
 def main():
-    roi_img = cv2.imread('/mnt/sdb/Robtek/6semester/Bachelorproject/BSc-PRO/preprocessing/backprojection/template_bp.jpg')
+    """ Main function """
+
+    roi_img = cv2.imread('/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/preprocessing/backprojection/template_bp.jpg')
     roi_hsv = cv2.cvtColor(roi_img, cv2.COLOR_BGR2HSV)
     roi_hist = cv2.calcHist([roi_hsv], [0, 1], None, [180, 256], [0, 180, 0, 256])
 
-    potato_fil = glob.glob('/mnt/sdb/Robtek/6semester/Bachelorproject/BSc-PRO/potato_and_catfood/train/potato/*.jpg')
+    cv2.imwrite('/home/mathi/Desktop/template.jpg', roi_img)
+    cv2.imwrite('/home/mathi/Desktop/hsv_template.jpg', roi_hsv)
+    cv2.imwrite('/home/mathi/Desktop/hist_template.jpg', roi_hist)
+
+    potato_fil = glob.glob('/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/potato_and_catfood/train/potato/*.jpg')
     potato_images = [cv2.imread(img) for img in potato_fil]
 
-    d = 0
-    for img in potato_images:
-        roi = backproject(roi_hist, img)
-        #roi = get_item(roi, img)
+    cv2.imwrite('/home/mathi/Desktop/input_img.jpg', potato_images[0])
+    roi = backproject(roi_hist, potato_images[0])
+    cv2.imshow('Original image', potato_images[0])
+    cv2.imshow('Region of interest', roi)
+    cv2.waitKey(0)
 
-        cv2.imshow('Original image', img)
-        cv2.imshow('Region of interest', roi)
-        cv2.waitKey(0)
+    # d = 0
+    # for img in potato_images:
+    #     roi = backproject(roi_hist, img)
+    #     #roi = get_item(roi, img)
+
+    #     cv2.imshow('Original image', img)
+    #     cv2.imshow('Region of interest', roi)
+    #     cv2.waitKey(0)
         
-        #path = '/mnt/sdb/Robtek/6semester/Bachelorproject/BSc-PRO/preprocessing/back-projection/potatoes/potato_%d.jpg' %d
-        #cv2.imwrite(path, roi)
+    #     #path = '/mnt/sdb/Robtek/6semester/Bachelorproject/BSc-PRO/preprocessing/back-projection/potatoes/potato_%d.jpg' %d
+    #     #cv2.imwrite(path, roi)
 
-        d += 1
+    #     d += 1
 
     cv2.destroyAllWindows()
 
