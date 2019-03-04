@@ -36,9 +36,10 @@ def background_sub(img, background):
     # Calculate image difference and find largest contour
     diff = cv2.absdiff(background, img)
 
-    cv2.imwrite('/home/mathi/Desktop/bs_diff.jpg', diff)
-
     diff_gray = cv2.cvtColor(diff, cv2.COLOR_BGR2GRAY)
+
+    cv2.imwrite('/home/mathi/Desktop/bs_diff.jpg', diff_gray)
+
     ret, thresh = cv2.threshold(diff_gray, 50, 255, 0)
     cnts, hierachy = cv2.findContours(thresh, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
 

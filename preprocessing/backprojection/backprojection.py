@@ -18,6 +18,8 @@ def backproject(roi_hist, img):
     # Create Histogram of roi and create mask from the histogram
     mask = cv2.calcBackProject([img_hsv], [0, 1], roi_hist, [0, 180, 0, 256], 1)
 
+    cv2.imwrite('/home/mathi/Desktop/bp_img.jpg', mask)
+
     # Remove noise
     kernel = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (5, 5))
     mask = cv2.filter2D(mask, -1, kernel)
@@ -28,8 +30,6 @@ def backproject(roi_hist, img):
 
     kernel = np.ones((12, 12), np.uint8)
     result = cv2.morphologyEx(result, cv2.MORPH_OPEN, kernel)
-
-    cv2.imwrite('/home/mathi/Desktop/bp_img.jpg', result)
 
     # Find contours
     img_gray = cv2.cvtColor(result, cv2.COLOR_BGR2GRAY)
