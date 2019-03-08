@@ -18,9 +18,9 @@ def templateMatchMeth(template, src):
     w, h = template.shape[: : -1]
 
     # All the 6 methods for comparison in a list
-    methods = ['cv2.TM_CCOEFF', 'cv2.TM_CCOEFF_NORMED', 
-                'cv2.TM_CCORR', 'cv2.TM_CCORR_NORMED', 
-                'cv2.TM_SQDIFF', 'cv2.TM_SQDIFF_NORMED']
+    methods = ['cv2.TM_CCOEFF', 'cv2.TM_CCOEFF_NORMED',
+               'cv2.TM_CCORR', 'cv2.TM_CCORR_NORMED',
+               'cv2.TM_SQDIFF', 'cv2.TM_SQDIFF_NORMED']
 
     for meth in methods:
         img = img_gray
@@ -41,12 +41,11 @@ def templateMatchMeth(template, src):
         print(method)
 
         cv2.rectangle(img, top_left, bottom_right, 255, 2)
-
         cv2.imshow('Matching Result', res)
-
         cv2.imshow('Detected Point', img)
-
         cv2.waitKey(0)
+
+    return img
 
 def templateMatch(template, src, method=cv2.TM_SQDIFF):
     """
@@ -62,37 +61,39 @@ def templateMatch(template, src, method=cv2.TM_SQDIFF):
         - cv2.TM_SQDIFF_NORMED)
     """
 
-    # convert to gray
-    img_gray = cv2.cvtColor(src, cv2.COLOR_BGR2GRAY)
-    template = cv2.cvtColor(template, cv2.COLOR_BGR2GRAY)
-    w, h = template.shape[: : -1]
+    cv2.imwrite('/home/mathi/Desktop/template.jpg', template)
+    cv2.imwrite('/home/mathi/Desktop/image.jpg', src)
 
-    # Display template
-    #cv2.imshow("template", template)
-    #cv2.waitKey(0)
-    #cv2.destroyWindow("template")
+    # convert to gray
+    # img_gray = cv2.cvtColor(src, cv2.COLOR_BGR2GRAY)
+    # template = cv2.cvtColor(template, cv2.COLOR_BGR2GRAY)
+    height = template.shape[0]
+    width = template.shape[1]
 
     # Apply template matching
-    result = cv2.matchTemplate(img_gray, template, method)
-    min_val, max_val, min_loc, max_loc = cv2.minMaxLoc(result)
+    result = cv2.matchTemplate(src, template, method)
 
-    if (method == cv2.TM_SQDIFF or method == cv2.TM_SQDIFF_NORMED):
+    match_space = cv2.normalize(result,
+                                None,
+                                0,
+                                255,
+                                norm_type=cv2.NORM_MINMAX)
+
+    cv2.imwrite('/home/mathi/Desktop/result.jpg', match_space)
+
+    min_loc = cv2.minMaxLoc(result)[2]
+    max_loc = cv2.minMaxLoc(result)[3]
+
+    if method in (cv2.TM_SQDIFF, cv2.TM_SQDIFF_NORMED):
         top_left = min_loc
     else:
         top_left = max_loc
-    
-    bottom_right = (top_left[0] + w, top_left[1] + h)
 
-    # Display detected area
-    #img = src.copy()
-    #cv2.rectangle(img, top_left, bottom_right, 255, 2)
-    #cv2.imshow("Detected point", img)
-    #cv2.waitKey(0)
-    #cv2.destroyWindow("Detected point")
+    bottom_right = (top_left[0] + width, top_left[1] + height)
 
     # Crop region of interest
     radius = 224
-    x_ctr = int((top_left[0] + bottom_right[0]) / 2) 
+    x_ctr = int((top_left[0] + bottom_right[0]) / 2)
     y_ctr = int((top_left[1] + bottom_right[1]) / 2)
     x_left = x_ctr - radius
     x_right = x_ctr + radius
@@ -116,6 +117,11 @@ def templateMatch(template, src, method=cv2.TM_SQDIFF):
         margin = -1 * (src.shape[0] - y_down)
         y_down -= margin
         y_up -= margin
+
+    # Display detected area
+    img_rect = src.copy()
+    cv2.rectangle(img_rect, (x_left, y_up), (x_right, y_down), (0, 0, 255), 4)
+    cv2.imwrite('/home/mathi/Desktop/detected_rect.jpg', img_rect)
 
     img_crop = src[y_up : y_down, x_left : x_right]
 
@@ -230,55 +236,69 @@ def chamferMatch(template, src, method=cv2.TM_SQDIFF):
         top_left = min_loc
     else:
         top_left = max_loc
-    
+
     bottom_right = (top_left[0] + w, top_left[1] + h)
 
     # Crop region of interest
     radius = 224
-    x_ctr, y_ctr = int((top_left[0] + bottom_right[0]) / 2), int((top_left[1] + bottom_right[1]) / 2)
-    x_left, x_right, y_up, y_down = x_ctr - radius, x_ctr + radius, y_ctr - radius, y_ctr + radius 
+    x_ctr = int((top_left[0] + bottom_right[0]) / 2)
+    y_ctr = int((top_left[1] + bottom_right[1]) / 2)
+    x_left = x_ctr - radius
+    x_right = x_ctr + radius
+    y_up = y_ctr - radius
+    y_down = y_ctr + radius
 
-    if (x_right > src.shape[1]):
+    if x_right > src.shape[1]:
         margin = -1 * (src.shape[1] - x_right)
-        x_right -= margin; x_left -= margin
-    elif (x_left < 0):
+        x_right -= margin
+        x_left -= margin
+    elif x_left < 0:
         margin = -1 * x_left
-        x_right += margin; x_left += margin
+        x_right += margin
+        x_left += margin
 
-    if (y_up < 0):
+    if y_up < 0:
         margin = -1 * y_up
-        y_down += margin; y_up += margin
-    elif (y_down > src.shape[0]):
+        y_down += margin
+        y_up += margin
+    elif y_down > src.shape[0]:
         margin = -1 * (src.shape[0] - y_down)
-        y_down -= margin; y_up -= margin
+        y_down -= margin
+        y_up -= margin
 
     img_crop = src[y_up : y_down, x_left : x_right]
 
     return img_crop
 
 def main():
-    template = cv2.imread('/mnt/sdb/Robtek/6semester/Bachelorproject/BSc-PRO/preprocessing/template_matching/template_tm2.jpg')
-    tmp_bw = cv2.cvtColor(template, cv2.COLOR_BGR2GRAY)
-    _, tmp_bw = cv2.threshold(tmp_bw, 40, 255, cv2.THRESH_BINARY | cv2.THRESH_OTSU)
-    tmp_dist = cv2.distanceTransform(tmp_bw, cv2.DIST_L2, 3)
+    """
+    Main function
+    """
 
-    potato_fil = glob.glob('/mnt/sdb/Robtek/6semester/Bachelorproject/BSc-PRO/potato_and_catfood/train/potato/*.jpg')
+    template = cv2.imread('/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/preprocessing/template_matching/template_tm2.jpg')
+    #tmp_bw = cv2.cvtColor(template, cv2.COLOR_BGR2GRAY)
+    #_, tmp_bw = cv2.threshold(tmp_bw, 40, 255, cv2.THRESH_BINARY | cv2.THRESH_OTSU)
+    #tmp_dist = cv2.distanceTransform(tmp_bw, cv2.DIST_L2, 3)
+
+    potato_fil = glob.glob('/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/potato_and_catfood/train/potato/*.jpg')
     potato_images = [cv2.imread(img) for img in potato_fil]
 
-    d = 0
-    for img in potato_images:
-        roi_cm = chamferMatch(tmp_dist, img)
-        roi_tm = templateMatch(template, img)
+    roi_tm = templateMatch(template, potato_images[0])
 
-        cv2.imshow('Original image', img)
-        cv2.imshow('Chamfer matching', roi_cm)
-        cv2.imshow('Template matching', roi_tm)
-        cv2.waitKey(0)
+    # d = 0
+    # for img in potato_images:
+    #     roi_cm = chamferMatch(tmp_dist, img)
+    #     roi_tm = templateMatch(template, img)
 
-        #path = '/mnt/sdb/Robtek/6semester/Bachelorproject/BSc-PRO/preprocessing/template_matching/cropped_potatoes_cm/potato_%d.jpg' %d
-        #cv2.imwrite(path, roi)
+    #     cv2.imshow('Original image', img)
+    #     cv2.imshow('Chamfer matching', roi_cm)
+    #     cv2.imshow('Template matching', roi_tm)
+    #     cv2.waitKey(0)
+
+    #     #path = '/mnt/sdb/Robtek/6semester/Bachelorproject/BSc-PRO/preprocessing/template_matching/cropped_potatoes_cm/potato_%d.jpg' %d
+    #     #cv2.imwrite(path, roi)
         
-        d += 1
+    #     d += 1
 
     cv2.destroyAllWindows()
 
