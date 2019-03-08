@@ -3,7 +3,6 @@
 import glob
 import cv2
 import numpy as np
-from matplotlib import pyplot as plt
 
 def templateMatchMeth(template, src):
     """
@@ -93,22 +92,30 @@ def templateMatch(template, src, method=cv2.TM_SQDIFF):
 
     # Crop region of interest
     radius = 224
-    x_ctr, y_ctr = int((top_left[0] + bottom_right[0]) / 2), int((top_left[1] + bottom_right[1]) / 2)
-    x_left, x_right, y_up, y_down = x_ctr - radius, x_ctr + radius, y_ctr - radius, y_ctr + radius 
+    x_ctr = int((top_left[0] + bottom_right[0]) / 2) 
+    y_ctr = int((top_left[1] + bottom_right[1]) / 2)
+    x_left = x_ctr - radius
+    x_right = x_ctr + radius
+    y_up = y_ctr - radius
+    y_down = y_ctr + radius
 
-    if (x_right > src.shape[1]):
+    if x_right > src.shape[1]:
         margin = -1 * (src.shape[1] - x_right)
-        x_right -= margin; x_left -= margin
-    elif (x_left < 0):
+        x_right -= margin
+        x_left -= margin
+    elif x_left < 0:
         margin = -1 * x_left
-        x_right += margin; x_left += margin
+        x_right += margin
+        x_left += margin
 
-    if (y_up < 0):
+    if y_up < 0:
         margin = -1 * y_up
-        y_down += margin; y_up += margin
-    elif (y_down > src.shape[0]):
+        y_down += margin
+        y_up += margin
+    elif y_down > src.shape[0]:
         margin = -1 * (src.shape[0] - y_down)
-        y_down -= margin; y_up -= margin
+        y_down -= margin
+        y_up -= margin
 
     img_crop = src[y_up : y_down, x_left : x_right]
 
@@ -133,7 +140,7 @@ def multiscaleTemplateMatch(template, src, method=cv2.TM_CCOEFF):
     img_gray = cv2.cvtColor(src, cv2.COLOR_BGR2GRAY)
     template_gray = cv2.cvtColor(template, cv2.COLOR_BGR2GRAY)
     w, h = template_gray.shape[::-1]
-    
+
     found = None
     for scale in np.linspace(0.2, 1.0, 20)[::-1]:
         # Resize the image according to the scale, and keep track
@@ -148,8 +155,8 @@ def multiscaleTemplateMatch(template, src, method=cv2.TM_CCOEFF):
         edged = cv2.Canny(resized, 50, 200)
         result = cv2.matchTemplate(edged, template_gray, method)
         (min_val, max_val, min_loc, max_loc) = cv2.minMaxLoc(result)
-        
-        if found == None or max_val > found[0]:
+
+        if found is None or max_val > found[0]:
             found = (max_val, max_loc, r)
 
     # Unpack the found variable and compute the (x,y) coordinates of the bounding
@@ -159,30 +166,38 @@ def multiscaleTemplateMatch(template, src, method=cv2.TM_CCOEFF):
         top_left = min_loc
     else:
         top_left = max_loc
-    
+
     bottom_right = (top_left[0] + w, top_left[1] + h)
 
     # Crop region of interest
     radius = 224
-    x_ctr, y_ctr = int((top_left[0] + bottom_right[0]) / 2), int((top_left[1] + bottom_right[1]) / 2)
-    x_left, x_right, y_up, y_down = x_ctr - radius, x_ctr + radius, y_ctr - radius, y_ctr + radius 
+    x_ctr = int((top_left[0] + bottom_right[0]) / 2)
+    y_ctr = int((top_left[1] + bottom_right[1]) / 2)
+    x_left = x_ctr - radius
+    x_right = x_ctr + radius
+    y_up = y_ctr - radius
+    y_down = y_ctr + radius
 
-    if (x_right > src.shape[1]):
+    if x_right > src.shape[1]:
         margin = -1 * (src.shape[1] - x_right)
-        x_right -= margin; x_left -= margin
-    elif (x_left < 0):
+        x_right -= margin
+        x_left -= margin
+    elif x_left < 0:
         margin = -1 * x_left
-        x_right += margin; x_left += margin
+        x_right += margin
+        x_left += margin
 
-    if (y_up < 0):
+    if y_up < 0:
         margin = -1 * y_up
-        y_down += margin; y_up += margin
-    elif (y_down > src.shape[0]):
+        y_down += margin
+        y_up += margin
+    elif y_down > src.shape[0]:
         margin = -1 * (src.shape[0] - y_down)
-        y_down -= margin; y_up -= margin
+        y_down -= margin
+        y_up -= margin
 
     img_crop = src[y_up : y_down, x_left : x_right]
-    
+
     return img_crop
 
 def chamferMatch(template, src, method=cv2.TM_SQDIFF):
