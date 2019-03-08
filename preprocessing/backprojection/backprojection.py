@@ -48,27 +48,37 @@ def backproject(roi_hist, img):
 
     # Crop contour form image
     x, y, w, h = cv2.boundingRect(cnt)
-    x_ctr, y_ctr = int((x + (x + w)) / 2), int((y + (y + h)) / 2)
+    x_ctr = int((x + (x + w)) / 2)
+    y_ctr = int((y + (y + h)) / 2)
     radius = 224
     x_left, x_right, y_up, y_down = x_ctr - radius, x_ctr + radius, y_ctr - radius, y_ctr + radius 
 
-    if (x_right > img.shape[1]):
+    if x_right > img.shape[1]:
         margin = -1 * (img.shape[1] - x_right)
-        x_right -= margin; x_left -= margin
-    elif (x_left < 0):
+        x_right -= margin
+        x_left -= margin
+    elif x_left < 0:
         margin = -1 * x_left
-        x_right += margin; x_left += margin
+        x_right += margin
+        x_left += margin
 
-    if (y_up < 0):
+    if y_up < 0:
         margin = -1 * y_up
-        y_down += margin; y_up += margin
-    elif (y_down > img.shape[0]):
+        y_down += margin
+        y_up += margin
+    elif y_down > img.shape[0]:
         margin = -1 * (img.shape[0] - y_down)
-        y_down -= margin; y_up -= margin
+        y_down -= margin
+        y_up -= margin
 
     img_crop = img[y_up : y_down, x_left : x_right]
 
     cv2.imwrite('/home/mathi/Desktop/crop_img.jpg', img_crop)
+
+    # Display detected area
+    img_rect = img.copy()
+    cv2.rectangle(img_rect, (x_left, y_up), (x_right, y_down), (0, 0, 255), 4)
+    cv2.imwrite('/home/mathi/Desktop/detected_rect.jpg', img_rect)
 
     return img_crop
 
@@ -80,8 +90,18 @@ def main():
     roi_hist = cv2.calcHist([roi_hsv], [0, 1], None, [180, 256], [0, 180, 0, 256])
 
     cv2.imwrite('/home/mathi/Desktop/template.jpg', roi_img)
-    cv2.imwrite('/home/mathi/Desktop/hsv_template.jpg', roi_hsv)
-    cv2.imwrite('/home/mathi/Desktop/hist_template.jpg', roi_hist)
+
+    # HSV histogram of template
+    color = ('Huminance', 'Saturation', 'Value')
+    for i, col in enumerate(color):
+        hist = cv2.calcHist([roi_hsv], [i], None, [256], [0, 256])
+        plt.plot(hist, label=col)
+        plt.xlim([0, 256])
+   
+    leg = plt.legend(loc='best', ncol=1, shadow=True, fancybox=True)
+    leg.get_frame().set_alpha(0.5)
+
+    plt.show()
 
     potato_fil = glob.glob('/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/potato_and_catfood/train/potato/*.jpg')
     potato_images = [cv2.imread(img) for img in potato_fil]
@@ -100,7 +120,7 @@ def main():
     #     cv2.imshow('Original image', img)
     #     cv2.imshow('Region of interest', roi)
     #     cv2.waitKey(0)
-        
+
     #     #path = '/mnt/sdb/Robtek/6semester/Bachelorproject/BSc-PRO/preprocessing/back-projection/potatoes/potato_%d.jpg' %d
     #     #cv2.imwrite(path, roi)
 
