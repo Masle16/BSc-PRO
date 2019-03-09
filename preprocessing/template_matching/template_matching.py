@@ -2,6 +2,7 @@
 
 import glob
 import cv2
+import imutils
 import numpy as np
 
 def templateMatchMeth(template, src):
@@ -143,25 +144,60 @@ def multiscaleTemplateMatch(template, src, method=cv2.TM_CCOEFF):
     Uses multiscaling to scale image
     """
 
-    img_gray = cv2.cvtColor(src, cv2.COLOR_BGR2GRAY)
-    template_gray = cv2.cvtColor(template, cv2.COLOR_BGR2GRAY)
-    w, h = template_gray.shape[::-1]
+    # img_gray = cv2.cvtColor(src, cv2.COLOR_BGR2GRAY)
+    # template_gray = cv2.cvtColor(template, cv2.COLOR_BGR2GRAY)
+    
+    # Make private copies of src and template
+    _template = template.copy()
+    _src = src.copy()
+
+    # Store height and width
+    height = template.shape[0]
+    width = template.shape[1]
+
+    # Resize template
+    ratio = 100.0 / _template.shape[1]
+    dim = (100, int(_template.shape[0] * ratio))
+    _template = cv2.resize(_template, dim, interpolation=cv2.INTER_AREA)
 
     found = None
-    for scale in np.linspace(0.2, 1.0, 20)[::-1]:
+    for scale in np.linspace(1.0, 5.0, 20)[::-1]:
         # Resize the image according to the scale, and keep track
         # of the ratio of the resizing
-        resized = cv2.resize(img_gray, (int(img_gray.shape[1] * scale), img_gray.shape[0]))
-        ratio = img_gray.shape[1] / float(resized.shape[1])
+        resized = imutils.resize(_template, width=int(_template.shape[1] * scale))
+        ratio = _template.shape[1] / float(resized.shape[1])
 
         # If the resized image is smaller than the template, then break from the loop
-        if resized.shape[0] < h or resized.shape[1] < w:
+        if resized.shape[0] > _src.shape[0] or resized.shape[1] > _src.shape[1]:
             break
 
-        edged = cv2.Canny(resized, 50, 200)
-        result = cv2.matchTemplate(edged, template_gray, method)
+        # Detect edges in the resized grayscale image and apply template
+        # matching to find the template in the image
+
+        #edged = cv2.Canny(resized, 50, 200)
+        result = cv2.matchTemplate(_src, resized, method)
         (_, max_val, min_loc, max_loc) = cv2.minMaxLoc(result)
 
+        # Visualize
+        # Draw a bounding box around the detected region
+        clone = _src.copy()
+
+        if (method == cv2.TM_SQDIFF or method == cv2.TM_SQDIFF_NORMED):
+            top_left = min_loc
+        else:
+            top_left = max_loc
+
+        cv2.rectangle(clone,
+                      (top_left[0], top_left[1]),
+                      (top_left[0] + width, top_left[1] + height),
+                      (0, 0, 255),
+                      2)
+
+        cv2.imshow("Visualize", clone)
+        cv2.waitKey(0)
+
+        # If we have found a new maximum correlation value, then update
+		# the bookkeeping variable
         if found is None or max_val > found[0]:
             found = (max_val, max_loc, ratio)
 
@@ -173,7 +209,7 @@ def multiscaleTemplateMatch(template, src, method=cv2.TM_CCOEFF):
     else:
         top_left = max_loc
 
-    bottom_right = (top_left[0] + w, top_left[1] + h)
+    bottom_right = (top_left[0] + width, top_left[1] + height)
 
     # Crop region of interest
     radius = 224
@@ -298,24 +334,32 @@ def main():
     template = cv2.imread(
         '/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/preprocessing/template_matching/template_tm2.jpg'
     )
+
+    # Check template
+    if template is None:
+        raise Exception('Template equals None')
+
     tmp_bw = cv2.cvtColor(template, cv2.COLOR_BGR2GRAY)
     _, tmp_bw = cv2.threshold(tmp_bw, 40, 255, cv2.THRESH_BINARY | cv2.THRESH_OTSU)
     tmp_dist = cv2.distanceTransform(tmp_bw, cv2.DIST_L2, 3)
 
-    tmp_dist_norm = cv2.normalize(tmp_dist,
-                                  None,
-                                  0,
-                                  255,
-                                  norm_type=cv2.NORM_MINMAX)
+    # tmp_dist_norm = cv2.normalize(tmp_dist,
+    #                               None,
+    #                               0,
+    #                               255,
+    #                               norm_type=cv2.NORM_MINMAX)
 
-    cv2.imwrite('/home/mathi/Desktop/tmp_dist.jpg', tmp_dist_norm)
+    # cv2.imwrite('/home/mathi/Desktop/tmp_dist.jpg', tmp_dist_norm)
 
     potato_fil = glob.glob(
         '/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/potato_and_catfood/train/potato/*.jpg'
     )
     potato_images = [cv2.imread(img) for img in potato_fil]
 
-    _ = chamferMatch(tmp_dist, potato_images[0])
+    result = multiscaleTemplateMatch(template, potato_images[0])
+
+    cv2.imshow('Result', result)
+    cv2.waitKey(0)
 
     # d = 0
     # for img in potato_images:
@@ -327,7 +371,7 @@ def main():
     #     cv2.imshow('Template matching', roi_tm)
     #     cv2.waitKey(0)
 
-    #     #path =   '/mnt/sdb/Robtek/6semester/Bachelorproject/BSc-PRO/ \
+    #     #path =   '/mnt/sdb/Robtek/6semester/Bachelorproject/BSc-PRO/\
     #               preprocessing/template_matching/cropped_potatoes_cm/potato_%d.jpg' %d
     #     #cv2.imwrite(path, roi)
 
