@@ -28,14 +28,14 @@ def templateMatchMeth(template, src):
 
         # Apply template matching
         res = cv2.matchTemplate(img, template, method)
-        min_val, max_val, min_loc, max_loc = cv2.minMaxLoc(res)
+        _, _, min_loc, max_loc = cv2.minMaxLoc(res)
 
         # If the method is TM_SQDIFF or TM_SQDIFF_NORMED take minimum
         if method in [cv2.TM_SQDIFF, cv2.TM_SQDIFF_NORMED]:
             top_left = min_loc
         else:
             top_left = max_loc
-        
+
         bottom_right = (top_left[0] + w, top_left[1] + h)
 
         print(method)
@@ -152,7 +152,7 @@ def multiscaleTemplateMatch(template, src, method=cv2.TM_CCOEFF):
         # Resize the image according to the scale, and keep track
         # of the ratio of the resizing
         resized = cv2.resize(img_gray, (int(img_gray.shape[1] * scale), img_gray.shape[0]))
-        r = img_gray.shape[1] / float(resized.shape[1])
+        ratio = img_gray.shape[1] / float(resized.shape[1])
 
         # If the resized image is smaller than the template, then break from the loop
         if resized.shape[0] < h or resized.shape[1] < w:
@@ -160,14 +160,14 @@ def multiscaleTemplateMatch(template, src, method=cv2.TM_CCOEFF):
 
         edged = cv2.Canny(resized, 50, 200)
         result = cv2.matchTemplate(edged, template_gray, method)
-        (min_val, max_val, min_loc, max_loc) = cv2.minMaxLoc(result)
+        (_, max_val, min_loc, max_loc) = cv2.minMaxLoc(result)
 
         if found is None or max_val > found[0]:
-            found = (max_val, max_loc, r)
+            found = (max_val, max_loc, ratio)
 
     # Unpack the found variable and compute the (x,y) coordinates of the bounding
     # rect based of the resized ratio
-    (max_val, max_loc, r) = found
+    (max_val, max_loc, ratio) = found
     if (method == cv2.TM_SQDIFF or method == cv2.TM_SQDIFF_NORMED):
         top_left = min_loc
     else:
@@ -221,23 +221,40 @@ def chamferMatch(template, src, method=cv2.TM_SQDIFF):
     """
 
     # store template width and height
-    w, h = template.shape[::-1]
+    width, height = template.shape[::-1]
 
-    # Convert to src to distance map 
+    # Convert to src to distance map
     img_bw = cv2.cvtColor(src, cv2.COLOR_BGR2GRAY)
     _, img_bw = cv2.threshold(img_bw, 40, 255, cv2.THRESH_BINARY | cv2.THRESH_OTSU)
     img_dist = cv2.distanceTransform(img_bw, cv2.DIST_L2, 3)
 
+    img_dist_norm = cv2.normalize(img_dist,
+                                  None,
+                                  0,
+                                  200,
+                                  norm_type=cv2.NORM_MINMAX)
+
+    cv2.imwrite('/home/mathi/Desktop/img_dist.jpg', img_dist_norm)
+
     # Apply template matching
     result = cv2.matchTemplate(img_dist, template, method)
-    min_val, max_val, min_loc, max_loc = cv2.minMaxLoc(result)
+
+    match_space = cv2.normalize(result,
+                                None,
+                                0,
+                                255,
+                                norm_type=cv2.NORM_MINMAX)
+
+    cv2.imwrite('/home/mathi/Desktop/match_space.jpg', match_space)
+
+    _, _, min_loc, max_loc = cv2.minMaxLoc(result)
 
     if (method == cv2.TM_SQDIFF or method == cv2.TM_SQDIFF_NORMED):
         top_left = min_loc
     else:
         top_left = max_loc
 
-    bottom_right = (top_left[0] + w, top_left[1] + h)
+    bottom_right = (top_left[0] + width, top_left[1] + height)
 
     # Crop region of interest
     radius = 224
@@ -266,24 +283,39 @@ def chamferMatch(template, src, method=cv2.TM_SQDIFF):
         y_down -= margin
         y_up -= margin
 
+    # Display detected area
+    img_rect = src.copy()
+    cv2.rectangle(img_rect, (x_left, y_up), (x_right, y_down), (0, 0, 255), 4)
+    cv2.imwrite('/home/mathi/Desktop/img_rect.jpg', img_rect)
+
     img_crop = src[y_up : y_down, x_left : x_right]
 
     return img_crop
 
 def main():
-    """
-    Main function
-    """
+    """ Main function """
 
-    template = cv2.imread('/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/preprocessing/template_matching/template_tm2.jpg')
-    #tmp_bw = cv2.cvtColor(template, cv2.COLOR_BGR2GRAY)
-    #_, tmp_bw = cv2.threshold(tmp_bw, 40, 255, cv2.THRESH_BINARY | cv2.THRESH_OTSU)
-    #tmp_dist = cv2.distanceTransform(tmp_bw, cv2.DIST_L2, 3)
+    template = cv2.imread(
+        '/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/preprocessing/template_matching/template_tm2.jpg'
+    )
+    tmp_bw = cv2.cvtColor(template, cv2.COLOR_BGR2GRAY)
+    _, tmp_bw = cv2.threshold(tmp_bw, 40, 255, cv2.THRESH_BINARY | cv2.THRESH_OTSU)
+    tmp_dist = cv2.distanceTransform(tmp_bw, cv2.DIST_L2, 3)
 
-    potato_fil = glob.glob('/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/potato_and_catfood/train/potato/*.jpg')
+    tmp_dist_norm = cv2.normalize(tmp_dist,
+                                  None,
+                                  0,
+                                  255,
+                                  norm_type=cv2.NORM_MINMAX)
+
+    cv2.imwrite('/home/mathi/Desktop/tmp_dist.jpg', tmp_dist_norm)
+
+    potato_fil = glob.glob(
+        '/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/potato_and_catfood/train/potato/*.jpg'
+    )
     potato_images = [cv2.imread(img) for img in potato_fil]
 
-    roi_tm = templateMatch(template, potato_images[0])
+    _ = chamferMatch(tmp_dist, potato_images[0])
 
     # d = 0
     # for img in potato_images:
@@ -295,9 +327,10 @@ def main():
     #     cv2.imshow('Template matching', roi_tm)
     #     cv2.waitKey(0)
 
-    #     #path = '/mnt/sdb/Robtek/6semester/Bachelorproject/BSc-PRO/preprocessing/template_matching/cropped_potatoes_cm/potato_%d.jpg' %d
+    #     #path =   '/mnt/sdb/Robtek/6semester/Bachelorproject/BSc-PRO/ \
+    #               preprocessing/template_matching/cropped_potatoes_cm/potato_%d.jpg' %d
     #     #cv2.imwrite(path, roi)
-        
+
     #     d += 1
 
     cv2.destroyAllWindows()

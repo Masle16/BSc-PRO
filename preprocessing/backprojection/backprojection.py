@@ -33,8 +33,8 @@ def backproject(roi_hist, img):
 
     # Find contours
     img_gray = cv2.cvtColor(result, cv2.COLOR_BGR2GRAY)
-    ret, thresh = cv2.threshold(img_gray, 0, 127, 0)
-    contours, hierarchy = cv2.findContours(thresh, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+    _, thresh = cv2.threshold(img_gray, 0, 127, 0)
+    contours, _ = cv2.findContours(thresh, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
 
     # Draw contours
     #cv2.drawContours(img, contours, -1, (0, 255, 0), 3)
