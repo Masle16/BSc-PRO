@@ -18,7 +18,7 @@ def backproject(roi_hist, img):
     # Create Histogram of roi and create mask from the histogram
     mask = cv2.calcBackProject([img_hsv], [0, 1], roi_hist, [0, 180, 0, 256], 1)
 
-    cv2.imwrite('/home/mathi/Desktop/bp_img.jpg', mask)
+    # cv2.imwrite('/home/mathi/Desktop/bp_img.jpg', mask)
 
     # Remove noise
     kernel = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (5, 5))
@@ -78,7 +78,8 @@ def backproject(roi_hist, img):
     # Display detected area
     img_rect = img.copy()
     cv2.rectangle(img_rect, (x_left, y_up), (x_right, y_down), (0, 0, 255), 4)
-    cv2.imwrite('/home/mathi/Desktop/detected_rect.jpg', img_rect)
+    # cv2.imwrite('/home/mathi/Desktop/detected_rect.jpg', img_rect)
+    cv2.imshow('Detected rect', img_rect)
 
     return img_crop
 
@@ -89,19 +90,19 @@ def main():
     roi_hsv = cv2.cvtColor(roi_img, cv2.COLOR_BGR2HSV)
     roi_hist = cv2.calcHist([roi_hsv], [0, 1], None, [180, 256], [0, 180, 0, 256])
 
-    cv2.imwrite('/home/mathi/Desktop/template.jpg', roi_img)
+    cv2.imshow('Template', roi_img)
 
-    # HSV histogram of template
-    color = ('Huminance', 'Saturation', 'Value')
-    for i, col in enumerate(color):
-        hist = cv2.calcHist([roi_hsv], [i], None, [256], [0, 256])
-        plt.plot(hist, label=col)
-        plt.xlim([0, 256])
-   
-    leg = plt.legend(loc='best', ncol=1, shadow=True, fancybox=True)
-    leg.get_frame().set_alpha(0.5)
+    # # HSV histogram of template
+    # color = ('Huminance', 'Saturation', 'Value')
+    # for i, col in enumerate(color):
+    #     hist = cv2.calcHist([roi_hsv], [i], None, [256], [0, 256])
+    #     plt.plot(hist, label=col)
+    #     plt.xlim([0, 256])
 
-    plt.show()
+    # leg = plt.legend(loc='best', ncol=1, shadow=True, fancybox=True)
+    # leg.get_frame().set_alpha(0.5)
+
+    # plt.show()
 
     potato_fil = glob.glob('/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/potato_and_catfood/train/potato/*.jpg')
     potato_images = [cv2.imread(img) for img in potato_fil]
