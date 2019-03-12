@@ -1,9 +1,33 @@
 """ Module for Back-projection """
 
+import glob
 import cv2
 import numpy as np
-from matplotlib import pyplot as plt
-import glob
+# from matplotlib import pyplot as plt
+
+def show_img(img, window_name, width=640, height=480, wait_key=False):
+    """ Show image in certain size """
+
+    resized = cv2.resize(img,
+                         (width, height),
+                         interpolation=cv2.INTER_CUBIC)
+
+    cv2.imshow(window_name, resized)
+
+    if wait_key is True:
+        cv2.waitKey(0)
+
+    return 0
+
+def remove_background(img):
+    """ returns image with no background, only table """
+
+    # Find background pixels coordinates
+    _hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
+    _mask = cv2.inRange(_hsv, (11, 0, 20), (120, 65, 255))
+    result = cv2.bitwise_and(img, img, mask=_mask)
+
+    return result
 
 def backproject(roi_hist, img):
     """
@@ -17,8 +41,6 @@ def backproject(roi_hist, img):
 
     # Create Histogram of roi and create mask from the histogram
     mask = cv2.calcBackProject([img_hsv], [0, 1], roi_hist, [0, 180, 0, 256], 1)
-
-    # cv2.imwrite('/home/mathi/Desktop/bp_img.jpg', mask)
 
     # Remove noise
     kernel = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (5, 5))
@@ -47,11 +69,11 @@ def backproject(roi_hist, img):
     cnt = contours[max_index]
 
     # Crop contour form image
-    x, y, w, h = cv2.boundingRect(cnt)
-    x_ctr = int((x + (x + w)) / 2)
-    y_ctr = int((y + (y + h)) / 2)
+    _x, _y, _w, _h = cv2.boundingRect(cnt)
+    x_ctr = int((_x + (_x + _w)) / 2)
+    y_ctr = int((_y + (_y + _h)) / 2)
     radius = 224
-    x_left, x_right, y_up, y_down = x_ctr - radius, x_ctr + radius, y_ctr - radius, y_ctr + radius 
+    x_left, x_right, y_up, y_down = x_ctr - radius, x_ctr + radius, y_ctr - radius, y_ctr + radius
 
     if x_right > img.shape[1]:
         margin = -1 * (img.shape[1] - x_right)
@@ -73,24 +95,21 @@ def backproject(roi_hist, img):
 
     img_crop = img[y_up : y_down, x_left : x_right]
 
-    cv2.imwrite('/home/mathi/Desktop/crop_img.jpg', img_crop)
-
     # Display detected area
     img_rect = img.copy()
     cv2.rectangle(img_rect, (x_left, y_up), (x_right, y_down), (0, 0, 255), 4)
     # cv2.imwrite('/home/mathi/Desktop/detected_rect.jpg', img_rect)
-    cv2.imshow('Detected rect', img_rect)
+    show_img(img_rect, 'Region of interest')
 
     return img_crop
 
 def main():
     """ Main function """
 
-    roi_img = cv2.imread('/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/preprocessing/backprojection/template_bp.jpg')
-    roi_hsv = cv2.cvtColor(roi_img, cv2.COLOR_BGR2HSV)
-    roi_hist = cv2.calcHist([roi_hsv], [0, 1], None, [180, 256], [0, 180, 0, 256])
-
-    cv2.imshow('Template', roi_img)
+#     roi_img = cv2.imread('/mnt/sdb1/Robtek/6semester/\
+# Bachelorproject/BSc-PRO/preprocessing/backprojection/template.jpg')
+#     roi_hsv = cv2.cvtColor(roi_img, cv2.COLOR_BGR2HSV)
+#     roi_hist = cv2.calcHist([roi_hsv], [0, 1], None, [180, 256], [0, 180, 0, 256])
 
     # # HSV histogram of template
     # color = ('Huminance', 'Saturation', 'Value')
@@ -104,28 +123,42 @@ def main():
 
     # plt.show()
 
-    potato_fil = glob.glob('/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/potato_and_catfood/train/potato/*.jpg')
-    potato_images = [cv2.imread(img) for img in potato_fil]
+    # Baggrund
+    background_fil = glob.glob('/mnt/sdb1/Robtek/6semester/\
+Bachelorproject/BSc-PRO/images_1280x720/baggrund/bevægelse/*.jpg')
+    background_images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in background_fil]
 
-    cv2.imwrite('/home/mathi/Desktop/input_img.jpg', potato_images[0])
-    roi = backproject(roi_hist, potato_images[0])
-    cv2.imshow('Original image', potato_images[0])
-    cv2.imshow('Region of interest', roi)
+#     # Guleroedder
+#     carrot_fil = glob.glob('/mnt/sdb1/Robtek/6semester/\
+# Bachelorproject/BSc-PRO/images_1280x720/gulerod/still/*.jpg')
+#     carrot_images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in carrot_fil]
+
+#     # Kartofler
+#     potato_fil = glob.glob('/mnt/sdb1/Robtek/6semester/\
+# Bachelorproject/BSc-PRO/potato_and_catfood/train/potato/*.jpg')
+#     potato_images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in potato_fil]
+
+#     # Kat laks
+#     cat_sal_fil = glob.glob('/mnt/sdb1/Robtek/6semester/\
+# Bachelorproject/BSc-PRO/images_1280x720/kat_laks/still/*.jpg')
+#     cat_sal_images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in cat_sal_fil]
+
+#     # Kat okse
+#     cat_beef_fil = glob.glob('/mnt/sdb1/Robtek/6semester/\
+# Bachelorproject/BSc-PRO/images_1280x720/kat_okse/still/*.jpg')
+#     cat_beef_images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in cat_beef_fil]
+
+#     for img in cat_beef_images:
+
+#         backproject(roi_hist, img)
+
+#         cv2.waitKey(0)
+
+    dst = remove_background(background_images[0])
+
+    cv2.imshow('back', dst)
+
     cv2.waitKey(0)
-
-    # d = 0
-    # for img in potato_images:
-    #     roi = backproject(roi_hist, img)
-    #     #roi = get_item(roi, img)
-
-    #     cv2.imshow('Original image', img)
-    #     cv2.imshow('Region of interest', roi)
-    #     cv2.waitKey(0)
-
-    #     #path = '/mnt/sdb/Robtek/6semester/Bachelorproject/BSc-PRO/preprocessing/back-projection/potatoes/potato_%d.jpg' %d
-    #     #cv2.imwrite(path, roi)
-
-    #     d += 1
 
     cv2.destroyAllWindows()
 
