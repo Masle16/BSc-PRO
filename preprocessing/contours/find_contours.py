@@ -5,16 +5,13 @@ import cv2
 import numpy as np
 #from matplotlib import pyplot as plt
 
-WIDTH = 448
-HEIGHT = 448
-
-def show_img(img, window_name, width, height, wait_key=False):
+def show_img(img, window_name, width=640, height=480, wait_key=False):
     """ Show image in certain size """
 
     resized = cv2.resize(img,
                          (width, height),
                          interpolation=cv2.INTER_CUBIC)
-    
+
     cv2.imshow(window_name, resized)
 
     if wait_key is True:
@@ -34,7 +31,7 @@ def find_contours(src):
     _mask = cv2.inRange(_hsv, (10, 100, 20), (20, 255, 200))
 
     kernel = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (25, 25))
-    
+
     # Opening (erosion followed by dilation)
     _mask = cv2.morphologyEx(_mask, cv2.MORPH_OPEN, kernel)
 

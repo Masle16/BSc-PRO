@@ -47,9 +47,9 @@ def background_sub(img, background):
     max_idx = np.argmax(areas)
     cnt = cnts[max_idx]
 
-    x, y, w, h = cv2.boundingRect(cnt)
-    x_ctr = int((x + (x + w)) / 2)
-    y_ctr = int((y + (y + h)) / 2)
+    _x, _y, _w, _h = cv2.boundingRect(cnt)
+    x_ctr = int((_x + (_x + _w)) / 2)
+    y_ctr = int((_y + (_y + _h)) / 2)
     radius = 224
     x_left = x_ctr - radius
     x_right = x_ctr + radius
