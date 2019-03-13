@@ -1,0 +1,79 @@
+﻿\begin{tikzpicture}
+	%Help Lines
+	%\draw [help lines] (-14,-14) grid (10,10);
+	
+	%Nodes
+	\node[circle, draw=black,fill=white, inner sep=2.5pt, minimum size=4pt, name=m1] at (-7,8) {$*$};
+	\node[circle, draw=black,fill=white, inner sep=2.5pt, minimum size=4pt, name=p1] at (-6,8) {$+$};
+	\node[circle, draw=black,fill=white, inner sep=1pt, minimum size=4pt, name=relu, align=center, label=relu] at (-4.5,8) {\footnotesize$0: x<0$\\ \footnotesize else $x$};
+	\node[circle, draw=black,fill=white, inner sep=2.5pt, minimum size=4pt, name=m2] at (-2,8) {$*$};
+	\node[circle, draw=black,fill=white, inner sep=2.5pt, minimum size=4pt, name=p2] at (0,8) {$+$};
+
+	%Softmax funtion
+	\draw[draw=black,fill=white!65!yellow] (3.75,9.6) node[above,label=\textcolor{red}{$\frac{1}{N}\cdot$}\textcolor{blue}{$\frac{e^{y_{i}}}{\sum_{j}e^{y_{j}}}-1=sm$}]{Softmax} (1.4,4.1) rectangle ++(4.7,5.6);
+    \node[circle, draw=black,fill=white, inner sep=2.5pt, minimum size=4pt, name=exp] at (2,8) {$e^{x}$};
+	\node[circle, draw=black,fill=white, inner sep=2.5pt, minimum size=4pt, name=sum] at (3,9) {$\sum{x}$};
+	\node[circle, draw=black,fill=white, inner sep=2.5pt, minimum size=4pt, name=div1] at (5,9) {$\frac{1}{x}$};
+
+	\node[circle, draw=black,fill=white, inner sep=2.5pt, minimum size=4pt, name=y] at (3,7) {$y_{i}$};
+	\node[circle, draw=black,fill=white, inner sep=2.5pt, minimum size=4pt, name=m3] at (5,7) {$*$};
+
+	\node[circle, draw=black,fill=white, inner sep=1pt, minimum size=4pt, name=log] at (5,5) {\footnotesize$-1\cdot\log{x}$};
+	\node[circle, draw=black,fill=white, inner sep=2.5pt, minimum size=4pt, name=m4] at (5,3) {$*$};
+
+	\node[circle, draw=black,fill=white, inner sep=2.5pt, minimum size=4pt, name=div2] at (3,3) {$\frac{1}{x}$};	
+
+	%Regulization
+	\node[circle, draw=black,fill=white, inner sep=2.5pt, minimum size=4pt, name=s1] at (0,-2.5) {$x^2$};
+	\node[circle, draw=black,fill=white, inner sep=2.5pt, minimum size=4pt, name=s2] at (0,-1.5) {$x^2$};
+	\node[circle, draw=black,fill=white, inner sep=2.5pt, minimum size=4pt, name=s3] at (0,0) {$x^2$};
+	\node[circle, draw=black,fill=white, inner sep=2.5pt, minimum size=4pt, name=s4] at (0,1) {$x^2$};
+	\node[circle, draw=black,fill=white, inner sep=2.5pt, minimum size=4pt, name=m4] at (5,3) {$*$};		
+	\node[circle, draw=black,fill=white, inner sep=2.5pt, minimum size=4pt, name=p3] at (5,-1) {$+$};
+	\node[circle, draw=black,fill=white, inner sep=2.5pt, minimum size=4pt, name=m5] at (7,1) {$*$};
+	%End
+	\node[circle, draw=black,fill=white, inner sep=0pt, minimum size=4pt, name=p4] at (7,3) {$+$};
+
+	%Inputs
+	\draw[->,very thick] (1,3) node[left, above]{N} (1,3) -- (div2);
+	\draw[->,very thick] (-10,9) node[left, above]{$x_{input}$} (-10,9) --(-9,9)-- (m1);
+	\draw[->,very thick] (-10,7)node[above, text=red]{\textcolor{red}{\footnotesize $sm\cdot W_{2}\cdot1(x>=0)\cdot x_{input}$}} node[left]{$W_{1}$} (-10,7) --(-8,7) -- (m1);
+	\draw[->,very thick] (-10,6) node[left]{$b_{1}$} (-10,6) --(-7,6) node[above,midway, text=red]{\textcolor{red}{\footnotesize $sm\cdot W_{2}\cdot$}\footnotesize \textcolor{blue}{$1(x>=0)$}}-- (p1);
+	\draw[->,very thick] (-10,5) node[left]{$W_{2}$} (-10,5) --(-3,5) node[above,midway, text=red]{$sm\cdot relu$}-- (m2)  ;
+	\draw[->,very thick] (-10,4) node[left]{$b_{2}$} (-10,4) --(-1,4) node[above,midway, text=red]{$sm$}-- (p2) ;
+	\draw[->,very thick] (-10,3) node[left]{$\lambda$} (-10,3) --(-2,3) node[above,midway, text=red]{$W_{1}^2+b_{1}^2+W_{2}^2+b_{2}^2$}-- (m5);
+
+	\draw[->,very thick] (-10,7) node[left, above]{} (-11,7) --(-12.5,7)--(-12.5,-2.5) -- (s1) node[above,midway]{\textcolor{red}{$\lambda\cdot$}\textcolor{blue}{$2\cdot W_{1}$}};
+	\draw[->,very thick] (-10,6) node[left, above]{} (-11,6) --(-12,6)--(-12,-1.5)-- (s2) node[above,midway]{\textcolor{red}{$\lambda\cdot$}\textcolor{blue}{$2\cdot b_{1}$}};
+	\draw[->,very thick] (-10,5) node[left, above]{} (-11,5) --(-11.5,5)--(-11.5,0)-- (s3) node[above,midway]{\textcolor{red}{$\lambda\cdot$}\textcolor{blue}{$2\cdot W_{2}$}};
+	\draw[->,very thick] (-10,4) node[left, above]{} (-10.7,4) --(-11,4)--(-11,1)-- (s4) node[above,midway]{\textcolor{red}{$\lambda\cdot$}\textcolor{blue}{$2\cdot b_{2}$}};
+
+	%Output
+	\draw[->,very thick] (9,3)  node[left, above]{loss} (p4) -- (9,3) node[above,midway, text=red]{$\frac{\partial loss}{\partial loss}$};
+
+	%Internal lines
+	\draw[->,very thick] node[left, above]{} (m1) -- (p1);
+	\draw[->,very thick] node[left, above]{} (p1) -- (relu);
+	\draw[->,very thick] node[left, above]{} (relu) -- (m2) node[above,midway, text=red]{\footnotesize $sm\cdot W_{2}$};	
+	\draw[->,very thick] node[left, above]{} (m2) -- (p2) node[above,midway, text=red]{$sm$};
+	\draw[->,very thick] node[left, above]{} (p2) -- (exp);		
+	\draw[->,very thick] node[left, above]{} (exp) -- (sum);		
+	\draw[->,very thick] node[left, above]{} (exp) -- (y);		
+	\draw[->,very thick] node[left, above]{} (sum) -- (div1);		
+	\draw[->,very thick] node[left, above]{} (div1) -- (m3);		
+	\draw[->,very thick] node[left, above]{} (y) -- (m3);		
+	\draw[->,very thick] node[left, above]{} (m3) -- (log);		
+	\draw[->,very thick] node[left, above]{} (log) -- (m4) node[right, midway, text=red]{$\frac{1}{N}$};		
+	\draw[->,very thick] node[left, above]{} (m4) -- (p4) node[above, midway, text=red]{$1$};		
+
+	\draw[->,very thick] node[left, above]{} (m5) -- (p4) node[right, midway, text=red]{$1$};
+	\draw[->,very thick] node[left, above]{} (p3) -- (m5) node[right,midway, text=red]{$\lambda$};
+	\draw[->,very thick] node[left, above]{} (s4) --(5,0) node[above,midway, text=red]{$\lambda$}-- (p3) ;
+	\draw[->,very thick] node[left, above]{} (s3) --node[above,midway, text=red]{$\lambda$} (p3);	
+	\draw[->,very thick] node[left, above]{} (s2) -- node[above,midway, text=red]{$\lambda$}(p3);
+	\draw[->,very thick] node[left, above]{} (s1) -- node[above,midway, text=red]{$\lambda$}(5,-2)-- (p3);
+
+	\draw[->,very thick] node[left, above]{} (div2) -- (m4);
+	
+
+\end{tikzpicture}
