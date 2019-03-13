@@ -10,9 +10,11 @@ def running_mean(x, N):
 # plot_history plots accuracy and loss of a Neural Network model.
 # history = model.fit_generator(....)
 # plot_history(history)
-def plot_history(history, save=False, path='', name='history', mean_N=0):
+def plot_history(history, save=False, path='', name='history', mean_N=0, ylim_acc=(-1,-1), ylim_loss=(-1,-1)):
     #print(history.history.keys())
     fig = mplot.figure()
+    if (ylim_acc != (-1, -1)):
+        mplot.ylim(ylim_acc)
     if (mean_N == 0):
         mplot.plot(history.history['acc'])
         mplot.plot(history.history['val_acc'])
@@ -26,6 +28,8 @@ def plot_history(history, save=False, path='', name='history', mean_N=0):
     mplot.show()
     # summarize history for loss
     fig_loss = mplot.figure()
+    if (ylim_loss != (-1,-1)):
+        mplot.ylim(ylim_loss)
     if (mean_N == 0):
         mplot.plot(history.history['loss'])
         mplot.plot(history.history['val_loss'])
