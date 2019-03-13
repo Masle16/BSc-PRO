@@ -21,10 +21,8 @@ def show_img(img, window_name, width=640, height=480, wait_key=False):
 
 def find_contours(src):
     """
-
     Returns cropped image with region of interest
     @src, input image to find region of interest in
-
     """
 
     _hsv = cv2.cvtColor(src, cv2.COLOR_BGR2HSV)
@@ -43,8 +41,8 @@ def find_contours(src):
                                 cv2.RETR_TREE,
                                 cv2.CHAIN_APPROX_SIMPLE)
 
-    show_img(_mask, 'Mask', WIDTH, HEIGHT)
-    show_img(_canny_output, 'Canny', WIDTH, HEIGHT)
+    show_img(_mask, 'Mask')
+    show_img(_canny_output, 'Canny')
 
     # # Draw contours
     # img = src.copy()
@@ -89,7 +87,7 @@ def find_contours(src):
     # Display detected area
     img_rect = src.copy()
     cv2.rectangle(img_rect, (x_left, y_up), (x_right, y_down), (0, 0, 255), 4)
-    show_img(img_rect, 'Detected rect', WIDTH, HEIGHT)
+    show_img(img_rect, 'Detected rect')
 
     cv2.waitKey(0)
 

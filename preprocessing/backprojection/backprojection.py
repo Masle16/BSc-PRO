@@ -23,8 +23,8 @@ def remove_background():
     """ returns image with no background, only table """
 
     # Get background
-    background = cv2.imread('/mnt/sdb1/Robtek/6semester/Bachelorproject/\
-BSc-PRO/images_1280x720/baggrund/bevægelse/WIN_20190131_10_31_36_Pro.jpg', cv2.IMREAD_COLOR)
+    path = '/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/images_1280x720/baggrund/bevægelse/WIN_20190131_10_31_36_Pro.jpg'
+    background = cv2.imread(path, cv2.IMREAD_COLOR)
 
     # Find background pixels coordinates
     hsv = cv2.cvtColor(background, cv2.COLOR_BGR2HSV)
@@ -162,15 +162,14 @@ Bachelorproject/BSc-PRO/images_1280x720/kat_laks/still/*.jpg')
 Bachelorproject/BSc-PRO/images_1280x720/kat_okse/still/*.jpg')
     cat_beef_images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in cat_beef_fil]
 
-    d = 0
+    _d = 0
     for img in cat_beef_images:
         roi = backproject(roi_hist, img)
 
-        path = '/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/preprocessing/\
-backprojection/cat_beef/cat_beef_%d.jpg' %d
+        path = '/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/preprocessing/backprojection/cat_beef/cat_beef_%d.jpg' %_d
         cv2.imwrite(path, roi)
 
-        d += 1
+        _d += 1
 
     cv2.destroyAllWindows()
 
