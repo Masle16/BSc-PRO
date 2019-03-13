@@ -1,9 +1,9 @@
 """ Module for color picker """
 
 import cv2
-# import numpy as np
+import numpy as np
 
-def nothing():
+def nothing(args):
     """ nothing """
     pass
 
@@ -13,33 +13,42 @@ def main():
     # Create a black image, a window
     img = cv2.imread('/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/\
 images_1280x720/baggrund/bevægelse/WIN_20190131_10_31_36_Pro.jpg', cv2.IMREAD_COLOR)
-    cv2.namedWindow('image')
+    cv2.namedWindow('Trackbars')
 
     # create trackbars for color change
-    cv2.createTrackbar('H', 'image', 0, 255, nothing)
-    cv2.createTrackbar('S', 'image', 0, 255, nothing)
-    cv2.createTrackbar('V', 'image', 0, 255, nothing)
-
-    # create switch for ON/OFF functionality
-    switch = '0 : OFF \n1 : ON'
-    cv2.createTrackbar(switch, 'image', 0, 1, nothing)
+    cv2.createTrackbar("L - H", "Trackbars", 0, 179, nothing)
+    cv2.createTrackbar("L - S", "Trackbars", 0, 255, nothing)
+    cv2.createTrackbar("L - V", "Trackbars", 0, 255, nothing)
+    cv2.createTrackbar("U - H", "Trackbars", 179, 179, nothing)
+    cv2.createTrackbar("U - S", "Trackbars", 255, 255, nothing)
+    cv2.createTrackbar("U - V", "Trackbars", 255, 255, nothing)
 
     while True:
-        cv2.imshow('image', img)
-        k = cv2.waitKey(1) & 0xFF
+
+        k = cv2.waitKey(1)
         if k == 27:
             break
 
-        # get current positions of four trackbars
-        _r = cv2.getTrackbarPos('R', 'image')
-        _g = cv2.getTrackbarPos('G', 'image')
-        _b = cv2.getTrackbarPos('B', 'image')
-        _s = cv2.getTrackbarPos(switch, 'image')
+        img = cv2.imread('/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/\
+images_1280x720/baggrund/bevægelse/WIN_20190131_10_31_36_Pro.jpg', cv2.IMREAD_COLOR)
+        hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
 
-        if _s == 0:
-            img[:] = 0
-        else:
-            img[:] = [_b, _g, _r]
+        l_h = cv2.getTrackbarPos("L - H", "Trackbars")
+        l_s = cv2.getTrackbarPos("L - S", "Trackbars")
+        l_v = cv2.getTrackbarPos("L - V", "Trackbars")
+        u_h = cv2.getTrackbarPos("U - H", "Trackbars")
+        u_s = cv2.getTrackbarPos("U - S", "Trackbars")
+        u_v = cv2.getTrackbarPos("U - V", "Trackbars")
+
+        lower_blue = np.array([l_h, l_s, l_v])
+        upper_blue = np.array([u_h, u_s, u_v])
+        mask = cv2.inRange(hsv, lower_blue, upper_blue)
+
+        result = cv2.bitwise_and(img, img, mask=mask)
+
+        cv2.imshow("frame", img)
+        cv2.imshow("mask", mask)
+        cv2.imshow("result", result)
 
     cv2.destroyAllWindows()
 

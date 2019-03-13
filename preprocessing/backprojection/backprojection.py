@@ -3,14 +3,14 @@
 import glob
 import cv2
 import numpy as np
-# from matplotlib import pyplot as plt
+from matplotlib import pyplot as plt
 
 def show_img(img, window_name, width=640, height=480, wait_key=False):
     """ Show image in certain size """
 
     resized = cv2.resize(img,
                          (width, height),
-                         interpolation=cv2.INTER_CUBIC)
+                         interpolation=cv2.INTER_NEAREST)
 
     cv2.imshow(window_name, resized)
 
@@ -19,15 +19,19 @@ def show_img(img, window_name, width=640, height=480, wait_key=False):
 
     return 0
 
-def remove_background(img):
+def remove_background():
     """ returns image with no background, only table """
 
-    # Find background pixels coordinates
-    _hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
-    _mask = cv2.inRange(_hsv, (11, 0, 20), (120, 65, 255))
-    result = cv2.bitwise_and(img, img, mask=_mask)
+    # Get background
+    background = cv2.imread('/mnt/sdb1/Robtek/6semester/Bachelorproject/\
+BSc-PRO/images_1280x720/baggrund/bevægelse/WIN_20190131_10_31_36_Pro.jpg', cv2.IMREAD_COLOR)
 
-    return result
+    # Find background pixels coordinates
+    hsv = cv2.cvtColor(background, cv2.COLOR_BGR2HSV)
+    mask = cv2.inRange(hsv, (0, 0, 64), (179, 51, 255))
+    result = cv2.bitwise_and(background, background, mask=mask)
+
+    return mask, result
 
 def backproject(roi_hist, img):
     """
@@ -36,32 +40,38 @@ def backproject(roi_hist, img):
     @img, image to search in
     """
 
+    # Remove unessesary background
+    _mask, _ = remove_background()
+    _img = cv2.bitwise_and(img, img, mask=_mask)
+
     # Convert to HSV
-    img_hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
+    img_hsv = cv2.cvtColor(_img, cv2.COLOR_BGR2HSV)
 
     # Create Histogram of roi and create mask from the histogram
-    mask = cv2.calcBackProject([img_hsv], [0, 1], roi_hist, [0, 180, 0, 256], 1)
+    mask = cv2.calcBackProject([img_hsv], [0, 1], roi_hist, [0, 180, 0, 256], scale=1)
 
     # Remove noise
     kernel = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (5, 5))
     mask = cv2.filter2D(mask, -1, kernel)
-    _, mask = cv2.threshold(mask, 100, 255, cv2.THRESH_BINARY)
+    _, mask = cv2.threshold(mask, 127, 200, cv2.THRESH_BINARY)
 
     mask = cv2.merge((mask, mask, mask))
-    result = cv2.bitwise_and(img, mask)
+    result = cv2.bitwise_and(_img, mask)
 
     kernel = np.ones((12, 12), np.uint8)
     result = cv2.morphologyEx(result, cv2.MORPH_OPEN, kernel)
 
     # Find contours
     img_gray = cv2.cvtColor(result, cv2.COLOR_BGR2GRAY)
-    _, thresh = cv2.threshold(img_gray, 0, 127, 0)
+    _, thresh = cv2.threshold(img_gray, 0, 127, cv2.THRESH_BINARY)
     contours, _ = cv2.findContours(thresh, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
 
-    # Draw contours
-    #cv2.drawContours(img, contours, -1, (0, 255, 0), 3)
-    #cv2.imshow("Contours", img)
-    #cv2.waitKey(0)
+    # #################
+    # # DRAW CONTOURS #
+    # #################
+    # cnt_img = img.copy()
+    # cv2.drawContours(cnt_img, contours, -1, (0, 255, 0), 3)
+    # show_img(cnt_img, 'test 2')
 
     # Find biggest contour
     areas = [cv2.contourArea(c) for c in contours]
@@ -73,7 +83,10 @@ def backproject(roi_hist, img):
     x_ctr = int((_x + (_x + _w)) / 2)
     y_ctr = int((_y + (_y + _h)) / 2)
     radius = 224
-    x_left, x_right, y_up, y_down = x_ctr - radius, x_ctr + radius, y_ctr - radius, y_ctr + radius
+    x_left = x_ctr - radius
+    x_right = x_ctr + radius
+    y_up = y_ctr - radius
+    y_down = y_ctr + radius
 
     if x_right > img.shape[1]:
         margin = -1 * (img.shape[1] - x_right)
@@ -95,21 +108,22 @@ def backproject(roi_hist, img):
 
     img_crop = img[y_up : y_down, x_left : x_right]
 
-    # Display detected area
-    img_rect = img.copy()
-    cv2.rectangle(img_rect, (x_left, y_up), (x_right, y_down), (0, 0, 255), 4)
-    # cv2.imwrite('/home/mathi/Desktop/detected_rect.jpg', img_rect)
-    show_img(img_rect, 'Region of interest')
+    # # Display detected area
+    # img_rect = img.copy()
+    # cv2.rectangle(img_rect, (x_left, y_up), (x_right, y_down), (0, 0, 255), 4)
+    # # cv2.imwrite('/home/mathi/Desktop/detected_rect.jpg', img_rect)
+    # # show_img(img_rect, 'Region of interest', wait_key=True)
 
     return img_crop
 
 def main():
     """ Main function """
 
-#     roi_img = cv2.imread('/mnt/sdb1/Robtek/6semester/\
-# Bachelorproject/BSc-PRO/preprocessing/backprojection/template.jpg')
-#     roi_hsv = cv2.cvtColor(roi_img, cv2.COLOR_BGR2HSV)
-#     roi_hist = cv2.calcHist([roi_hsv], [0, 1], None, [180, 256], [0, 180, 0, 256])
+    roi_img = cv2.imread('/mnt/sdb1/Robtek/6semester/\
+Bachelorproject/BSc-PRO/preprocessing/backprojection/template_all.jpg')
+    roi_hsv = cv2.cvtColor(roi_img, cv2.COLOR_BGR2HSV)
+    roi_hist = cv2.calcHist([roi_hsv], [0, 1], None, [180, 256], [0, 180, 0, 256])
+    roi_hist = cv2.normalize(roi_hist, roi_hist, 0, 255, cv2.NORM_MINMAX)
 
     # # HSV histogram of template
     # color = ('Huminance', 'Saturation', 'Value')
@@ -128,37 +142,35 @@ def main():
 Bachelorproject/BSc-PRO/images_1280x720/baggrund/bevægelse/*.jpg')
     background_images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in background_fil]
 
-#     # Guleroedder
-#     carrot_fil = glob.glob('/mnt/sdb1/Robtek/6semester/\
-# Bachelorproject/BSc-PRO/images_1280x720/gulerod/still/*.jpg')
-#     carrot_images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in carrot_fil]
+    # Guleroedder
+    carrot_fil = glob.glob('/mnt/sdb1/Robtek/6semester/\
+Bachelorproject/BSc-PRO/images_1280x720/gulerod/still/*.jpg')
+    carrot_images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in carrot_fil]
 
-#     # Kartofler
-#     potato_fil = glob.glob('/mnt/sdb1/Robtek/6semester/\
-# Bachelorproject/BSc-PRO/potato_and_catfood/train/potato/*.jpg')
-#     potato_images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in potato_fil]
+    # Kartofler
+    potato_fil = glob.glob('/mnt/sdb1/Robtek/6semester/\
+Bachelorproject/BSc-PRO/potato_and_catfood/train/potato/*.jpg')
+    potato_images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in potato_fil]
 
-#     # Kat laks
-#     cat_sal_fil = glob.glob('/mnt/sdb1/Robtek/6semester/\
-# Bachelorproject/BSc-PRO/images_1280x720/kat_laks/still/*.jpg')
-#     cat_sal_images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in cat_sal_fil]
+    # Kat laks
+    cat_sal_fil = glob.glob('/mnt/sdb1/Robtek/6semester/\
+Bachelorproject/BSc-PRO/images_1280x720/kat_laks/still/*.jpg')
+    cat_sal_images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in cat_sal_fil]
 
-#     # Kat okse
-#     cat_beef_fil = glob.glob('/mnt/sdb1/Robtek/6semester/\
-# Bachelorproject/BSc-PRO/images_1280x720/kat_okse/still/*.jpg')
-#     cat_beef_images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in cat_beef_fil]
+    # Kat okse
+    cat_beef_fil = glob.glob('/mnt/sdb1/Robtek/6semester/\
+Bachelorproject/BSc-PRO/images_1280x720/kat_okse/still/*.jpg')
+    cat_beef_images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in cat_beef_fil]
 
-#     for img in cat_beef_images:
+    d = 0
+    for img in cat_beef_images:
+        roi = backproject(roi_hist, img)
 
-#         backproject(roi_hist, img)
+        path = '/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/preprocessing/\
+backprojection/cat_beef/cat_beef_%d.jpg' %d
+        cv2.imwrite(path, roi)
 
-#         cv2.waitKey(0)
-
-    dst = remove_background(background_images[0])
-
-    cv2.imshow('back', dst)
-
-    cv2.waitKey(0)
+        d += 1
 
     cv2.destroyAllWindows()
 
