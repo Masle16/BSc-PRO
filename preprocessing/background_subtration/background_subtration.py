@@ -61,15 +61,14 @@ def background_sub(img, background, background_mask):
     diff = cv2.absdiff(background, _img)
     diff_gray = cv2.cvtColor(diff, cv2.COLOR_BGR2GRAY)
     _, thresh = cv2.threshold(diff_gray, 50, 255, 0)
-    show_img(thresh, 'Difference')
     cnts, _ = cv2.findContours(thresh, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
 
-    #################
-    # DRAW CONTOURS #
-    #################
-    cnt_img = img.copy()
-    cv2.drawContours(cnt_img, cnts, -1, (0, 255, 0), 3)
-    show_img(cnt_img, 'Contours')
+    # #################
+    # # DRAW CONTOURS #
+    # #################
+    # cnt_img = img.copy()
+    # cv2.drawContours(cnt_img, cnts, -1, (0, 255, 0), 3)
+    # show_img(cnt_img, 'Contours')
 
     areas = [cv2.contourArea(cnt) for cnt in cnts]
     max_idx = np.argmax(areas)
@@ -102,10 +101,10 @@ def background_sub(img, background, background_mask):
         y_down -= margin
         y_up -= margin
 
-    # Display detected area
-    img_rect = img.copy()
-    cv2.rectangle(img_rect, (x_left, y_up), (x_right, y_down), (0, 0, 255), 4)
-    show_img(img_rect, 'Detected area', wait_key=True)
+    # # Display detected area
+    # img_rect = img.copy()
+    # cv2.rectangle(img_rect, (x_left, y_up), (x_right, y_down), (0, 0, 255), 4)
+    # show_img(img_rect, 'Detected area', wait_key=True)
 
     # Get region of interest
     roi = img[y_up : y_down, x_left : x_right]
