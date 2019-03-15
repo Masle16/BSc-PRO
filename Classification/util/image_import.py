@@ -7,6 +7,27 @@ from matplotlib import pyplot as plt
 
 def images_to_numpy(images_pot, images_cat, images_tab):
     x = []
+    y = []
+    
+    width = 224
+    height = 224
+    
+    for img_pot in images_pot:
+        true_color_img = cv2.cvtColor(cv2.imread(img_pot),cv2.COLOR_BGR2RGB)
+        x.append(cv2.resize(true_color_img, (width,height), interpolation=cv2.INTER_CUBIC))
+        y.append(0)
+    for img_cat in images_cat:
+        true_color_img = cv2.cvtColor(cv2.imread(img_cat),cv2.COLOR_BGR2RGB)
+        x.append(cv2.resize(true_color_img, (width,height), interpolation=cv2.INTER_CUBIC))
+        y.append(1)
+    for img_tab in images_tab:
+        true_color_img = cv2.cvtColor(cv2.imread(img_tab),cv2.COLOR_BGR2RGB)
+        x.append(cv2.resize(true_color_img, (width,height), interpolation=cv2.INTER_CUBIC))
+        y.append(2)
+    return np.asarray(x), np.asarray(y)
+
+def images_import(images_pot, images_cat, images_tab):
+    x = []
     for img_pot in images_pot:
         x.append(plt.imread(img_pot))
     for img_cat in images_cat:
@@ -14,7 +35,6 @@ def images_to_numpy(images_pot, images_cat, images_tab):
     for img_tab in images_tab:
         x.append(plt.imread(img_tab))
     return np.asarray(x)
-
 
 def make_images_mean(X_train, path_from, path_to):
     mean_image = np.mean(X_train, axis=0)
@@ -61,7 +81,7 @@ def make_images_mean(X_train, path_from, path_to):
     for index, img in enumerate(valid_tab):
         img = plt.imread(img) - mean_image
         scipy.misc.imsave(path_to+"/valid/table/table"+str(index)+".jpg", img)
-
+    return mean_image, plt.imread(train_pot[0])
                  
 # Downscales and convert image from BGR to RGB into a array
 def images_to_arr(images):
