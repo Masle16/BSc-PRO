@@ -66,12 +66,12 @@ def backproject(roi_hist, img):
     _, thresh = cv2.threshold(img_gray, 0, 127, cv2.THRESH_BINARY)
     contours, _ = cv2.findContours(thresh, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
 
-    #################
-    # DRAW CONTOURS #
-    #################
-    cnt_img = img.copy()
-    cv2.drawContours(cnt_img, contours, -1, (0, 255, 0), 3)
-    show_img(cnt_img, 'test 2')
+    # #################
+    # # DRAW CONTOURS #
+    # #################
+    # cnt_img = img.copy()
+    # cv2.drawContours(cnt_img, contours, -1, (0, 255, 0), 3)
+    # show_img(cnt_img, 'test 2')
 
     # Find biggest contour
     areas = [cv2.contourArea(c) for c in contours]
@@ -108,18 +108,18 @@ def backproject(roi_hist, img):
 
     img_crop = img[y_up : y_down, x_left : x_right]
 
-    # Display detected area
-    img_rect = img.copy()
-    cv2.rectangle(img_rect, (x_left, y_up), (x_right, y_down), (0, 0, 255), 4)
-    # cv2.imwrite('/home/mathi/Desktop/detected_rect.jpg', img_rect)
-    show_img(img_rect, 'Region of interest', wait_key=True)
+    # # Display detected area
+    # img_rect = img.copy()
+    # cv2.rectangle(img_rect, (x_left, y_up), (x_right, y_down), (0, 0, 255), 4)
+    # # cv2.imwrite('/home/mathi/Desktop/detected_rect.jpg', img_rect)
+    # show_img(img_rect, 'Region of interest', wait_key=True)
 
     return img_crop
 
 def main():
     """ Main function """
 
-    roi_img = cv2.imread('/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/preprocessing/backprojection/template_all.jpg')
+    roi_img = cv2.imread('/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/preprocessing/backprojection/template_sal_potato.jpg')
     roi_hsv = cv2.cvtColor(roi_img, cv2.COLOR_BGR2HSV)
     roi_hist = cv2.calcHist([roi_hsv], [0, 1], None, [180, 256], [0, 180, 0, 256])
     roi_hist = cv2.normalize(roi_hist, roi_hist, 0, 255, cv2.NORM_MINMAX)
@@ -156,8 +156,9 @@ def main():
     cat_beef_fil = glob.glob('/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/images_1280x720/kat_okse/still/*.jpg')
     cat_beef_images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in cat_beef_fil]
 
-    for img in cat_sal_images:
+    for img in potato_images:
         roi = backproject(roi_hist, img)
+        cv2.imshow('Roi', roi)
 
     cv2.destroyAllWindows()
 
