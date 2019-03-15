@@ -261,13 +261,6 @@ def chamfer_matching(templates, src, method=cv2.TM_SQDIFF):
             if max_val > found[1]:
                 found = (min_val, max_val, min_loc, max_loc, template.shape[0], template.shape[1])
 
-        cv2.rectangle(img_rect, min_loc,
-                      (min_loc[0] + template.shape[0], min_loc[1] + template.shape[1]),
-                      (0, 0, 255),
-                      4)
-
-        show_img(img_rect, 'Detected area', wait_key=True)
-
     # Unpack the found variable and compute the (x,y) coordinates of the bounding
     # rect based of the resized ratio
     (min_val, max_val, min_loc, max_loc, height, width) = found
@@ -353,7 +346,7 @@ def main():
     cat_beef_fil = glob.glob('/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/images_1280x720/kat_okse/still/*.jpg')
     cat_beef_images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in cat_beef_fil]
 
-    for img in potato_images:
+    for img in cat_beef_images:
         chamfer_matching(chamfer_templates, img)
 
     cv2.destroyAllWindows()

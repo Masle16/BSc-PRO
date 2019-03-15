@@ -11,8 +11,8 @@ def main():
     """ Main function """
 
     # Create a black image, a window
-    img = cv2.imread('/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/\
-images_1280x720/baggrund/bevægelse/WIN_20190131_10_31_36_Pro.jpg', cv2.IMREAD_COLOR)
+    img_path = '/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/images_1280x720/baggrund/bevægelse/WIN_20190131_10_31_36_Pro.jpg'
+    img = cv2.imread(img_path, cv2.IMREAD_COLOR)
     cv2.namedWindow('Trackbars')
 
     # create trackbars for color change
@@ -29,8 +29,7 @@ images_1280x720/baggrund/bevægelse/WIN_20190131_10_31_36_Pro.jpg', cv2.IMREAD_C
         if k == 27:
             break
 
-        img = cv2.imread('/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/\
-images_1280x720/baggrund/bevægelse/WIN_20190131_10_31_36_Pro.jpg', cv2.IMREAD_COLOR)
+        img = cv2.imread(img_path, cv2.IMREAD_COLOR)
         hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
 
         l_h = cv2.getTrackbarPos("L - H", "Trackbars")
