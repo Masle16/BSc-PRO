@@ -1,4 +1,4 @@
 {
     "git.ignoreLimitWarning": true,
-    "python.pythonPath": "/mnt/sdb1/Anaconda/envs/BScPRO/bin/python"
+    "python.pythonPath": "/home/mikkel/anaconda2/envs/NN1.8/bin/python"
 }
