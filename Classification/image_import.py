@@ -13,7 +13,7 @@ def images_to_arr(images):
     return x # Makes to numpy array
 
 def get_data(x_kar, x_kat, x_bord, y_kar=0, y_kat=1, y_bord=2, 
-                           num_training=405, num_validation=50, num_test=50):
+                           num_training=205, num_validation=100, num_test=100):
         X_total = []
         y_total = []
         
@@ -59,7 +59,7 @@ def get_data(x_kar, x_kat, x_bord, y_kar=0, y_kat=1, y_bord=2,
         return X_train, y_train, X_val, y_val, X_test, y_test
 
 def get_data_aug(x_kar, x_kat, x_bord, x_kar_aug, x_kat_aug, x_bord_aug, y_kar=0, y_kat=1, y_bord=2, 
-                           num_training=305, num_validation=50, num_test=50):
+                           num_training=205, num_validation=100, num_test=100):
         X_total = []
         y_total = []
         X_augmented = []
