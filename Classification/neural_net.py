@@ -152,7 +152,7 @@ class TwoLayerNet(object):
   def train(self, X, y, X_val, y_val,
             learning_rate=1e-3, learning_rate_decay=0.95,
             reg=5e-6, num_iters=100,
-            batch_size=200, verbose=False):
+            batch_size=200, verbose=False, val_hist=False):
     """
     Train this neural network using stochastic gradient descent.
 
@@ -175,6 +175,7 @@ class TwoLayerNet(object):
 
     # Use SGD to optimize the parameters in self.model
     loss_history = []
+    loss_val_history = []
     train_acc_history = []
     val_acc_history = []
 
@@ -187,29 +188,56 @@ class TwoLayerNet(object):
       # them in X_batch and y_batch respectively.                             #
       #########################################################################
       # Create batches 
-      
-      batch_indices = np.random.choice(num_train, batch_size, replace=True)
-      # Used batch_indices to pick batches of x data and y corresponding label
-      X_batch = X[batch_indices] 
-      y_batch = y[batch_indices]
-      #########################################################################
-      #                             END OF YOUR CODE                          #
-      #########################################################################
+      if val_hist:
+          batch_indices = np.random.choice(num_train, batch_size, replace=True)
+          batch_indices_loss = np.random.choice(X_val.shape[0], 100, replace=True) # val batch_size = 100
+          # Used batch_indices to pick batches of x data and y corresponding label
+          X_batch = X[batch_indices] 
+          y_batch = y[batch_indices]
+          X_batch_val = X_val[batch_indices_loss]
+          y_batch_val = y_val[batch_indices_loss]
+          #########################################################################
+          #                             END OF YOUR CODE                          #
+          #########################################################################
 
-      # Compute loss and gradients using the current minibatch
-      loss, grads = self.loss(X_batch, y=y_batch, reg=reg)
-      loss_history.append(loss)
-      
-      #########################################################################
-      # TODO: Use the gradients in the grads dictionary to update the         #
-      # parameters of the network (stored in the dictionary self.params)      #
-      # using stochastic gradient descent. You'll need to use the gradients   #
-      # stored in the grads dictionary defined above.                         #
-      #########################################################################
-      self.params['W1'] += - learning_rate * grads['W1']
-      self.params['b1'] += - learning_rate * grads['b1']
-      self.params['W2'] += - learning_rate * grads['W2']
-      self.params['b2'] += - learning_rate * grads['b2']
+          # Compute loss and gradients using the current minibatch
+          loss, grads = self.loss(X_batch, y=y_batch, reg=reg)
+          loss_val, grads_val = self.loss(X_batch_val, y_batch_val, reg=reg)
+          loss_history.append(loss)
+          loss_val_history.append(loss_val)
+
+          #########################################################################
+          # TODO: Use the gradients in the grads dictionary to update the         #
+          # parameters of the network (stored in the dictionary self.params)      #
+          # using stochastic gradient descent. You'll need to use the gradients   #
+          # stored in the grads dictionary defined above.                         #
+          #########################################################################
+          self.params['W1'] += - learning_rate * grads['W1']
+          self.params['b1'] += - learning_rate * grads['b1']
+          self.params['W2'] += - learning_rate * grads['W2']
+          self.params['b2'] += - learning_rate * grads['b2']
+      else:
+          batch_indices = np.random.choice(num_train, batch_size, replace=True)
+          # Used batch_indices to pick batches of x data and y corresponding label
+          X_batch = X[batch_indices] 
+          y_batch = y[batch_indices]
+          #########################################################################
+          #                             END OF YOUR CODE                          #
+          #########################################################################
+
+          # Compute loss and gradients using the current minibatch
+          loss, grads = self.loss(X_batch, y=y_batch, reg=reg)
+          loss_history.append(loss)
+          #########################################################################
+          # TODO: Use the gradients in the grads dictionary to update the         #
+          # parameters of the network (stored in the dictionary self.params)      #
+          # using stochastic gradient descent. You'll need to use the gradients   #
+          # stored in the grads dictionary defined above.                         #
+          #########################################################################
+          self.params['W1'] += - learning_rate * grads['W1']
+          self.params['b1'] += - learning_rate * grads['b1']
+          self.params['W2'] += - learning_rate * grads['W2']
+          self.params['b2'] += - learning_rate * grads['b2']
       #########################################################################
       #                             END OF YOUR CODE                          #
       #########################################################################
@@ -226,12 +254,19 @@ class TwoLayerNet(object):
 
         # Decay learning rate
         learning_rate *= learning_rate_decay
-
-    return {
-      'loss_history': loss_history,
-      'train_acc_history': train_acc_history,
-      'val_acc_history': val_acc_history,
-    }
+    if val_hist:
+      return {
+        'loss_history': loss_history,
+        'val_loss_history': loss_val_history,
+        'train_acc_history': train_acc_history,
+        'val_acc_history': val_acc_history,
+      }
+    else:
+      return {
+        'loss_history': loss_history,
+        'train_acc_history': train_acc_history,
+        'val_acc_history': val_acc_history,
+      }    
 
   def predict(self, X, show_score=False):
     """
@@ -266,4 +301,14 @@ class TwoLayerNet(object):
         return y_pred, score
     return y_pred
 
+  def save_model(self):
+      np.savez('parameters', W1=self.params['W1'], b1=self.params['b1'], W2=self.params['W2'], b2=self.params['b2'])
+      return
 
+  def load_model(self):
+      data = np.load('parameters.npy')
+      self.params['W1'] = data['W1']
+      self.params['b1'] = data['b1']
+      self.params['W2'] = data['W2']
+      self.params['b2'] = data['b2']
+      return
