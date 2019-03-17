@@ -243,7 +243,6 @@ def chamfer_matching(templates, src, method=cv2.TM_SQDIFF):
     _, _chamfer_src = cv2.threshold(_chamfer_src, 127, 255, cv2.THRESH_BINARY_INV)
     img_dist = cv2.distanceTransform(_chamfer_src, cv2.DIST_L2, 3)
 
-    img_rect = img.copy()
     found = None
     for template in templates:
 
@@ -268,7 +267,7 @@ def chamfer_matching(templates, src, method=cv2.TM_SQDIFF):
     # Unpack the found variable and compute the (x,y) coordinates of the bounding
     # rect based of the resized ratio
     (min_val, max_val, min_loc, max_loc, height, width) = found
-    
+
     if method is cv2.TM_SQDIFF or method is cv2.TM_SQDIFF_NORMED:
         top_left = min_loc
     else:
