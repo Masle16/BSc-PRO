@@ -1,4 +1,8 @@
-""" Module for Back-projection """
+#!/mnt/sdb1/Anaconda/envs/BScPRO/bin/python
+
+"""
+Module for Back-projection
+"""
 
 import glob
 import cv2

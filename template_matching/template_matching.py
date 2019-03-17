@@ -1,4 +1,8 @@
-""" Module for template matching and chamfer matching """
+#!/mnt/sdb1/Anaconda/envs/BScPRO/bin/python
+
+"""
+Module for template matching and chamfer matching
+"""
 
 import glob
 import cv2
@@ -306,10 +310,10 @@ def chamfer_matching(templates, src, method=cv2.TM_SQDIFF):
 def main():
     """ Main function """
 
-    template_potato = cv2.imread('/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/preprocessing/template_matching/template_potato.jpg', cv2.IMREAD_COLOR)
-    template_carrot = cv2.imread('/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/preprocessing/template_matching/template_carrot.jpg', cv2.IMREAD_COLOR)
-    template_cat_beef = cv2.imread('/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/preprocessing/template_matching/template_cat_beef.jpg', cv2.IMREAD_COLOR)
-    template_cat_sal = cv2.imread('/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/preprocessing/template_matching/template_cat_sal.jpg', cv2.IMREAD_COLOR)
+    template_potato = cv2.imread('/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/template_matching/template_carrot.jpg', cv2.IMREAD_COLOR)
+    template_carrot = cv2.imread('/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/template_matching/template_carrot.jpg', cv2.IMREAD_COLOR)
+    template_cat_beef = cv2.imread('/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/template_matching/template_cat_beef.jpg', cv2.IMREAD_COLOR)
+    template_cat_sal = cv2.imread('/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/template_matching/template_cat_sal.jpg', cv2.IMREAD_COLOR)
 
     templates = [template_potato, template_carrot, template_cat_beef, template_cat_sal]
 
