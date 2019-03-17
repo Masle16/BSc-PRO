@@ -1,4 +1,8 @@
-""" Module for background subtration """
+#!/mnt/sdb1/Anaconda/envs/BScPRO/bin/python
+
+"""
+Module for background subtration
+"""
 
 import glob
 import cv2
@@ -101,10 +105,10 @@ def background_sub(img, background, background_mask):
         y_down -= margin
         y_up -= margin
 
-    # # Display detected area
-    # img_rect = img.copy()
-    # cv2.rectangle(img_rect, (x_left, y_up), (x_right, y_down), (0, 0, 255), 4)
-    # show_img(img_rect, 'Detected area', wait_key=True)
+    # Display detected area
+    img_rect = img.copy()
+    cv2.rectangle(img_rect, (x_left, y_up), (x_right, y_down), (0, 0, 255), 4)
+    show_img(img_rect, 'Detected area', wait_key=True)
 
     # Get region of interest
     roi = img[y_up : y_down, x_left : x_right]
