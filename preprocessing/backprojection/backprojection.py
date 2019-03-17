@@ -5,16 +5,16 @@ Module for Back-projection
 """
 
 import glob
-import cv2
 import random
+import cv2
 import numpy as np
-from matplotlib import pyplot as plt
+# from matplotlib import pyplot as plt
 
 def random_color():
     """ Generate random color """
-    rgbl=[255,0,0]
+    rgbl = [255, 0, 0]
     random.shuffle(rgbl)
-    
+
     return tuple(rgbl)
 
 def show_img(img, window_name, width=640, height=480, wait_key=False):
@@ -82,18 +82,18 @@ def backproject(roi_hist, img):
     # Find biggest contour
     cnts = []
     areas = [cv2.contourArea(c) for c in contours]
-    for i in range(len(areas)):
-        if areas[i] >= 100.0:
+    for i, area in enumerate(areas):
+        if area >= 100.0:
             cnts.append(contours[i])
 
     img_crop = []
     cnt_img = img.copy()
     img_rect = img.copy()
-    for c in cnts:
-        cv2.drawContours(cnt_img, c, -1, (0, 255, 0), 3)
+    for cnt in cnts:
+        cv2.drawContours(cnt_img, cnt, -1, (0, 255, 0), 3)
 
         # Crop contour form image
-        _x, _y, _w, _h = cv2.boundingRect(c)
+        _x, _y, _w, _h = cv2.boundingRect(cnt)
         x_ctr = int((_x + (_x + _w)) / 2)
         y_ctr = int((_y + (_y + _h)) / 2)
         radius = 224
