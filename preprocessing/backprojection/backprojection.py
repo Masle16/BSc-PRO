@@ -83,7 +83,7 @@ def backproject(roi_hist, img):
     cnts = []
     areas = [cv2.contourArea(c) for c in contours]
     for i, area in enumerate(areas):
-        if area >= 100.0:
+        if area >= 25.0:
             cnts.append(contours[i])
 
     img_crop = []
