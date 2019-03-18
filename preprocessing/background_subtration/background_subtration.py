@@ -5,6 +5,7 @@ Module for background subtration
 """
 
 import glob
+from pathlib import Path
 import cv2
 import numpy as np
 #from matplotlib import pyplot as plt
@@ -33,22 +34,19 @@ def remove_background(img):
 
     return mask, result
 
-def run_avg(path):
+def run_avg(background_images, background_mask):
     """
     returns running average of all images in path folder
-    @path, a string of the path to the folder with images (jpg)
     """
 
-    path_img = path + '/*jpg'
-    files = glob.glob(path_img)
-    file_images = [cv2.imread(img) for img in files]
+    avg = np.float32(background_images[0])
 
-    avg = np.float32(file_images[0])
-
-    for img in file_images:
+    for img in background_images:
         cv2.accumulateWeighted(img, avg, 0.1)
 
     result = cv2.convertScaleAbs(avg)
+
+    result = cv2.bitwise_and(result, result, mask=background_mask)
 
     return result
 
@@ -64,8 +62,16 @@ def background_sub(img, background, background_mask):
     # Calculate image difference and find largest contour
     diff = cv2.absdiff(background, _img)
     diff_gray = cv2.cvtColor(diff, cv2.COLOR_BGR2GRAY)
-    _, thresh = cv2.threshold(diff_gray, 50, 255, 0)
-    cnts, _ = cv2.findContours(thresh, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+
+    # Remove small differences
+    _, thresh = cv2.threshold(diff_gray, 25, 255, 0)
+
+    # Remove noise
+    kernel = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (2, 4))
+    thresh = cv2.morphologyEx(thresh, cv2.MORPH_OPEN, kernel)
+
+    # Get contours
+    contours, _ = cv2.findContours(thresh, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
 
     # #################
     # # DRAW CONTOURS #
@@ -74,81 +80,93 @@ def background_sub(img, background, background_mask):
     # cv2.drawContours(cnt_img, cnts, -1, (0, 255, 0), 3)
     # show_img(cnt_img, 'Contours')
 
-    areas = [cv2.contourArea(cnt) for cnt in cnts]
-    max_idx = np.argmax(areas)
-    cnt = cnts[max_idx]
+    areas = [cv2.contourArea(cnt) for cnt in contours]
+    cnts = []
+    for i, area in enumerate(areas):
+        if area >= 25.0:
+            cnts.append(contours[i])
 
-    _x, _y, _w, _h = cv2.boundingRect(cnt)
-    x_ctr = int((_x + (_x + _w)) / 2)
-    y_ctr = int((_y + (_y + _h)) / 2)
-    radius = 224
-    x_left = x_ctr - radius
-    x_right = x_ctr + radius
-    y_up = y_ctr - radius
-    y_down = y_ctr + radius
+    img_crop = []
+    for cnt in cnts:
+        _x, _y, _w, _h = cv2.boundingRect(cnt)
+        x_ctr = int((_x + (_x + _w)) / 2)
+        y_ctr = int((_y + (_y + _h)) / 2)
+        radius = 224
+        x_left = x_ctr - radius
+        x_right = x_ctr + radius
+        y_up = y_ctr - radius
+        y_down = y_ctr + radius
 
-    if x_right > img.shape[1]:
-        margin = -1 * (img.shape[1] - x_right)
-        x_right -= margin
-        x_left -= margin
-    elif x_left < 0:
-        margin = -1 * x_left
-        x_right += margin
-        x_left += margin
+        if x_right > img.shape[1]:
+            margin = -1 * (img.shape[1] - x_right)
+            x_right -= margin
+            x_left -= margin
+        elif x_left < 0:
+            margin = -1 * x_left
+            x_right += margin
+            x_left += margin
 
-    if y_up < 0:
-        margin = -1 * y_up
-        y_down += margin
-        y_up += margin
-    elif y_down > img.shape[0]:
-        margin = -1 * (img.shape[0] - y_down)
-        y_down -= margin
-        y_up -= margin
+        if y_up < 0:
+            margin = -1 * y_up
+            y_down += margin
+            y_up += margin
+        elif y_down > img.shape[0]:
+            margin = -1 * (img.shape[0] - y_down)
+            y_down -= margin
+            y_up -= margin
 
-    # Display detected area
-    img_rect = img.copy()
-    cv2.rectangle(img_rect, (x_left, y_up), (x_right, y_down), (0, 0, 255), 4)
-    show_img(img_rect, 'Detected area', wait_key=True)
+        # Display detected area
+        img_rect = img.copy()
+        cv2.rectangle(img_rect, (x_left, y_up), (x_right, y_down), (0, 0, 255), 4)
+        show_img(img_rect, 'Detected area', wait_key=True)
 
-    # Get region of interest
-    roi = img[y_up : y_down, x_left : x_right]
+        # Get region of interest
+        img_crop.append(img[y_up : y_down, x_left : x_right])
 
-    return roi
+    return img_crop
 
 def main():
     """ main function """
 
+    #################
+    # IMPORT IMAGES #
+    #################
+
     # Baggrund
-    background_fil = glob.glob('/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/images_1280x720/baggrund/bevægelse/*.jpg')
+    path = str(Path('images_1280x720/baggrund/bevægelse/*.jpg').resolve())
+    background_fil = glob.glob(path)
     background_images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in background_fil]
 
     # Guleroedder
-    carrot_fil = glob.glob('/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/images_1280x720/gulerod/still/*.jpg')
+    path = str(Path('images_1280x720/gulerod/still/*.jpg'))
+    carrot_fil = glob.glob(path)
     carrot_images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in carrot_fil]
 
     # Kartofler
-    potato_fil = glob.glob('/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/potato_and_catfood/train/potato/*.jpg')
+    path = str(Path('images_1280x720/kartofler/still/*.jpg').resolve())
+    potato_fil = glob.glob(path)
     potato_images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in potato_fil]
 
     # Kat laks
-    cat_sal_fil = glob.glob('/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/images_1280x720/kat_laks/still/*.jpg')
+    path = str(Path('images_1280x720/kat_laks/still/*.jpg').resolve())
+    cat_sal_fil = glob.glob(path)
     cat_sal_images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in cat_sal_fil]
 
     # Kat okse
-    cat_beef_fil = glob.glob('/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/images_1280x720/kat_okse/still/*.jpg')
+    path = str(Path('images_1280x720/kat_okse/still/*.jpg').resolve())
+    cat_beef_fil = glob.glob(path)
     cat_beef_images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in cat_beef_fil]
 
-    background_img = run_avg('/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/images_1280x720/baggrund/bevægelse')
-    background_mask, background_img = remove_background(background_img)
+    ##########################
+    # BACKGROUND SUBTRACTION #
+    ##########################
 
-    _d = 0
-    for img in cat_beef_images:
+    path = str(Path('preprocessing/background_mask.jpg').resolve())
+    background_mask = cv2.imread(path, cv2.IMREAD_GRAYSCALE)
+    background_img = run_avg(background_images, background_mask)
+
+    for img in cat_sal_images:
         roi = background_sub(img, background_img, background_mask)
-
-        # path = '/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/preprocessing/background_models/carrot/carrot_%d.jpg' %_d
-        # cv2.imwrite(path, roi)
-
-        # _d += 1
 
     cv2.destroyAllWindows()
 
