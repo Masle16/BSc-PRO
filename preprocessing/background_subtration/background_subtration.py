@@ -5,10 +5,18 @@ Module for background subtration
 """
 
 import glob
+import random
 from pathlib import Path
 import cv2
 import numpy as np
 #from matplotlib import pyplot as plt
+
+def random_color():
+    """ Generate random color """
+    rgbl = [255, 0, 0]
+    random.shuffle(rgbl)
+
+    return tuple(rgbl)
 
 def show_img(img, window_name, width=640, height=480, wait_key=False):
     """ Show image in certain size """
@@ -73,21 +81,32 @@ def background_sub(img, background, background_mask):
     # Get contours
     contours, _ = cv2.findContours(thresh, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
 
-    # #################
-    # # DRAW CONTOURS #
-    # #################
+    # # Draw contours
     # cnt_img = img.copy()
-    # cv2.drawContours(cnt_img, cnts, -1, (0, 255, 0), 3)
+    # for cnt in contours:
+    #     cv2.drawContours(cnt_img, cnt, -1, random_color(), 3)
     # show_img(cnt_img, 'Contours')
 
     areas = [cv2.contourArea(cnt) for cnt in contours]
     cnts = []
-    for i, area in enumerate(areas):
-        if area >= 25.0:
-            cnts.append(contours[i])
+
+    k = 3
+    for _ in range(k):
+        index = areas.index(max(areas))
+        cnts.append(contours[index])
+        areas[index] = 0.0
+
+    # for i, area in enumerate(areas):
+    #     if area >= 25.0:
+    #         cnts.append(contours[i])
 
     img_crop = []
+    coordinates = []
+
+    # # Draw rects
+    # img_rect = img.copy()
     for cnt in cnts:
+        # Crop contour form image
         _x, _y, _w, _h = cv2.boundingRect(cnt)
         x_ctr = int((_x + (_x + _w)) / 2)
         y_ctr = int((_y + (_y + _h)) / 2)
@@ -115,22 +134,19 @@ def background_sub(img, background, background_mask):
             y_down -= margin
             y_up -= margin
 
-        # Display detected area
-        img_rect = img.copy()
-        cv2.rectangle(img_rect, (x_left, y_up), (x_right, y_down), (0, 0, 255), 4)
-        show_img(img_rect, 'Detected area', wait_key=True)
-
-        # Get region of interest
         img_crop.append(img[y_up : y_down, x_left : x_right])
+        coordinates.append((_x, _y, _w, _h))
 
-    return img_crop
+        # cv2.rectangle(img_rect, (x_left, y_up), (x_right, y_down), random_color(), 4)
+
+    # show_img(img_rect, 'Region of interest', wait_key=True)
+
+    return img_crop, coordinates
 
 def main():
     """ main function """
 
-    #################
-    # IMPORT IMAGES #
-    #################
+    ################## IMPORT IMAGES ##################
 
     # Baggrund
     path = str(Path('images_1280x720/baggrund/bevægelse/*.jpg').resolve())
@@ -157,16 +173,14 @@ def main():
     cat_beef_fil = glob.glob(path)
     cat_beef_images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in cat_beef_fil]
 
-    ##########################
-    # BACKGROUND SUBTRACTION #
-    ##########################
+    ################## BACKGROUND SUBTRACTION ##################
 
     path = str(Path('preprocessing/background_mask.jpg').resolve())
     background_mask = cv2.imread(path, cv2.IMREAD_GRAYSCALE)
     background_img = run_avg(background_images, background_mask)
 
     for img in cat_sal_images:
-        roi = background_sub(img, background_img, background_mask)
+        roi, coordinates = background_sub(img, background_img, background_mask)
 
     cv2.destroyAllWindows()
 
