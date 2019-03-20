@@ -69,7 +69,7 @@ def background_sub(img, background, background_mask):
     diff = cv2.absdiff(background, _img)
     diff_gray = cv2.cvtColor(diff, cv2.COLOR_BGR2GRAY)
     diff_gray = cv2.bitwise_and(diff_gray, diff_gray, mask=background_mask)
-    show_img(diff_gray, 'Difference')
+    #show_img(diff_gray, 'Difference')
 
     # Remove small differences
     _, thresh = cv2.threshold(diff_gray, 25, 255, 0)
@@ -122,9 +122,9 @@ def background_sub(img, background, background_mask):
 
     img_crop = img[y_up : y_down, x_left : x_right]
 
-    img_rect = img.copy()
-    cv2.rectangle(img_rect, (x_left, y_up), (x_right, y_down), random_color(), 4)
-    show_img(img_rect, 'Region of interest', wait_key=True)
+    # img_rect = img.copy()
+    # cv2.rectangle(img_rect, (x_left, y_up), (x_right, y_down), random_color(), 4)
+    # show_img(img_rect, 'Region of interest', wait_key=True)
 
     return img_crop
 
