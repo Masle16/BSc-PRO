@@ -141,7 +141,7 @@ def backproject(roi_hist, img, background_mask):
     # global NUMBER
     # num = str(NUMBER)
 
-    # path = str(Path('preprocessing/backprojection/carrot/carrot_' + str(num) + '.jpg').resolve())
+    # path = str(Path('preprocessing/backprojection/potato/potato_' + str(num) + '.jpg').resolve())
     # cv2.imwrite(path, img_rect)
 
     # NUMBER += 1
@@ -193,7 +193,7 @@ def main():
     path = str(Path('preprocessing/background_mask.jpg').resolve())
     background_mask = cv2.imread(path, cv2.IMREAD_GRAYSCALE)
 
-    for img in carrot_images:
+    for img in potato_images:
         roi, coordinates = backproject(roi_hist, img, background_mask)
 
     cv2.destroyAllWindows()
