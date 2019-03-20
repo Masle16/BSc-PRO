@@ -4,6 +4,7 @@
 Module for Back-projection
 """
 
+###### IMPORTS ######
 import glob
 from pathlib import Path
 import random
@@ -11,6 +12,10 @@ import cv2
 import numpy as np
 # from matplotlib import pyplot as plt
 
+###### GLOBAL VARIABLES ######
+NUMBER = 0
+
+###### FUNCTIONS ######
 def random_color():
     """ Generate random color """
     rgbl = [255, 0, 0]
@@ -70,75 +75,80 @@ def backproject(roi_hist, img, background_mask):
 
     mask = cv2.merge((mask, mask, mask))
     result = cv2.bitwise_and(_img, mask)
+    result = cv2.blur(result, (5, 5))
 
-    kernel = np.ones((5, 5), np.uint8)
+    kernel = np.ones((15, 15), np.uint8)
     result = cv2.morphologyEx(result, cv2.MORPH_OPEN, kernel)
 
     # Find contours
     img_gray = cv2.cvtColor(result, cv2.COLOR_BGR2GRAY)
+    show_img(img_gray, 'Back-projection')
+
     _, thresh = cv2.threshold(img_gray, 0, 127, cv2.THRESH_BINARY)
     contours, _ = cv2.findContours(thresh, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
 
-    # Draw contours
-    cnt_img = img.copy()
-    for cnt in contours:
-        cv2.drawContours(cnt_img, cnt, -1, random_color(), 3)
+    # # Calculate contours pixel intensity
+    # cnt_pixel_value = []
+    # for contour in contours:
+    #     pixel_sum = 0
+    #     contour = np.asarray(contour)
+    #     contour = contour.reshape(contour.shape[0], contour.shape[2])
+    #     pixel_sum = img_gray[contour[:, :][:, 1], contour[:, :][:, 0]]
+    #     cnt_pixel_value.append(np.sum(pixel_sum))
 
-    show_img(cnt_img, 'Contours')
+    # Calculate areas
+    areas = [cv2.contourArea(cnt) for cnt in contours]
 
-    # Find biggest contour
-    cnts = []
-    areas = [cv2.contourArea(c) for c in contours]
+    # Selected biggest contour
+    # index = np.argmax(cnt_pixel_value)
+    index = np.argmax(areas)
+    cnt = contours[index]
 
-    k = 3
-    for _ in range(k):
-        index = areas.index(max(areas))
-        cnts.append(contours[index])
-        areas[index] = 0.0
+    # Crop contour form image
+    _x, _y, _w, _h = cv2.boundingRect(cnt)
+    x_ctr = int((_x + (_x + _w)) / 2)
+    y_ctr = int((_y + (_y + _h)) / 2)
+    radius = 224
+    x_left = x_ctr - radius
+    x_right = x_ctr + radius
+    y_up = y_ctr - radius
+    y_down = y_ctr + radius
 
-    # for i, area in enumerate(areas):
-    #     if area >= 50.0:
-    #         cnts.append(contours[i])
+    if x_right > img.shape[1]:
+        margin = -1 * (img.shape[1] - x_right)
+        x_right -= margin
+        x_left -= margin
+    elif x_left < 0:
+        margin = -1 * x_left
+        x_right += margin
+        x_left += margin
 
-    img_crop = []
-    img_rect = img.copy()
-    for cnt in cnts:
-        # Crop contour form image
-        _x, _y, _w, _h = cv2.boundingRect(cnt)
-        x_ctr = int((_x + (_x + _w)) / 2)
-        y_ctr = int((_y + (_y + _h)) / 2)
-        radius = 224
-        x_left = x_ctr - radius
-        x_right = x_ctr + radius
-        y_up = y_ctr - radius
-        y_down = y_ctr + radius
+    if y_up < 0:
+        margin = -1 * y_up
+        y_down += margin
+        y_up += margin
+    elif y_down > img.shape[0]:
+        margin = -1 * (img.shape[0] - y_down)
+        y_down -= margin
+        y_up -= margin
 
-        if x_right > img.shape[1]:
-            margin = -1 * (img.shape[1] - x_right)
-            x_right -= margin
-            x_left -= margin
-        elif x_left < 0:
-            margin = -1 * x_left
-            x_right += margin
-            x_left += margin
+    img_crop = img[y_up : y_down, x_left : x_right]
 
-        if y_up < 0:
-            margin = -1 * y_up
-            y_down += margin
-            y_up += margin
-        elif y_down > img.shape[0]:
-            margin = -1 * (img.shape[0] - y_down)
-            y_down -= margin
-            y_up -= margin
+    # img_rect = img.copy()
+    # cv2.rectangle(img_rect, (x_left, y_up), (x_right, y_down), (0, 255, 0), 4)
+    # cv2.rectangle(img_rect, (_x, _y), (_x + _w, _y + _h), (0, 0, 255), 4)
 
-        img_crop.append(img[y_up : y_down, x_left : x_right])
+    # global NUMBER
+    # num = str(NUMBER)
 
-        cv2.rectangle(img_rect, (x_left, y_up), (x_right, y_down), random_color(), 4)
+    # path = str(Path('preprocessing/backprojection/carrot/carrot_' + str(num) + '.jpg').resolve())
+    # cv2.imwrite(path, img_rect)
 
-    show_img(img_rect, 'Region of interest', wait_key=True)
+    # NUMBER += 1
 
-    return img_crop
+    return img_crop, (_x, _y, _w, _h)
 
+###### MAIN ######
 def main():
     """ Main function """
 
@@ -171,9 +181,10 @@ def main():
 
     ################## Back-projection ##################
 
-    # Create template histogram
-    path = str(Path('preprocessing/backprojection/template_sal_potato.jpg').resolve())
+    # Create template histogram (Use template_all.jpg)
+    path = str(Path('preprocessing/backprojection/template_all.jpg').resolve())
     roi_img = cv2.imread(path, cv2.IMREAD_COLOR)
+    roi_img = cv2.blur(roi_img, (5, 5))
     roi_hsv = cv2.cvtColor(roi_img, cv2.COLOR_BGR2HSV)
     roi_hist = cv2.calcHist([roi_hsv], [0, 1], None, [180, 256], [0, 180, 0, 256])
     roi_hist = cv2.normalize(roi_hist, roi_hist, 0, 255, cv2.NORM_MINMAX)
@@ -182,8 +193,8 @@ def main():
     path = str(Path('preprocessing/background_mask.jpg').resolve())
     background_mask = cv2.imread(path, cv2.IMREAD_GRAYSCALE)
 
-    for img in cat_sal_images:
-        roi = backproject(roi_hist, img, background_mask)
+    for img in carrot_images:
+        roi, coordinates = backproject(roi_hist, img, background_mask)
 
     cv2.destroyAllWindows()
 
