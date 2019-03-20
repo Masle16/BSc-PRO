@@ -33,7 +33,7 @@ def show_img(img, window_name, width=640, height=480, wait_key=False):
     return 0
 
 def remove_background(img):
-    """ returns image with no background, only table """
+    """ Returns image with no background, only table """
 
     # Find background pixels coordinates
     hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
@@ -43,9 +43,7 @@ def remove_background(img):
     return mask, result
 
 def run_avg(background_images):
-    """
-    returns running average of all images in path folder
-    """
+    """ Returns running average of all images in path folder """
 
     avg = np.float32(background_images[0])
 
@@ -57,19 +55,17 @@ def run_avg(background_images):
     return result
 
 def background_sub(img, background, background_mask):
-    """
-    returns cropped image(448 x 448) of region of interest
-    @img, the image of interest
-    """
+    """ Returns cropped image(448 x 448) of region of interest """
 
-    # Remove unessesary background
+    # Create copy to work on
     _img = img.copy()
 
     # Calculate image difference and find largest contour
     diff = cv2.absdiff(background, _img)
     diff_gray = cv2.cvtColor(diff, cv2.COLOR_BGR2GRAY)
+
+    # Remove unessesary background
     diff_gray = cv2.bitwise_and(diff_gray, diff_gray, mask=background_mask)
-    #show_img(diff_gray, 'Difference')
 
     # Remove small differences
     _, thresh = cv2.threshold(diff_gray, 25, 255, 0)
@@ -84,9 +80,9 @@ def background_sub(img, background, background_mask):
     cnt_pixel_value = []
     for contour in contours:
         pixel_sum = 0
-        x = np.asarray(contour)
-        x = x.reshape(x.shape[0], x.shape[2])
-        pixel_sum = diff_gray[x[:, :][:, 1], x[:, :][:, 0]]
+        contour = np.asarray(contour)
+        contour = contour.reshape(contour.shape[0], contour.shape[2])
+        pixel_sum = diff_gray[contour[:, :][:, 1], contour[:, :][:, 0]]
         cnt_pixel_value.append(np.sum(pixel_sum))
 
     index = np.argmax(cnt_pixel_value)
@@ -165,8 +161,14 @@ def main():
     background_img = run_avg(background_images)
     # background_img = cv2.bitwise_and(background_img, background_img, mask=background_mask)
 
-    for img in cat_sal_images:
+    _d = 0
+    for img in potato_images:
         roi = background_sub(img, background_img, background_mask)
+
+        path = str(Path('preprocessing/background_subtration/potato/potato' + str(_d) + '.jpg').resolve())
+        cv2.imwrite(path, roi)
+
+        _d += 1
 
     cv2.destroyAllWindows()
 
