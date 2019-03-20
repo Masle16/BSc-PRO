@@ -4,12 +4,16 @@
 Module for background subtration
 """
 
+###### IMPORTS ######
 import glob
 import random
 from pathlib import Path
 import cv2
 import numpy as np
 #from matplotlib import pyplot as plt
+
+###### GLOBAL VARIABLES ######
+NUMBER = 0
 
 def random_color():
     """ Generate random color """
@@ -77,6 +81,7 @@ def background_sub(img, background, background_mask):
     # Get contours
     contours, _ = cv2.findContours(thresh, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
 
+    # Calculate contours pixel intensity
     cnt_pixel_value = []
     for contour in contours:
         pixel_sum = 0
@@ -85,6 +90,7 @@ def background_sub(img, background, background_mask):
         pixel_sum = diff_gray[contour[:, :][:, 1], contour[:, :][:, 0]]
         cnt_pixel_value.append(np.sum(pixel_sum))
 
+    # Selected contour with highest pixel intensity
     index = np.argmax(cnt_pixel_value)
     cnt = contours[index]
 
@@ -119,10 +125,18 @@ def background_sub(img, background, background_mask):
     img_crop = img[y_up : y_down, x_left : x_right]
 
     # img_rect = img.copy()
-    # cv2.rectangle(img_rect, (x_left, y_up), (x_right, y_down), random_color(), 4)
-    # show_img(img_rect, 'Region of interest', wait_key=True)
+    # cv2.rectangle(img_rect, (x_left, y_up), (x_right, y_down), (0, 255, 0), 4)
+    # cv2.rectangle(img_rect, (_x, _y), (_x + _w, _y + _h), (0, 0, 255), 4)
 
-    return img_crop
+    # global NUMBER
+    # num = str(NUMBER)
+
+    # path = str(Path('preprocessing/background_subtration/cat_beef/cat_beef_' + str(num) + '.jpg').resolve())
+    # cv2.imwrite(path, img_rect)
+
+    # NUMBER += 1
+
+    return img_crop, (_x, _y, _w, _h)
 
 def main():
     """ main function """
@@ -161,14 +175,8 @@ def main():
     background_img = run_avg(background_images)
     # background_img = cv2.bitwise_and(background_img, background_img, mask=background_mask)
 
-    _d = 0
-    for img in potato_images:
-        roi = background_sub(img, background_img, background_mask)
-
-        path = str(Path('preprocessing/background_subtration/potato/potato' + str(_d) + '.jpg').resolve())
-        cv2.imwrite(path, roi)
-
-        _d += 1
+    for img in cat_beef_images:
+        roi, coordinates = background_sub(img, background_img, background_mask)
 
     cv2.destroyAllWindows()
 
