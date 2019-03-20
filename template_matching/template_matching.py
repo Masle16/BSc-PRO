@@ -21,7 +21,7 @@ def write_text(img, txt, point=(0, 0)):
     img_rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
     pil_img = Image.fromarray(img_rgb)
     draw = ImageDraw.Draw(pil_img)
-    font = ImageFont.truetype("Arial.ttf", 50)
+    font = ImageFont.truetype("arial.ttf", 50)
     draw.text(point, txt, (255, 0, 0), font=font)
     result = cv2.cvtColor(np.array(pil_img), cv2.COLOR_RGB2BGR)
 
@@ -299,9 +299,8 @@ def chamfer_matching(templates, src, background_mask, method=cv2.TM_SQDIFF):
         y_up -= margin
 
     img_crop = src[y_up : y_down, x_left : x_right]
-    # img_crop = cv2.UMat(img_crop)
 
-    return img_crop
+    return img_crop, (x_left, y_up), (x_right, y_down)
 
 def main():
     """ Main function """
@@ -373,12 +372,15 @@ def main():
     ###### CHAMFER MATCHING #######
 
     for img in cat_sal_images:
-        roi = chamfer_matching(chamfer_templates, img, background_mask)
+        roi, roi_top_left, roi_buttom_right = chamfer_matching(chamfer_templates, img, background_mask)
 
-        top_left, botton_right, img_class = template_matching(templates, roi, background_mask)
+        top_left, buttom_right, img_class = template_matching(templates, roi, background_mask)
 
         img_rect = write_text(img, img_class)
-        cv2.rectangle(img_rect, top_left, botton_right, (0, 0, 255), 4)
+
+        top_left = top_left + roi_top_left
+        buttom_right = bottum_right + roi_buttom_right
+        cv2.rectangle(img_rect, top_left, buttom_right, (0, 0, 255), 4)
 
         show_img(img_rect, 'Region of interest', wait_key=True)
 

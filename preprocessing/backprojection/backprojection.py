@@ -178,18 +178,6 @@ def main():
     roi_hist = cv2.calcHist([roi_hsv], [0, 1], None, [180, 256], [0, 180, 0, 256])
     roi_hist = cv2.normalize(roi_hist, roi_hist, 0, 255, cv2.NORM_MINMAX)
 
-    # # HSV histogram of template
-    # color = ('Huminance', 'Saturation', 'Value')
-    # for i, col in enumerate(color):
-    #     hist = cv2.calcHist([roi_hsv], [i], None, [256], [0, 256])
-    #     plt.plot(hist, label=col)
-    #     plt.xlim([0, 256])
-
-    # leg = plt.legend(loc='best', ncol=1, shadow=True, fancybox=True)
-    # leg.get_frame().set_alpha(0.5)
-
-    # plt.show()
-
     # Import background mask
     path = str(Path('preprocessing/background_mask.jpg').resolve())
     background_mask = cv2.imread(path, cv2.IMREAD_GRAYSCALE)
