@@ -16,7 +16,7 @@ def main():
     """ Main function """
 
     # Create a black image, a window
-    img_path = str(Path('images_1280x720/baggrund/bevægelse/WIN_20190131_10_31_36_Pro.jpg').resolve())
+    img_path = str(Path('preprocessing/backprojection/template_all.jpg').resolve())
     img = cv2.imread(img_path, cv2.IMREAD_COLOR)
     cv2.namedWindow('Trackbars')
 
@@ -50,12 +50,12 @@ def main():
 
         result = cv2.bitwise_and(img, img, mask=mask)
 
-        cv2.imshow("frame", img)
-        cv2.imshow("mask", mask)
+        # cv2.imshow("frame", img)
+        # cv2.imshow("mask", mask)
         cv2.imshow("result", result)
 
-    path = str(Path('preprocessing/background_mask.jpg').resolve())
-    cv2.imwrite(path, mask)
+    # path = str(Path('preprocessing/background_mask.jpg').resolve())
+    # cv2.imwrite(path, mask)
 
     cv2.destroyAllWindows()
 
