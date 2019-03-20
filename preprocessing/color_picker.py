@@ -1,9 +1,10 @@
-#!/home/mikkel/anaconda2/envs/NN1.8/bin/python
+#!/mnt/sdb1/Anaconda/envs/BScPRO/bin/python
 
 """
 Module for color picker
 """
 
+from pathlib import Path
 import cv2
 import numpy as np
 
@@ -15,7 +16,7 @@ def main():
     """ Main function """
 
     # Create a black image, a window
-    img_path = '/home/mikkel/Documents/github/BSc-PRO/images_1280x720/baggrund/bevægelse/WIN_20190131_10_31_36_Pro.jpg'
+    img_path = str(Path('images_1280x720/baggrund/bevægelse/WIN_20190131_10_31_36_Pro.jpg').resolve())
     img = cv2.imread(img_path, cv2.IMREAD_COLOR)
     cv2.namedWindow('Trackbars')
 
@@ -52,6 +53,9 @@ def main():
         cv2.imshow("frame", img)
         cv2.imshow("mask", mask)
         cv2.imshow("result", result)
+
+    path = str(Path('preprocessing/background_mask.jpg').resolve())
+    cv2.imwrite(path, mask)
 
     cv2.destroyAllWindows()
 
