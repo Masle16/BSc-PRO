@@ -1,17 +1,21 @@
-#!/home/mikkel/anaconda2/envs/NN1.8/bin/python
-""" Module for Back-projection """
+#!/mnt/sdb1/Anaconda/envs/BScPRO/bin/python
+
+"""
+Module for Back-projection
+"""
 
 import glob
-import cv2
+from pathlib import Path
 import random
+import cv2
 import numpy as np
-from matplotlib import pyplot as plt
+# from matplotlib import pyplot as plt
 
 def random_color():
     """ Generate random color """
-    rgbl=[255,0,0]
+    rgbl = [255, 0, 0]
     random.shuffle(rgbl)
-    
+
     return tuple(rgbl)
 
 def show_img(img, window_name, width=640, height=480, wait_key=False):
@@ -42,7 +46,7 @@ def remove_background():
 
     return mask, result
 
-def backproject(roi_hist, img):
+def backproject(roi_hist, img, background_mask):
     """
     returns backprojected image
     @roi_hist, histogram of region of interest to find
@@ -50,8 +54,7 @@ def backproject(roi_hist, img):
     """
 
     # Remove unessesary background
-    _mask, _ = remove_background()
-    _img = cv2.bitwise_and(img, img, mask=_mask)
+    _img = cv2.bitwise_and(img, img, mask=background_mask)
     _img = cv2.blur(_img, (5, 5))
 
     # Convert to HSV
@@ -76,21 +79,32 @@ def backproject(roi_hist, img):
     _, thresh = cv2.threshold(img_gray, 0, 127, cv2.THRESH_BINARY)
     contours, _ = cv2.findContours(thresh, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
 
+    # Draw contours
+    cnt_img = img.copy()
+    for cnt in contours:
+        cv2.drawContours(cnt_img, cnt, -1, random_color(), 3)
+
+    show_img(cnt_img, 'Contours')
+
     # Find biggest contour
     cnts = []
     areas = [cv2.contourArea(c) for c in contours]
-    for i in range(len(areas)):
-        if areas[i] >= 100.0:
-            cnts.append(contours[i])
+
+    k = 3
+    for _ in range(k):
+        index = areas.index(max(areas))
+        cnts.append(contours[index])
+        areas[index] = 0.0
+
+    # for i, area in enumerate(areas):
+    #     if area >= 50.0:
+    #         cnts.append(contours[i])
 
     img_crop = []
-    cnt_img = img.copy()
     img_rect = img.copy()
-    for c in cnts:
-        cv2.drawContours(cnt_img, c, -1, (0, 255, 0), 3)
-
+    for cnt in cnts:
         # Crop contour form image
-        _x, _y, _w, _h = cv2.boundingRect(c)
+        _x, _y, _w, _h = cv2.boundingRect(cnt)
         x_ctr = int((_x + (_x + _w)) / 2)
         y_ctr = int((_y + (_y + _h)) / 2)
         radius = 224
@@ -119,10 +133,8 @@ def backproject(roi_hist, img):
 
         img_crop.append(img[y_up : y_down, x_left : x_right])
 
-
         cv2.rectangle(img_rect, (x_left, y_up), (x_right, y_down), random_color(), 4)
 
-    show_img(cnt_img, 'Contours')
     show_img(img_rect, 'Region of interest', wait_key=True)
 
     return img_crop
@@ -130,7 +142,38 @@ def backproject(roi_hist, img):
 def main():
     """ Main function """
 
-    roi_img = cv2.imread('/home/mikkel/Documents/github/BSc-PRO/preprocessing/backprojection/template_sal_potato.jpg')
+    ################## IMPORT IMAGES ##################
+
+    # Baggrund
+    path = str(Path('images_1280x720/baggrund/bevægelse/*.jpg').resolve())
+    background_fil = glob.glob(path)
+    background_images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in background_fil]
+
+    # Guleroedder
+    path = str(Path('images_1280x720/gulerod/still/*.jpg'))
+    carrot_fil = glob.glob(path)
+    carrot_images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in carrot_fil]
+
+    # Kartofler
+    path = str(Path('images_1280x720/kartofler/still/*.jpg').resolve())
+    potato_fil = glob.glob(path)
+    potato_images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in potato_fil]
+
+    # Kat laks
+    path = str(Path('images_1280x720/kat_laks/still/*.jpg').resolve())
+    cat_sal_fil = glob.glob(path)
+    cat_sal_images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in cat_sal_fil]
+
+    # Kat okse
+    path = str(Path('images_1280x720/kat_okse/still/*.jpg').resolve())
+    cat_beef_fil = glob.glob(path)
+    cat_beef_images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in cat_beef_fil]
+
+    ################## Back-projection ##################
+
+    # Create template histogram
+    path = str(Path('preprocessing/backprojection/template_sal_potato.jpg').resolve())
+    roi_img = cv2.imread(path, cv2.IMREAD_COLOR)
     roi_hsv = cv2.cvtColor(roi_img, cv2.COLOR_BGR2HSV)
     roi_hist = cv2.calcHist([roi_hsv], [0, 1], None, [180, 256], [0, 180, 0, 256])
     roi_hist = cv2.normalize(roi_hist, roi_hist, 0, 255, cv2.NORM_MINMAX)
@@ -147,28 +190,12 @@ def main():
 
     # plt.show()
 
-    # Baggrund
-    background_fil = glob.glob('/home/mikkel/Documents/github/BSc-PRO/images_1280x720/baggrund/bevægelse/*.jpg')
-    background_images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in background_fil]
-
-    # Guleroedder
-    carrot_fil = glob.glob('/home/mikkel/Documents/github/BSc-PRO/images_1280x720/gulerod/still/*.jpg')
-    carrot_images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in carrot_fil]
-
-    # Kartofler
-    potato_fil = glob.glob('/home/mikkel/Documents/github/BSc-PRO/images_1280x720/kartofler/still/*.jpg')
-    potato_images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in potato_fil]
-
-    # Kat laks
-    cat_sal_fil = glob.glob('/home/mikkel/Documents/github/BSc-PRO/images_1280x720/kat_laks/still/*.jpg')
-    cat_sal_images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in cat_sal_fil]
-
-    # Kat okse
-    cat_beef_fil = glob.glob('/home/mikkel/Documents/github/BSc-PRO/images_1280x720/kat_okse/still/*.jpg')
-    cat_beef_images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in cat_beef_fil]
+    # Import background mask
+    path = str(Path('preprocessing/background_mask.jpg').resolve())
+    background_mask = cv2.imread(path, cv2.IMREAD_GRAYSCALE)
 
     for img in cat_sal_images:
-        roi = backproject(roi_hist, img)
+        roi = backproject(roi_hist, img, background_mask)
 
     cv2.destroyAllWindows()
 
