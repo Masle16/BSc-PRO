@@ -8,13 +8,15 @@ import random
 from pathlib import Path
 import cv2
 import numpy as np
-from background_sub import background_sub as bs
+from background_subtration import background_sub, run_avg
 
 ###### GLOBAL VARIABLES ######
 DOWNSCALING = 4
 CLASSES = ['Potato', 'Carrot', 'Cat beef', 'Cat salmon']
 BGD_MASK = cv2.imread(str(Path('preprocessing/background_mask.jpg').resolve()),
                       cv2.IMREAD_GRAYSCALE)
+ROI_METHOD = cv2.TM_SQDIFF
+TEMPL_METHOD = cv2.TM_SQDIFF_NORMED
 
 ###### FUNCTIONS ######
 def show_img(img, window_name, width=640, height=400, wait_key=False):
@@ -101,9 +103,10 @@ def thresholding(src):
     index = np.argmax(cnt_pixel_value)
 
     x, y, width, height = cv2.boundingRect(cnts[index])
+
     return (x, y, width, height)
 
-def find_roi(template, src, method=cv2.TM_SQDIFF):
+def find_roi(template, src, method=ROI_METHOD):
     """ returns region of interest(448 x 448) for further inspection """
 
     # Convert to grayscale and Downscale image and template
@@ -178,49 +181,89 @@ def find_roi(template, src, method=cv2.TM_SQDIFF):
     return (x_left, x_right, y_up, y_down)
 
 
-def template_matching(template, src, method=cv2.TM_SQDIFF):
+def template_matching(template, src, method=TEMPL_METHOD):
     """ Performs template matching with scaling and rotation """
 
+    # # Convert to gray
+    # src = cv2.cvtColor(src, cv2.COLOR_BGR2GRAY)
+    # template = cv2.cvtColor(template, cv2.COLOR_BGR2GRAY)
+
+    # # Rezise template
+    # rows, cols = src.shape[:2]
+    # dim = (cols, rows)
+    # template = cv2.resize(src=template,
+    #                       dsize=dim,
+    #                       interpolation=cv2.INTER_CUBIC)
+
+    # Store rows and cols for template
     rows, cols = template.shape[:2]
 
     value = None
-    for scale in np.arange(0.75, 1.5, 0.25):
-        for angle in np.arange(0, 360, 45):
-            rotation_matrix = cv2.getRotationMatrix2D((cols / 2, rows / 2),
-                                                      angle,
-                                                      scale)
-            template_rotate = cv2.warpAffine(template,
-                                             rotation_matrix,
-                                             (cols, rows))
-            matching_space = cv2.matchTemplate(src,
-                                               template_rotate,
-                                               method)
+    for angle in np.arange(0, 360, 45):
+        rotation_matrix = cv2.getRotationMatrix2D(center=(cols / 2, rows / 2),
+                                                  angle=angle,
+                                                  scale=1)
 
-            # Find minimum in matching space
-            min_val, max_val, min_loc, max_loc = cv2.minMaxLoc(matching_space)
+        template_rotate = cv2.warpAffine(src=template,
+                                         M=rotation_matrix,
+                                         dsize=(cols, rows))
 
-            if method is cv2.TM_SQDIFF or method is cv2.TM_SQDIFF_NORMED:
-                if value is None:
-                    value = min_val
-                    top_left = min_loc
-                    rows_rotate, cols_rotate = template_rotate.shape[:2]
-                elif value > min_val:
-                    value = min_val
-                    top_left = min_loc
-                    rows_rotate, cols_rotate = template_rotate.shape[:2]
-            else:
-                if value is None:
-                    value = max_val
-                    top_left = max_loc
-                    rows_rotate, cols_rotate = template_rotate.shape[:2]
-                elif value < max_val:
-                    value = max_val
-                    top_left = max_loc
-                    rows_rotate, cols_rotate = template_rotate.shape[:2]
+        res = cv2.matchTemplate(image=src,
+                                templ=template_rotate,
+                                method=method)
+
+        # Find minimum in matching space
+        min_val, max_val, min_loc, max_loc = cv2.minMaxLoc(src=res)
+
+        if method is cv2.TM_SQDIFF or method is cv2.TM_SQDIFF_NORMED:
+            if value is None:
+                value = min_val
+                top_left = min_loc
+                rows_rotate, cols_rotate = template_rotate.shape[:2]
+            elif value > min_val:
+                value = min_val
+                top_left = min_loc
+                rows_rotate, cols_rotate = template_rotate.shape[:2]
+        else:
+            if value is None:
+                value = max_val
+                top_left = max_loc
+                rows_rotate, cols_rotate = template_rotate.shape[:2]
+            elif value < max_val:
+                value = max_val
+                top_left = max_loc
+                rows_rotate, cols_rotate = template_rotate.shape[:2]
 
     bottom_right = (top_left[0] + cols_rotate, top_left[1] + rows_rotate)
 
-    return (top_left, bottom_right)
+    return value
+
+def object_detection(template, roi):
+    """ returns the best matching object """
+
+    rows, cols = roi.shape[:2]
+    dim = (cols, rows)
+
+    template = cv2.resize(src=template,
+                          dsize=dim,
+                          interpolation=cv2.INTER_CUBIC)
+
+    if template.shape[:2] != roi.shape[:2]:
+        raise ValueError('A very specific bad thing happened.')
+
+    res = cv2.matchTemplate(image=roi,
+                            templ=template,
+                            method=TEMPL_METHOD)
+
+    # Find minimum in matching space
+    min_val, max_val, _, _ = cv2.minMaxLoc(src=res)
+
+    if TEMPL_METHOD is cv2.TM_SQDIFF or TEMPL_METHOD is cv2.TM_SQDIFF_NORMED:
+        value = np.absolute(min_val)
+    else:
+        value = np.absolute(max_val)
+
+    return value
 
 ####### MAIN FUNCTION #######
 def main():
@@ -232,7 +275,7 @@ def main():
     path = str(Path('images_1280x720/baggrund/bevægelse/*.jpg').resolve())
     background_fil = glob.glob(path)
     background_images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in background_fil]
-    bgd_img = bs.run_avg(background_images)
+    bgd_img = run_avg(background_images)
 
     # Guleroedder
     path = str(Path('images_1280x720/gulerod/still/*.jpg').resolve())
@@ -270,10 +313,10 @@ def main():
     path = str(Path('template_matching/template_cat_beef.jpg').resolve())
     template_cat_beef = cv2.imread(path, cv2.IMREAD_COLOR)
 
-    path = str(Path('template_matching/template_cat_sal_2.png').resolve())
-    template_cat_sal = cv2.imread(path, cv2.IMREAD_COLOR)
+    # path = str(Path('template_matching/template_cat_sal_2.jpg').resolve())
+    # template_cat_sal = cv2.imread(path, cv2.IMREAD_COLOR)
 
-    templates = [template_potato, template_carrot, template_cat_beef, template_cat_sal]
+    templates = [template_potato, template_carrot, template_cat_beef]
 
     # ####### CREATE CHAMFER TEMPLATES #######
 
@@ -295,29 +338,63 @@ def main():
     ####### TEMPLATE MATCHING #######
 
     for src in input_images:
+        display_img = src.copy()
+
         # Find region of interest in image
-        roi, cnt = bs.background_sub(src,
-                                     bgd_img,
-                                     BGD_MASK)
+        roi, cnt = background_sub(img=src,
+                                  bgd=bgd_img,
+                                  bgd_mask=BGD_MASK)
+
         (x_left, x_right, y_up, y_down) = roi
         (x, y, width, height) = cnt
 
         roi = src[y_up : y_down, x_left : x_right]
 
+        cv2.rectangle(img=display_img,
+                      pt1=(x_left, y_up),
+                      pt2=(x_right, y_down),
+                      color=(255, 0, 0),
+                      thickness=4)
+
+        cv2.rectangle(img=display_img,
+                      pt1=(x, y),
+                      pt2=(x + width, y + height),
+                      color=(0, 255, 0),
+                      thickness=4)
+
+        values = []
         for template in templates:
-            # Check all templates
-            points = template_matching(template=template,
-                                       src=roi)
-            (top_left, bottom_right) = points
+            value = template_matching(template=template,
+                                      src=roi)
+            values.append(value)
 
-            top_left_x = top_left[0] + x_left
-            top_left_y = top_left[1] + y_up
-            bottom_right_x = bottom_right[0] + x_left
-            bottom_right_y = bottom_right[1] + y_up
+        print(values)
 
-            roi = src[top_left_y : bottom_right_y, top_left_x : bottom_right_x]
-            cv2.imshow('Region of interest', roi)
-            cv2.waitKey(0)
+        if TEMPL_METHOD is cv2.TM_SQDIFF or TEMPL_METHOD is cv2.TM_SQDIFF_NORMED:
+            index = np.argmin(values)
+        else:
+            index = np.argmax(values)
+
+        if index == 0:
+            result = 'Potato'
+        elif index == 1:
+            result = 'Carrot'
+        elif index == 2:
+            result = 'Cat beef'
+        elif index == 3:
+            result = 'Cat sal'
+
+        cv2.putText(img=display_img,
+                    text=result,
+                    org=(0, 50),
+                    fontFace=cv2.FONT_HERSHEY_SIMPLEX,
+                    fontScale=1,
+                    color=(0, 0, 255),
+                    thickness=1,
+                    lineType=cv2.LINE_AA)
+
+        cv2.imshow('Detected object', display_img)
+        cv2.waitKey(0)
 
     cv2.destroyAllWindows()
 
