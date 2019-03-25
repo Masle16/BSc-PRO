@@ -4,12 +4,16 @@
 Module for background subtration
 """
 
+###### IMPORTS ######
 import glob
 import random
 from pathlib import Path
 import cv2
 import numpy as np
 #from matplotlib import pyplot as plt
+
+###### GLOBAL VARIABLES ######
+NUMBER = 0
 
 def random_color():
     """ Generate random color """
@@ -33,7 +37,7 @@ def show_img(img, window_name, width=640, height=480, wait_key=False):
     return 0
 
 def remove_background(img):
-    """ returns image with no background, only table """
+    """ Returns image with no background, only table """
 
     # Find background pixels coordinates
     hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
@@ -42,10 +46,8 @@ def remove_background(img):
 
     return mask, result
 
-def run_avg(background_images, background_mask):
-    """
-    returns running average of all images in path folder
-    """
+def run_avg(background_images):
+    """ Returns running average of all images in path folder """
 
     avg = np.float32(background_images[0])
 
@@ -54,22 +56,20 @@ def run_avg(background_images, background_mask):
 
     result = cv2.convertScaleAbs(avg)
 
-    result = cv2.bitwise_and(result, result, mask=background_mask)
-
     return result
 
 def background_sub(img, background, background_mask):
-    """
-    returns cropped image(448 x 448) of region of interest
-    @img, the image of interest
-    """
+    """ Returns cropped image(448 x 448) of region of interest """
 
-    # Remove unessesary background
-    _img = cv2.bitwise_and(img, img, mask=background_mask)
+    # Create copy to work on
+    _img = img.copy()
 
     # Calculate image difference and find largest contour
     diff = cv2.absdiff(background, _img)
     diff_gray = cv2.cvtColor(diff, cv2.COLOR_BGR2GRAY)
+
+    # Remove unessesary background
+    diff_gray = cv2.bitwise_and(diff_gray, diff_gray, mask=background_mask)
 
     # Remove small differences
     _, thresh = cv2.threshold(diff_gray, 25, 255, 0)
@@ -81,67 +81,62 @@ def background_sub(img, background, background_mask):
     # Get contours
     contours, _ = cv2.findContours(thresh, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
 
-    # # Draw contours
-    # cnt_img = img.copy()
-    # for cnt in contours:
-    #     cv2.drawContours(cnt_img, cnt, -1, random_color(), 3)
-    # show_img(cnt_img, 'Contours')
+    # Calculate contours pixel intensity
+    cnt_pixel_value = []
+    for contour in contours:
+        pixel_sum = 0
+        contour = np.asarray(contour)
+        contour = contour.reshape(contour.shape[0], contour.shape[2])
+        pixel_sum = diff_gray[contour[:, :][:, 1], contour[:, :][:, 0]]
+        cnt_pixel_value.append(np.sum(pixel_sum))
 
-    areas = [cv2.contourArea(cnt) for cnt in contours]
-    cnts = []
+    # Selected contour with highest pixel intensity
+    index = np.argmax(cnt_pixel_value)
+    cnt = contours[index]
 
-    k = 3
-    for _ in range(k):
-        index = areas.index(max(areas))
-        cnts.append(contours[index])
-        areas[index] = 0.0
+    # Crop contour form image
+    _x, _y, _w, _h = cv2.boundingRect(cnt)
+    x_ctr = int((_x + (_x + _w)) / 2)
+    y_ctr = int((_y + (_y + _h)) / 2)
+    radius = 224
+    x_left = x_ctr - radius
+    x_right = x_ctr + radius
+    y_up = y_ctr - radius
+    y_down = y_ctr + radius
 
-    # for i, area in enumerate(areas):
-    #     if area >= 25.0:
-    #         cnts.append(contours[i])
+    if x_right > img.shape[1]:
+        margin = -1 * (img.shape[1] - x_right)
+        x_right -= margin
+        x_left -= margin
+    elif x_left < 0:
+        margin = -1 * x_left
+        x_right += margin
+        x_left += margin
 
-    img_crop = []
-    coordinates = []
+    if y_up < 0:
+        margin = -1 * y_up
+        y_down += margin
+        y_up += margin
+    elif y_down > img.shape[0]:
+        margin = -1 * (img.shape[0] - y_down)
+        y_down -= margin
+        y_up -= margin
 
-    # # Draw rects
+    img_crop = img[y_up : y_down, x_left : x_right]
+
     # img_rect = img.copy()
-    for cnt in cnts:
-        # Crop contour form image
-        _x, _y, _w, _h = cv2.boundingRect(cnt)
-        x_ctr = int((_x + (_x + _w)) / 2)
-        y_ctr = int((_y + (_y + _h)) / 2)
-        radius = 224
-        x_left = x_ctr - radius
-        x_right = x_ctr + radius
-        y_up = y_ctr - radius
-        y_down = y_ctr + radius
+    # cv2.rectangle(img_rect, (x_left, y_up), (x_right, y_down), (0, 255, 0), 4)
+    # cv2.rectangle(img_rect, (_x, _y), (_x + _w, _y + _h), (0, 0, 255), 4)
 
-        if x_right > img.shape[1]:
-            margin = -1 * (img.shape[1] - x_right)
-            x_right -= margin
-            x_left -= margin
-        elif x_left < 0:
-            margin = -1 * x_left
-            x_right += margin
-            x_left += margin
+    # global NUMBER
+    # num = str(NUMBER)
 
-        if y_up < 0:
-            margin = -1 * y_up
-            y_down += margin
-            y_up += margin
-        elif y_down > img.shape[0]:
-            margin = -1 * (img.shape[0] - y_down)
-            y_down -= margin
-            y_up -= margin
+    # path = str(Path('preprocessing/background_subtration/cat_beef/cat_beef_' + str(num) + '.jpg').resolve())
+    # cv2.imwrite(path, img_rect)
 
-        img_crop.append(img[y_up : y_down, x_left : x_right])
-        coordinates.append((_x, _y, _w, _h))
+    # NUMBER += 1
 
-        # cv2.rectangle(img_rect, (x_left, y_up), (x_right, y_down), random_color(), 4)
-
-    # show_img(img_rect, 'Region of interest', wait_key=True)
-
-    return img_crop, coordinates
+    return img_crop, (_x, _y, _w, _h)
 
 def main():
     """ main function """
@@ -177,9 +172,10 @@ def main():
 
     path = str(Path('preprocessing/background_mask.jpg').resolve())
     background_mask = cv2.imread(path, cv2.IMREAD_GRAYSCALE)
-    background_img = run_avg(background_images, background_mask)
+    background_img = run_avg(background_images)
+    # background_img = cv2.bitwise_and(background_img, background_img, mask=background_mask)
 
-    for img in cat_sal_images:
+    for img in cat_beef_images:
         roi, coordinates = background_sub(img, background_img, background_mask)
 
     cv2.destroyAllWindows()
