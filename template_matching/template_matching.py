@@ -8,12 +8,13 @@ import random
 from pathlib import Path
 import cv2
 import numpy as np
+from background_sub import background_sub as bs
 
 ###### GLOBAL VARIABLES ######
 DOWNSCALING = 4
 CLASSES = ['Potato', 'Carrot', 'Cat beef', 'Cat salmon']
-BACKGROUND_MASK = cv2.imread(str(Path('preprocessing/background_mask.jpg').resolve()),
-                             cv2.IMREAD_GRAYSCALE)
+BGD_MASK = cv2.imread(str(Path('preprocessing/background_mask.jpg').resolve()),
+                      cv2.IMREAD_GRAYSCALE)
 
 ###### FUNCTIONS ######
 def show_img(img, window_name, width=640, height=400, wait_key=False):
@@ -78,7 +79,7 @@ def thresholding(src):
     # Remove noise
     kernel = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (5, 5))
     _img = cv2.morphologyEx(_img, cv2.MORPH_OPEN, kernel)
-    _img = cv2.bitwise_and(_img, _img, mask=BACKGROUND_MASK)
+    _img = cv2.bitwise_and(_img, _img, mask=BGD_MASK)
     show_img(_img, 'Image')
 
     cnts, _ = cv2.findContours(_img, cv2.RETR_TREE, cv2.CHAIN_APPROX_NONE)
@@ -231,6 +232,7 @@ def main():
     path = str(Path('images_1280x720/baggrund/bevægelse/*.jpg').resolve())
     background_fil = glob.glob(path)
     background_images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in background_fil]
+    bgd_img = bs.run_avg(background_images)
 
     # Guleroedder
     path = str(Path('images_1280x720/gulerod/still/*.jpg').resolve())
@@ -292,7 +294,34 @@ def main():
 
     ####### TEMPLATE MATCHING #######
 
+    for src in input_images:
+        # Find region of interest in image
+        roi, cnt = bs.background_sub(src,
+                                     bgd_img,
+                                     BGD_MASK)
+        (x_left, x_right, y_up, y_down) = roi
+        (x, y, width, height) = cnt
+
+        roi = src[y_up : y_down, x_left : x_right]
+
+        for template in templates:
+            # Check all templates
+            points = template_matching(template=template,
+                                       src=roi)
+            (top_left, bottom_right) = points
+
+            top_left_x = top_left[0] + x_left
+            top_left_y = top_left[1] + y_up
+            bottom_right_x = bottom_right[0] + x_left
+            bottom_right_y = bottom_right[1] + y_up
+
+            roi = src[top_left_y : bottom_right_y, top_left_x : bottom_right_x]
+            cv2.imshow('Region of interest', roi)
+            cv2.waitKey(0)
+
     cv2.destroyAllWindows()
+
+    return 0
 
 if __name__ == "__main__":
     main()
