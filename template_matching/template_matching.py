@@ -12,9 +12,8 @@ import numpy as np
 ###### GLOBAL VARIABLES ######
 DOWNSCALING = 4
 CLASSES = ['Potato', 'Carrot', 'Cat beef', 'Cat salmon']
-
-path = str(Path('preprocessing/background_mask.jpg').resolve())
-BACKGROUND_MASK = cv2.imread(path, cv2.IMREAD_GRAYSCALE)
+BACKGROUND_MASK = cv2.imread(str(Path('preprocessing/background_mask.jpg').resolve()),
+                             cv2.IMREAD_GRAYSCALE)
 
 ###### FUNCTIONS ######
 def show_img(img, window_name, width=640, height=400, wait_key=False):

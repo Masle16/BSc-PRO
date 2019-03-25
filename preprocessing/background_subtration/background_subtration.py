@@ -58,18 +58,18 @@ def run_avg(background_images):
 
     return result
 
-def background_sub(img, background, background_mask):
+def background_sub(img, bgd, bgd_mask):
     """ Returns cropped image(448 x 448) of region of interest """
 
     # Create copy to work on
     _img = img.copy()
 
     # Calculate image difference and find largest contour
-    diff = cv2.absdiff(background, _img)
+    diff = cv2.absdiff(bgd, _img)
     diff_gray = cv2.cvtColor(diff, cv2.COLOR_BGR2GRAY)
 
     # Remove unessesary background
-    diff_gray = cv2.bitwise_and(diff_gray, diff_gray, mask=background_mask)
+    diff_gray = cv2.bitwise_and(diff_gray, diff_gray, mask=bgd_mask)
 
     # Remove small differences
     _, thresh = cv2.threshold(diff_gray, 25, 255, 0)
@@ -122,21 +122,7 @@ def background_sub(img, background, background_mask):
         y_down -= margin
         y_up -= margin
 
-    img_crop = img[y_up : y_down, x_left : x_right]
-
-    # img_rect = img.copy()
-    # cv2.rectangle(img_rect, (x_left, y_up), (x_right, y_down), (0, 255, 0), 4)
-    # cv2.rectangle(img_rect, (_x, _y), (_x + _w, _y + _h), (0, 0, 255), 4)
-
-    # global NUMBER
-    # num = str(NUMBER)
-
-    # path = str(Path('preprocessing/background_subtration/cat_beef/cat_beef_' + str(num) + '.jpg').resolve())
-    # cv2.imwrite(path, img_rect)
-
-    # NUMBER += 1
-
-    return img_crop, (_x, _y, _w, _h)
+    return (x_left, x_right, y_up, y_down), (_x, _y, _w, _h)
 
 def main():
     """ main function """
