@@ -130,39 +130,94 @@ def main():
     ################## IMPORT IMAGES ##################
 
     # Baggrund
-    path = str(Path('images_1280x720/baggrund/bevægelse/*.jpg').resolve())
+    path = str(Path('dataset2/images/baggrund/*.jpg').resolve())
     background_fil = glob.glob(path)
     background_images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in background_fil]
 
     # Guleroedder
-    path = str(Path('images_1280x720/gulerod/still/*.jpg'))
+    path = str(Path('dataset2/images/carrots/*.jpg'))
     carrot_fil = glob.glob(path)
     carrot_images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in carrot_fil]
 
     # Kartofler
-    path = str(Path('images_1280x720/kartofler/still/*.jpg').resolve())
+    path = str(Path('dataset2/images/potato/*.jpg').resolve())
     potato_fil = glob.glob(path)
     potato_images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in potato_fil]
 
     # Kat laks
-    path = str(Path('images_1280x720/kat_laks/still/*.jpg').resolve())
+    path = str(Path('dataset2/images/catfood_salmon/*.jpg').resolve())
     cat_sal_fil = glob.glob(path)
     cat_sal_images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in cat_sal_fil]
 
     # Kat okse
-    path = str(Path('images_1280x720/kat_okse/still/*.jpg').resolve())
+    path = str(Path('dataset2/images/catfood_beef/*.jpg').resolve())
     cat_beef_fil = glob.glob(path)
     cat_beef_images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in cat_beef_fil]
 
+    # Boller
+    path = str(Path('dataset2/images/bun/*.jpg').resolve())
+    bun_fil = glob.glob(path)
+    bun_images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in bun_fil]
+
+    # Arm
+    path = str(Path('dataset2/images/arm/*.jpg').resolve())
+    arm_fil = glob.glob(path)
+    arm_images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in arm_fil]
+
+    # Ketchup
+    path = str(Path('dataset2/images/kethchup/*.jpg').resolve())
+    ketchup_fil = glob.glob(path)
+    ketchup_images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in ketchup_fil]
+
+    # Combine images
+    input_images = (background_images +
+                    carrot_images +
+                    potato_images +
+                    cat_sal_images +
+                    cat_beef_images +
+                    bun_images +
+                    arm_images +
+                    ketchup_images)
+
+    # Shuffle
+    random.shuffle(input_images)
+    random.shuffle(input_images)
+    random.shuffle(input_images)
+    random.shuffle(input_images)
+
     ################## BACKGROUND SUBTRACTION ##################
 
-    path = str(Path('preprocessing/background_mask.jpg').resolve())
-    background_mask = cv2.imread(path, cv2.IMREAD_GRAYSCALE)
-    background_img = run_avg(background_images)
-    # background_img = cv2.bitwise_and(background_img, background_img, mask=background_mask)
+    # Background mask
+    path = str(Path('preprocessing/bgd_mask_1.jpg').resolve())
+    bgd_mask_1 = cv2.imread(path, cv2.IMREAD_GRAYSCALE)
+    path = str(Path('preprocessing/bgd_mask_2.jpg').resolve())
+    bgd_mask_2 = cv2.imread(path, cv2.IMREAD_GRAYSCALE)
+    mask = cv2.bitwise_and(bgd_mask_1, bgd_mask_1, mask=bgd_mask_2)
 
-    for img in cat_beef_images:
-        roi, coordinates = background_sub(img, background_img, background_mask)
+    # Create average background image and remove unnessary background
+    background_img = run_avg(background_images)
+    background_img = cv2.bitwise_and(background_img, background_img, mask=mask)
+
+    for img in input_images:
+        roi, coordinates = background_sub(img, background_img, mask)
+
+        (x_left, x_right, y_up, y_down) = roi
+        (x, y, width, height) = coordinates
+
+        cv2.rectangle(img=img,
+                      pt1=(x_left, y_up),
+                      pt2=(x_right, y_down),
+                      color=(255, 0, 0),
+                      thickness=3)
+
+        cv2.rectangle(img=img,
+                      pt1=(x, y),
+                      pt2=(x + width, y + height),
+                      color=(0, 0, 255),
+                      thickness=3)
+
+        cv2.imshow('Image', img)
+        cv2.waitKey(0)
 
     cv2.destroyAllWindows()
 
