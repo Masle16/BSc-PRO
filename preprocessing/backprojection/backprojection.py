@@ -37,20 +37,6 @@ def show_img(img, window_name, width=640, height=480, wait_key=False):
 
     return 0
 
-def remove_background():
-    """ returns image with no background, only table """
-
-    # Get background
-    path = '/home/mikkel/Documents/github/BSc-PRO/images_1280x720/baggrund/bevægelse/WIN_20190131_10_31_36_Pro.jpg'
-    background = cv2.imread(path, cv2.IMREAD_COLOR)
-
-    # Find background pixels coordinates
-    hsv = cv2.cvtColor(background, cv2.COLOR_BGR2HSV)
-    mask = cv2.inRange(hsv, (0, 0, 125), (179, 100, 255))
-    result = cv2.bitwise_and(background, background, mask=mask)
-
-    return mask, result
-
 def backproject(roi_hist, img, background_mask):
     """
     returns backprojected image
