@@ -63,35 +63,45 @@ def background_sub(img, bgd, bgd_mask):
 
     # Create copy to work on
     _img = img.copy()
+    _img = cv2.bitwise_and(_img, _img, mask=bgd_mask)
 
     # Calculate image difference and find largest contour
     diff = cv2.absdiff(bgd, _img)
     diff_gray = cv2.cvtColor(diff, cv2.COLOR_BGR2GRAY)
 
-    # Remove unessesary background
-    diff_gray = cv2.bitwise_and(diff_gray, diff_gray, mask=bgd_mask)
-
     # Remove small differences
-    _, thresh = cv2.threshold(diff_gray, 25, 255, 0)
+    _, thresh = cv2.threshold(diff_gray, 50, 255, 0)
 
     # Remove noise
-    kernel = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (2, 4))
+    kernel = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (2, 2))
     thresh = cv2.morphologyEx(thresh, cv2.MORPH_OPEN, kernel)
+
+    kernel = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (15, 15))
+    thresh = cv2.morphologyEx(thresh, cv2.MORPH_CROSS, kernel)
+
+    show_img(thresh, 'Thresh', wait_key=True)
 
     # Get contours
     contours, _ = cv2.findContours(thresh, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
 
-    # Calculate contours pixel intensity
-    cnt_pixel_value = []
-    for contour in contours:
-        pixel_sum = 0
-        contour = np.asarray(contour)
-        contour = contour.reshape(contour.shape[0], contour.shape[2])
-        pixel_sum = diff_gray[contour[:, :][:, 1], contour[:, :][:, 0]]
-        cnt_pixel_value.append(np.sum(pixel_sum))
+    # # Calculate contours pixel intensity
+    # cnt_pixel_value = []
+    # for contour in contours:
+    #     pixel_sum = 0
+    #     contour = np.asarray(contour)
+    #     contour = contour.reshape(contour.shape[0], contour.shape[2])
+    #     pixel_sum = diff_gray[contour[:, :][:, 1], contour[:, :][:, 0]]
+    #     cnt_pixel_value.append(np.sum(pixel_sum))
 
-    # Selected contour with highest pixel intensity
-    index = np.argmax(cnt_pixel_value)
+    # # Selected contour with highest pixel intensity
+    # index = np.argmax(cnt_pixel_value)
+    # cnt = contours[index]
+
+    # Calculate areas
+    areas = [cv2.contourArea(cnt) for cnt in contours]
+
+    # Selected biggest contour
+    index = np.argmax(areas)
     cnt = contours[index]
 
     # Crop contour form image
@@ -181,24 +191,20 @@ def main():
 
     # Shuffle
     random.shuffle(input_images)
-    random.shuffle(input_images)
-    random.shuffle(input_images)
-    random.shuffle(input_images)
 
     ################## BACKGROUND SUBTRACTION ##################
 
     # Background mask
-    path = str(Path('preprocessing/bgd_mask_1.jpg').resolve())
-    bgd_mask_1 = cv2.imread(path, cv2.IMREAD_GRAYSCALE)
-    path = str(Path('preprocessing/bgd_mask_2.jpg').resolve())
-    bgd_mask_2 = cv2.imread(path, cv2.IMREAD_GRAYSCALE)
-    mask = cv2.bitwise_and(bgd_mask_1, bgd_mask_1, mask=bgd_mask_2)
+    path = str(Path('preprocessing/bgd_mask.jpg').resolve())
+    mask = cv2.imread(path, cv2.IMREAD_GRAYSCALE)
 
     # Create average background image and remove unnessary background
     background_img = run_avg(background_images)
     background_img = cv2.bitwise_and(background_img, background_img, mask=mask)
 
     for img in input_images:
+        show_img(img, 'Input image', wait_key=True)
+
         roi, coordinates = background_sub(img, background_img, mask)
 
         (x_left, x_right, y_up, y_down) = roi
@@ -216,7 +222,7 @@ def main():
                       color=(0, 0, 255),
                       thickness=3)
 
-        cv2.imshow('Image', img)
+        show_img(img, 'Image')
         cv2.waitKey(0)
 
     cv2.destroyAllWindows()
