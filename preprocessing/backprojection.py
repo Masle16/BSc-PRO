@@ -55,7 +55,7 @@ def backproject(roi_hist, img, background_mask):
     mask = cv2.calcBackProject([img_hsv], [0, 1], roi_hist, [0, 180, 0, 256], scale=1)
 
     # Remove noise
-    kernel = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (5, 5))
+    kernel = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (2, 2))
     mask = cv2.filter2D(mask, -1, kernel)
     _, mask = cv2.threshold(mask, 127, 200, cv2.THRESH_BINARY)
 
@@ -63,7 +63,7 @@ def backproject(roi_hist, img, background_mask):
     result = cv2.bitwise_and(_img, mask)
     result = cv2.blur(result, (5, 5))
 
-    kernel = np.ones((15, 15), np.uint8)
+    kernel = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (15, 15))
     result = cv2.morphologyEx(result, cv2.MORPH_OPEN, kernel)
 
     # Find contours
@@ -118,7 +118,7 @@ def backproject(roi_hist, img, background_mask):
         y_down -= margin
         y_up -= margin
 
-    img_crop = img[y_up : y_down, x_left : x_right]
+    # img_crop = img[y_up : y_down, x_left : x_right]
 
     # img_rect = img.copy()
     # cv2.rectangle(img_rect, (x_left, y_up), (x_right, y_down), (0, 255, 0), 4)
@@ -132,7 +132,7 @@ def backproject(roi_hist, img, background_mask):
 
     # NUMBER += 1
 
-    return img_crop, (_x, _y, _w, _h)
+    return (x_left, x_right, y_up, y_down), (_x, _y, _w, _h)
 
 ###### MAIN ######
 def main():
@@ -141,34 +141,62 @@ def main():
     ################## IMPORT IMAGES ##################
 
     # Baggrund
-    path = str(Path('images_1280x720/baggrund/bevægelse/*.jpg').resolve())
+    path = str(Path('dataset2/images/baggrund/*.jpg').resolve())
     background_fil = glob.glob(path)
     background_images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in background_fil]
 
     # Guleroedder
-    path = str(Path('images_1280x720/gulerod/still/*.jpg'))
+    path = str(Path('dataset2/images/carrots/*.jpg'))
     carrot_fil = glob.glob(path)
     carrot_images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in carrot_fil]
 
     # Kartofler
-    path = str(Path('images_1280x720/kartofler/still/*.jpg').resolve())
+    path = str(Path('dataset2/images/potato/*.jpg').resolve())
     potato_fil = glob.glob(path)
     potato_images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in potato_fil]
 
     # Kat laks
-    path = str(Path('images_1280x720/kat_laks/still/*.jpg').resolve())
+    path = str(Path('dataset2/images/catfood_salmon/*.jpg').resolve())
     cat_sal_fil = glob.glob(path)
     cat_sal_images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in cat_sal_fil]
 
     # Kat okse
-    path = str(Path('images_1280x720/kat_okse/still/*.jpg').resolve())
+    path = str(Path('dataset2/images/catfood_beef/*.jpg').resolve())
     cat_beef_fil = glob.glob(path)
     cat_beef_images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in cat_beef_fil]
+
+    # Boller
+    path = str(Path('dataset2/images/bun/*.jpg').resolve())
+    bun_fil = glob.glob(path)
+    bun_images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in bun_fil]
+
+    # Arm
+    path = str(Path('dataset2/images/arm/*.jpg').resolve())
+    arm_fil = glob.glob(path)
+    arm_images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in arm_fil]
+
+    # Ketchup
+    path = str(Path('dataset2/images/kethchup/*.jpg').resolve())
+    ketchup_fil = glob.glob(path)
+    ketchup_images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in ketchup_fil]
+
+    # Combine images
+    input_images = (background_images +
+                    carrot_images +
+                    potato_images +
+                    cat_sal_images +
+                    cat_beef_images +
+                    bun_images +
+                    arm_images +
+                    ketchup_images)
+
+    # Shuffle
+    random.shuffle(input_images)
 
     ################## Back-projection ##################
 
     # Create template histogram (Use template_all.jpg)
-    path = str(Path('preprocessing/backprojection/template_all.jpg').resolve())
+    path = str(Path('preprocessing/template_backprojection/template_all.jpg').resolve())
     roi_img = cv2.imread(path, cv2.IMREAD_COLOR)
     roi_img = cv2.blur(roi_img, (5, 5))
     roi_hsv = cv2.cvtColor(roi_img, cv2.COLOR_BGR2HSV)
@@ -176,11 +204,30 @@ def main():
     roi_hist = cv2.normalize(roi_hist, roi_hist, 0, 255, cv2.NORM_MINMAX)
 
     # Import background mask
-    path = str(Path('preprocessing/background_mask.jpg').resolve())
+    path = str(Path('preprocessing/bgd_mask.jpg').resolve())
     background_mask = cv2.imread(path, cv2.IMREAD_GRAYSCALE)
 
-    for img in potato_images:
+    for img in input_images:
+        show_img(img, 'Input', wait_key=True)
+
         roi, coordinates = backproject(roi_hist, img, background_mask)
+
+        (x_left, x_right, y_up, y_down) = roi
+        (x, y, width, height) = coordinates
+
+        cv2.rectangle(img=img,
+                      pt1=(x_left, y_up),
+                      pt2=(x_right, y_down),
+                      color=(255, 0, 0),
+                      thickness=3)
+        
+        cv2.rectangle(img=img,
+                      pt1=(x, y),
+                      pt2=(x + width, y + height),
+                      color=(0, 0, 255),
+                      thickness=3)
+
+        show_img(img, 'Detected area', wait_key=True)
 
     cv2.destroyAllWindows()
 
