@@ -5,7 +5,6 @@
 ######  IMPORTS ######
 import glob
 from pathlib import Path
-import numpy as np
 import cv2
 from background_subtration import background_sub, run_avg
 
@@ -59,27 +58,27 @@ def main():
         roi, _ = background_sub(img, background_img, background_mask)
         (x_left, x_right, y_up, y_down) = roi
 
-        cv2.rectangle(img=img,
+        dst = img.copy()
+        cv2.rectangle(img=dst,
                       pt1=(x_left, y_up),
                       pt2=(x_right, y_down),
                       color=(255, 0, 0),
                       thickness=4)
 
         roi = img[y_up : y_down, x_left : x_right]
-        roi = cv2.resize(roi, (224, 224))
         roi = cv2.cvtColor(roi, cv2.COLOR_BGR2GRAY)
 
         # Detect object
         potatoes = potato_cascade.detectMultiScale(roi, 50, 50)
 
         for (x, y, width, height) in potatoes:
-            cv2.rectangle(img=img,
+            cv2.rectangle(img=dst,
                           pt1=(x, y),
                           pt2=(x + width, y + height),
                           color=(0, 0, 255),
                           thickness=4)
 
-            cv2.putText(img=img,
+            cv2.putText(img=dst,
                         text='Potato',
                         org=(x, y),
                         fontFace=cv2.FONT_HERSHEY_SIMPLEX,
@@ -88,7 +87,7 @@ def main():
                         thickness=2,
                         lineType=cv2.LINE_AA)
 
-        cv2.imshow('Image', img)
+        cv2.imshow('Image', dst)
         cv2.waitKey(0)
 
     cv2.destroyAllWindows()

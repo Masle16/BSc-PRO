@@ -63,45 +63,35 @@ def background_sub(img, bgd, bgd_mask):
 
     # Create copy to work on
     _img = img.copy()
-    _img = cv2.bitwise_and(_img, _img, mask=bgd_mask)
 
     # Calculate image difference and find largest contour
     diff = cv2.absdiff(bgd, _img)
     diff_gray = cv2.cvtColor(diff, cv2.COLOR_BGR2GRAY)
 
+    # Remove unessesary background
+    diff_gray = cv2.bitwise_and(diff_gray, diff_gray, mask=bgd_mask)
+
     # Remove small differences
-    _, thresh = cv2.threshold(diff_gray, 50, 255, 0)
+    _, thresh = cv2.threshold(diff_gray, 25, 255, 0)
 
     # Remove noise
-    kernel = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (2, 2))
+    kernel = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (2, 4))
     thresh = cv2.morphologyEx(thresh, cv2.MORPH_OPEN, kernel)
-
-    kernel = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (15, 15))
-    thresh = cv2.morphologyEx(thresh, cv2.MORPH_CROSS, kernel)
-
-    show_img(thresh, 'Thresh', wait_key=True)
 
     # Get contours
     contours, _ = cv2.findContours(thresh, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
 
-    # # Calculate contours pixel intensity
-    # cnt_pixel_value = []
-    # for contour in contours:
-    #     pixel_sum = 0
-    #     contour = np.asarray(contour)
-    #     contour = contour.reshape(contour.shape[0], contour.shape[2])
-    #     pixel_sum = diff_gray[contour[:, :][:, 1], contour[:, :][:, 0]]
-    #     cnt_pixel_value.append(np.sum(pixel_sum))
+    # Calculate contours pixel intensity
+    cnt_pixel_value = []
+    for contour in contours:
+        pixel_sum = 0
+        contour = np.asarray(contour)
+        contour = contour.reshape(contour.shape[0], contour.shape[2])
+        pixel_sum = diff_gray[contour[:, :][:, 1], contour[:, :][:, 0]]
+        cnt_pixel_value.append(np.sum(pixel_sum))
 
-    # # Selected contour with highest pixel intensity
-    # index = np.argmax(cnt_pixel_value)
-    # cnt = contours[index]
-
-    # Calculate areas
-    areas = [cv2.contourArea(cnt) for cnt in contours]
-
-    # Selected biggest contour
-    index = np.argmax(areas)
+    # Selected contour with highest pixel intensity
+    index = np.argmax(cnt_pixel_value)
     cnt = contours[index]
 
     # Crop contour form image
@@ -140,90 +130,39 @@ def main():
     ################## IMPORT IMAGES ##################
 
     # Baggrund
-    path = str(Path('dataset2/images/baggrund/*.jpg').resolve())
+    path = str(Path('images_1280x720/baggrund/bevægelse/*.jpg').resolve())
     background_fil = glob.glob(path)
     background_images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in background_fil]
 
     # Guleroedder
-    path = str(Path('dataset2/images/carrots/*.jpg'))
+    path = str(Path('images_1280x720/gulerod/still/*.jpg'))
     carrot_fil = glob.glob(path)
     carrot_images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in carrot_fil]
 
     # Kartofler
-    path = str(Path('dataset2/images/potato/*.jpg').resolve())
+    path = str(Path('images_1280x720/kartofler/still/*.jpg').resolve())
     potato_fil = glob.glob(path)
     potato_images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in potato_fil]
 
     # Kat laks
-    path = str(Path('dataset2/images/catfood_salmon/*.jpg').resolve())
+    path = str(Path('images_1280x720/kat_laks/still/*.jpg').resolve())
     cat_sal_fil = glob.glob(path)
     cat_sal_images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in cat_sal_fil]
 
     # Kat okse
-    path = str(Path('dataset2/images/catfood_beef/*.jpg').resolve())
+    path = str(Path('images_1280x720/kat_okse/still/*.jpg').resolve())
     cat_beef_fil = glob.glob(path)
     cat_beef_images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in cat_beef_fil]
 
-    # Boller
-    path = str(Path('dataset2/images/bun/*.jpg').resolve())
-    bun_fil = glob.glob(path)
-    bun_images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in bun_fil]
-
-    # Arm
-    path = str(Path('dataset2/images/arm/*.jpg').resolve())
-    arm_fil = glob.glob(path)
-    arm_images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in arm_fil]
-
-    # Ketchup
-    path = str(Path('dataset2/images/kethchup/*.jpg').resolve())
-    ketchup_fil = glob.glob(path)
-    ketchup_images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in ketchup_fil]
-
-    # Combine images
-    input_images = (background_images +
-                    carrot_images +
-                    potato_images +
-                    cat_sal_images +
-                    cat_beef_images +
-                    bun_images +
-                    arm_images +
-                    ketchup_images)
-
-    # Shuffle
-    random.shuffle(input_images)
-
     ################## BACKGROUND SUBTRACTION ##################
 
-    # Background mask
-    path = str(Path('preprocessing/bgd_mask.jpg').resolve())
-    mask = cv2.imread(path, cv2.IMREAD_GRAYSCALE)
-
-    # Create average background image and remove unnessary background
+    path = str(Path('preprocessing/background_mask.jpg').resolve())
+    background_mask = cv2.imread(path, cv2.IMREAD_GRAYSCALE)
     background_img = run_avg(background_images)
-    background_img = cv2.bitwise_and(background_img, background_img, mask=mask)
+    # background_img = cv2.bitwise_and(background_img, background_img, mask=background_mask)
 
-    for img in input_images:
-        show_img(img, 'Input image', wait_key=True)
-
-        roi, coordinates = background_sub(img, background_img, mask)
-
-        (x_left, x_right, y_up, y_down) = roi
-        (x, y, width, height) = coordinates
-
-        cv2.rectangle(img=img,
-                      pt1=(x_left, y_up),
-                      pt2=(x_right, y_down),
-                      color=(255, 0, 0),
-                      thickness=3)
-
-        cv2.rectangle(img=img,
-                      pt1=(x, y),
-                      pt2=(x + width, y + height),
-                      color=(0, 0, 255),
-                      thickness=3)
-
-        show_img(img, 'Image')
-        cv2.waitKey(0)
+    for img in cat_beef_images:
+        roi, coordinates = background_sub(img, background_img, background_mask)
 
     cv2.destroyAllWindows()
 
