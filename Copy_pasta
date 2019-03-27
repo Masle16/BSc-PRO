@@ -1,0 +1,1 @@
+shuf -n 240 -e * | xargs -i cp {} /home/mikkel/Documents/github/BSc-PRO/dataset3/res_still/train/arm // Tager og flytter de filer som i den mappe man står i. 
