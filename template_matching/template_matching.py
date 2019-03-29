@@ -14,8 +14,8 @@ import numpy as np
 ###### GLOBAL VARIABLES ######
 DOWNSCALING = 4
 CLASSES = ['Potato', 'Carrot', 'Cat beef', 'Cat salmon']
-ROI_METHOD = cv2.TM_CCORR_NORMED
-TEMPL_METHOD = cv2.TM_SQDIFF_NORMED
+ROI_METHOD = cv2.TM_SQDIFF
+TEMPL_METHOD = cv2.TM_SQDIFF
 
 ###### FUNCTIONS ######
 def show_img(img, window_name, width=352, height=240, wait_key=False):
@@ -79,7 +79,7 @@ def template_match_meth(template, src):
 
     return img
 
-def find_roi(templ, src, mask):
+def find_roi(templ, src):
     """
     Returns region of interest(448 x 448)\n
     @templ is the template you wish to locate\n
@@ -87,11 +87,10 @@ def find_roi(templ, src, mask):
     @mask is the mask to remove unnessary background
     """
 
-    rows, cols = templ.shape[:2]
-
     ####### CONVERT TO GRAYSCALE AND DOWNSCALE #######
     # Template
-    template = cv2.cvtColor(src=templ, code=cv2.COLOR_BGR2GRAY)
+    template = cv2.cvtColor(templ, cv2.COLOR_BGR2GRAY)
+    template = cv2.blur(template, (5, 5))
     height_template, width_template = template.shape[:2]
     dim_template = (int(width_template / DOWNSCALING), int(height_template / DOWNSCALING))
     template = cv2.resize(src=template,
@@ -100,7 +99,8 @@ def find_roi(templ, src, mask):
                           interpolation=cv2.INTER_CUBIC)
 
     # Input image
-    img = cv2.cvtColor(src=src, code=cv2.COLOR_BGR2GRAY)
+    img = cv2.cvtColor(src, cv2.COLOR_BGR2GRAY)
+    img = cv2.blur(img, (5, 5))
     height_img, width_img = img.shape[:2]
     dim_img = (int(width_img / DOWNSCALING), int(height_img / DOWNSCALING))
     img = cv2.resize(src=img,
@@ -108,13 +108,13 @@ def find_roi(templ, src, mask):
                      dst=None,
                      interpolation=cv2.INTER_CUBIC)
 
-    # ####### CREATE DISTANCE MAP #######
-    # img = cv2.distanceTransform(src=img,
-    #                             distanceType=cv2.DIST_L2,
-    #                             maskSize=3)
-    # template = cv2.distanceTransform(src=template,
-    #                                  distanceType=cv2.DIST_L2,
-    #                                  maskSize=3)
+    ####### CREATE DISTANCE MAP #######
+    img = cv2.distanceTransform(src=img,
+                                distanceType=cv2.DIST_L2,
+                                maskSize=3)
+    template = cv2.distanceTransform(src=template,
+                                     distanceType=cv2.DIST_L2,
+                                     maskSize=3)
 
     ####### PERFORM TEMPLATE MATCHING #######
     matching_space = cv2.matchTemplate(image=img,
@@ -131,7 +131,7 @@ def find_roi(templ, src, mask):
         top_left = max_loc
         value = max_val
 
-    bottom_right = (top_left[0] + cols, top_left[1] + rows)
+    bottom_right = (top_left[0] + template.shape[1], top_left[1] + template.shape[0])
 
     ####### UPSCALE #######
     x = top_left[0] * DOWNSCALING
@@ -140,9 +140,10 @@ def find_roi(templ, src, mask):
     height = bottom_right[1] * DOWNSCALING
 
     ####### FIND REGION OF INTEREST (448 x 448) #######
+    x_ctr = int((x + (x + width)) / 2)
+    y_ctr = int((y + (y + height)) / 2)
+
     radius = 224
-    x_ctr = int((x + width) / 2)
-    y_ctr = int((y + height) / 2)
     x_left = x_ctr - radius
     x_right = x_ctr + radius
     y_up = y_ctr - radius
@@ -169,88 +170,140 @@ def find_roi(templ, src, mask):
     # Return region of interest (448 x 448)
     return (x_left, x_right, y_up, y_down)
 
-def template_matching(template, src):
+def template_matching(templ, src, mask):
     """
     Performs template matching with rotation\n
     returns region of found template\n
-    @template the template to search for\n
+    @templ the template to search for\n
     @src the source image to search in
     """
 
     # Store rows and cols for template
-    rows, cols = template.shape[:2]
+    rows, cols = templ.shape[:2]
+
+    # Remove unnessary background
+    src = cv2.bitwise_and(src, mask)
 
     value = None
-    for scale in np.arange(0.5, 1.5, 0.25):
-        for angle in np.arange(0, 360, 45):
-            rotation_matrix = cv2.getRotationMatrix2D(center=(cols / 2, rows / 2),
-                                                      angle=angle,
-                                                      scale=scale)
+    for angle in np.arange(0, 360, 45):
+        rotation_matrix = cv2.getRotationMatrix2D(center=(cols / 2, rows / 2),
+                                                  angle=angle,
+                                                  scale=1)
 
-            template_rotate = cv2.warpAffine(src=template,
-                                             M=rotation_matrix,
-                                             dsize=(cols, rows))
+        template_rotate = cv2.warpAffine(src=templ,
+                                         M=rotation_matrix,
+                                         dsize=(cols, rows))
 
-            res = cv2.matchTemplate(image=src,
-                                    templ=template_rotate,
-                                    method=TEMPL_METHOD)
+        res = cv2.matchTemplate(image=src,
+                                templ=template_rotate,
+                                method=TEMPL_METHOD)
 
-            # Find minimum in matching space
-            min_val, max_val, min_loc, max_loc = cv2.minMaxLoc(src=res)
+        # Find minimum in matching space
+        min_val, max_val, min_loc, max_loc = cv2.minMaxLoc(src=res)
 
-            if TEMPL_METHOD is cv2.TM_SQDIFF or TEMPL_METHOD is cv2.TM_SQDIFF_NORMED:
-                if value is None:
-                    value = min_val
-                    top_left = min_loc
-                    rows_rotate, cols_rotate = template_rotate.shape[:2]
-                elif value > min_val:
-                    value = min_val
-                    top_left = min_loc
-                    rows_rotate, cols_rotate = template_rotate.shape[:2]
-            else:
-                if value is None:
-                    value = max_val
-                    top_left = max_loc
-                    rows_rotate, cols_rotate = template_rotate.shape[:2]
-                elif value < max_val:
-                    value = max_val
-                    top_left = max_loc
-                    rows_rotate, cols_rotate = template_rotate.shape[:2]
+        if TEMPL_METHOD is cv2.TM_SQDIFF or TEMPL_METHOD is cv2.TM_SQDIFF_NORMED:
+            if value is None:
+                value = min_val
+                top_left = min_loc
+                rows_rotate, cols_rotate = template_rotate.shape[:2]
+            elif value > min_val:
+                value = min_val
+                top_left = min_loc
+                rows_rotate, cols_rotate = template_rotate.shape[:2]
+        else:
+            if value is None:
+                value = max_val
+                top_left = max_loc
+                rows_rotate, cols_rotate = template_rotate.shape[:2]
+            elif value < max_val:
+                value = max_val
+                top_left = max_loc
+                rows_rotate, cols_rotate = template_rotate.shape[:2]
 
-    bottom_right = (top_left[0] + cols_rotate, top_left[1] + rows_rotate)
+    bottom_right = (top_left[0] + rows_rotate, top_left[1] + cols_rotate)
+
     print(value)
+
     return (top_left[0], top_left[1], bottom_right[0], bottom_right[1])
 
-def object_detection(template, roi):
+def templ_matching(templ, src):
     """
-    returns the best matching object\n
-    @template the template to search for in roi\n
-    @roi the region of interest to search in
+    Performs template matching\n
+    @templ is the template to search for\n
+    @src is the source image to search in
     """
 
-    rows, cols = roi.shape[:2]
-    dim = (cols, rows)
+    img = src.copy()
+    template = templ.copy()
 
+    img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+    img = cv2.blur(img, (5, 5))
+    height_img, width_img = img.shape[:2]
+    img_dim = (int(width_img / DOWNSCALING), int(height_img / DOWNSCALING))
+    img = cv2.resize(src=img,
+                     dsize=img_dim,
+                     interpolation=cv2.INTER_CUBIC)
+
+    template = cv2.cvtColor(template, cv2.COLOR_BGR2GRAY)
+    height_t, width_t = template.shape[:2]
+    templ_dim = (int(width_t / DOWNSCALING), int(height_t / DOWNSCALING))
     template = cv2.resize(src=template,
-                          dsize=dim,
+                          dsize=templ_dim,
                           interpolation=cv2.INTER_CUBIC)
 
-    if template.shape[:2] != roi.shape[:2]:
-        raise ValueError('Template shape and roi shape does not match.')
+    matching_space = cv2.matchTemplate(image=img,
+                                       templ=template,
+                                       method=TEMPL_METHOD)
 
-    res = cv2.matchTemplate(image=roi,
-                            templ=template,
-                            method=TEMPL_METHOD)
+    show_img(matching_space, 'Matching space')
 
-    # Find minimum in matching space
-    min_val, max_val, _, _ = cv2.minMaxLoc(src=res)
+    (min_val, max_val, min_loc, max_loc) = cv2.minMaxLoc(src=matching_space)
 
     if TEMPL_METHOD is cv2.TM_SQDIFF or TEMPL_METHOD is cv2.TM_SQDIFF_NORMED:
-        value = np.absolute(min_val)
+        top_left = min_loc
+        value = min_val
     else:
-        value = np.absolute(max_val)
+        top_left = max_loc
+        value = max_val
 
-    return value
+    (x, y) = top_left
+    x *= DOWNSCALING
+    y *= DOWNSCALING
+    width = templ.shape[1]
+    height = templ.shape[0]
+
+    print(value, top_left)
+
+    ####### FIND REGION OF INTEREST (448 x 448) #######
+    x_ctr = int((x + (x + width)) / 2)
+    y_ctr = int((y + (y + height)) / 2)
+
+    radius = 224
+    x_left = x_ctr - radius
+    x_right = x_ctr + radius
+    y_up = y_ctr - radius
+    y_down = y_ctr + radius
+
+    if x_right > src.shape[1]:
+        margin = -1 * (src.shape[1] - x_right)
+        x_right -= margin
+        x_left -= margin
+    elif x_left < 0:
+        margin = -1 * x_left
+        x_right += margin
+        x_left += margin
+
+    if y_up < 0:
+        margin = -1 * y_up
+        y_down += margin
+        y_up += margin
+    elif y_down > src.shape[0]:
+        margin = -1 * (src.shape[0] - y_down)
+        y_down -= margin
+        y_up -= margin
+
+    # Return region of interest (448 x 448)
+    return (x_left, x_right, y_up, y_down)
 
 ####### MAIN FUNCTION #######
 def main():
@@ -305,7 +358,7 @@ def main():
     # random.shuffle(input_images)
 
     ####### IMPORT TEMPLATES #######
-    path = str(Path('template_matching/template_potato.jpg').resolve())
+    path = str(Path('template_matching/template_potato_2.jpg').resolve())
     template_potato = cv2.imread(path, cv2.IMREAD_COLOR)
 
     path = str(Path('template_matching/template_carrot.jpg').resolve())
@@ -325,37 +378,37 @@ def main():
 
     ####### TEMPLATE MATCHING #######
     for src in potato_images:
+        src = cv2.bitwise_and(src, bgd_mask)
+
+        show_img(src, 'Input')
 
         text = ['Potato', 'Carrot', 'Cat sal']
         color = [(255, 0, 0), (0, 255, 0), (0, 0, 255)]
 
         for i, temp in enumerate(templates):
+            show_img(temp, 'Template')
 
             display = src.copy()
-
             cv2.putText(img=display,
                         text=text[i],
                         org=(0, 710),
                         fontFace=cv2.FONT_HERSHEY_SIMPLEX,
-                        fontScale=1,
+                        fontScale=3,
                         color=color[i],
-                        thickness=1,
+                        thickness=2,
                         lineType=cv2.LINE_AA)
 
-            roi = find_roi(templ=temp,
-                           src=src,
-                           mask=bgd_mask)
-            
+            roi = templ_matching(templ=temp, src=src)
+
             (x_left, x_right, y_up, y_down) = roi
 
             cv2.rectangle(img=display,
                           pt1=(x_left, y_up),
                           pt2=(x_right, y_down),
                           color=color[i],
-                          thickness=2)
+                          thickness=4)
 
-            cv2.imshow('Regions', display)
-            cv2.waitKey(0)
+            show_img(display, 'Area', wait_key=True)
 
     cv2.destroyAllWindows()
 
