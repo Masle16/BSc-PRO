@@ -7,23 +7,26 @@ import numpy as np
 import scipy.misc
 from matplotlib import pyplot as plt
 
-def get_sub_dir(path):
+def get_sub_dir(path, ignore=[]):
     sub_directories = []
     list_sub_dir = listdir(path)
-    
+    # Removes folder which is in ignore
+    for i in ignore:
+        list_sub_dir.remove(i)
+        
     for sub_dir in list_sub_dir:
         sub_directories.append(glob(os.path.join(path + "/" + sub_dir, "*.jpg")))
         
     return sub_directories
 
-def calulate_mean(path_training_img):
+def calulate_mean(path_training_img, ignore=[]):
     width = 224
     height = 224
     mean_img = np.zeros((width, height, 3), dtype="float32")
     numbers_img = 0
-    sub_dirs = get_sub_dir(path_training_img)
     
-    
+    sub_dirs = get_sub_dir(path_training_img, ignore)
+
     for sub in sub_dirs:
         for img in sub:
             temp_img = cv2.cvtColor(cv2.imread(img),cv2.COLOR_BGR2RGB)
