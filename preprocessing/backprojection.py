@@ -129,10 +129,10 @@ def main():
     # potato_fil = glob.glob(path)
     # potato_images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in potato_fil]
 
-    # Kat laks
-    path = str(Path('dataset2/images/catfood_salmon/*.jpg').resolve())
-    cat_sal_fil = glob.glob(path)
-    cat_sal_images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in cat_sal_fil]
+    # # Kat laks
+    # path = str(Path('dataset2/images/catfood_salmon/*.jpg').resolve())
+    # cat_sal_fil = glob.glob(path)
+    # cat_sal_images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in cat_sal_fil]
 
     # # Kat okse
     # path = str(Path('dataset2/images/catfood_beef/*.jpg').resolve())
@@ -149,10 +149,10 @@ def main():
     # arm_fil = glob.glob(path)
     # arm_images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in arm_fil]
 
-    # # Ketchup
-    # path = str(Path('dataset2/images/kethchup/*.jpg').resolve())
-    # ketchup_fil = glob.glob(path)
-    # ketchup_images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in ketchup_fil]
+    # Ketchup
+    path = str(Path('dataset2/images/kethchup/*.jpg').resolve())
+    ketchup_fil = glob.glob(path)
+    ketchup_images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in ketchup_fil]
 
     # # Combine images
     # input_images = (background_images +
@@ -168,9 +168,8 @@ def main():
     # random.shuffle(input_images)
 
     ################## Back-projection ##################
-
     # Create template histogram (Use template_all.jpg)
-    path = str(Path('preprocessing/template_backprojection/template.jpg').resolve())
+    path = str(Path('preprocessing/template.jpg').resolve())
     template = cv2.imread(path, cv2.IMREAD_COLOR)
     template = cv2.blur(template, (5, 5))
     show_img(template, 'Template')
@@ -182,7 +181,7 @@ def main():
     path = str(Path('preprocessing/bgd_mask.jpg').resolve())
     mask = cv2.imread(path, cv2.IMREAD_COLOR)
 
-    for img in cat_sal_images:
+    for img in ketchup_images:
         show_img(img, 'Input')
 
         roi, coordinates = backproject(hist=template_hist,

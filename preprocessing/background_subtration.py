@@ -59,20 +59,22 @@ def run_avg(background_images):
     return result
 
 def background_sub(img, bgd, bgd_mask):
-    """ Returns cropped image(448 x 448) of region of interest """
+    """
+    Performs background subtraction
+    Returns region of interest(448 x 448) and bounding rect of found contour
+    @img is the input image
+    @bgd is the average background
+    @bgd_mask is the mask to remove unnessary background
+    """
 
-    # Create copy to work on
+    ################## CALCULATE DIFFERENCE ##################
     _img = img.copy()
     _img = cv2.bitwise_and(_img, _img, mask=bgd_mask)
-
-    # Calculate image difference and find largest contour
     diff = cv2.absdiff(bgd, _img)
     diff_gray = cv2.cvtColor(diff, cv2.COLOR_BGR2GRAY)
-
-    # Remove small differences
     _, thresh = cv2.threshold(diff_gray, 50, 255, 0)
 
-    # Remove noise
+    ################## REMOVE NOISE ##################
     kernel = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (3, 3))
     thresh = cv2.morphologyEx(thresh, cv2.MORPH_OPEN, kernel)
 
@@ -81,36 +83,23 @@ def background_sub(img, bgd, bgd_mask):
 
     thresh = cv2.bitwise_and(thresh, bgd_mask)
 
-    # Get contours
+    ################## FIND CONTOURS ##################
     contours, _ = cv2.findContours(thresh, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
 
-    # # Calculate contours pixel intensity
-    # cnt_pixel_value = []
-    # for contour in contours:
-    #     pixel_sum = 0
-    #     contour = np.asarray(contour)
-    #     contour = contour.reshape(contour.shape[0], contour.shape[2])
-    #     pixel_sum = diff_gray[contour[:, :][:, 1], contour[:, :][:, 0]]
-    #     cnt_pixel_value.append(np.sum(pixel_sum))
-
-    # # Selected contour with highest pixel intensity
-    # index = np.argmax(cnt_pixel_value)
-    # cnt = contours[index]
-
-    # Calculate areas
-    areas = [cv2.contourArea(cnt) for cnt in contours]
-
-    if not areas:
+    # Check if any contours is found
+    if not contours:
         rows, cols = img.shape[:2]
         x = int(cols / 2)
         y = int(rows / 2)
         width = 50
         height = 50
     else:
+        areas = [cv2.contourArea(cnt) for cnt in contours]
         index = np.argmax(areas)
         cnt = contours[index]
         x, y, width, height = cv2.boundingRect(cnt)
 
+    ################## FIND REGION 448 x 448 ##################
     x_ctr = int((x + (x + width)) / 2)
     y_ctr = int((y + (y + height)) / 2)
     radius = 224
@@ -137,17 +126,17 @@ def background_sub(img, bgd, bgd_mask):
         y_down -= margin
         y_up -= margin
 
+    # Return region (448 x 448) and bounding rect of found contour
     return (x_left, x_right, y_up, y_down), (x, y, width, height)
 
 def main():
     """ Main function """
 
     ################## IMPORT IMAGES ##################
-
-    # Baggrund
-    path = str(Path('dataset2/images/baggrund/*.jpg').resolve())
-    background_fil = glob.glob(path)
-    background_images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in background_fil]
+    # # Baggrund
+    # path = str(Path('dataset2/images/baggrund/*.jpg').resolve())
+    # background_fil = glob.glob(path)
+    # background_images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in background_fil]
 
     # # Guleroedder
     # path = str(Path('dataset2/images/carrots/*.jpg'))
@@ -198,7 +187,6 @@ def main():
     # random.shuffle(input_images)
 
     ################## BACKGROUND SUBTRACTION ##################
-
     # # Background mask
     # path = str(Path('preprocessing/bgd_mask.jpg').resolve())
     # mask = cv2.imread(path, cv2.IMREAD_GRAYSCALE)
