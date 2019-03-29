@@ -1,9 +1,36 @@
 import os
+from os import listdir
+from os.path import isfile, join
 from glob import glob
 import cv2
 import numpy as np
 import scipy.misc
 from matplotlib import pyplot as plt
+
+def get_sub_dir(path):
+    sub_directories = []
+    list_sub_dir = listdir(path)
+    
+    for sub_dir in list_sub_dir:
+        sub_directories.append(glob(os.path.join(path + "/" + sub_dir, "*.jpg")))
+        
+    return sub_directories
+
+def calulate_mean(path_training_img):
+    width = 224
+    height = 224
+    mean_img = np.zeros((width, height, 3), dtype="float32")
+    numbers_img = 0
+    sub_dirs = get_sub_dir(path_training_img)
+    
+    
+    for sub in sub_dirs:
+        for img in sub:
+            temp_img = cv2.cvtColor(cv2.imread(img),cv2.COLOR_BGR2RGB)
+            mean_img += cv2.resize(temp_img, (width,height), interpolation=cv2.INTER_CUBIC)
+            numbers_img += 1
+            
+    return (mean_img/numbers_img)
 
 def images_to_numpy(images_pot, images_cat, images_tab):
     x = []
@@ -38,8 +65,8 @@ def images_to_numpy_full_class(images):
             true_color_img = cv2.cvtColor(cv2.imread(img),cv2.COLOR_BGR2RGB)
             x.append(cv2.resize(true_color_img, (width,height), interpolation=cv2.INTER_CUBIC))
             y.append(label)
-    x = np.asarray(x)
-    x = np.float16(x)
+   # x = np.asarray(x)
+    #x = np.float16(x)
     return np.asarray(x), np.asarray(y)
 
 def images_import(images_pot, images_cat, images_tab):
