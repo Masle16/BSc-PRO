@@ -144,10 +144,10 @@ def main():
 
     ################## IMPORT IMAGES ##################
 
-    # # Baggrund
-    # path = str(Path('dataset2/images/baggrund/*.jpg').resolve())
-    # background_fil = glob.glob(path)
-    # background_images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in background_fil]
+    # Baggrund
+    path = str(Path('dataset2/images/baggrund/*.jpg').resolve())
+    background_fil = glob.glob(path)
+    background_images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in background_fil]
 
     # # Guleroedder
     # path = str(Path('dataset2/images/carrots/*.jpg'))
@@ -205,7 +205,7 @@ def main():
 
     # # Create average background image and remove unnessary background
     # background_img = run_avg(background_images)
-    # background_img = cv2.bitwise_and(background_img, background_img, mask=mask)
+    # background_img = cv2.bitwise_and(background_img, mask)
 
     # for img in ketchup_images:
     #     show_img(img, 'Input image')
