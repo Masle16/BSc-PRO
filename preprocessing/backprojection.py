@@ -23,7 +23,7 @@ def random_color():
 
     return tuple(rgbl)
 
-def show_img(img, window_name, width=640, height=480, wait_key=False):
+def show_img(img, window_name, width=352, height=240, wait_key=False):
     """ Show image in certain size """
 
     resized = cv2.resize(img,
@@ -38,14 +38,10 @@ def show_img(img, window_name, width=640, height=480, wait_key=False):
     return 0
 
 def backproject(roi_hist, img, background_mask):
-    """
-    returns backprojected image
-    @roi_hist, histogram of region of interest to find
-    @img, image to search in
-    """
+    """ Performs backprojection on img """
 
     # Remove unessesary background
-    _img = cv2.bitwise_and(img, img, mask=background_mask)
+    _img = cv2.bitwise_and(img, background_mask)
     _img = cv2.blur(_img, (5, 5))
 
     # Convert to HSV
@@ -55,20 +51,30 @@ def backproject(roi_hist, img, background_mask):
     mask = cv2.calcBackProject([img_hsv], [0, 1], roi_hist, [0, 180, 0, 256], scale=1)
 
     # Remove noise
-    kernel = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (2, 2))
+    kernel = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (8, 8))
     mask = cv2.filter2D(mask, -1, kernel)
-    _, mask = cv2.threshold(mask, 127, 200, cv2.THRESH_BINARY)
+    show_img(mask, 'Unfiltered')
+
+    _, mask = cv2.threshold(mask, 200, 255, cv2.THRESH_BINARY)
+    show_img(mask, 'Thresh')
+
+    # Opening
+    kernel = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (20, 20))
+    mask = cv2.morphologyEx(mask, cv2.MORPH_OPEN, kernel)
+    show_img(mask, 'Opening')
+
+    # # Closing
+    # kernel = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (15, 15))
+    # mask = cv2.morphologyEx(mask, cv2.MORPH_CLOSE, kernel)
+    # show_img(mask, 'Closing')
 
     mask = cv2.merge((mask, mask, mask))
     result = cv2.bitwise_and(_img, mask)
-    result = cv2.blur(result, (5, 5))
-
-    kernel = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (15, 15))
-    result = cv2.morphologyEx(result, cv2.MORPH_OPEN, kernel)
+    result = cv2.bitwise_and(result, background_mask)
+    show_img(result, 'Result')
 
     # Find contours
     img_gray = cv2.cvtColor(result, cv2.COLOR_BGR2GRAY)
-    show_img(img_gray, 'Back-projection')
 
     _, thresh = cv2.threshold(img_gray, 0, 127, cv2.THRESH_BINARY)
     contours, _ = cv2.findContours(thresh, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
@@ -140,77 +146,78 @@ def main():
 
     ################## IMPORT IMAGES ##################
 
-    # Baggrund
-    path = str(Path('dataset2/images/baggrund/*.jpg').resolve())
-    background_fil = glob.glob(path)
-    background_images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in background_fil]
+    # # Baggrund
+    # path = str(Path('dataset2/images/baggrund/*.jpg').resolve())
+    # background_fil = glob.glob(path)
+    # background_images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in background_fil]
 
-    # Guleroedder
-    path = str(Path('dataset2/images/carrots/*.jpg'))
-    carrot_fil = glob.glob(path)
-    carrot_images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in carrot_fil]
+    # # Guleroedder
+    # path = str(Path('dataset2/images/carrots/*.jpg'))
+    # carrot_fil = glob.glob(path)
+    # carrot_images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in carrot_fil]
 
-    # Kartofler
-    path = str(Path('dataset2/images/potato/*.jpg').resolve())
-    potato_fil = glob.glob(path)
-    potato_images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in potato_fil]
+    # # Kartofler
+    # path = str(Path('dataset2/images/potato/*.jpg').resolve())
+    # potato_fil = glob.glob(path)
+    # potato_images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in potato_fil]
 
     # Kat laks
     path = str(Path('dataset2/images/catfood_salmon/*.jpg').resolve())
     cat_sal_fil = glob.glob(path)
     cat_sal_images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in cat_sal_fil]
 
-    # Kat okse
-    path = str(Path('dataset2/images/catfood_beef/*.jpg').resolve())
-    cat_beef_fil = glob.glob(path)
-    cat_beef_images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in cat_beef_fil]
+    # # Kat okse
+    # path = str(Path('dataset2/images/catfood_beef/*.jpg').resolve())
+    # cat_beef_fil = glob.glob(path)
+    # cat_beef_images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in cat_beef_fil]
 
-    # Boller
-    path = str(Path('dataset2/images/bun/*.jpg').resolve())
-    bun_fil = glob.glob(path)
-    bun_images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in bun_fil]
+    # # Boller
+    # path = str(Path('dataset2/images/bun/*.jpg').resolve())
+    # bun_fil = glob.glob(path)
+    # bun_images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in bun_fil]
 
-    # Arm
-    path = str(Path('dataset2/images/arm/*.jpg').resolve())
-    arm_fil = glob.glob(path)
-    arm_images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in arm_fil]
+    # # Arm
+    # path = str(Path('dataset2/images/arm/*.jpg').resolve())
+    # arm_fil = glob.glob(path)
+    # arm_images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in arm_fil]
 
-    # Ketchup
-    path = str(Path('dataset2/images/kethchup/*.jpg').resolve())
-    ketchup_fil = glob.glob(path)
-    ketchup_images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in ketchup_fil]
+    # # Ketchup
+    # path = str(Path('dataset2/images/kethchup/*.jpg').resolve())
+    # ketchup_fil = glob.glob(path)
+    # ketchup_images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in ketchup_fil]
 
-    # Combine images
-    input_images = (background_images +
-                    carrot_images +
-                    potato_images +
-                    cat_sal_images +
-                    cat_beef_images +
-                    bun_images +
-                    arm_images +
-                    ketchup_images)
+    # # Combine images
+    # input_images = (background_images +
+    #                 carrot_images +
+    #                 potato_images +
+    #                 cat_sal_images +
+    #                 cat_beef_images +
+    #                 bun_images +
+    #                 arm_images +
+    #                 ketchup_images)
 
-    # Shuffle
-    random.shuffle(input_images)
+    # # Shuffle
+    # random.shuffle(input_images)
 
     ################## Back-projection ##################
 
     # Create template histogram (Use template_all.jpg)
-    path = str(Path('preprocessing/template_backprojection/template_all.jpg').resolve())
-    roi_img = cv2.imread(path, cv2.IMREAD_COLOR)
-    roi_img = cv2.blur(roi_img, (5, 5))
-    roi_hsv = cv2.cvtColor(roi_img, cv2.COLOR_BGR2HSV)
-    roi_hist = cv2.calcHist([roi_hsv], [0, 1], None, [180, 256], [0, 180, 0, 256])
-    roi_hist = cv2.normalize(roi_hist, roi_hist, 0, 255, cv2.NORM_MINMAX)
+    path = str(Path('preprocessing/template_backprojection/template.jpg').resolve())
+    template = cv2.imread(path, cv2.IMREAD_COLOR)
+    template = cv2.blur(template, (5, 5))
+    show_img(template, 'Template')
+    template_hsv = cv2.cvtColor(template, cv2.COLOR_BGR2HSV)
+    template_hist = cv2.calcHist([template_hsv], [0, 1], None, [180, 256], [0, 180, 0, 256])
+    template_hist = cv2.normalize(template_hist, template_hist, 0, 255, cv2.NORM_MINMAX)
 
     # Import background mask
     path = str(Path('preprocessing/bgd_mask.jpg').resolve())
-    background_mask = cv2.imread(path, cv2.IMREAD_GRAYSCALE)
+    background_mask = cv2.imread(path, cv2.IMREAD_COLOR)
 
-    for img in input_images:
-        show_img(img, 'Input', wait_key=True)
+    for img in cat_sal_images:
+        show_img(img, 'Input')
 
-        roi, coordinates = backproject(roi_hist, img, background_mask)
+        roi, coordinates = backproject(template_hist, img, background_mask)
 
         (x_left, x_right, y_up, y_down) = roi
         (x, y, width, height) = coordinates
@@ -220,7 +227,7 @@ def main():
                       pt2=(x_right, y_down),
                       color=(255, 0, 0),
                       thickness=3)
-        
+
         cv2.rectangle(img=img,
                       pt1=(x, y),
                       pt2=(x + width, y + height),
