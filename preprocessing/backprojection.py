@@ -39,11 +39,11 @@ def show_img(img, window_name, width=352, height=240, wait_key=False):
 
 def backproject(hist, img, bgd_mask):
     """
-    Performs backprojection on img
-    Returns region of interest (448 x 448) and bounding rect of found contour
-    @hist is the normalized histogram of your template converted to hsv
-    @img is the input image
-    @bgd_mask is the mask to remove unnessary background
+    Performs backprojection on img\n
+    Returns region of interest (448 x 448) and bounding rect of found contour\n
+    @hist is the normalized histogram of your template converted to hsv\n
+    @img is the input image\n
+    @bgd_mask is the mask to remove unnessary background\n
     """
 
     ################# BACK-PROJECTION #################
@@ -113,7 +113,6 @@ def main():
     """ Main function """
 
     ################## IMPORT IMAGES ##################
-
     # # Baggrund
     # path = str(Path('dataset2/images/baggrund/*.jpg').resolve())
     # background_fil = glob.glob(path)
