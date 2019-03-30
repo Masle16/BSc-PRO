@@ -232,12 +232,12 @@ def templ_matching(templ, src):
     @templ is the template to search for\n
     @src is the source image to search in
     """
-
+    # Make private copies
     img = src.copy()
     template = templ.copy()
 
     img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-    img = cv2.blur(img, (5, 5))
+    img = cv2.blur(img, (25, 25))
     height_img, width_img = img.shape[:2]
     img_dim = (int(width_img / DOWNSCALING), int(height_img / DOWNSCALING))
     img = cv2.resize(src=img,
@@ -245,11 +245,15 @@ def templ_matching(templ, src):
                      interpolation=cv2.INTER_CUBIC)
 
     template = cv2.cvtColor(template, cv2.COLOR_BGR2GRAY)
+    template = cv2.blur(template, (5, 5))
     height_t, width_t = template.shape[:2]
     templ_dim = (int(width_t / DOWNSCALING), int(height_t / DOWNSCALING))
     template = cv2.resize(src=template,
                           dsize=templ_dim,
                           interpolation=cv2.INTER_CUBIC)
+
+    cv2.imshow('Input', img)
+    cv2.imshow('Template', template)
 
     matching_space = cv2.matchTemplate(image=img,
                                        templ=template,
@@ -271,8 +275,6 @@ def templ_matching(templ, src):
     y *= DOWNSCALING
     width = templ.shape[1]
     height = templ.shape[0]
-
-    print(value, top_left)
 
     ####### FIND REGION OF INTEREST (448 x 448) #######
     x_ctr = int((x + (x + width)) / 2)
@@ -303,7 +305,7 @@ def templ_matching(templ, src):
         y_up -= margin
 
     # Return region of interest (448 x 448)
-    return (x_left, x_right, y_up, y_down)
+    return value, (x_left, x_right, y_up, y_down)
 
 ####### MAIN FUNCTION #######
 def main():
@@ -377,17 +379,11 @@ def main():
     bgd_mask = cv2.imread(path, cv2.IMREAD_COLOR)
 
     ####### TEMPLATE MATCHING #######
+    text = ['Potato', 'Carrot', 'Cat sal']
+    color = [(255, 0, 0), (0, 255, 0), (0, 0, 255)]
+
     for src in potato_images:
-        src = cv2.bitwise_and(src, bgd_mask)
-
-        show_img(src, 'Input')
-
-        text = ['Potato', 'Carrot', 'Cat sal']
-        color = [(255, 0, 0), (0, 255, 0), (0, 0, 255)]
-
         for i, temp in enumerate(templates):
-            show_img(temp, 'Template')
-
             display = src.copy()
             cv2.putText(img=display,
                         text=text[i],
@@ -398,8 +394,9 @@ def main():
                         thickness=2,
                         lineType=cv2.LINE_AA)
 
-            roi = templ_matching(templ=temp, src=src)
+            value, roi = templ_matching(templ=temp, src=src)
 
+            print(text[i], ':', value)
             (x_left, x_right, y_up, y_down) = roi
 
             cv2.rectangle(img=display,
