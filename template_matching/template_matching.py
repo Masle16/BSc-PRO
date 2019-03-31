@@ -14,14 +14,14 @@ import numpy as np
 ###### GLOBAL VARIABLES ######
 DOWNSCALING = 4
 CLASSES = ['Potato', 'Carrot', 'Cat beef', 'Cat salmon']
-BACKGROUND = 0
-POTATO = 1
-CARROT = 2
-CAT_SAL = 3
-CAT_BEEF = 4
-BUN = 5
-ARM = 6
-KETCHUP = 7
+# BACKGROUND = 0
+POTATO = 0
+CARROT = 1
+CAT_SAL = 2
+CAT_BEEF = 3
+BUN = 4
+# ARM = 5
+KETCHUP = 5
 
 ###### FUNCTIONS ######
 def show_img(img, window_name, width=352, height=240, wait_key=False):
@@ -93,25 +93,27 @@ def findTemplate(category, templ, src):
         @param src the source image to search in
     """
 
-    # Customized setting
-    if category == POTATO:
-        method = cv2.TM_SQDIFF
-    elif category == CARROT:
-        method = cv2.TM_SQDIFF
-    elif category == CAT_SAL:
-        method = cv2.TM_CCOEFF
-    elif category == CAT_BEEF:
-        method = cv2.TM_CCOEFF
-    elif category == ARM:
-        method = cv2.TM_CCORR
-    elif category == KETCHUP:
-        method = cv2.TM_CCOEFF
-    elif category == BUN:
-        method = cv2.TM_SQDIFF
-    elif category == BACKGROUND:
-        method = cv2.TM_SQDIFF
-    else:
-        method = cv2.TM_SQDIFF
+    # # Customized setting
+    # if category == POTATO:
+    #     method = cv2.TM_SQDIFF
+    # elif category == CARROT:
+    #     method = cv2.TM_SQDIFF
+    # elif category == CAT_SAL:
+    #     method = cv2.TM_CCOEFF
+    # elif category == CAT_BEEF:
+    #     method = cv2.TM_CCOEFF
+    # # elif category == ARM:
+    # #     method = cv2.TM_CCORR
+    # elif category == KETCHUP:
+    #     method = cv2.TM_CCOEFF
+    # elif category == BUN:
+    #     method = cv2.TM_SQDIFF
+    # # elif category == BACKGROUND:
+    # #     method = cv2.TM_SQDIFF
+    # else:
+    #     method = cv2.TM_SQDIFF
+
+    method = cv2.TM_SQDIFF_NORMED
 
     # Store rows and cols for template
     rows, cols = templ.shape[:2]
@@ -160,7 +162,7 @@ def findTemplate(category, templ, src):
     width = cols_rotate
     height = rows_rotate
 
-    return (x, y, width, height)
+    return value, (x, y, width, height)
 
 def getRegionOfInterest(category, templ, src):
     """
@@ -187,10 +189,10 @@ def getRegionOfInterest(category, templ, src):
         kernel_img = (10, 10)
         kernel_templ = (5, 5)
         method = cv2.TM_CCORR_NORMED
-    elif category == ARM:
-        kernel_img = (10, 10)
-        kernel_templ = (5, 5)
-        method = cv2.TM_CCOEFF_NORMED
+    # elif category == ARM:
+    #     kernel_img = (10, 10)
+    #     kernel_templ = (5, 5)
+    #     method = cv2.TM_CCOEFF_NORMED
     elif category == KETCHUP:
         kernel_img = (10, 10)
         kernel_templ = (5, 5)
@@ -199,10 +201,10 @@ def getRegionOfInterest(category, templ, src):
         kernel_img = (10, 10)
         kernel_templ = (5, 5)
         method = cv2.TM_SQDIFF
-    elif category == BACKGROUND:
-        kernel_img = (10, 10)
-        kernel_templ = (5, 5)
-        method = cv2.TM_SQDIFF
+    # elif category == BACKGROUND:
+    #     kernel_img = (10, 10)
+    #     kernel_templ = (5, 5)
+    #     method = cv2.TM_SQDIFF
     else:
         kernel_img = (8, 8)
         kernel_templ = (4, 4)
@@ -237,7 +239,7 @@ def getRegionOfInterest(category, templ, src):
     rows, cols = template.shape[:2]
     value = None
 
-    for angle in np.linspace(start=0, stop=360, num=30):
+    for angle in np.linspace(start=0, stop=360, num=10):
         rotation_matrix = cv2.getRotationMatrix2D(center=(cols / 2, rows / 2),
                                                   angle=angle,
                                                   scale=1)
@@ -314,7 +316,8 @@ def calculateDiff(templ, cnt):
     img = cnt.copy()
     template = templ.copy()
 
-    
+    result = cv2.absdiff(src1=img, src2=template)
+    result = np.sum(cv2.sumElems(result)) / result.size
 
     return result
 
@@ -338,13 +341,13 @@ def main():
     ]
 
     path_templates = [
-        str(Path('template_matching/templates/template_background.jpg').resolve()),
+        # str(Path('template_matching/templates/template_background.jpg').resolve()),
         str(Path('template_matching/templates/template_potato.jpg').resolve()),
         str(Path('template_matching/templates/template_carrot.jpg').resolve()),
         str(Path('template_matching/templates/template_cat_sal.jpg').resolve()),
         str(Path('template_matching/templates/template_cat_beef.jpg').resolve()),
         str(Path('template_matching/templates/template_bun.jpg').resolve()),
-        str(Path('template_matching/templates/template_arm.jpg').resolve()),
+        # str(Path('template_matching/templates/template_arm.jpg').resolve()),
         str(Path('template_matching/templates/template_ketchup.jpg').resolve())
     ]
 
@@ -354,61 +357,78 @@ def main():
 
     ####### TEMPLATE MATCHING #######
     text = [
-        'background',
+        # 'background',
         'Potato',
         'Carrot',
         'Cat sal',
         'Cat beef',
         'Bun',
-        'Arm',
+        # 'Arm',
         'Ketchup'
     ]
 
-    for path_img in path_images:
-        images_fil = glob.glob(path_img)
-        images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in images_fil]
+    cnts = []
+    rois = []
+    values = []
 
-        for src in images:
+    images_fil = glob.glob(path_images[4])
+    images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in images_fil]
 
-            for i, path_temp in enumerate(path_templates):
-                template = cv2.imread(path_temp, cv2.IMREAD_COLOR)
+    d = 0
+    for src in images:
 
-                # Make copy for drawing
-                display = src.copy()
+        for i, path_temp in enumerate(path_templates):
+            template = cv2.imread(path_temp, cv2.IMREAD_COLOR)
 
-                # Remove unnessary background
-                src = cv2.bitwise_and(src, bgd_mask)
+            # Remove unnessary background
+            src = cv2.bitwise_and(src, bgd_mask)
 
-                # Get region of interest
-                roi = getRegionOfInterest(category=i,
-                                          templ=template,
-                                          src=src)
-                (x_left, x_right, y_up, y_down) = roi
-                roi = src[y_up : y_down, x_left : x_right]
+            # Get region of interest
+            roi = getRegionOfInterest(category=i,
+                                      templ=template,
+                                      src=src)
+            rois.append(roi)
+            (x_left, x_right, y_up, y_down) = roi
+            roi = src[y_up : y_down, x_left : x_right]
 
-                # Draw found region
-                cv2.rectangle(img=display,
-                              pt1=(x_left, y_up),
-                              pt2=(x_right, y_down),
-                              color=(0, 0, 255),
-                              thickness=4)
+            # Find template in region
+            value, cnt = findTemplate(category=i,
+                                      templ=template,
+                                      src=roi)
+            cnts.append(cnt)
+            (x, y, width, height) = cnt
+            cnt = src[y : y + height, x : x + width]
 
-                # Find template in region
-                cnt = findTemplate(category=i,
-                                   templ=template,
-                                   src=roi)
-                (x, y, width, height) = cnt
+            values.append(value)
 
-                # Draw found contour
-                cv2.rectangle(img=display,
-                              pt1=(x + x_left, y + y_up),
-                              pt2=(x + width + x_left, y + height + y_up),
-                              color=(0, 255, 0),
-                              thickness=4)
+        index = np.argmin(values)
+        (x_left, x_right, y_up, y_down) = rois[index]
+        (x, y, width, height) = cnts[index]
+        cv2.rectangle(img=src,
+                      pt1=(x + x_left, y + y_up),
+                      pt2=(x + width + x_left, y + height + y_up),
+                      color=(0, 255, 0),
+                      thickness=4)
 
-                show_img(display, text[i])
+        cv2.putText(img=src,
+                    text=text[index],
+                    org=(10, 700),
+                    fontFace=cv2.FONT_HERSHEY_SIMPLEX,
+                    fontScale=2,
+                    color=(255, 0, 0),
+                    thickness=2,
+                    lineType=cv2.LINE_AA)
 
-            cv2.waitKey(0)
+        for i, txt in enumerate(text):
+            print(txt, ':', values[i])
+        print('\n____________________\n')
+
+        show_img(src, 'Output', wait_key=True)
+
+        rois.clear()
+        cnts.clear()
+        values.clear()
+        d += 1
 
     cv2.destroyAllWindows()
 
