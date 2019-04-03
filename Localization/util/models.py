@@ -5,7 +5,7 @@ from keras.models import model_from_json
 import numpy as np
 
 
-def cnn_net():
+def cnn_net(out_size=8):
     model = Sequential()
     model.add(Conv2D(32, (3, 3), input_shape=(224, 224, 3)))    # 32
     model.add(Activation('relu'))
@@ -19,7 +19,7 @@ def cnn_net():
     model.add(Dense(32))
     model.add(Activation('relu'))
     model.add(Dropout(0.5))
-    model.add(Dense(8))
+    model.add(Dense(out_size))
     model.add(Activation('softmax'))
 
     model.compile(loss='categorical_crossentropy',

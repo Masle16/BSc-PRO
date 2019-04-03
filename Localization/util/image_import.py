@@ -7,23 +7,26 @@ import numpy as np
 import scipy.misc
 from matplotlib import pyplot as plt
 
-def get_sub_dir(path):
+def get_sub_dir(path, ignore=[]):
     sub_directories = []
     list_sub_dir = listdir(path)
-    
+    # Removes folder which is in ignore
+    for i in ignore:
+        list_sub_dir.remove(i)
+        
     for sub_dir in list_sub_dir:
         sub_directories.append(glob(os.path.join(path + "/" + sub_dir, "*.jpg")))
         
     return sub_directories
 
-def calulate_mean(path_training_img):
+def calulate_mean(path_training_img, ignore=[]):
     width = 224
     height = 224
     mean_img = np.zeros((width, height, 3), dtype="float32")
     numbers_img = 0
-    sub_dirs = get_sub_dir(path_training_img)
     
-    
+    sub_dirs = get_sub_dir(path_training_img, ignore)
+
     for sub in sub_dirs:
         for img in sub:
             temp_img = cv2.cvtColor(cv2.imread(img),cv2.COLOR_BGR2RGB)
@@ -53,21 +56,21 @@ def images_to_numpy(images_pot, images_cat, images_tab):
         y.append(2)
     return np.asarray(x), np.asarray(y)
 
-def images_to_numpy_full_class(images):
+def images_to_numpy_full_class(image_path, ignore=[]):
     x = []
     y = []
     
     width = 224
     height = 224
-    
-    for label, classes in enumerate(images):
+    sub_dirs = get_sub_dir(image_path, ignore)
+    for label, classes in enumerate(sub_dirs):
         for img in classes:
             true_color_img = cv2.cvtColor(cv2.imread(img),cv2.COLOR_BGR2RGB)
             x.append(cv2.resize(true_color_img, (width,height), interpolation=cv2.INTER_CUBIC))
             y.append(label)
-   # x = np.asarray(x)
-    #x = np.float16(x)
-    return np.asarray(x), np.asarray(y)
+    x = np.asarray(x)
+    x = np.float32(x)
+    return x, y
 
 def images_import(images_pot, images_cat, images_tab):
     x = []
