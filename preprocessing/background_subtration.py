@@ -66,7 +66,7 @@ def background_sub(img, bgd, bgd_mask):
     thresh = cv2.morphologyEx(thresh, cv2.MORPH_OPEN, kernel)
 
     kernel = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (30, 30))
-    thresh = cv2.morphologyEx(thresh, cv2.MORPH_CROSS, kernel)
+    thresh = cv2.morphologyEx(thresh, cv2.MORPH_CLOSE, kernel)
 
     thresh = cv2.bitwise_and(thresh, bgd_mask)
 
@@ -122,95 +122,78 @@ def main():
         Show how to use background subtration
     """
 
-    ################## IMPORT IMAGES ##################
-    # # Baggrund
-    # path = str(Path('dataset2/images/baggrund/*.jpg').resolve())
-    # background_fil = glob.glob(path)
-    # background_images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in background_fil]
-
-    # # Guleroedder
-    # path = str(Path('dataset2/images/carrots/*.jpg'))
-    # carrot_fil = glob.glob(path)
-    # carrot_images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in carrot_fil]
-
-    # # Kartofler
-    # path = str(Path('dataset2/images/potato/*.jpg').resolve())
-    # potato_fil = glob.glob(path)
-    # potato_images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in potato_fil]
-
-    # # Kat laks
-    # path = str(Path('dataset2/images/catfood_salmon/*.jpg').resolve())
-    # cat_sal_fil = glob.glob(path)
-    # cat_sal_images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in cat_sal_fil]
-
-    # # Kat okse
-    # path = str(Path('dataset2/images/catfood_beef/*.jpg').resolve())
-    # cat_beef_fil = glob.glob(path)
-    # cat_beef_images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in cat_beef_fil]
-
-    # # Boller
-    # path = str(Path('dataset2/images/bun/*.jpg').resolve())
-    # bun_fil = glob.glob(path)
-    # bun_images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in bun_fil]
-
-    # # Arm
-    # path = str(Path('dataset2/images/arm/*.jpg').resolve())
-    # arm_fil = glob.glob(path)
-    # arm_images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in arm_fil]
-
-    # # Ketchup
-    # path = str(Path('dataset2/images/kethchup/*.jpg').resolve())
-    # ketchup_fil = glob.glob(path)
-    # ketchup_images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in ketchup_fil]
-
-    # # Combine images
-    # input_images = (background_images +
-    #                 carrot_images +
-    #                 potato_images +
-    #                 cat_sal_images +
-    #                 cat_beef_images +
-    #                 bun_images +
-    #                 arm_images +
-    #                 ketchup_images)
-
-    # # Shuffle
-    # random.shuffle(input_images)
+    ####### IMPORT IMAGES #######
+    path_images = [
+        str(Path('dataset3/res_still/test/background/*.jpg').resolve()),
+        str(Path('dataset3/res_still/test/potato/*.jpg').resolve()),
+        str(Path('dataset3/res_still/test/carrots/*.jpg').resolve()),
+        str(Path('dataset3/res_still/test/catfood_salmon/*.jpg').resolve()),
+        str(Path('dataset3/res_still/test/catfood_beef/*.jpg').resolve()),
+        str(Path('dataset3/res_still/test/bun/*.jpg').resolve()),
+        str(Path('dataset3/res_still/test/arm/*.jpg').resolve()),
+        str(Path('dataset3/res_still/test/kethchup/*.jpg').resolve())
+    ]
 
     ################## BACKGROUND SUBTRACTION ##################
-    # # Background mask
-    # path = str(Path('preprocessing/bgd_mask.jpg').resolve())
-    # mask = cv2.imread(path, cv2.IMREAD_GRAYSCALE)
+    # Background mask
+    path = str(Path('preprocessing/bgd_mask.jpg').resolve())
+    mask = cv2.imread(path, cv2.IMREAD_COLOR)
+    mask_gray = cv2.cvtColor(mask, cv2.COLOR_BGR2GRAY)
 
-    # # Create average background image and remove unnessary background
-    # background_img = run_avg(background_images)
-    # background_img = cv2.bitwise_and(background_img, mask)
+    # Create average background image and remove unnessary background
+    images_fil = glob.glob(path_images[0])
+    bgd_images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in images_fil]
+    background_img = run_avg(bgd_images)
+    background_img = cv2.bitwise_and(background_img, mask)
 
-    # for img in ketchup_images:
-    #     show_img(img, 'Input image')
+    num = 0
 
-    #     roi, coordinates = background_sub(img, background_img, mask)
+    for path_img in path_images:
+        images_fil = glob.glob(path_img)
+        images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in images_fil]
 
-    #     (x_left, x_right, y_up, y_down) = roi
-    #     (x, y, width, height) = coordinates
+        for img in images:
+            t1 = cv2.getTickCount()
 
-    #     cv2.rectangle(img=img,
-    #                   pt1=(x_left, y_up),
-    #                   pt2=(x_right, y_down),
-    #                   color=(255, 0, 0),
-    #                   thickness=3)
+            roi, coordinates = background_sub(img, background_img, mask_gray)
 
-    #     cv2.rectangle(img=img,
-    #                   pt1=(x, y),
-    #                   pt2=(x + width, y + height),
-    #                   color=(0, 0, 255),
-    #                   thickness=3)
+            t2 = cv2.getTickCount()
 
-    #     show_img(img, 'Image')
-    #     cv2.waitKey(0)
+            clock_cycles = (t2 - t1)
+            f = open('preprocessing/output_bs/clock_cycles.txt', 'a')
+            txt = str(clock_cycles) + '\n'
+            f.write(txt)
+            f.close()
 
-    # cv2.destroyAllWindows()
+            time = clock_cycles / cv2.getTickFrequency()
+            f = open('preprocessing/output_bs/time.txt', 'a+')
+            txt = str(time) + '\n'
+            f.write(txt)
+            f.close()
+
+            (x_left, x_right, y_up, y_down) = roi
+            (x, y, width, height) = coordinates
+
+            cv2.rectangle(img=img,
+                          pt1=(x_left, y_up),
+                          pt2=(x_right, y_down),
+                          color=(255, 0, 0),
+                          thickness=3)
+
+            cv2.rectangle(img=img,
+                          pt1=(x, y),
+                          pt2=(x + width, y + height),
+                          color=(0, 0, 255),
+                          thickness=3)
+
+            path = str(Path('preprocessing/output_bs/output_' + str(num) + '.jpg').resolve())
+            cv2.imwrite(path, img)
+
+            num += 1
 
     return 0
 
 if __name__ == "__main__":
     main()
+    cv2.destroyAllWindows()
+

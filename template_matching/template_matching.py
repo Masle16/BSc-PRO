@@ -20,8 +20,8 @@ CARROT = 1
 CAT_SAL = 2
 CAT_BEEF = 3
 BUN = 4
-# ARM = 5
-KETCHUP = 5
+ARM = 5
+KETCHUP = 6
 
 ###### FUNCTIONS ######
 def show_img(img, window_name, width=352, height=240, wait_key=False):
@@ -85,6 +85,23 @@ def compareMatchingMetrics(template, src):
 
     return img
 
+def removeBackground(src, bgd_mask):
+    """
+    returns image without unnessary background\n
+        @param src is the input image\n
+        @param bgd_mask is the mask to remove the top corners
+    """
+
+    result = src.copy()
+    hsv = cv2.cvtColor(src, cv2.COLOR_BGR2HSV)
+    lower = (0, 70, 0)
+    upper = (179, 255, 255)
+    mask = cv2.inRange(src=hsv, lowerb=lower, upperb=upper)
+    result = cv2.bitwise_and(result, result, mask=mask)
+    result = cv2.bitwise_and(result, bgd_mask)
+
+    return result
+
 def findTemplate(category, templ, src):
     """
     returns region of found template\n
@@ -113,13 +130,13 @@ def findTemplate(category, templ, src):
     # else:
     #     method = cv2.TM_SQDIFF
 
-    method = cv2.TM_SQDIFF_NORMED
+    method = cv2.TM_CCORR_NORMED
 
     # Store rows and cols for template
     rows, cols = templ.shape[:2]
 
     value = None
-    for angle in np.linspace(start=0, stop=360, num=30):
+    for angle in np.linspace(start=0, stop=360, num=24):
         rotation_matrix = cv2.getRotationMatrix2D(center=(cols / 2, rows / 2),
                                                   angle=angle,
                                                   scale=1)
@@ -140,23 +157,19 @@ def findTemplate(category, templ, src):
                 value = min_val
                 top_left = min_loc
                 rows_rotate, cols_rotate = template_rotate.shape[:2]
-                dst = template_rotate.copy()
             elif value > min_val:
                 value = min_val
                 top_left = min_loc
                 rows_rotate, cols_rotate = template_rotate.shape[:2]
-                dst = template_rotate.copy()
         else:
             if value is None:
                 value = max_val
                 top_left = max_loc
                 rows_rotate, cols_rotate = template_rotate.shape[:2]
-                dst = template_rotate.copy()
             elif value < max_val:
                 value = max_val
                 top_left = max_loc
                 rows_rotate, cols_rotate = template_rotate.shape[:2]
-                dst = template_rotate.copy()
 
     (x, y) = top_left
     width = cols_rotate
@@ -330,14 +343,14 @@ def main():
 
     ####### IMPORT IMAGES #######
     path_images = [
-        str(Path('dataset2/images/baggrund/*.jpg').resolve()),
-        str(Path('dataset2/images/potato/*.jpg').resolve()),
-        str(Path('dataset2/images/carrots/*.jpg').resolve()),
-        str(Path('dataset2/images/catfood_salmon/*.jpg').resolve()),
-        str(Path('dataset2/images/catfood_beef/*.jpg').resolve()),
-        str(Path('dataset2/images/bun/*.jpg').resolve()),
-        str(Path('dataset2/images/arm/*.jpg').resolve()),
-        str(Path('dataset2/images/kethchup/*.jpg').resolve())
+        # str(Path('dataset3/res_still/test/background/*.jpg').resolve()),
+        str(Path('dataset3/res_still/test/potato/*.jpg').resolve()),
+        str(Path('dataset3/res_still/test/carrots/*.jpg').resolve()),
+        str(Path('dataset3/res_still/test/catfood_salmon/*.jpg').resolve()),
+        str(Path('dataset3/res_still/test/catfood_beef/*.jpg').resolve()),
+        str(Path('dataset3/res_still/test/bun/*.jpg').resolve()),
+        str(Path('dataset3/res_still/test/arm/*.jpg').resolve()),
+        str(Path('dataset3/res_still/test/ketchup/*.jpg').resolve())
     ]
 
     path_templates = [
@@ -347,7 +360,7 @@ def main():
         str(Path('template_matching/templates/template_cat_sal.jpg').resolve()),
         str(Path('template_matching/templates/template_cat_beef.jpg').resolve()),
         str(Path('template_matching/templates/template_bun.jpg').resolve()),
-        # str(Path('template_matching/templates/template_arm.jpg').resolve()),
+        str(Path('template_matching/templates/template_arm.jpg').resolve()),
         str(Path('template_matching/templates/template_ketchup.jpg').resolve())
     ]
 
@@ -363,7 +376,7 @@ def main():
         'Cat sal',
         'Cat beef',
         'Bun',
-        # 'Arm',
+        'Arm',
         'Ketchup'
     ]
 
@@ -371,64 +384,81 @@ def main():
     rois = []
     values = []
 
-    images_fil = glob.glob(path_images[4])
-    images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in images_fil]
+    num = 0
+    for path_img in path_images:
 
-    d = 0
-    for src in images:
+        images_fil = glob.glob(path_img)
+        images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in images_fil]
 
-        for i, path_temp in enumerate(path_templates):
-            template = cv2.imread(path_temp, cv2.IMREAD_COLOR)
+        for src in images:
+            t1 = cv2.getTickCount()
 
-            # Remove unnessary background
-            src = cv2.bitwise_and(src, bgd_mask)
+            for i, path_temp in enumerate(path_templates):
+                template = cv2.imread(path_temp, cv2.IMREAD_COLOR)
 
-            # Get region of interest
-            roi = getRegionOfInterest(category=i,
-                                      templ=template,
-                                      src=src)
-            rois.append(roi)
-            (x_left, x_right, y_up, y_down) = roi
-            roi = src[y_up : y_down, x_left : x_right]
+                # # Remove unnessary background
+                img = removeBackground(src, bgd_mask)
 
-            # Find template in region
-            value, cnt = findTemplate(category=i,
-                                      templ=template,
-                                      src=roi)
-            cnts.append(cnt)
-            (x, y, width, height) = cnt
-            cnt = src[y : y + height, x : x + width]
+                # Get region of interest
+                roi = getRegionOfInterest(category=i,
+                                          templ=template,
+                                          src=img)
+                rois.append(roi)
+                (x_left, x_right, y_up, y_down) = roi
+                roi = img[y_up : y_down, x_left : x_right]
 
-            values.append(value)
+                # Find template in region
+                value, cnt = findTemplate(category=i,
+                                          templ=template,
+                                          src=roi)
+                cnts.append(cnt)
+                (x, y, width, height) = cnt
+                cnt = src[y : y + height, x : x + width]
 
-        index = np.argmin(values)
-        (x_left, x_right, y_up, y_down) = rois[index]
-        (x, y, width, height) = cnts[index]
-        cv2.rectangle(img=src,
-                      pt1=(x + x_left, y + y_up),
-                      pt2=(x + width + x_left, y + height + y_up),
-                      color=(0, 255, 0),
-                      thickness=4)
+                values.append(value)
 
-        cv2.putText(img=src,
-                    text=text[index],
-                    org=(10, 700),
-                    fontFace=cv2.FONT_HERSHEY_SIMPLEX,
-                    fontScale=2,
-                    color=(255, 0, 0),
-                    thickness=2,
-                    lineType=cv2.LINE_AA)
+            index = np.argmax(values)
 
-        for i, txt in enumerate(text):
-            print(txt, ':', values[i])
-        print('\n____________________\n')
+            t2 = cv2.getTickCount()
 
-        show_img(src, 'Output', wait_key=True)
+            clock_cycles = (t2 - t1)
+            f = open('template_matching/output_tm/clock_cycles.txt', 'a')
+            txt = str(clock_cycles) + '\n'
+            f.write(txt)
+            f.close()
 
-        rois.clear()
-        cnts.clear()
-        values.clear()
-        d += 1
+            time = clock_cycles / cv2.getTickFrequency()
+            f = open('template_matching/output_tm/time.txt', 'a+')
+            txt = str(time) + '\n'
+            f.write(txt)
+            f.close()
+
+            (x_left, x_right, y_up, y_down) = rois[index]
+            (x, y, width, height) = cnts[index]
+            cv2.rectangle(img=src,
+                          pt1=(x + x_left, y + y_up),
+                          pt2=(x + width + x_left, y + height + y_up),
+                          color=(0, 0, 255),
+                          thickness=3)
+            cv2.putText(img=src,
+                        text=text[index],
+                        org=(0, 700),
+                        fontFace=cv2.FONT_HERSHEY_SIMPLEX,
+                        fontScale=2,
+                        color=(255, 0, 0),
+                        thickness=2,
+                        lineType=cv2.LINE_AA)
+
+            path = str(Path('template_matching/output_tm/output_' + str(num) + '.jpg').resolve())
+            cv2.imwrite(path, src)
+
+            print(num)
+
+            rois.clear()
+            cnts.clear()
+            values.clear()
+
+            num += 1
 
     cv2.destroyAllWindows()
 

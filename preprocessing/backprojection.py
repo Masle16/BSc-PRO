@@ -10,10 +10,9 @@ from pathlib import Path
 import random
 import cv2
 import numpy as np
-# from matplotlib import pyplot as plt
+from matplotlib import pyplot as plt
 
 ###### GLOBAL VARIABLES ######
-NUMBER = 0
 
 ###### FUNCTIONS ######
 def random_color():
@@ -50,7 +49,6 @@ def backproject(hist, img, bgd_mask):
     _img = cv2.blur(img, (5, 5))
     img_hsv = cv2.cvtColor(_img, cv2.COLOR_BGR2HSV)
     mask = cv2.calcBackProject([img_hsv], [0, 1], hist, [0, 180, 0, 256], scale=1)
-    show_img(mask, 'Unfiltered', wait_key=True)
 
     ################# REMOVE NOISE #################
     _, mask = cv2.threshold(mask, 53, 255, cv2.THRESH_BINARY)
@@ -59,7 +57,6 @@ def backproject(hist, img, bgd_mask):
     mask = cv2.merge((mask, mask, mask))
     result = cv2.bitwise_and(_img, mask)
     result = cv2.bitwise_and(result, bgd_mask)
-    show_img(result, 'Result', wait_key=True)
 
     ################# FIND CONTOURS #################
     img_gray = cv2.cvtColor(result, cv2.COLOR_BGR2GRAY)
@@ -112,99 +109,114 @@ def backproject(hist, img, bgd_mask):
 def main():
     """ Main function """
 
-    ################## IMPORT IMAGES ##################
-    # # Baggrund
-    # path = str(Path('dataset2/images/baggrund/*.jpg').resolve())
-    # background_fil = glob.glob(path)
-    # background_images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in background_fil]
-
-    # # Guleroedder
-    # path = str(Path('dataset2/images/carrots/*.jpg'))
-    # carrot_fil = glob.glob(path)
-    # carrot_images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in carrot_fil]
-
-    # # Kartofler
-    # path = str(Path('dataset2/images/potato/*.jpg').resolve())
-    # potato_fil = glob.glob(path)
-    # potato_images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in potato_fil]
-
-    # # Kat laks
-    # path = str(Path('dataset2/images/catfood_salmon/*.jpg').resolve())
-    # cat_sal_fil = glob.glob(path)
-    # cat_sal_images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in cat_sal_fil]
-
-    # # Kat okse
-    # path = str(Path('dataset2/images/catfood_beef/*.jpg').resolve())
-    # cat_beef_fil = glob.glob(path)
-    # cat_beef_images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in cat_beef_fil]
-
-    # # Boller
-    # path = str(Path('dataset2/images/bun/*.jpg').resolve())
-    # bun_fil = glob.glob(path)
-    # bun_images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in bun_fil]
-
-    # # Arm
-    # path = str(Path('dataset2/images/arm/*.jpg').resolve())
-    # arm_fil = glob.glob(path)
-    # arm_images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in arm_fil]
-
-    # Ketchup
-    path = str(Path('dataset2/images/kethchup/*.jpg').resolve())
-    ketchup_fil = glob.glob(path)
-    ketchup_images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in ketchup_fil]
-
-    # # Combine images
-    # input_images = (background_images +
-    #                 carrot_images +
-    #                 potato_images +
-    #                 cat_sal_images +
-    #                 cat_beef_images +
-    #                 bun_images +
-    #                 arm_images +
-    #                 ketchup_images)
-
-    # # Shuffle
-    # random.shuffle(input_images)
+    ####### IMPORT IMAGES #######
+    path_images = [
+        str(Path('dataset3/res_still/test/background/*.jpg').resolve()),
+        str(Path('dataset3/res_still/test/potato/*.jpg').resolve()),
+        str(Path('dataset3/res_still/test/carrots/*.jpg').resolve()),
+        str(Path('dataset3/res_still/test/catfood_salmon/*.jpg').resolve()),
+        str(Path('dataset3/res_still/test/catfood_beef/*.jpg').resolve()),
+        str(Path('dataset3/res_still/test/bun/*.jpg').resolve()),
+        str(Path('dataset3/res_still/test/arm/*.jpg').resolve()),
+        str(Path('dataset3/res_still/test/kethchup/*.jpg').resolve())
+    ]
 
     ################## Back-projection ##################
-    # Create template histogram (Use template_all.jpg)
+    # Create template histogram
     path = str(Path('preprocessing/template.jpg').resolve())
     template = cv2.imread(path, cv2.IMREAD_COLOR)
     template = cv2.blur(template, (5, 5))
-    show_img(template, 'Template')
     template_hsv = cv2.cvtColor(template, cv2.COLOR_BGR2HSV)
-    template_hist = cv2.calcHist([template_hsv], [0, 1], None, [180, 256], [0, 180, 0, 256])
-    template_hist = cv2.normalize(template_hist, template_hist, 0, 255, cv2.NORM_MINMAX)
+    template_hist = cv2.calcHist(images=[template_hsv],
+                                 channels=[0, 1],
+                                 mask=None,
+                                 histSize=[180, 256],
+                                 ranges=[0, 180, 0, 256])
+    cv2.normalize(src=template_hist,
+                  dst=template_hist,
+                  alpha=0,
+                  beta=255,
+                  norm_type=cv2.NORM_MINMAX)
+
+    # # Plot histogram
+    # plt.plot(template_hist)
+    # plt.xlim([0, 179])
+    # plt.xlabel('Pixel values')
+    # plt.ylabel('Intensity')
+    # plt.show()
+
+    # channels = ('Hue', 'Saturation', 'Value')
+    # for i, channel in enumerate(channels):
+    #     if i == 0:
+    #         size = [180]
+    #         length = [0, 180]
+    #     else:
+    #         size = [256]
+    #         length = [0, 256]
+
+    #     hist = cv2.calcHist([template_hsv], [i], None, size, length)
+    #     cv2.normalize(src=hist, dst=hist, alpha=0, beta=1, norm_type=cv2.NORM_MINMAX)
+    #     plt.plot(hist, label=channel)
+    #     plt.xlim([0, 256])
+
+    # plt.xlabel('Pixel values')
+    # plt.ylabel('Intensity')
+    # plt.legend(loc='upper center')
+    # plt.show()
 
     # Import background mask
     path = str(Path('preprocessing/bgd_mask.jpg').resolve())
     mask = cv2.imread(path, cv2.IMREAD_COLOR)
 
-    for img in ketchup_images:
-        show_img(img, 'Input')
+    num = 0
+    for path_img in path_images:
+        images_fil = glob.glob(path_img)
+        images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in images_fil]
 
-        roi, coordinates = backproject(hist=template_hist,
-                                       img=img,
-                                       bgd_mask=mask)
+        for img in images:
+            t1 = cv2.getTickCount()
 
-        (x_left, x_right, y_up, y_down) = roi
-        (x, y, width, height) = coordinates
+            roi, coordinates = backproject(hist=template_hist,
+                                           img=img,
+                                           bgd_mask=mask)
 
-        cv2.rectangle(img=img,
-                      pt1=(x_left, y_up),
-                      pt2=(x_right, y_down),
-                      color=(255, 0, 0),
-                      thickness=3)
+            t2 = cv2.getTickCount()
 
-        cv2.rectangle(img=img,
-                      pt1=(x, y),
-                      pt2=(x + width, y + height),
-                      color=(0, 0, 255),
-                      thickness=3)
+            clock_cycles = (t2 - t1)
+            f = open('preprocessing/output_bp/clock_cycles.txt', 'a')
+            txt = str(clock_cycles) + '\n'
+            f.write(txt)
+            f.close()
 
-        show_img(img, 'Detected area', wait_key=True)
+            time = clock_cycles / cv2.getTickFrequency()
+            f = open('preprocessing/output_bp/time.txt', 'a+')
+            txt = str(time) + '\n'
+            f.write(txt)
+            f.close()
 
-    cv2.destroyAllWindows()
+            (x_left, x_right, y_up, y_down) = roi
+            (x, y, width, height) = coordinates
+
+            cv2.rectangle(img=img,
+                          pt1=(x_left, y_up),
+                          pt2=(x_right, y_down),
+                          color=(255, 0, 0),
+                          thickness=3)
+
+            cv2.rectangle(img=img,
+                          pt1=(x, y),
+                          pt2=(x + width, y + height),
+                          color=(0, 0, 255),
+                          thickness=3)
+
+            path = str(Path('preprocessing/output_bp/output_' + str(num) + '.jpg').resolve())
+            cv2.imwrite(path, img)
+
+            num += 1
+
+    return 0
 
 if __name__ == "__main__":
     main()
+    cv2.destroyAllWindows()
+
