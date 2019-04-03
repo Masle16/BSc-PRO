@@ -13,17 +13,12 @@ import numpy as np
 #from matplotlib import pyplot as plt
 
 ###### GLOBAL VARIABLES ######
-NUMBER = 0
 
-def random_color():
-    """ Generate random color """
-    rgbl = [255, 0, 0]
-    random.shuffle(rgbl)
-
-    return tuple(rgbl)
-
+###### FUNCTIONS ######
 def show_img(img, window_name, width=352, height=240, wait_key=False):
-    """ Show image in certain size """
+    """
+    Show image in certain size
+    """
 
     resized = cv2.resize(img,
                          (width, height),
@@ -36,18 +31,10 @@ def show_img(img, window_name, width=352, height=240, wait_key=False):
 
     return 0
 
-def remove_background(img):
-    """ Returns image with no background, only table """
-
-    # Find background pixels coordinates
-    hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
-    mask = cv2.inRange(hsv, (0, 0, 64), (179, 51, 255))
-    result = cv2.bitwise_and(img, img, mask=mask)
-
-    return mask, result
-
 def run_avg(background_images):
-    """ Returns running average of all images in path folder """
+    """
+    returns running average of all images in path folder
+    """
 
     avg = np.float32(background_images[0])
 
@@ -60,10 +47,10 @@ def run_avg(background_images):
 
 def background_sub(img, bgd, bgd_mask):
     """
-    Performs background subtraction
-    Returns region of interest(448 x 448) and bounding rect of found contour
-    @img is the input image
-    @bgd is the average background
+    Performs background subtraction\n
+    Returns region of interest(448 x 448) and bounding rect of found contour\n
+    @img is the input image\n
+    @bgd is the average background\n
     @bgd_mask is the mask to remove unnessary background
     """
 
@@ -130,7 +117,10 @@ def background_sub(img, bgd, bgd_mask):
     return (x_left, x_right, y_up, y_down), (x, y, width, height)
 
 def main():
-    """ Main function """
+    """
+    Main function\n
+        Show how to use background subtration
+    """
 
     ################## IMPORT IMAGES ##################
     # # Baggrund
