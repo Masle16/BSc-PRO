@@ -56,21 +56,21 @@ def images_to_numpy(images_pot, images_cat, images_tab):
         y.append(2)
     return np.asarray(x), np.asarray(y)
 
-def images_to_numpy_full_class(images):
+def images_to_numpy_full_class(image_path, ignore=[]):
     x = []
     y = []
     
     width = 224
     height = 224
-    
-    for label, classes in enumerate(images):
+    sub_dirs = get_sub_dir(image_path, ignore)
+    for label, classes in enumerate(sub_dirs):
         for img in classes:
             true_color_img = cv2.cvtColor(cv2.imread(img),cv2.COLOR_BGR2RGB)
             x.append(cv2.resize(true_color_img, (width,height), interpolation=cv2.INTER_CUBIC))
             y.append(label)
-   # x = np.asarray(x)
-    #x = np.float16(x)
-    return np.asarray(x), np.asarray(y)
+    x = np.asarray(x)
+    x = np.float32(x)
+    return x, y
 
 def images_import(images_pot, images_cat, images_tab):
     x = []
