@@ -1,0 +1,472 @@
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_06_33_Pro.jpg,638,145,342,432,carrots
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_09_27_Pro.jpg,1041,332,1280,720,carrots
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_13_21_Pro.jpg,797,131,480,302,carrots
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_12_25_Pro.jpg,437,68,111,403,carrots
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_03_25_Pro.jpg,720,191,995,451,carrots
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_06_01_Pro.jpg,615,388,300,623,carrots
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_07_47_Pro.jpg,508,720,880,518,carrots
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190322_10_17_33_Pro.jpg,957,521,1280,155,carrots
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_13_38_Pro.jpg,591,720,908,478,carrots
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_07_20_Pro.jpg,1000,331,712,587,carrots
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_06_17_Pro.jpg,246,401,584,640,carrots
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_06_27_Pro.jpg,995,720,1280,487,carrots
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_07_22_Pro.jpg,842,400,1058,592,carrots
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_05_05_Pro.jpg,642,317,865,647,carrots
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190322_10_17_32_Pro.jpg,925,531,1172,205,carrots
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_13_06_Pro.jpg,828,276,1140,480,carrots
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_07_24_Pro.jpg,846,389,1066,598,carrots
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_13_28_Pro.jpg,899,269,1243,483,carrots
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_13_44_Pro.jpg,593,0,903,177,carrots
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_10_18_Pro.jpg,968,431,1278,719,carrots
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_11_35_Pro.jpg,933,340,1211,531,carrots
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_12_13_Pro.jpg,1216,20,918,277,carrots
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190322_10_17_01_Pro.jpg,353,418,629,53,carrots
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_07_07_Pro.jpg,165,194,389,486,carrots
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190322_10_17_57_Pro.jpg,815,560,528,203,carrots
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_05_48_Pro.jpg,380,720,643,395,carrots
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190322_10_17_18_Pro.jpg,271,503,567,146,carrots
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_08_55_Pro.jpg,592,108,816,426,carrots
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_14_18_Pro.jpg,716,264,341,450,carrots
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_08_12_Pro.jpg,811,181,1154,421,carrots
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_14_04_Pro.jpg,108,228,400,448,carrots
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_12_15_Pro.jpg,881,152,636,383,carrots
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190322_10_15_34_Pro.jpg,375,375,629,30,carrots
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190322_10_15_26_Pro.jpg,1037,192,1280,0,carrots
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190322_10_17_12_Pro.jpg,87,622,471,288,carrots
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_12_35_Pro.jpg,213,720,495,553,carrots
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_07_30_Pro.jpg,319,284,626,523,carrots
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_11_48_Pro.jpg,890,237,609,568,carrots
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_08_52_Pro.jpg,839,372,535,634,carrots
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_13_36_Pro.jpg,930,720,1249,564,carrots
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_09_22_Pro.jpg,683,636,1026,389,carrots
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_03_22_Pro.jpg,563,402,834,114,carrots
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_05_29_Pro.jpg,821,157,514,387,carrots
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_13_32_Pro.jpg,856,511,1163,179,carrots
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190322_10_17_47_Pro.jpg,316,540,668,236,carrots
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_14_01_Pro.jpg,533,407,283,115,carrots
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_09_47_Pro.jpg,0,629,225,254,carrots
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_05_50_Pro.jpg,563,292,236,642,carrots
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_13_08_Pro.jpg,836,293,1143,521,carrots
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_13_23_Pro.jpg,781,31,497,263,carrots
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_08_43_Pro.jpg,907,492,561,650,carrots
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_08_35_Pro.jpg,999,720,1194,549,carrots
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190322_10_17_28_Pro.jpg,873,666,1223,371,carrots
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_07_26_Pro.jpg,938,227,1253,444,carrots
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_09_54_Pro.jpg,361,191,618,570,carrots
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_05_36_Pro.jpg,494,612,842,300,carrots
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_09_33_Pro.jpg,504,1,842,241,carrots
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190322_10_17_19_Pro.jpg,399,602,763,234,carrots
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190322_10_16_53_Pro.jpg,635,409,1043,72,carrots
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_40_57_Pro.jpg,400,515,595,270,ketchup
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_44_15_Pro.jpg,209,389,422,618,ketchup
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_10_07_36_Pro.jpg,543,170,645,54,ketchup
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_10_10_09_Pro.jpg,763,272,862,0,ketchup
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_39_19_Pro.jpg,402,603,515,479,ketchup
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_39_27_Pro.jpg,543,417,645,319,ketchup
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_37_02_Pro.jpg,986,492,1155,377,ketchup
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_40_40_Pro.jpg,460,532,568,266,ketchup
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_43_22_Pro.jpg,1078,530,1218,253,ketchup
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_40_57_Pro (2).jpg,401,516,595,269,ketchup
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_41_46_Pro.jpg,0,462,259,343,ketchup
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_45_33_Pro.jpg,861,322,1123,103,ketchup
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_10_09_08_Pro.jpg,740,552,1012,378,ketchup
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_38_38_Pro.jpg,600,382,704,299,ketchup
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_39_54_Pro.jpg,472,241,705,14,ketchup
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_10_09_48_Pro.jpg,875,637,603,528,ketchup
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_10_09_35_Pro.jpg,499,426,752,604,ketchup
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_37_50_Pro.jpg,77,229,239,115,ketchup
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_38_43_Pro.jpg,809,305,939,203,ketchup
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_41_48_Pro.jpg,22,618,257,391,ketchup
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_38_05_Pro.jpg,647,165,729,45,ketchup
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_10_09_14_Pro.jpg,20,399,301,252,ketchup
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_43_44_Pro.jpg,269,719,410,467,ketchup
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_10_10_40_Pro.jpg,517,416,783,321,ketchup
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_39_24_Pro.jpg,525,458,625,375,ketchup
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_39_31_Pro.jpg,811,277,940,175,ketchup
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_38_15_Pro.jpg,998,327,1158,220,ketchup
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_10_09_12_Pro.jpg,274,55,444,323,ketchup
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_43_47_Pro.jpg,24,584,297,448,ketchup
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_45_26_Pro.jpg,96,344,339,118,ketchup
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_43_52_Pro.jpg,91,307,274,48,ketchup
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_10_10_00_Pro.jpg,281,233,438,0,ketchup
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_43_01_Pro.jpg,126,319,398,138,ketchup
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_37_14_Pro.jpg,721,622,821,497,ketchup
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_42_13_Pro.jpg,546,533,817,413,ketchup
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_37_54_Pro.jpg,239,213,380,112,ketchup
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_41_23_Pro.jpg,689,666,963,548,ketchup
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_42_18_Pro.jpg,1082,457,1280,302,ketchup
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_44_27_Pro.jpg,924,568,1176,345,ketchup
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_42_28_Pro.jpg,930,584,1058,310,ketchup
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_38_23_Pro.jpg,945,504,1099,412,ketchup
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_44_17_Pro.jpg,360,573,623,476,ketchup
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_10_08_15_Pro.jpg,182,386,327,309,ketchup
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_37_21_Pro.jpg,518,671,610,540,ketchup
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_45_02_Pro.jpg,521,550,796,410,ketchup
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_42_54_Pro.jpg,634,481,782,208,ketchup
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_45_41_Pro.jpg,804,574,1015,317,ketchup
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_43_18_Pro.jpg,855,394,1120,182,ketchup
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_40_36_Pro.jpg,847,520,1019,255,ketchup
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_10_08_10_Pro.jpg,525,221,603,109,ketchup
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_10_09_24_Pro.jpg,633,339,741,611,ketchup
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_37_24_Pro.jpg,418,688,515,553,ketchup
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_42_34_Pro.jpg,623,359,853,124,ketchup
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_46_01_Pro.jpg,271,235,420,505,ketchup
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_38_45_Pro.jpg,899,368,1052,274,ketchup
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_10_10_15_Pro.jpg,791,689,1035,478,ketchup
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_38_56_Pro.jpg,159,600,312,478,ketchup
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_37_27_Pro.jpg,331,704,449,573,ketchup
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_10_10_04_Pro.jpg,112,304,319,49,ketchup
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_41_03_Pro.jpg,719,183,977,0,ketchup
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_44_37_Pro.jpg,620,262,853,24,ketchup
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_39_10_Pro.jpg,456,298,571,192,ketchup
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_40_51_Pro.jpg,743,230,1012,47,ketchup
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_10_09_20_Pro.jpg,810,522,544,426,ketchup
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_41_08_Pro.jpg,1063,535,1280,379,ketchup
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_39_08_Pro.jpg,479,171,594,56,ketchup
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_29_11_Pro (2).jpg,600,1,828,266,arm
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_26_36_Pro.jpg,447,407,617,0,arm
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_28_54_Pro (3).jpg,936,306,1056,0,arm
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_27_18_Pro.jpg,0,440,220,21,arm
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_29_55_Pro.jpg,607,373,866,0,arm
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_27_03_Pro (3).jpg,0,720,371,625,arm
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_29_07_Pro (2).jpg,639,274,831,0,arm
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_26_43_Pro (3).jpg,722,578,923,0,arm
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_29_10_Pro.jpg,502,0,764,424,arm
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_29_04_Pro (2).jpg,174,241,524,0,arm
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_29_48_Pro (3).jpg,556,296,868,0,arm
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_28_21_Pro.jpg,940,447,1280,0,arm
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_27_52_Pro.jpg,602,326,881,0,arm
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_27_58_Pro (2).jpg,282,421,477,0,arm
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_29_09_Pro (2).jpg,731,488,965,0,arm
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_26_41_Pro.jpg,0,448,288,0,arm
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_28_59_Pro.jpg,331,421,463,0,arm
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_29_48_Pro (2).jpg,679,271,964,0,arm
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_27_27_Pro (2).jpg,325,440,532,0,arm
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_27_02_Pro.jpg,0,652,346,518,arm
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_29_58_Pro (3).jpg,983,336,1219,0,arm
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_29_58_Pro (2).jpg,1121,340,1280,0,arm
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_28_19_Pro.jpg,866,375,1280,0,arm
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_29_00_Pro.jpg,155,345,341,0,arm
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_29_50_Pro (2).jpg,619,348,901,0,arm
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_27_43_Pro (2).jpg,159,176,505,0,arm
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_29_57_Pro.jpg,744,506,957,0,arm
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_29_27_Pro (2).jpg,642,502,921,0,arm
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_29_17_Pro.jpg,0,420,338,0,arm
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_26_50_Pro (2).jpg,181,391,457,0,arm
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_27_54_Pro (2).jpg,509,181,676,0,arm
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_29_51_Pro.jpg,920,365,1165,0,arm
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_29_04_Pro.jpg,443,375,733,0,arm
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_27_20_Pro.jpg,630,292,856,0,arm
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_26_41_Pro (2).jpg,77,490,282,0,arm
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_29_46_Pro.jpg,944,420,1280,0,arm
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_27_06_Pro (2).jpg,0,592,427,362,arm
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_27_12_Pro (2).jpg,0,673,68,560,arm
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_29_20_Pro.jpg,630,360,861,0,arm
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_26_47_Pro.jpg,570,367,841,0,arm
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_28_12_Pro (2).jpg,0,457,286,308,arm
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_29_03_Pro (3).jpg,568,341,851,0,arm
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_29_53_Pro.jpg,448,306,794,0,arm
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_29_18_Pro.jpg,215,575,414,0,arm
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_28_57_Pro (2).jpg,540,0,779,298,arm
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_27_17_Pro.jpg,0,446,334,30,arm
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_26_44_Pro (3).jpg,943,377,1224,0,arm
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_27_50_Pro.jpg,346,415,544,0,arm
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_28_55_Pro (2).jpg,1051,0,1166,292,arm
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_28_11_Pro (2).jpg,0,617,274,469,arm
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_28_21_Pro (2).jpg,1000,525,1280,156,arm
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_29_13_Pro (3).jpg,308,420,510,0,arm
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_28_54_Pro (2).jpg,839,298,1004,0,arm
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_27_37_Pro.jpg,142,561,393,0,arm
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_27_39_Pro (2).jpg,340,158,521,0,arm
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_28_58_Pro (2).jpg,424,384,562,0,arm
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_27_12_Pro.jpg,0,693,198,556,arm
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_26_49_Pro (3).jpg,0,546,236,0,arm
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_26_52_Pro (2).jpg,683,327,1096,0,arm
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_27_28_Pro (2).jpg,715,528,987,0,arm
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_10_13_03_Pro.jpg,792,462,1139,102,bun
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_24_11_Pro.jpg,674,548,936,153,bun
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_22_08_Pro.jpg,419,559,786,204,bun
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_30_25_Pro.jpg,796,720,1169,488,bun
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_31_30_Pro.jpg,294,634,651,332,bun
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_23_18_Pro.jpg,443,249,814,0,bun
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_28_42_Pro.jpg,492,720,862,393,bun
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_24_33_Pro.jpg,109,187,509,0,bun
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_21_12_Pro.jpg,458,502,790,131,bun
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_10_11_44_Pro.jpg,554,425,905,100,bun
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_10_12_14_Pro.jpg,0,385,339,77,bun
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_30_59_Pro.jpg,30,494,390,274,bun
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_10_12_29_Pro.jpg,693,342,1051,11,bun
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_30_34_Pro.jpg,985,535,1280,297,bun
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_25_38_Pro.jpg,587,402,951,35,bun
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_28_22_Pro.jpg,452,420,838,109,bun
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_26_41_Pro.jpg,519,670,782,312,bun
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_10_13_44_Pro.jpg,348,355,698,153,bun
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_10_13_24_Pro.jpg,375,456,743,252,bun
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_10_11_38_Pro.jpg,711,156,478,512,bun
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_31_46_Pro.jpg,631,521,259,245,bun
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_23_03_Pro.jpg,748,80,1064,480,bun
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_24_09_Pro.jpg,1119,560,736,217,bun
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_25_01_Pro.jpg,407,720,759,488,bun
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_32_33_Pro.jpg,851,0,1167,367,bun
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_29_47_Pro.jpg,210,237,6,595,bun
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_28_47_Pro.jpg,672,447,297,101,bun
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_10_13_04_Pro.jpg,895,501,1183,130,bun
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_31_25_Pro.jpg,534,659,795,305,bun
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_10_12_41_Pro.jpg,223,603,565,259,bun
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_10_13_13_Pro.jpg,441,655,755,312,bun
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_26_58_Pro.jpg,582,399,968,96,bun
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_10_12_47_Pro.jpg,223,375,535,44,bun
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_29_01_Pro.jpg,129,316,495,0,bun
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_10_11_52_Pro.jpg,662,666,868,309,bun
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_23_21_Pro.jpg,266,303,489,0,bun
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_25_21_Pro.jpg,401,543,635,180,bun
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_26_59_Pro.jpg,710,395,1091,156,bun
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_30_43_Pro.jpg,853,232,1215,0,bun
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_28_18_Pro.jpg,372,404,640,26,bun
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_29_39_Pro.jpg,335,198,529,540,bun
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_26_07_Pro.jpg,256,651,607,293,bun
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_23_35_Pro.jpg,399,457,763,154,bun
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_27_04_Pro.jpg,879,638,1148,257,bun
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_24_50_Pro.jpg,87,720,447,548,bun
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_23_49_Pro.jpg,248,609,600,293,bun
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_25_29_Pro.jpg,290,567,578,205,bun
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_27_35_Pro.jpg,344,720,615,414,bun
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_30_22_Pro.jpg,804,662,1180,396,bun
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_23_28_Pro.jpg,102,720,455,406,bun
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_29_09_Pro.jpg,897,17,1171,393,bun
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_31_41_Pro.jpg,56,536,425,260,bun
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_10_12_11_Pro.jpg,261,189,580,0,bun
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_10_12_18_Pro.jpg,342,436,606,105,bun
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_31_04_Pro.jpg,232,666,492,320,bun
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_10_12_04_Pro.jpg,505,136,813,505,bun
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_22_50_Pro.jpg,404,579,768,309,bun
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_28_17_Pro.jpg,327,413,692,102,bun
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_10_13_27_Pro.jpg,148,375,488,57,bun
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_31_48_Pro.jpg,390,487,746,153,bun
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_32_29_Pro.jpg,835,720,1077,409,bun
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_22_44_Pro.jpg,327,390,671,18,bun
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_24_17_Pro.jpg,595,257,284,629,bun
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_10_12_20_Pro.jpg,462,452,792,173,bun
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_25_50_Pro.jpg,723,669,1118,335,bun
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_10_12_52_Pro.jpg,109,550,331,206,bun
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_10_13_09_Pro.jpg,654,489,952,125,bun
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190131_11_35_57_Pro.jpg,1172,309,1279,181,catfood_beef
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190131_11_34_01_Pro.jpg,229,335,333,257,catfood_beef
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190322_10_25_45_Pro.jpg,249,192,351,100,catfood_beef
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190322_10_21_10_Pro.jpg,313,502,409,416,catfood_beef
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190131_11_34_45_Pro.jpg,105,403,217,281,catfood_beef
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190131_11_33_00_Pro.jpg,907,414,1010,333,catfood_beef
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190322_10_23_36_Pro.jpg,187,343,291,417,catfood_beef
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190131_11_35_08_Pro.jpg,808,619,902,522,catfood_beef
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190322_10_23_15_Pro.jpg,484,498,584,374,catfood_beef
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190322_10_19_35_Pro.jpg,897,487,1003,396,catfood_beef
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190322_10_25_53_Pro.jpg,560,182,640,89,catfood_beef
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190322_10_23_10_Pro (2).jpg,224,585,331,459,catfood_beef
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190322_10_21_37_Pro (2).jpg,591,284,706,203,catfood_beef
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190131_11_34_56_Pro.jpg,560,590,639,498,catfood_beef
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190322_10_25_19_Pro.jpg,816,491,912,402,catfood_beef
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190322_10_23_11_Pro.jpg,397,526,502,404,catfood_beef
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190322_10_19_39_Pro.jpg,627,221,708,132,catfood_beef
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190131_11_36_45_Pro.jpg,1007,575,1121,480,catfood_beef
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190322_10_23_38_Pro.jpg,301,401,398,323,catfood_beef
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190131_11_33_50_Pro.jpg,976,213,1088,119,catfood_beef
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190131_11_32_50_Pro.jpg,968,609,1078,511,catfood_beef
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190131_11_31_34_Pro.jpg,251,205,355,115,catfood_beef
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190131_11_34_33_Pro.jpg,102,524,215,438,catfood_beef
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190131_11_34_31_Pro.jpg,90,536,203,450,catfood_beef
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190322_10_20_16_Pro.jpg,337,135,435,37,catfood_beef
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190322_10_24_47_Pro.jpg,74,641,195,512,catfood_beef
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190131_11_34_05_Pro.jpg,126,294,239,211,catfood_beef
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190322_10_25_07_Pro.jpg,671,165,755,249,catfood_beef
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190322_10_20_49_Pro.jpg,956,720,1066,637,catfood_beef
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190131_11_36_25_Pro.jpg,695,237,810,160,catfood_beef
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190131_11_36_47_Pro.jpg,997,583,1109,488,catfood_beef
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190131_11_32_33_Pro.jpg,1198,166,1079,71,catfood_beef
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190322_10_23_00_Pro.jpg,438,555,530,432,catfood_beef
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190131_11_32_09_Pro.jpg,997,458,894,372,catfood_beef
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190322_10_25_46_Pro.jpg,463,252,544,167,catfood_beef
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190131_11_34_23_Pro.jpg,394,448,483,369,catfood_beef
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190131_11_33_03_Pro.jpg,906,415,1012,331,catfood_beef
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190131_11_31_46_Pro.jpg,50,304,168,220,catfood_beef
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190322_10_23_54_Pro.jpg,258,544,356,456,catfood_beef
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190131_11_32_26_Pro.jpg,1191,170,1069,72,catfood_beef
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190131_11_33_30_Pro.jpg,993,344,1108,256,catfood_beef
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190322_10_23_42_Pro.jpg,207,263,314,177,catfood_beef
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190131_11_33_45_Pro.jpg,976,212,1087,118,catfood_beef
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190322_10_21_28_Pro.jpg,1180,482,1280,359,catfood_beef
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190322_10_25_38_Pro.jpg,817,117,916,15,catfood_beef
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190131_11_36_27_Pro.jpg,493,421,575,340,catfood_beef
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190131_11_31_31_Pro.jpg,279,180,380,87,catfood_beef
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190131_11_35_30_Pro.jpg,1032,232,1140,103,catfood_beef
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190131_11_36_33_Pro.jpg,290,367,388,290,catfood_beef
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190322_10_22_35_Pro.jpg,490,358,569,433,catfood_beef
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190131_11_32_35_Pro.jpg,1186,166,1068,70,catfood_beef
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190322_10_25_25_Pro.jpg,631,81,711,171,catfood_beef
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190322_10_22_59_Pro.jpg,741,493,837,367,catfood_beef
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190322_10_23_25_Pro (2).jpg,26,356,115,243,catfood_beef
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190131_11_31_59_Pro.jpg,717,407,597,276,catfood_beef
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190322_10_21_38_Pro.jpg,597,471,714,387,catfood_beef
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190322_10_23_14_Pro.jpg,756,392,865,264,catfood_beef
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190322_10_20_35_Pro.jpg,767,85,865,0,catfood_beef
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190322_10_25_21_Pro.jpg,639,357,716,435,catfood_beef
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/potato/WIN_20190322_09_54_58_Pro.jpg,111,479,464,162,potato
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/potato/WIN_20190131_11_16_54_Pro.jpg,1278,631,1072,274,potato
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/potato/WIN_20190131_11_24_44_Pro.jpg,609,717,917,383,potato
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/potato/WIN_20190131_11_24_09_Pro.jpg,275,650,1,433,potato
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/potato/WIN_20190322_09_55_34_Pro.jpg,353,682,722,334,potato
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/potato/WIN_20190131_11_17_34_Pro.jpg,829,718,1211,443,potato
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/potato/WIN_20190131_11_16_25_Pro.jpg,261,720,577,465,potato
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/potato/WIN_20190131_11_23_05_Pro.jpg,426,138,732,337,potato
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/potato/WIN_20190131_11_16_17_Pro.jpg,304,706,0,365,potato
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/potato/WIN_20190322_09_57_07_Pro.jpg,404,277,715,78,potato
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/potato/WIN_20190131_11_17_37_Pro.jpg,687,630,1012,286,potato
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/potato/WIN_20190322_09_56_04_Pro.jpg,347,687,604,363,potato
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/potato/WIN_20190131_11_15_58_Pro.jpg,415,347,117,635,potato
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/potato/WIN_20190131_11_15_50_Pro.jpg,936,411,649,84,potato
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/potato/WIN_20190131_11_19_54_Pro.jpg,845,99,1186,453,potato
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/potato/WIN_20190131_11_15_47_Pro.jpg,850,240,538,575,potato
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/potato/WIN_20190322_09_57_13_Pro.jpg,813,475,1031,160,potato
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/potato/WIN_20190131_11_20_29_Pro.jpg,336,718,601,508,potato
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/potato/WIN_20190131_11_15_59_Pro.jpg,158,175,482,494,potato
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/potato/WIN_20190131_11_18_29_Pro.jpg,739,383,1110,720,potato
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/potato/WIN_20190131_11_15_28_Pro.jpg,944,719,1178,572,potato
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/potato/WIN_20190131_11_17_47_Pro.jpg,205,629,2,321,potato
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/potato/WIN_20190322_09_55_09_Pro.jpg,497,609,878,218,potato
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/potato/WIN_20190131_11_18_25_Pro.jpg,835,219,1234,601,potato
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/potato/WIN_20190131_11_22_44_Pro.jpg,770,118,1149,499,potato
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/potato/WIN_20190131_11_22_00_Pro.jpg,742,699,1014,445,potato
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/potato/WIN_20190322_09_57_01_Pro.jpg,73,512,335,259,potato
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/potato/WIN_20190131_11_17_56_Pro.jpg,902,2,606,270,potato
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/potato/WIN_20190322_09_56_18_Pro.jpg,728,651,1047,387,potato
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/potato/WIN_20190131_11_23_21_Pro.jpg,82,434,461,719,potato
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/potato/WIN_20190322_09_55_32_Pro.jpg,468,719,835,347,potato
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/potato/WIN_20190131_11_23_31_Pro.jpg,636,415,919,607,potato
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/potato/WIN_20190131_11_16_05_Pro.jpg,380,256,696,609,potato
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/potato/WIN_20190322_09_54_24_Pro.jpg,616,462,1010,79,potato
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/potato/WIN_20190131_11_19_18_Pro.jpg,167,719,448,501,potato
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/potato/WIN_20190131_11_21_26_Pro.jpg,420,596,698,297,potato
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/potato/WIN_20190322_09_54_29_Pro.jpg,748,522,1128,130,potato
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/potato/WIN_20190131_11_15_52_Pro.jpg,807,11,473,308,potato
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/potato/WIN_20190131_11_20_57_Pro.jpg,668,374,1005,46,potato
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/potato/WIN_20190131_11_19_08_Pro.jpg,225,286,0,596,potato
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/potato/WIN_20190131_11_17_15_Pro.jpg,723,364,358,699,potato
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/potato/WIN_20190322_09_54_59_Pro.jpg,34,547,374,178,potato
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/potato/WIN_20190131_11_19_47_Pro.jpg,826,64,1164,393,potato
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/potato/WIN_20190131_11_16_00_Pro.jpg,255,61,592,391,potato
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/potato/WIN_20190131_11_18_48_Pro.jpg,969,277,1280,669,potato
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/potato/WIN_20190322_09_56_02_Pro.jpg,371,699,751,340,potato
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/potato/WIN_20190322_09_53_55_Pro.jpg,99,719,385,411,potato
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/potato/WIN_20190131_11_15_55_Pro.jpg,609,373,326,54,potato
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/potato/WIN_20190131_11_16_27_Pro.jpg,464,392,717,666,potato
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/potato/WIN_20190131_11_15_20_Pro.jpg,758,434,983,130,potato
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/potato/WIN_20190322_09_53_17_Pro.jpg,621,53,284,419,potato
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/potato/WIN_20190322_09_56_33_Pro.jpg,560,377,773,91,potato
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/potato/WIN_20190131_11_23_56_Pro.jpg,357,185,547,487,potato
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/potato/WIN_20190322_09_57_03_Pro.jpg,219,410,421,104,potato
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/potato/WIN_20190131_11_18_20_Pro.jpg,541,719,884,520,potato
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/potato/WIN_20190131_11_16_30_Pro.jpg,612,469,937,719,potato
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/potato/WIN_20190131_11_20_02_Pro.jpg,454,383,770,36,potato
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/potato/WIN_20190131_11_21_23_Pro.jpg,104,718,380,474,potato
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/potato/WIN_20190131_11_16_10_Pro.jpg,197,292,0,576,potato
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/potato/WIN_20190322_09_54_04_Pro.jpg,356,0,747,379,potato
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/background/WIN_20190131_11_02_31_Pro (2).jpg,170,402,205,310,background
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/background/WIN_20190131_10_32_45_Pro.jpg,506,423,562,368,background
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/background/WIN_20190131_11_02_13_Pro.jpg,177,290,218,257,background
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/background/WIN_20190131_10_31_56_Pro (3).jpg,404,420,592,314,background
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/background/WIN_20190131_10_32_16_Pro (2).jpg,528,499,594,418,background
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/background/WIN_20190131_10_31_54_Pro (2).jpg,201,319,261,273,background
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/background/WIN_20190131_11_02_07_Pro (2).jpg,220,301,246,266,background
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/background/WIN_20190131_10_31_36_Pro.jpg,118,299,150,276,background
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/background/WIN_20190131_11_02_09_Pro (2).jpg,192,295,254,259,background
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/background/WIN_20190131_10_31_47_Pro (2).jpg,189,308,242,261,background
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/background/WIN_20190131_11_02_37_Pro (2).jpg,584,391,516,441,background
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/background/WIN_20190131_11_02_32_Pro (2).jpg,179,306,250,242,background
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/background/WIN_20190131_10_32_39_Pro.jpg,509,414,559,374,background
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/background/WIN_20190131_10_32_11_Pro.jpg,314,451,454,343,background
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/background/WIN_20190131_10_31_43_Pro.jpg,208,312,260,267,background
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/background/WIN_20190131_10_32_03_Pro.jpg,282,334,357,247,background
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/background/WIN_20190131_11_02_43_Pro (2).jpg,538,385,458,435,background
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/background/WIN_20190131_10_32_21_Pro.jpg,594,404,494,500,background
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/background/WIN_20190131_10_31_46_Pro.jpg,184,286,216,255,background
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/background/WIN_20190131_11_02_35_Pro (2).jpg,515,368,471,398,background
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/background/WIN_20190131_10_32_02_Pro (2).jpg,251,322,357,214,background
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/background/WIN_20190131_11_02_37_Pro.jpg,470,440,582,368,background
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/background/WIN_20190131_11_02_24_Pro (2).jpg,205,375,345,285,background
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/background/WIN_20190131_10_32_07_Pro.jpg,500,349,575,261,background
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/background/WIN_20190131_11_02_04_Pro (2).jpg,563,397,516,425,background
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/background/WIN_20190131_10_31_40_Pro.jpg,204,320,252,266,background
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/background/WIN_20190131_10_32_40_Pro.jpg,560,368,505,416,background
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/background/WIN_20190131_10_31_55_Pro.jpg,495,314,404,404,background
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/background/WIN_20190131_11_02_10_Pro.jpg,172,276,215,222,background
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/background/WIN_20190131_10_32_14_Pro.jpg,591,263,688,176,background
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/background/WIN_20190131_10_32_06_Pro (3).jpg,386,360,477,280,background
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/background/WIN_20190131_11_02_10_Pro (2).jpg,182,299,224,254,background
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/background/WIN_20190131_10_31_42_Pro.jpg,186,299,241,241,background
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/background/WIN_20190131_11_02_39_Pro (2).jpg,515,365,465,391,background
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/background/WIN_20190131_11_02_06_Pro (2).jpg,213,304,251,272,background
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/background/WIN_20190131_10_32_12_Pro.jpg,303,524,426,408,background
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/background/WIN_20190131_10_32_02_Pro.jpg,593,373,510,420,background
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/background/WIN_20190131_11_02_32_Pro.jpg,133,283,167,235,background
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/background/WIN_20190131_10_32_15_Pro (2).jpg,468,416,536,285,background
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/background/WIN_20190131_11_02_16_Pro.jpg,269,190,350,156,background
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190131_11_26_46_Pro.jpg,203,174,313,81,catfood_salmon
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190322_09_10_19_Pro.jpg,568,1,646,84,catfood_salmon
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190322_10_04_40_Pro.jpg,193,650,298,553,catfood_salmon
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190322_10_05_10_Pro.jpg,411,155,501,60,catfood_salmon
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190131_11_27_22_Pro.jpg,487,382,611,287,catfood_salmon
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190322_10_02_58_Pro.jpg,63,409,185,324,catfood_salmon
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190322_10_04_42_Pro.jpg,319,497,414,413,catfood_salmon
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190131_11_29_34_Pro.jpg,615,173,694,80,catfood_salmon
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190322_09_14_14_Pro.jpg,601,200,680,276,catfood_salmon
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190322_09_12_53_Pro.jpg,844,542,945,449,catfood_salmon
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190131_11_28_39_Pro.jpg,701,644,785,547,catfood_salmon
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190322_10_03_07_Pro.jpg,38,320,158,238,catfood_salmon
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190131_11_30_22_Pro.jpg,839,385,936,302,catfood_salmon
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190131_11_29_09_Pro.jpg,468,311,552,234,catfood_salmon
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190131_11_29_32_Pro.jpg,576,116,656,17,catfood_salmon
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190322_10_05_41_Pro.jpg,956,226,1068,134,catfood_salmon
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190131_11_27_06_Pro.jpg,565,254,473,131,catfood_salmon
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190131_11_26_40_Pro.jpg,293,218,395,125,catfood_salmon
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190322_09_15_15_Pro.jpg,420,590,506,499,catfood_salmon
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190322_10_04_57_Pro.jpg,593,317,673,393,catfood_salmon
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190131_11_28_33_Pro.jpg,784,545,876,455,catfood_salmon
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190322_10_05_29_Pro.jpg,336,84,432,0,catfood_salmon
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190322_09_13_54_Pro.jpg,744,495,873,388,catfood_salmon
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190322_10_06_15_Pro.jpg,1073,431,1166,313,catfood_salmon
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190322_09_12_11_Pro.jpg,461,172,546,79,catfood_salmon
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190131_11_28_26_Pro.jpg,878,187,978,272,catfood_salmon
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190322_09_13_49_Pro.jpg,969,465,869,340,catfood_salmon
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190322_10_05_45_Pro.jpg,1188,388,1280,301,catfood_salmon
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190131_11_27_27_Pro.jpg,860,180,767,51,catfood_salmon
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190322_10_03_42_Pro.jpg,1072,339,1194,258,catfood_salmon
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190322_10_05_34_Pro.jpg,622,124,704,25,catfood_salmon
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190131_11_28_35_Pro.jpg,777,528,866,437,catfood_salmon
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190322_09_11_28_Pro.jpg,662,593,743,500,catfood_salmon
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190322_10_03_10_Pro.jpg,55,651,170,553,catfood_salmon
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190322_10_05_20_Pro.jpg,37,283,158,198,catfood_salmon
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190322_10_05_56_Pro.jpg,1020,720,1105,687,catfood_salmon
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190322_10_05_38_Pro.jpg,713,141,801,45,catfood_salmon
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190322_09_11_19_Pro.jpg,187,155,293,239,catfood_salmon
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190131_11_29_21_Pro.jpg,0,320,71,244,catfood_salmon
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190131_11_29_19_Pro.jpg,0,324,78,247,catfood_salmon
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190322_09_14_10_Pro.jpg,985,285,1098,200,catfood_salmon
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190322_09_13_22_Pro.jpg,799,465,885,347,catfood_salmon
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190322_09_10_53_Pro.jpg,444,227,531,139,catfood_salmon
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190322_09_14_44_Pro.jpg,89,298,0,220,catfood_salmon
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190322_10_04_16_Pro.jpg,512,155,594,60,catfood_salmon
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190322_09_10_35_Pro.jpg,228,512,329,425,catfood_salmon
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190322_09_11_04_Pro.jpg,812,470,909,385,catfood_salmon
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190322_09_14_12_Pro.jpg,627,111,706,199,catfood_salmon
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190322_10_06_21_Pro.jpg,546,222,665,138,catfood_salmon
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190322_10_05_07_Pro.jpg,140,443,251,361,catfood_salmon
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190131_11_28_07_Pro.jpg,959,598,1069,501,catfood_salmon
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190322_10_05_01_Pro.jpg,436,348,521,270,catfood_salmon
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190131_11_26_27_Pro.jpg,758,159,851,63,catfood_salmon
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190322_10_03_54_Pro.jpg,847,163,948,68,catfood_salmon
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190322_09_14_39_Pro.jpg,190,720,295,618,catfood_salmon
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190131_11_27_42_Pro.jpg,1261,257,1133,169,catfood_salmon
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190322_09_09_41_Pro.jpg,356,547,449,458,catfood_salmon
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190322_10_06_13_Pro.jpg,1149,425,1246,305,catfood_salmon
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190322_09_13_04_Pro.jpg,809,196,729,308,catfood_salmon
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190322_09_12_20_Pro.jpg,243,504,344,418,catfood_salmon
+/home/emil/Documents/github/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190322_09_08_40_Pro.jpg,621,180,697,263,catfood_salmon
