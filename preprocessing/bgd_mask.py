@@ -29,37 +29,21 @@ def main():
     """ Main function """
 
     ################## IMPORT IMAGES ##################
-
-    # Baggrund
-    path = str(Path('images_1280x720/baggrund/bevægelse/*.jpg').resolve())
-    background_fil = glob.glob(path)
-    background_images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in background_fil]
-
-    # Ketchup
-    path = str(Path('dataset2/images/kethchup/*.jpg').resolve())
-    ketchup_fil = glob.glob(path)
-    ketchup_images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in ketchup_fil]
+    # All
+    path = str(Path('dataset3/images/All/*.jpg').resolve())
+    all_fill = glob.glob(path)
+    all_images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in all_fill]
 
     ################## CREATE BACKGROUND MASK ##################
 
     # Initialize the mask
-    mask = np.ones(shape=ketchup_images[0].shape, dtype='uint8') * 255
+    mask = np.ones(shape=all_images[0].shape, dtype='uint8') * 255
 
-    # BACKGROUND IMAGE
-    cnts_bgd, areas_bgd = get_contours(background_images[0], 90)
+    path = str(Path('preprocessing/bgd_mask.jpg').resolve())
+    bgd_mask = cv2.imread(path, cv2.IMREAD_COLOR)
 
-    index = np.argmax(areas_bgd)
-    cv2.drawContours(mask, cnts_bgd, index, 0, -1)
-    areas_bgd.pop(index)
-    cnts_bgd.pop(index)
-
-    index = np.argmax(areas_bgd)
-    cv2.drawContours(mask, cnts_bgd, index, 0, -1)
-    areas_bgd.pop(index)
-    cnts_bgd.pop(index)
-
-    # KETCHUP IMAGE
-    cnts_ketch, areas_ketch = get_contours(ketchup_images[0], 125)
+    # IMAGE
+    cnts_ketch, areas_ketch = get_contours(all_images[0], 125)
 
     index = np.argmax(areas_ketch)
     cv2.drawContours(mask, cnts_ketch, index, 0, -1)
@@ -67,7 +51,7 @@ def main():
     cnts_ketch.pop(index)
 
     index = np.argmax(areas_ketch)
-    # cv2.drawContours(mask, cnts_ketch, index, 0, -1)
+    cv2.drawContours(mask, cnts_ketch, index, 0, -1)
     areas_ketch.pop(index)
     cnts_ketch.pop(index)
 
@@ -77,13 +61,10 @@ def main():
     cnts_ketch.pop(index)
 
     # Bitwise add mask to img
-    img = cv2.bitwise_and(ketchup_images[0], mask)
+    img = cv2.bitwise_and(all_images[0], bgd_mask)
 
     cv2.imshow('Mask', mask)
     cv2.imshow('Image', img)
-
-    path = str(Path('preprocessing/bgd_mask.jpg').resolve())
-    cv2.imwrite(path, mask)
 
     cv2.waitKey(0)
     cv2.destroyAllWindows()

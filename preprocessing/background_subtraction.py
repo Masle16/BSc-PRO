@@ -13,7 +13,6 @@ import numpy as np
 #from matplotlib import pyplot as plt
 
 ###### GLOBAL VARIABLES ######
-AREA_THRESH = 0
 
 ###### FUNCTIONS ######
 def show_img(img, window_name, width=352, height=240, wait_key=False):
@@ -141,11 +140,9 @@ def main():
     mask = cv2.imread(path, cv2.IMREAD_COLOR)
     mask_gray = cv2.cvtColor(mask, cv2.COLOR_BGR2GRAY)
 
-    # Create average background image and remove unnessary background
-    images_fil = glob.glob(path_images[0])
-    bgd_images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in images_fil]
-    background_img = run_avg(bgd_images)
-    background_img = cv2.bitwise_and(background_img, mask)
+    # Average background image
+    path = str(Path('preprocessing/avg_background.jpg').resolve())
+    background_img = cv2.imread(path, cv2.IMREAD_COLOR)
 
     num = 0
 
