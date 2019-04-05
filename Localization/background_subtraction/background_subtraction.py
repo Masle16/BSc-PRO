@@ -228,9 +228,8 @@ def main():
     #     show_img(img, 'Image')
     #     cv2.waitKey(0)
 
-    # cv2.destroyAllWindows()
-
     return 0
 
 if __name__ == "__main__":
     main()
+    cv2.destroyAllWindows()
