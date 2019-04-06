@@ -19,7 +19,10 @@ def get_contours(img, th):
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     _, thresh = cv2.threshold(gray, th, 255, cv2.THRESH_BINARY_INV)
 
-    cnts, _ = cv2.findContours(thresh, cv2.RETR_LIST, cv2.CHAIN_APPROX_SIMPLE) 
+    kernel = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (10, 10))
+    thresh = cv2.morphologyEx(thresh, cv2.MORPH_CLOSE, kernel)
+
+    cnts, _ = cv2.findContours(thresh, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE) 
 
     areas = [cv2.contourArea(cnt) for cnt in cnts]
 
@@ -30,41 +33,37 @@ def main():
 
     ################## IMPORT IMAGES ##################
     # All
-    path = str(Path('dataset3/images/All/*.jpg').resolve())
-    all_fill = glob.glob(path)
-    all_images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in all_fill]
+    path = str(Path('dataset3/res_still/test/catfood_salmon/WIN_20190131_11_26_46_Pro.jpg').resolve())
+    image = cv2.imread(path, cv2.IMREAD_COLOR)
 
     ################## CREATE BACKGROUND MASK ##################
 
     # Initialize the mask
-    mask = np.ones(shape=all_images[0].shape, dtype='uint8') * 255
+    mask = np.ones(shape=image.shape, dtype='uint8') * 255
 
     path = str(Path('preprocessing/bgd_mask.jpg').resolve())
     bgd_mask = cv2.imread(path, cv2.IMREAD_COLOR)
 
     # IMAGE
-    cnts_ketch, areas_ketch = get_contours(all_images[0], 125)
+    cnts, areas = get_contours(image, 130)
 
-    index = np.argmax(areas_ketch)
-    cv2.drawContours(mask, cnts_ketch, index, 0, -1)
-    areas_ketch.pop(index)
-    cnts_ketch.pop(index)
+    print(areas)
 
-    index = np.argmax(areas_ketch)
-    cv2.drawContours(mask, cnts_ketch, index, 0, -1)
-    areas_ketch.pop(index)
-    cnts_ketch.pop(index)
+    for cnt in cnts:
+        cv2.drawContours(mask, [cnt], -1, 0, -1)
 
-    index = np.argmax(areas_ketch)
-    cv2.drawContours(mask, cnts_ketch, index, 0, -1)
-    areas_ketch.pop(index)
-    cnts_ketch.pop(index)
+    for i, area in enumerate(areas):
+        if area > 10 and area < 200:
+            cv2.drawContours(bgd_mask, cnts, i, 0, -1)
 
     # Bitwise add mask to img
-    img = cv2.bitwise_and(all_images[0], bgd_mask)
+    img = cv2.bitwise_and(image, bgd_mask)
 
     cv2.imshow('Mask', mask)
-    cv2.imshow('Image', img)
+    cv2.imshow('bgd mask', bgd_mask)
+
+    # path = str(Path('preprocessing/bgd_mask2.jpg').resolve())
+    # cv2.imwrite(path, bgd_mask)
 
     cv2.waitKey(0)
     cv2.destroyAllWindows()

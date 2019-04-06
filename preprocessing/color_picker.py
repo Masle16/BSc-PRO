@@ -16,7 +16,7 @@ def main():
     """ Main function """
 
     # Create a black image, a window
-    img_path = str(Path('dataset3/images/All/WIN_20190322_09_48_11_Pro.jpg').resolve())
+    img_path = str(Path('dataset3/res_still/test/catfood_salmon/WIN_20190322_09_09_41_Pro.jpg').resolve())
     img = cv2.imread(img_path, cv2.IMREAD_COLOR)
     cv2.namedWindow('Trackbars')
 
