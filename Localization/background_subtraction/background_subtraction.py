@@ -265,25 +265,27 @@ def main():
     # for img in images:
     regions, cnts = background_sub2(img, background_img, mask_gray)
 
-    for region in regions:
-        for cnt in cnts:
-            (x_left, x_right, y_up, y_down) = region
+    color = [(255, 0, 0), (0, 255, 0), (0, 0, 255), (127, 0, 255), (255, 127, 0), (0, 127, 255)]
+    for i, region in enumerate(regions):
+        (x_left, x_right, y_up, y_down) = region
+
+        # cv2.rectangle(img=img,
+        #               pt1=(x_left, y_up),
+        #               pt2=(x_right, y_down),
+        #               color=color[i],
+        #               thickness=3)
+
+        for j, cnt in enumerate(cnts):
             (x, y, width, height) = cnt
 
-            # cv2.rectangle(img=img,
-            #               pt1=(x_left, y_up),
-            #               pt2=(x_right, y_down),
-            #               color=(255, 0, 0),
-            #               thickness=3)
-
             cv2.rectangle(img=img,
-                            pt1=(x, y),
-                            pt2=(x + width, y + height),
-                            color=(0, 0, 255),
-                            thickness=3)
+                          pt1=(x, y),
+                          pt2=(x + width, y + height),
+                          color=color[j],
+                          thickness=3)
 
-    # path = str(Path('/home/mathi/Desktop/output.jpg').resolve())
-    # cv2.imwrite(path, img)
+    path = str(Path('/home/mathi/Desktop/cnts.jpg').resolve())
+    cv2.imwrite(path, img)
 
     return 0
 
