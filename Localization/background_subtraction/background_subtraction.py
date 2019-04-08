@@ -113,6 +113,7 @@ def background_sub2(img, bgd, bgd_mask):
 
     ################## FIND CONTOURS ##################
     contours, _ = cv2.findContours(thresh, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+    contours = [contour for contour in contours if cv2.contourArea(contour) > 1550]
 
     regions = []
     cnts = []
@@ -161,9 +162,6 @@ def background_sub2(img, bgd, bgd_mask):
         print(areas)
 
         for i, area in enumerate(areas):
-            if area < 1550:
-                continue
-
             # Find bounding rect of contour
             contour = contours[i]
             x, y, width, height = cv2.boundingRect(contour)
