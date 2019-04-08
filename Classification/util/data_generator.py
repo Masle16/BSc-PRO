@@ -41,14 +41,16 @@ def make_data_generator(train_path, test_path, val_path="", load_ram=False, igno
                 train_path,
                 target_size=(224, 224),
                 classes=list_sub_dir, # Classes defined by directories
-                batch_size=batch_size)
+                batch_size=batch_size,
+                interpolation=bicubic)
 
             # Test data generator
             test_generator = test_datagen.flow_from_directory(
                 test_path,
                 target_size=(224, 224),
                 classes=list_sub_dir, # Classes defined by directories
-                batch_size=batch_size)
+                batch_size=batch_size,
+                interpolation=bicubic)
             
             return train_generator, test_generator
         elif load_ram:
@@ -108,19 +110,22 @@ def make_data_generator(train_path, test_path, val_path="", load_ram=False, igno
                 train_path,
                 target_size=(224, 224),
                 classes=list_sub_dir, # Classes defined by directories
-                batch_size=batch_size)
+                batch_size=batch_size,
+                interpolation=bicubic)
             # Valid data generator
             valid_generator = valid_datagen.flow_from_directory(
                 val_path,
                 target_size=(224, 224),
                 classes=list_sub_dir, # Classes defined by directories
-                batch_size=batch_size)
+                batch_size=batch_size,
+                interpolation=bicubic)
             # Test data generator
             test_generator = valid_datagen.flow_from_directory(
                 test_path,
                 target_size=(224, 224),
                 classes=list_sub_dir, # Classes defined by directories
-                batch_size=batch_size)
+                batch_size=batch_size,
+                interpolation=bicubic)
             
             return train_generator, valid_generator, test_generator
         elif load_ram:
