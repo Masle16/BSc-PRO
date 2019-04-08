@@ -13,13 +13,6 @@ import numpy as np
 ###### GLOBAL VARIABLES ######
 
 ###### FUNCTIONS ######
-def random_color():
-    """ Generate random color """
-    rgbl = [255, 0, 0]
-    random.shuffle(rgbl)
-
-    return tuple(rgbl)
-
 def show_img(img, window_name, width=352, height=240, wait_key=False):
     """ Show image in certain size """
 
@@ -33,28 +26,6 @@ def show_img(img, window_name, width=352, height=240, wait_key=False):
         cv2.waitKey(0)
 
     return 0
-
-def remove_background(img):
-    """ Returns image with no background, only table """
-
-    # Find background pixels coordinates
-    hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
-    mask = cv2.inRange(hsv, (0, 0, 64), (179, 51, 255))
-    result = cv2.bitwise_and(img, img, mask=mask)
-
-    return mask, result
-
-def run_avg(background_images):
-    """ Returns running average of all images in path folder """
-
-    avg = np.float32(background_images[0])
-
-    for img in background_images:
-        cv2.accumulateWeighted(img, avg, 0.1)
-
-    result = cv2.convertScaleAbs(avg)
-
-    return result
 
 def background_sub(img, bgd, bgd_mask):
     """ Returns cropped image(448 x 448) of region of interest """
@@ -234,58 +205,63 @@ def background_sub2(img, bgd, bgd_mask):
 def main():
     """ Main function """
 
-    ################## IMPORT IMAGES ##################
-    path_images = [
-        # str(Path('dataset3/res_still/test/background/*.jpg').resolve()),
-        # str(Path('dataset3/res_still/test/potato/*.jpg').resolve()),
-        # str(Path('dataset3/res_still/test/carrots/*.jpg').resolve()),
-        # str(Path('dataset3/res_still/test/catfood_salmon/*.jpg').resolve()),
-        # str(Path('dataset3/res_still/test/catfood_beef/*.jpg').resolve()),
-        # str(Path('dataset3/res_still/test/bun/*.jpg').resolve()),
-        # str(Path('dataset3/res_still/test/arm/*.jpg').resolve()),
-        # str(Path('dataset3/res_still/test/kethchup/*.jpg').resolve()),
-        str(Path('dataset3/images/All/*.jpg').resolve())
-    ]
+    # ################## IMPORT IMAGES ##################
+    # path_images = [
+    #     str(Path('dataset3/res_still/test/background/*.jpg').resolve()),
+    #     str(Path('dataset3/res_still/test/potato/*.jpg').resolve()),
+    #     str(Path('dataset3/res_still/test/carrots/*.jpg').resolve()),
+    #     str(Path('dataset3/res_still/test/catfood_salmon/*.jpg').resolve()),
+    #     str(Path('dataset3/res_still/test/catfood_beef/*.jpg').resolve()),
+    #     str(Path('dataset3/res_still/test/bun/*.jpg').resolve()),
+    #     str(Path('dataset3/res_still/test/arm/*.jpg').resolve()),
+    #     str(Path('dataset3/res_still/test/kethchup/*.jpg').resolve()),
+    #     str(Path('dataset3/images/All/*.jpg').resolve())
+    # ]
 
-    ################## BACKGROUND SUBTRACTION ##################
+    # ################## BACKGROUND SUBTRACTION ##################
 
-    # Background mask
-    path = str(Path('preprocessing/bgd_mask.jpg').resolve())
-    mask = cv2.imread(path, cv2.IMREAD_COLOR)
-    mask_gray = cv2.cvtColor(mask, cv2.COLOR_BGR2GRAY)
+    # # Background mask
+    # path = str(Path('preprocessing/bgd_mask.jpg').resolve())
+    # mask = cv2.imread(path, cv2.IMREAD_COLOR)
+    # mask_gray = cv2.cvtColor(mask, cv2.COLOR_BGR2GRAY)
 
-    # Average background image
-    path = str(Path('preprocessing/avg_background.jpg').resolve())
-    background_img = cv2.imread(path, cv2.IMREAD_COLOR)
+    # # Average background image
+    # path = str(Path('preprocessing/avg_background.jpg').resolve())
+    # background_img = cv2.imread(path, cv2.IMREAD_COLOR)
 
-    images_fil = glob.glob(path_images[0])
-    images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in images_fil]
-    img = images[0].copy()
+    # images_fil = glob.glob(path_images[8])
+    # images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in images_fil]
+    # img = images[0].copy()
 
-    # for img in images:
-    regions, cnts = background_sub2(img, background_img, mask_gray)
+    # # for img in images:
+    # regions, cnts = background_sub2(img, background_img, mask_gray)
 
-    color = [(255, 0, 0), (0, 255, 0), (0, 0, 255), (127, 0, 255), (255, 127, 0), (0, 127, 255)]
-    for i, region in enumerate(regions):
-        (x_left, x_right, y_up, y_down) = region
+    # color = [(255, 0, 0), (0, 255, 0), (0, 0, 255), (127, 0, 255), (255, 127, 0), (0, 127, 255)]
+    # regions_img = img.copy()
+    # cnts_img = img.copy()
 
-        # cv2.rectangle(img=img,
-        #               pt1=(x_left, y_up),
-        #               pt2=(x_right, y_down),
-        #               color=color[i],
-        #               thickness=3)
+    # for i, region in enumerate(regions):
+    #     (x_left, x_right, y_up, y_down) = region
 
-        for j, cnt in enumerate(cnts):
-            (x, y, width, height) = cnt
+    #     cv2.rectangle(img=regions_img,
+    #                   pt1=(x_left, y_up),
+    #                   pt2=(x_right, y_down),
+    #                   color=color[i],
+    #                   thickness=3)
 
-            cv2.rectangle(img=img,
-                          pt1=(x, y),
-                          pt2=(x + width, y + height),
-                          color=color[j],
-                          thickness=3)
+    #     for j, cnt in enumerate(cnts):
+    #         (x, y, width, height) = cnt
 
-    path = str(Path('/home/mathi/Desktop/cnts.jpg').resolve())
-    cv2.imwrite(path, img)
+    #         cv2.rectangle(img=cnts_img,
+    #                       pt1=(x, y),
+    #                       pt2=(x + width, y + height),
+    #                       color=color[j],
+    #                       thickness=3)
+
+    # path = str(Path('/home/mathi/Desktop/regions.jpg').resolve())
+    # cv2.imwrite(path, regions_img)
+    # path = str(Path('/home/mathi/Desktop/cnts.jpg').resolve())
+    # cv2.imwrite(path, cnts_img)
 
     return 0
 
