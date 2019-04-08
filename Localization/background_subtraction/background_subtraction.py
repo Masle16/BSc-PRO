@@ -11,15 +11,8 @@ import numpy as np
 #from matplotlib import pyplot as plt
 
 ###### GLOBAL VARIABLES ######
-NUMBER = 0
 
-def random_color():
-    """ Generate random color """
-    rgbl = [255, 0, 0]
-    random.shuffle(rgbl)
-
-    return tuple(rgbl)
-
+###### FUNCTIONS ######
 def show_img(img, window_name, width=352, height=240, wait_key=False):
     """ Show image in certain size """
 
@@ -34,68 +27,25 @@ def show_img(img, window_name, width=352, height=240, wait_key=False):
 
     return 0
 
-def remove_background(img):
-    """ Returns image with no background, only table """
-
-    # Find background pixels coordinates
-    hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
-    mask = cv2.inRange(hsv, (0, 0, 64), (179, 51, 255))
-    result = cv2.bitwise_and(img, img, mask=mask)
-
-    return mask, result
-
-def run_avg(background_images):
-    """ Returns running average of all images in path folder """
-
-    avg = np.float32(background_images[0])
-
-    for img in background_images:
-        cv2.accumulateWeighted(img, avg, 0.1)
-
-    result = cv2.convertScaleAbs(avg)
-
-    return result
-
 def background_sub(img, bgd, bgd_mask):
     """ Returns cropped image(448 x 448) of region of interest """
 
-    # Create copy to work on
+    ################## CALCULATE DIFFERENCE ##################
     _img = img.copy()
     _img = cv2.bitwise_and(_img, _img, mask=bgd_mask)
-
-    # Calculate image difference and find largest contour
     diff = cv2.absdiff(bgd, _img)
     diff_gray = cv2.cvtColor(diff, cv2.COLOR_BGR2GRAY)
-
-    # Remove small differences
     _, thresh = cv2.threshold(diff_gray, 50, 255, 0)
 
-    # Remove noise
+    ################## REMOVE NOISE ##################
     kernel = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (3, 3))
     thresh = cv2.morphologyEx(thresh, cv2.MORPH_OPEN, kernel)
-
-    kernel = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (30, 30))
+    kernel = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (50, 50))
     thresh = cv2.morphologyEx(thresh, cv2.MORPH_CROSS, kernel)
-
     thresh = cv2.bitwise_and(thresh, bgd_mask)
 
-    # Get contours
-    contours, _ = cv2.findContours(thresh, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
-
-    # # Calculate contours pixel intensity
-    # cnt_pixel_value = []
-    # for contour in contours:
-    #     pixel_sum = 0
-    #     contour = np.asarray(contour)
-    #     contour = contour.reshape(contour.shape[0], contour.shape[2])
-    #     pixel_sum = diff_gray[contour[:, :][:, 1], contour[:, :][:, 0]]
-    #     cnt_pixel_value.append(np.sum(pixel_sum))
-
-    # # Selected contour with highest pixel intensity
-    # index = np.argmax(cnt_pixel_value)
-    # cnt = contours[index]
-
-    # Calculate areas
+    ################## FIND CONTOURS ##################
+    contours, _ = cv2.findContours(thresh, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
     areas = [cv2.contourArea(cnt) for cnt in contours]
 
     if not areas:
@@ -135,102 +85,186 @@ def background_sub(img, bgd, bgd_mask):
         y_down -= margin
         y_up -= margin
 
+    # Return region (448 x 448) and bounding rect of found contour
     return (x_left, x_right, y_up, y_down), (x, y, width, height)
+
+def background_sub2(img, bgd, bgd_mask):
+    """
+    Performs background subtraction\n
+    Returns region of interest(448 x 448) and bounding rect of found contour\n
+    @img is the input image\n
+    @bgd is the average background\n
+    @bgd_mask is the mask to remove unnessary background
+    """
+
+    ################## CALCULATE DIFFERENCE ##################
+    _img = img.copy()
+    _img = cv2.bitwise_and(_img, _img, mask=bgd_mask)
+    diff = cv2.absdiff(bgd, _img)
+    diff_gray = cv2.cvtColor(diff, cv2.COLOR_BGR2GRAY)
+    _, thresh = cv2.threshold(diff_gray, 60, 255, 0)
+
+    ################## REMOVE NOISE ##################
+    kernel = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (25, 25))
+    thresh = cv2.morphologyEx(thresh, cv2.MORPH_CLOSE, kernel)
+    kernel = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (15, 15))
+    thresh = cv2.morphologyEx(thresh, cv2.MORPH_OPEN, kernel)
+    thresh = cv2.bitwise_and(thresh, bgd_mask)
+
+    ################## FIND CONTOURS ##################
+    contours, _ = cv2.findContours(thresh, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+
+    regions = []
+    cnts = []
+    if not contours:
+        # If nothing found return center of image
+        rows, cols = img.shape[:2]
+        x = int(cols / 2)
+        y = int(rows / 2)
+        width = 50
+        height = 50
+
+        cnt = (x, y, width, height)
+        cnts.append(cnt)
+
+        # Find region 448 x 448
+        x_ctr = int((x + (x + width)) / 2)
+        y_ctr = int((y + (y + height)) / 2)
+        radius = 224
+        x_left = x_ctr - radius
+        x_right = x_ctr + radius
+        y_up = y_ctr - radius
+        y_down = y_ctr + radius
+
+        if x_right > img.shape[1]:
+            margin = -1 * (img.shape[1] - x_right)
+            x_right -= margin
+            x_left -= margin
+        elif x_left < 0:
+            margin = -1 * x_left
+            x_right += margin
+            x_left += margin
+
+        if y_up < 0:
+            margin = -1 * y_up
+            y_down += margin
+            y_up += margin
+        elif y_down > img.shape[0]:
+            margin = -1 * (img.shape[0] - y_down)
+            y_down -= margin
+            y_up -= margin
+
+        region = (x_left, x_right, y_up, y_down)
+        regions.append(region)
+    else:
+        areas = [cv2.contourArea(cnt) for cnt in contours]
+        print(areas)
+
+        for i, area in enumerate(areas):
+            if area < 1550:
+                continue
+
+            # Find bounding rect of contour
+            contour = contours[i]
+            x, y, width, height = cv2.boundingRect(contour)
+            cnt = (x, y, width, height)
+            cnts.append(cnt)
+
+            # Find region 448 x 448
+            x_ctr = int((x + (x + width)) / 2)
+            y_ctr = int((y + (y + height)) / 2)
+            radius = 224
+            x_left = x_ctr - radius
+            x_right = x_ctr + radius
+            y_up = y_ctr - radius
+            y_down = y_ctr + radius
+
+            if x_right > img.shape[1]:
+                margin = -1 * (img.shape[1] - x_right)
+                x_right -= margin
+                x_left -= margin
+            elif x_left < 0:
+                margin = -1 * x_left
+                x_right += margin
+                x_left += margin
+
+            if y_up < 0:
+                margin = -1 * y_up
+                y_down += margin
+                y_up += margin
+            elif y_down > img.shape[0]:
+                margin = -1 * (img.shape[0] - y_down)
+                y_down -= margin
+                y_up -= margin
+
+            region = (x_left, x_right, y_up, y_down)
+            regions.append(region)
+
+    return regions, cnts
 
 def main():
     """ Main function """
 
-    ################## IMPORT IMAGES ##################
+    # ################## IMPORT IMAGES ##################
+    # path_images = [
+    #     str(Path('dataset3/res_still/test/background/*.jpg').resolve()),
+    #     str(Path('dataset3/res_still/test/potato/*.jpg').resolve()),
+    #     str(Path('dataset3/res_still/test/carrots/*.jpg').resolve()),
+    #     str(Path('dataset3/res_still/test/catfood_salmon/*.jpg').resolve()),
+    #     str(Path('dataset3/res_still/test/catfood_beef/*.jpg').resolve()),
+    #     str(Path('dataset3/res_still/test/bun/*.jpg').resolve()),
+    #     str(Path('dataset3/res_still/test/arm/*.jpg').resolve()),
+    #     str(Path('dataset3/res_still/test/kethchup/*.jpg').resolve()),
+    #     str(Path('dataset3/images/All/*.jpg').resolve())
+    # ]
 
-    # # Baggrund
-    # path = str(Path('dataset2/images/baggrund/*.jpg').resolve())
-    # background_fil = glob.glob(path)
-    # background_images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in background_fil]
-
-    # # Guleroedder
-    # path = str(Path('dataset2/images/carrots/*.jpg'))
-    # carrot_fil = glob.glob(path)
-    # carrot_images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in carrot_fil]
-
-    # # Kartofler
-    # path = str(Path('dataset2/images/potato/*.jpg').resolve())
-    # potato_fil = glob.glob(path)
-    # potato_images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in potato_fil]
-
-    # # Kat laks
-    # path = str(Path('dataset2/images/catfood_salmon/*.jpg').resolve())
-    # cat_sal_fil = glob.glob(path)
-    # cat_sal_images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in cat_sal_fil]
-
-    # # Kat okse
-    # path = str(Path('dataset2/images/catfood_beef/*.jpg').resolve())
-    # cat_beef_fil = glob.glob(path)
-    # cat_beef_images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in cat_beef_fil]
-
-    # # Boller
-    # path = str(Path('dataset2/images/bun/*.jpg').resolve())
-    # bun_fil = glob.glob(path)
-    # bun_images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in bun_fil]
-
-    # # Arm
-    # path = str(Path('dataset2/images/arm/*.jpg').resolve())
-    # arm_fil = glob.glob(path)
-    # arm_images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in arm_fil]
-
-    # # Ketchup
-    # path = str(Path('dataset2/images/kethchup/*.jpg').resolve())
-    # ketchup_fil = glob.glob(path)
-    # ketchup_images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in ketchup_fil]
-
-    # # Combine images
-    # input_images = (background_images +
-    #                 carrot_images +
-    #                 potato_images +
-    #                 cat_sal_images +
-    #                 cat_beef_images +
-    #                 bun_images +
-    #                 arm_images +
-    #                 ketchup_images)
-
-    # # Shuffle
-    # random.shuffle(input_images)
-
-    ################## BACKGROUND SUBTRACTION ##################
+    # ################## BACKGROUND SUBTRACTION ##################
 
     # # Background mask
     # path = str(Path('preprocessing/bgd_mask.jpg').resolve())
-    # mask = cv2.imread(path, cv2.IMREAD_GRAYSCALE)
+    # mask = cv2.imread(path, cv2.IMREAD_COLOR)
+    # mask_gray = cv2.cvtColor(mask, cv2.COLOR_BGR2GRAY)
 
-    # # Create average background image and remove unnessary background
-    # background_img = run_avg(background_images)
-    # background_img = cv2.bitwise_and(background_img, background_img, mask=mask)
+    # # Average background image
+    # path = str(Path('preprocessing/avg_background.jpg').resolve())
+    # background_img = cv2.imread(path, cv2.IMREAD_COLOR)
 
-    # for img in ketchup_images:
-    #     show_img(img, 'Input image')
+    # images_fil = glob.glob(path_images[8])
+    # images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in images_fil]
+    # img = images[0].copy()
 
-    #     roi, coordinates = background_sub(img, background_img, mask)
+    # # for img in images:
+    # regions, cnts = background_sub2(img, background_img, mask_gray)
 
-    #     (x_left, x_right, y_up, y_down) = roi
-    #     (x, y, width, height) = coordinates
+    # color = [(255, 0, 0), (0, 255, 0), (0, 0, 255), (127, 0, 255), (255, 127, 0), (0, 127, 255)]
+    # regions_img = img.copy()
+    # cnts_img = img.copy()
 
-    #     cv2.rectangle(img=img,
+    # for i, region in enumerate(regions):
+    #     (x_left, x_right, y_up, y_down) = region
+
+    #     cv2.rectangle(img=regions_img,
     #                   pt1=(x_left, y_up),
     #                   pt2=(x_right, y_down),
-    #                   color=(255, 0, 0),
+    #                   color=color[i],
     #                   thickness=3)
 
-    #     cv2.rectangle(img=img,
-    #                   pt1=(x, y),
-    #                   pt2=(x + width, y + height),
-    #                   color=(0, 0, 255),
-    #                   thickness=3)
+    #     for j, cnt in enumerate(cnts):
+    #         (x, y, width, height) = cnt
 
-    #     show_img(img, 'Image')
-    #     cv2.waitKey(0)
+    #         cv2.rectangle(img=cnts_img,
+    #                       pt1=(x, y),
+    #                       pt2=(x + width, y + height),
+    #                       color=color[j],
+    #                       thickness=3)
 
-    # cv2.destroyAllWindows()
+    # path = str(Path('/home/mathi/Desktop/regions.jpg').resolve())
+    # cv2.imwrite(path, regions_img)
+    # path = str(Path('/home/mathi/Desktop/cnts.jpg').resolve())
+    # cv2.imwrite(path, cnts_img)
 
     return 0
 
 if __name__ == "__main__":
     main()
+    cv2.destroyAllWindows()
