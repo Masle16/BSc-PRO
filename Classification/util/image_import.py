@@ -30,7 +30,7 @@ def calulate_mean(path_training_img, ignore=[]):
     for sub in sub_dirs:
         for img in sub:
             temp_img = cv2.cvtColor(cv2.imread(img),cv2.COLOR_BGR2RGB)
-            mean_img += cv2.resize(temp_img, (width,height), interpolation=cv2.INTER_NEAREST)
+            mean_img += cv2.resize(temp_img, (width,height), interpolation=cv2.INTER_CUBIC)
             numbers_img += 1
             
     return (mean_img/numbers_img)
@@ -44,15 +44,15 @@ def images_to_numpy(images_pot, images_cat, images_tab):
     
     for img_pot in images_pot:
         true_color_img = cv2.cvtColor(cv2.imread(img_pot),cv2.COLOR_BGR2RGB)
-        x.append(cv2.resize(true_color_img, (width,height), interpolation=cv2.INTER_NEAREST))
+        x.append(cv2.resize(true_color_img, (width,height), interpolation=cv2.INTER_CUBIC))
         y.append(0)
     for img_cat in images_cat:
         true_color_img = cv2.cvtColor(cv2.imread(img_cat),cv2.COLOR_BGR2RGB)
-        x.append(cv2.resize(true_color_img, (width,height), interpolation=cv2.INTER_NEAREST))
+        x.append(cv2.resize(true_color_img, (width,height), interpolation=cv2.INTER_CUBIC))
         y.append(1)
     for img_tab in images_tab:
         true_color_img = cv2.cvtColor(cv2.imread(img_tab),cv2.COLOR_BGR2RGB)
-        x.append(cv2.resize(true_color_img, (width,height), interpolation=cv2.INTER_NEAREST))
+        x.append(cv2.resize(true_color_img, (width,height), interpolation=cv2.INTER_CUBIC))
         y.append(2)
     return np.asarray(x), np.asarray(y)
 
@@ -66,7 +66,7 @@ def images_to_numpy_full_class(image_path, ignore=[]):
     for label, classes in enumerate(sub_dirs):
         for img in classes:
             true_color_img = cv2.cvtColor(cv2.imread(img),cv2.COLOR_BGR2RGB)
-            x.append(cv2.resize(true_color_img, (width,height), interpolation=cv2.INTER_NEAREST))
+            x.append(cv2.resize(true_color_img, (width,height), interpolation=cv2.INTER_CUBIC))
             y.append(label)
     x = np.asarray(x)
     x = np.float32(x)
@@ -137,7 +137,7 @@ def images_to_arr(images):
     
     for img in images:
         true_color_img = cv2.cvtColor(cv2.imread(img),cv2.COLOR_BGR2RGB)
-        x.append(cv2.resize(true_color_img, (width,height), interpolation=cv2.INTER_NEAREST))
+        x.append(cv2.resize(true_color_img, (width,height), interpolation=cv2.INTER_CUBIC))
     return x # Makes to numpy array
 
 def get_data(x_kar, x_kat, x_bord, y_kar=0, y_kat=1, y_bord=2, 
