@@ -319,21 +319,6 @@ def getRegionOfInterest(category, templ, src):
     # Return region of interest (448 x 448)
     return (x_left, x_right, y_up, y_down)
 
-def calculateDiff(templ, cnt):
-    """
-    return pixel intensity in calculated difference image
-        @param template is the template
-        @param src is the found contour
-    """
-
-    img = cnt.copy()
-    template = templ.copy()
-
-    result = cv2.absdiff(src1=img, src2=template)
-    result = np.sum(cv2.sumElems(result)) / result.size
-
-    return result
-
 ####### MAIN FUNCTION #######
 def main():
     """
@@ -355,7 +340,7 @@ def main():
 
     path_templates = [
         # str(Path('template_matching/templates/template_background.jpg').resolve()),
-        str(Path('template_matching/templates/template_potato.jpg').resolve()),
+        str(Path('template_matching/templates/templ_potato.jpg').resolve()),
         str(Path('template_matching/templates/template_carrot.jpg').resolve()),
         str(Path('template_matching/templates/template_cat_sal.jpg').resolve()),
         str(Path('template_matching/templates/template_cat_beef.jpg').resolve()),
@@ -391,21 +376,25 @@ def main():
         images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in images_fil]
 
         for src in images:
-            t1 = cv2.getTickCount()
+            # t1 = cv2.getTickCount()
+            cv2.imshow('Image', src)
 
             for i, path_temp in enumerate(path_templates):
                 template = cv2.imread(path_temp, cv2.IMREAD_COLOR)
 
-                # # Remove unnessary background
+                # Remove unnessary background
                 img = removeBackground(src, bgd_mask)
 
                 # Get region of interest
                 roi = getRegionOfInterest(category=i,
                                           templ=template,
-                                          src=img)
+                                          src=src)
                 rois.append(roi)
                 (x_left, x_right, y_up, y_down) = roi
                 roi = img[y_up : y_down, x_left : x_right]
+
+                region = src[y_up : y_down, x_left : x_right]
+                cv2.imshow('Region of Interest', region)
 
                 # Find template in region
                 value, cnt = findTemplate(category=i,
@@ -415,23 +404,26 @@ def main():
                 (x, y, width, height) = cnt
                 cnt = src[y : y + height, x : x + width]
 
+                cv2.imshow('Contour', cnt)
+                cv2.waitKey(0)
+
                 values.append(value)
 
             index = np.argmax(values)
 
-            t2 = cv2.getTickCount()
+            # t2 = cv2.getTickCount()
 
-            clock_cycles = (t2 - t1)
-            f = open('template_matching/output_tm/clock_cycles.txt', 'a')
-            txt = str(clock_cycles) + '\n'
-            f.write(txt)
-            f.close()
+            # clock_cycles = (t2 - t1)
+            # f = open('template_matching/output_tm/clock_cycles.txt', 'a')
+            # txt = str(clock_cycles) + '\n'
+            # f.write(txt)
+            # f.close()
 
-            time = clock_cycles / cv2.getTickFrequency()
-            f = open('template_matching/output_tm/time.txt', 'a+')
-            txt = str(time) + '\n'
-            f.write(txt)
-            f.close()
+            # time = clock_cycles / cv2.getTickFrequency()
+            # f = open('template_matching/output_tm/time.txt', 'a+')
+            # txt = str(time) + '\n'
+            # f.write(txt)
+            # f.close()
 
             (x_left, x_right, y_up, y_down) = rois[index]
             (x, y, width, height) = cnts[index]
@@ -449,8 +441,8 @@ def main():
                         thickness=2,
                         lineType=cv2.LINE_AA)
 
-            path = str(Path('template_matching/output_tm/output_' + str(num) + '.jpg').resolve())
-            cv2.imwrite(path, src)
+            # path = str(Path('template_matching/output_tm/output_' + str(num) + '.jpg').resolve())
+            # cv2.imwrite(path, src)
 
             print(num)
 
