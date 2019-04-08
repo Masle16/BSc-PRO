@@ -9,7 +9,7 @@ from pathlib import Path
 import cv2
 import numpy as np
 
-from preprocessing.background_subtration import background_subtration as bs
+from preprocessing.background_subtraction import background_sub as bs
 
 ###### GLOBAL VARIABLES ######
 BGD_MASK = cv2.imread(str(Path('preprocessing/background_mask.jpg').resolve()),
