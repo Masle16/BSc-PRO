@@ -9,7 +9,7 @@ import util.image_import as ii
 def make_data_generator(train_path, test_path, val_path="", load_ram=False, ignore=[]):
     # Function used when not loaded into ram
     if not load_ram:
-        mean_image_train = ii.calulate_mean(train_path)
+        mean_image_train = ii.calulate_mean(train_path) # Calculates mean for each channel for every pixel
         def subtract_mean(img):
             return img - mean_image_train
     
@@ -41,16 +41,14 @@ def make_data_generator(train_path, test_path, val_path="", load_ram=False, igno
                 train_path,
                 target_size=(224, 224),
                 classes=list_sub_dir, # Classes defined by directories
-                batch_size=batch_size,
-                interpolation=bicubic)
+                batch_size=batch_size)
 
             # Test data generator
             test_generator = test_datagen.flow_from_directory(
                 test_path,
                 target_size=(224, 224),
                 classes=list_sub_dir, # Classes defined by directories
-                batch_size=batch_size,
-                interpolation=bicubic)
+                batch_size=batch_size)
             
             return train_generator, test_generator
         elif load_ram:
@@ -60,12 +58,13 @@ def make_data_generator(train_path, test_path, val_path="", load_ram=False, igno
     
             # Making datagen for training with normilization, center, and dataugmentation
             train_datagen = ImageDataGenerator(
-                featurewise_center=True,
+                #featurewise_center=True, Calculate mean pr. channel over all pictures
                 rescale=1./255,
                 rotation_range=10,
                 vertical_flip=True,
                 horizontal_flip=True,
-                brightness_range=(0.65, 1.35))
+                brightness_range=(0.65, 1.35),
+                preprocessing_function=subtract_mean)
 
             # Making datagen for validation and test with normilization
             test_datagen = ImageDataGenerator(
@@ -117,15 +116,13 @@ def make_data_generator(train_path, test_path, val_path="", load_ram=False, igno
                 val_path,
                 target_size=(224, 224),
                 classes=list_sub_dir, # Classes defined by directories
-                batch_size=batch_size,
-                interpolation=bicubic)
+                batch_size=batch_size)
             # Test data generator
             test_generator = valid_datagen.flow_from_directory(
                 test_path,
                 target_size=(224, 224),
                 classes=list_sub_dir, # Classes defined by directories
-                batch_size=batch_size,
-                interpolation=bicubic)
+                batch_size=batch_size)
             
             return train_generator, valid_generator, test_generator
         elif load_ram:
@@ -136,12 +133,13 @@ def make_data_generator(train_path, test_path, val_path="", load_ram=False, igno
     
             # Making datagen for training with normilization, center, and dataugmentation
             train_datagen = ImageDataGenerator(
-                featurewise_center=True,
+                #featurewise_center=True, Calculate mean pr. channel over all pictures
                 rescale=1./255,
                 rotation_range=10,
                 vertical_flip=True,
                 horizontal_flip=True,
-                brightness_range=(0.65, 1.35))
+                brightness_range=(0.65, 1.35),
+                preprocessing_function=subtract_mean)
 
             # Making datagen for validation and test with normilization
             valid_datagen = ImageDataGenerator(
