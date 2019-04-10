@@ -212,54 +212,44 @@ def main():
     #     str(Path('dataset3/res_still/test/catfood_beef/*.jpg').resolve()),
     #     str(Path('dataset3/res_still/test/bun/*.jpg').resolve()),
     #     str(Path('dataset3/res_still/test/arm/*.jpg').resolve()),
-    #     str(Path('dataset3/res_still/test/kethchup/*.jpg').resolve()),
-    #     str(Path('dataset3/images/All/*.jpg').resolve())
+    #     str(Path('dataset3/res_still/test/ketchup/*.jpg').resolve())
     # ]
 
-    # ################## BACKGROUND SUBTRACTION ##################
+    ################## BACKGROUND SUBTRACTION ##################
 
-    # # Background mask
-    # path = str(Path('preprocessing/bgd_mask.jpg').resolve())
-    # mask = cv2.imread(path, cv2.IMREAD_COLOR)
-    # mask_gray = cv2.cvtColor(mask, cv2.COLOR_BGR2GRAY)
+    # Background mask
+    path = str(Path('preprocessing/bgd_mask.jpg').resolve())
+    bgd_mask = cv2.imread(path, cv2.IMREAD_COLOR)
+    bgd_mask_gray = cv2.cvtColor(bgd_mask, cv2.COLOR_BGR2GRAY)
 
-    # # Average background image
-    # path = str(Path('preprocessing/avg_background.jpg').resolve())
-    # background_img = cv2.imread(path, cv2.IMREAD_COLOR)
+    # Average background image
+    path = str(Path('preprocessing/avg_background.jpg').resolve())
+    background_img = cv2.imread(path, cv2.IMREAD_COLOR)
 
-    # images_fil = glob.glob(path_images[8])
-    # images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in images_fil]
-    # img = images[0].copy()
+    path = str(Path('dataset3/res_still/test/ketchup/*.jpg').resolve())
+    images_fil = glob.glob(path)
+    images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in images_fil]
 
-    # # for img in images:
-    # regions, cnts = background_sub2(img, background_img, mask_gray)
+    for i, img in enumerate(images):
+        # Remove unnessary background
+        img = cv2.bitwise_and(img, bgd_mask)
 
-    # color = [(255, 0, 0), (0, 255, 0), (0, 0, 255), (127, 0, 255), (255, 127, 0), (0, 127, 255)]
-    # regions_img = img.copy()
-    # cnts_img = img.copy()
+        regions, _ = background_sub2(img, background_img, bgd_mask_gray)
+        for j, region in enumerate(regions):
 
-    # for i, region in enumerate(regions):
-    #     (x_left, x_right, y_up, y_down) = region
+            (x_left, x_right, y_up, y_down) = region
+            roi = img[y_up : y_down, x_left : x_right]
 
-    #     cv2.rectangle(img=regions_img,
-    #                   pt1=(x_left, y_up),
-    #                   pt2=(x_right, y_down),
-    #                   color=color[i],
-    #                   thickness=3)
+            hsv = cv2.cvtColor(roi, cv2.COLOR_BGR2HSV)
+            lower = (0, 65, 0)
+            upper = (179, 255, 255)
+            mask = cv2.inRange(src=hsv, lowerb=lower, upperb=upper)
+            kernel = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (30, 30))
+            mask = cv2.morphologyEx(mask, cv2.MORPH_CLOSE, kernel)
+            roi = cv2.bitwise_and(roi, roi, mask=mask)
 
-    #     for j, cnt in enumerate(cnts):
-    #         (x, y, width, height) = cnt
-
-    #         cv2.rectangle(img=cnts_img,
-    #                       pt1=(x, y),
-    #                       pt2=(x + width, y + height),
-    #                       color=color[j],
-    #                       thickness=3)
-
-    # path = str(Path('/home/mathi/Desktop/regions.jpg').resolve())
-    # cv2.imwrite(path, regions_img)
-    # path = str(Path('/home/mathi/Desktop/cnts.jpg').resolve())
-    # cv2.imwrite(path, cnts_img)
+            path = str(Path('knn/test/ketchup.' + str(i + j) + '.jpg').resolve())
+            cv2.imwrite(path, roi)
 
     return 0
 
