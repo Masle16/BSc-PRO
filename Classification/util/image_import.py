@@ -35,6 +35,17 @@ def calulate_mean(path_training_img, ignore=[]):
             
     return (mean_img/numbers_img)
 
+##### TEST ####### Calculate mean pr. channel over all pictures
+
+def calculate_mean_keras(x):
+    mean = np.mean(x, axis=(0, 1, 2))
+    broadcast_shape = [1, 1, 1]
+    broadcast_shape[3 - 1] = x.shape[3]
+    mean = np.reshape(mean, broadcast_shape)
+    return mean
+
+#################
+
 def images_to_numpy(images_pot, images_cat, images_tab):
     x = []
     y = []
