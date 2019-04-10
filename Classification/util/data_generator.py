@@ -7,11 +7,11 @@ from os import listdir
 import util.image_import as ii
 
 def make_data_generator(train_path, test_path, val_path="", load_ram=False, ignore=[]):
-    # Function used when not loaded into ram
-    if not load_ram:
-        mean_image_train = ii.calulate_mean(train_path) # Calculates mean for each channel for every pixel
-        def subtract_mean(img):
-            return img - mean_image_train
+
+    
+    mean_image_train = ii.calulate_mean(train_path, ignore) # Calculates mean for each channel for every pixel
+    def subtract_mean(img):
+        return img - mean_image_train
     
     
     batch_size = 32
@@ -41,14 +41,14 @@ def make_data_generator(train_path, test_path, val_path="", load_ram=False, igno
                 train_path,
                 target_size=(224, 224),
                 classes=list_sub_dir, # Classes defined by directories
-                batch_size=batch_size)
+                batch_size=batch_size, shuffle=False)
 
             # Test data generator
             test_generator = test_datagen.flow_from_directory(
                 test_path,
                 target_size=(224, 224),
                 classes=list_sub_dir, # Classes defined by directories
-                batch_size=batch_size)
+                batch_size=batch_size, shuffle=False)
             
             return train_generator, test_generator
         elif load_ram:
@@ -68,23 +68,24 @@ def make_data_generator(train_path, test_path, val_path="", load_ram=False, igno
 
             # Making datagen for validation and test with normilization
             test_datagen = ImageDataGenerator(
-                featurewise_center=True, 
-                rescale=1./255)
+                #featurewise_center=True, 
+                rescale=1./255,
+                preprocessing_function=subtract_mean)
 
             y_train = to_categorical(y_train, num_classes)
             y_test = to_categorical(y_test, num_classes)
 
             # Required for featurewise normalization
-            train_datagen.fit(X_train/255.)
-            test_datagen.fit(X_train/255.)
+            #train_datagen.fit(X_train/255.)
+            #test_datagen.fit(X_train/255.)
 
             train_generator = train_datagen.flow(X_train,
                                                  y_train,
-                                                 batch_size=batch_size, shuffle=True)
+                                                 batch_size=batch_size, shuffle=False)
 
             test_generator = test_datagen.flow(X_test,
                                                  y_test,
-                                                 batch_size=batch_size, shuffle=True)
+                                                 batch_size=batch_size, shuffle=False)
 
             print("Found Training " + str(X_train.shape[0]) + " images belonging to " + str(num_classes) + " classes")
             print("Found Test " + str(X_test.shape[0]) + " images belonging to " + str(num_classes) + " classes")
@@ -143,16 +144,17 @@ def make_data_generator(train_path, test_path, val_path="", load_ram=False, igno
 
             # Making datagen for validation and test with normilization
             valid_datagen = ImageDataGenerator(
-                featurewise_center=True, 
-                rescale=1./255)
+                #featurewise_center=True, 
+                rescale=1./255,
+                preprocessing_function=subtract_mean)
 
             y_train = to_categorical(y_train, num_classes)
             y_valid = to_categorical(y_valid, num_classes)
             y_test = to_categorical(y_test, num_classes)
 
             # Required for featurewise normalization
-            train_datagen.fit(X_train/255.)
-            valid_datagen.fit(X_train/255.)
+            #train_datagen.fit(X_train/255.)
+            #valid_datagen.fit(X_train/255.)
             
             train_generator = train_datagen.flow(X_train,
                                                  y_train,
