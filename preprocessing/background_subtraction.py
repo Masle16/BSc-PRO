@@ -31,20 +31,6 @@ def show_img(img, window_name, width=352, height=240, wait_key=False):
 
     return 0
 
-def run_avg(background_images):
-    """
-    returns running average of all images in path folder
-    """
-
-    avg = np.float32(background_images[0])
-
-    for img in background_images:
-        cv2.accumulateWeighted(img, avg, 0.1)
-
-    result = cv2.convertScaleAbs(avg)
-
-    return result
-
 def background_sub(img, bgd, bgd_mask):
     """
     Performs background subtraction\n
