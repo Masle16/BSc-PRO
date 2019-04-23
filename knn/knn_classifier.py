@@ -73,7 +73,7 @@ class kNearestNeighbor(object):
 
 ###### FUNCTIONS ######
 def time_function(func, *args):
-    """ Call a function f with args and return the time [s] that is took to execute """
+    """ Call a function f with args and return the time [s] that it took to execute """
 
     import time
     tic = time.time()

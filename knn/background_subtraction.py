@@ -4,11 +4,10 @@ Module for background subtration
 
 ###### IMPORTS ######
 import glob
-import random
 from pathlib import Path
 import cv2
 import numpy as np
-#from matplotlib import pyplot as plt
+from matplotlib import pyplot as plt
 
 ###### GLOBAL VARIABLES ######
 
@@ -226,30 +225,56 @@ def main():
     path = str(Path('preprocessing/avg_background.jpg').resolve())
     background_img = cv2.imread(path, cv2.IMREAD_COLOR)
 
-    path = str(Path('dataset3/res_still/test/ketchup/*.jpg').resolve())
+    path = str(Path('dataset3/res_still/test/potato/*.jpg').resolve())
     images_fil = glob.glob(path)
     images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in images_fil]
 
-    for i, img in enumerate(images):
-        # Remove unnessary background
-        img = cv2.bitwise_and(img, bgd_mask)
+    cv2.imshow('Input image', images[0])
 
-        regions, _ = background_sub2(img, background_img, bgd_mask_gray)
-        for j, region in enumerate(regions):
+    # Remove unnessary background
+    img = cv2.bitwise_and(images[0], bgd_mask)
 
-            (x_left, x_right, y_up, y_down) = region
-            roi = img[y_up : y_down, x_left : x_right]
+    regions, _ = background_sub2(img, background_img, bgd_mask_gray)
+    for j, region in enumerate(regions):
 
-            hsv = cv2.cvtColor(roi, cv2.COLOR_BGR2HSV)
-            lower = (0, 65, 0)
-            upper = (179, 255, 255)
-            mask = cv2.inRange(src=hsv, lowerb=lower, upperb=upper)
-            kernel = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (30, 30))
-            mask = cv2.morphologyEx(mask, cv2.MORPH_CLOSE, kernel)
-            roi = cv2.bitwise_and(roi, roi, mask=mask)
+        (x_left, x_right, y_up, y_down) = region
+        roi = img[y_up : y_down, x_left : x_right]
+        cv2.imshow('backsub', roi)
 
-            path = str(Path('knn/test/ketchup.' + str(i + j) + '.jpg').resolve())
-            cv2.imwrite(path, roi)
+        hsv = cv2.cvtColor(roi, cv2.COLOR_BGR2HSV)
+        lower = (0, 65, 0)
+        upper = (179, 255, 255)
+        mask = cv2.inRange(src=hsv, lowerb=lower, upperb=upper)
+        kernel = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (30, 30))
+        mask = cv2.morphologyEx(mask, cv2.MORPH_CLOSE, kernel)
+        roi = cv2.bitwise_and(roi, roi, mask=mask)
+
+        cv2.imshow('InRange', roi)
+        cv2.waitKey(0)
+
+        hsv = cv2.cvtColor(roi, cv2.COLOR_BGR2HSV)
+
+        cv2.imshow('HSV', hsv)
+        cv2.waitKey(0)
+
+        channels = ('Hue', 'Saturation', 'Value')
+        for i, channel in enumerate(channels):
+            if i == 0:
+                size = [180]
+                length = [0, 180]
+            else:
+                size = [256]
+                length = [0, 256]
+
+            hist = cv2.calcHist([hsv], [i], None, size, length)
+            cv2.normalize(src=hist, dst=hist, alpha=0, beta=1, norm_type=cv2.NORM_MINMAX)
+            plt.plot(hist, label=channel)
+            plt.xlim([0, 256])
+
+        plt.xlabel('Pixel values')
+        plt.ylabel('Intensity')
+        plt.legend(loc='upper center')
+        plt.show()
 
     return 0
 
