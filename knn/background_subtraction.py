@@ -225,7 +225,7 @@ def main():
     path = str(Path('preprocessing/avg_background.jpg').resolve())
     background_img = cv2.imread(path, cv2.IMREAD_COLOR)
 
-    path = str(Path('dataset3/res_still/train/background/*.jpg').resolve())
+    path = str(Path('dataset3/res_still/test/carrots/*.jpg').resolve())
     images_fil = glob.glob(path)
     images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in images_fil]
 
@@ -235,7 +235,7 @@ def main():
         for j, region in enumerate(regions):
             (x_left, x_right, y_up, y_down) = region
             roi = img[y_up : y_down, x_left : x_right]
-            path = 'knn/cropped_images/train/bgd_' + str(i) + '_' + str(j) + '.jpg'
+            path = 'knn/cropped_images/test/carrot_' + str(i) + '_' + str(j) + '.jpg'
             cv2.imwrite(path, roi)
 
     return 0
