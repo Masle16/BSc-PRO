@@ -1,472 +1,472 @@
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_26_36_Pro.jpg,447,0,617,407,arm
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_26_41_Pro (2).jpg,77,0,282,490,arm
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_26_41_Pro.jpg,0,0,288,448,arm
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_26_43_Pro (3).jpg,722,0,923,578,arm
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_26_44_Pro (3).jpg,943,0,1224,377,arm
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_26_47_Pro.jpg,570,0,841,367,arm
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_26_49_Pro (3).jpg,0,0,236,546,arm
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_26_50_Pro (2).jpg,181,0,457,391,arm
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_26_52_Pro (2).jpg,683,0,1096,327,arm
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_27_02_Pro.jpg,0,518,346,652,arm
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_27_03_Pro (3).jpg,0,625,371,720,arm
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_27_06_Pro (2).jpg,0,362,427,592,arm
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_27_12_Pro (2).jpg,0,560,68,673,arm
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_27_12_Pro.jpg,0,556,198,693,arm
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_27_17_Pro.jpg,0,30,334,446,arm
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_27_18_Pro.jpg,0,21,220,440,arm
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_27_20_Pro.jpg,630,0,856,292,arm
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_27_27_Pro (2).jpg,325,0,532,440,arm
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_27_28_Pro (2).jpg,715,0,987,528,arm
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_27_37_Pro.jpg,142,0,393,561,arm
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_27_39_Pro (2).jpg,340,0,521,158,arm
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_27_43_Pro (2).jpg,159,0,505,176,arm
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_27_50_Pro.jpg,346,0,544,415,arm
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_27_52_Pro.jpg,602,0,881,326,arm
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_27_54_Pro (2).jpg,509,0,676,181,arm
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_27_58_Pro (2).jpg,282,0,477,421,arm
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_28_11_Pro (2).jpg,0,469,274,617,arm
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_28_12_Pro (2).jpg,0,308,286,457,arm
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_28_19_Pro.jpg,866,0,1280,375,arm
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_28_21_Pro (2).jpg,1000,156,1280,525,arm
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_28_21_Pro.jpg,940,0,1280,447,arm
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_28_54_Pro (2).jpg,839,0,1004,298,arm
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_28_54_Pro (3).jpg,936,0,1056,306,arm
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_28_55_Pro (2).jpg,1051,0,1166,292,arm
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_28_57_Pro (2).jpg,540,0,779,298,arm
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_28_58_Pro (2).jpg,424,0,562,384,arm
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_28_59_Pro.jpg,331,0,463,421,arm
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_29_00_Pro.jpg,155,0,341,345,arm
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_29_03_Pro (3).jpg,568,0,851,341,arm
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_29_04_Pro (2).jpg,174,0,524,241,arm
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_29_04_Pro.jpg,443,0,733,375,arm
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_29_07_Pro (2).jpg,639,0,831,274,arm
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_29_09_Pro (2).jpg,731,0,965,488,arm
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_29_10_Pro.jpg,502,0,764,424,arm
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_29_11_Pro (2).jpg,600,1,828,266,arm
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_29_13_Pro (3).jpg,308,0,510,420,arm
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_29_17_Pro.jpg,0,0,338,420,arm
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_29_18_Pro.jpg,215,0,414,575,arm
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_29_20_Pro.jpg,630,0,861,360,arm
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_29_27_Pro (2).jpg,642,0,921,502,arm
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_29_46_Pro.jpg,944,0,1280,420,arm
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_29_48_Pro (2).jpg,679,0,964,271,arm
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_29_48_Pro (3).jpg,556,0,868,296,arm
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_29_50_Pro (2).jpg,619,0,901,348,arm
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_29_51_Pro.jpg,920,0,1165,365,arm
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_29_53_Pro.jpg,448,0,794,306,arm
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_29_55_Pro.jpg,607,0,866,373,arm
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_29_57_Pro.jpg,744,0,957,506,arm
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_29_58_Pro (2).jpg,1121,0,1280,340,arm
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_29_58_Pro (3).jpg,983,0,1219,336,arm
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/background/WIN_20190131_10_31_36_Pro.jpg,118,276,150,299,background
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/background/WIN_20190131_10_31_40_Pro.jpg,204,266,252,320,background
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/background/WIN_20190131_10_31_42_Pro.jpg,186,241,241,299,background
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/background/WIN_20190131_10_31_43_Pro.jpg,208,267,260,312,background
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/background/WIN_20190131_10_31_46_Pro.jpg,184,255,216,286,background
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/background/WIN_20190131_10_31_47_Pro (2).jpg,189,261,242,308,background
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/background/WIN_20190131_10_31_54_Pro (2).jpg,201,273,261,319,background
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/background/WIN_20190131_10_31_55_Pro.jpg,404,314,495,404,background
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/background/WIN_20190131_10_31_56_Pro (3).jpg,404,314,592,420,background
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/background/WIN_20190131_10_32_02_Pro (2).jpg,251,214,357,322,background
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/background/WIN_20190131_10_32_02_Pro.jpg,510,373,593,420,background
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/background/WIN_20190131_10_32_03_Pro.jpg,282,247,357,334,background
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/background/WIN_20190131_10_32_06_Pro (3).jpg,386,280,477,360,background
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/background/WIN_20190131_10_32_07_Pro.jpg,500,261,575,349,background
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/background/WIN_20190131_10_32_11_Pro.jpg,314,343,454,451,background
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/background/WIN_20190131_10_32_12_Pro.jpg,303,408,426,524,background
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/background/WIN_20190131_10_32_14_Pro.jpg,591,176,688,263,background
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/background/WIN_20190131_10_32_15_Pro (2).jpg,468,285,536,416,background
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/background/WIN_20190131_10_32_16_Pro (2).jpg,528,418,594,499,background
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/background/WIN_20190131_10_32_21_Pro.jpg,494,404,594,500,background
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/background/WIN_20190131_10_32_39_Pro.jpg,509,374,559,414,background
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/background/WIN_20190131_10_32_40_Pro.jpg,505,368,560,416,background
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/background/WIN_20190131_10_32_45_Pro.jpg,506,368,562,423,background
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/background/WIN_20190131_11_02_04_Pro (2).jpg,516,397,563,425,background
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/background/WIN_20190131_11_02_06_Pro (2).jpg,213,272,251,304,background
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/background/WIN_20190131_11_02_07_Pro (2).jpg,220,266,246,301,background
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/background/WIN_20190131_11_02_09_Pro (2).jpg,192,259,254,295,background
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/background/WIN_20190131_11_02_10_Pro (2).jpg,182,254,224,299,background
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/background/WIN_20190131_11_02_10_Pro.jpg,172,222,215,276,background
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/background/WIN_20190131_11_02_13_Pro.jpg,177,257,218,290,background
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/background/WIN_20190131_11_02_16_Pro.jpg,269,156,350,190,background
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/background/WIN_20190131_11_02_24_Pro (2).jpg,205,285,345,375,background
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/background/WIN_20190131_11_02_31_Pro (2).jpg,170,310,205,402,background
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/background/WIN_20190131_11_02_32_Pro (2).jpg,179,242,250,306,background
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/background/WIN_20190131_11_02_32_Pro.jpg,133,235,167,283,background
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/background/WIN_20190131_11_02_35_Pro (2).jpg,471,368,515,398,background
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/background/WIN_20190131_11_02_37_Pro (2).jpg,516,391,584,441,background
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/background/WIN_20190131_11_02_37_Pro.jpg,470,368,582,440,background
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/background/WIN_20190131_11_02_39_Pro (2).jpg,465,365,515,391,background
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/background/WIN_20190131_11_02_43_Pro (2).jpg,458,385,538,435,background
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_21_12_Pro.jpg,458,131,790,502,bun
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_22_08_Pro.jpg,419,204,786,559,bun
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_22_44_Pro.jpg,327,18,671,390,bun
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_22_50_Pro.jpg,404,309,768,579,bun
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_23_03_Pro.jpg,748,80,1064,480,bun
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_23_18_Pro.jpg,443,0,814,249,bun
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_23_21_Pro.jpg,266,0,489,303,bun
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_23_28_Pro.jpg,102,406,455,720,bun
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_23_35_Pro.jpg,399,154,763,457,bun
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_23_49_Pro.jpg,248,293,600,609,bun
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_24_09_Pro.jpg,736,217,1119,560,bun
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_24_11_Pro.jpg,674,153,936,548,bun
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_24_17_Pro.jpg,284,257,595,629,bun
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_24_33_Pro.jpg,109,0,509,187,bun
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_24_50_Pro.jpg,87,548,447,720,bun
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_25_01_Pro.jpg,407,488,759,720,bun
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_25_21_Pro.jpg,401,180,635,543,bun
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_25_29_Pro.jpg,290,205,578,567,bun
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_25_38_Pro.jpg,587,35,951,402,bun
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_25_50_Pro.jpg,723,335,1118,669,bun
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_26_07_Pro.jpg,256,293,607,651,bun
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_26_41_Pro.jpg,519,312,782,670,bun
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_26_58_Pro.jpg,582,96,968,399,bun
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_26_59_Pro.jpg,710,156,1091,395,bun
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_27_04_Pro.jpg,879,257,1148,638,bun
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_27_35_Pro.jpg,344,414,615,720,bun
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_28_17_Pro.jpg,327,102,692,413,bun
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_28_18_Pro.jpg,372,26,640,404,bun
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_28_22_Pro.jpg,452,109,838,420,bun
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_28_42_Pro.jpg,492,393,862,720,bun
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_28_47_Pro.jpg,297,101,672,447,bun
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_29_01_Pro.jpg,129,0,495,316,bun
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_29_09_Pro.jpg,897,17,1171,393,bun
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_29_39_Pro.jpg,335,198,529,540,bun
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_29_47_Pro.jpg,6,237,210,595,bun
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_30_22_Pro.jpg,804,396,1180,662,bun
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_30_25_Pro.jpg,796,488,1169,720,bun
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_30_34_Pro.jpg,985,297,1280,535,bun
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_30_43_Pro.jpg,853,0,1215,232,bun
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_30_59_Pro.jpg,30,274,390,494,bun
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_31_04_Pro.jpg,232,320,492,666,bun
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_31_25_Pro.jpg,534,305,795,659,bun
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_31_30_Pro.jpg,294,332,651,634,bun
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_31_41_Pro.jpg,56,260,425,536,bun
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_31_46_Pro.jpg,259,245,631,521,bun
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_31_48_Pro.jpg,390,153,746,487,bun
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_32_29_Pro.jpg,835,409,1077,720,bun
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_32_33_Pro.jpg,851,0,1167,367,bun
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_10_11_38_Pro.jpg,478,156,711,512,bun
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_10_11_44_Pro.jpg,554,100,905,425,bun
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_10_11_52_Pro.jpg,662,309,868,666,bun
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_10_12_04_Pro.jpg,505,136,813,505,bun
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_10_12_11_Pro.jpg,261,0,580,189,bun
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_10_12_14_Pro.jpg,0,77,339,385,bun
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_10_12_18_Pro.jpg,342,105,606,436,bun
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_10_12_20_Pro.jpg,462,173,792,452,bun
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_10_12_29_Pro.jpg,693,11,1051,342,bun
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_10_12_41_Pro.jpg,223,259,565,603,bun
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_10_12_47_Pro.jpg,223,44,535,375,bun
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_10_12_52_Pro.jpg,109,206,331,550,bun
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_10_13_03_Pro.jpg,792,102,1139,462,bun
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_10_13_04_Pro.jpg,895,130,1183,501,bun
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_10_13_09_Pro.jpg,654,125,952,489,bun
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_10_13_13_Pro.jpg,441,312,755,655,bun
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_10_13_24_Pro.jpg,375,252,743,456,bun
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_10_13_27_Pro.jpg,148,57,488,375,bun
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_10_13_44_Pro.jpg,348,153,698,355,bun
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_03_22_Pro.jpg,563,114,834,402,carrots
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_03_25_Pro.jpg,720,191,995,451,carrots
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_05_05_Pro.jpg,642,317,865,647,carrots
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_05_29_Pro.jpg,514,157,821,387,carrots
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_05_36_Pro.jpg,494,300,842,612,carrots
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_05_48_Pro.jpg,380,395,643,720,carrots
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_05_50_Pro.jpg,236,292,563,642,carrots
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_06_01_Pro.jpg,300,388,615,623,carrots
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_06_17_Pro.jpg,246,401,584,640,carrots
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_06_27_Pro.jpg,995,487,1280,720,carrots
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_06_33_Pro.jpg,342,145,638,432,carrots
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_07_07_Pro.jpg,165,194,389,486,carrots
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_07_20_Pro.jpg,712,331,1000,587,carrots
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_07_22_Pro.jpg,842,400,1058,592,carrots
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_07_24_Pro.jpg,846,389,1066,598,carrots
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_07_26_Pro.jpg,938,227,1253,444,carrots
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_07_30_Pro.jpg,319,284,626,523,carrots
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_07_47_Pro.jpg,508,518,880,720,carrots
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_08_12_Pro.jpg,811,181,1154,421,carrots
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_08_35_Pro.jpg,999,549,1194,720,carrots
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_08_43_Pro.jpg,561,492,907,650,carrots
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_08_52_Pro.jpg,535,372,839,634,carrots
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_08_55_Pro.jpg,592,108,816,426,carrots
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_09_22_Pro.jpg,683,389,1026,636,carrots
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_09_27_Pro.jpg,1041,332,1280,720,carrots
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_09_33_Pro.jpg,504,1,842,241,carrots
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_09_47_Pro.jpg,0,254,225,629,carrots
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_09_54_Pro.jpg,361,191,618,570,carrots
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_10_18_Pro.jpg,968,431,1278,719,carrots
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_11_35_Pro.jpg,933,340,1211,531,carrots
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_11_48_Pro.jpg,609,237,890,568,carrots
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_12_13_Pro.jpg,918,20,1216,277,carrots
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_12_15_Pro.jpg,636,152,881,383,carrots
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_12_25_Pro.jpg,111,68,437,403,carrots
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_12_35_Pro.jpg,213,553,495,720,carrots
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_13_06_Pro.jpg,828,276,1140,480,carrots
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_13_08_Pro.jpg,836,293,1143,521,carrots
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_13_21_Pro.jpg,480,131,797,302,carrots
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_13_23_Pro.jpg,497,31,781,263,carrots
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_13_28_Pro.jpg,899,269,1243,483,carrots
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_13_32_Pro.jpg,856,179,1163,511,carrots
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_13_36_Pro.jpg,930,564,1249,720,carrots
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_13_38_Pro.jpg,591,478,908,720,carrots
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_13_44_Pro.jpg,593,0,903,177,carrots
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_14_01_Pro.jpg,283,115,533,407,carrots
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_14_04_Pro.jpg,108,228,400,448,carrots
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_14_18_Pro.jpg,341,264,716,450,carrots
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190322_10_15_26_Pro.jpg,1037,0,1280,192,carrots
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190322_10_15_34_Pro.jpg,375,30,629,375,carrots
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190322_10_16_53_Pro.jpg,635,72,1043,409,carrots
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190322_10_17_01_Pro.jpg,353,53,629,418,carrots
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190322_10_17_12_Pro.jpg,87,288,471,622,carrots
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190322_10_17_18_Pro.jpg,271,146,567,503,carrots
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190322_10_17_19_Pro.jpg,399,234,763,602,carrots
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190322_10_17_28_Pro.jpg,873,371,1223,666,carrots
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190322_10_17_32_Pro.jpg,925,205,1172,531,carrots
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190322_10_17_33_Pro.jpg,957,155,1280,521,carrots
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190322_10_17_47_Pro.jpg,316,236,668,540,carrots
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190322_10_17_57_Pro.jpg,528,203,815,560,carrots
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190131_11_31_31_Pro.jpg,279,87,380,180,catfood_beef
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190131_11_31_34_Pro.jpg,251,115,355,205,catfood_beef
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190131_11_31_46_Pro.jpg,50,220,168,304,catfood_beef
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190131_11_31_59_Pro.jpg,597,276,717,407,catfood_beef
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190131_11_32_09_Pro.jpg,894,372,997,458,catfood_beef
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190131_11_32_26_Pro.jpg,1069,72,1191,170,catfood_beef
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190131_11_32_33_Pro.jpg,1079,71,1198,166,catfood_beef
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190131_11_32_35_Pro.jpg,1068,70,1186,166,catfood_beef
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190131_11_32_50_Pro.jpg,968,511,1078,609,catfood_beef
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190131_11_33_00_Pro.jpg,907,333,1010,414,catfood_beef
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190131_11_33_03_Pro.jpg,906,331,1012,415,catfood_beef
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190131_11_33_30_Pro.jpg,993,256,1108,344,catfood_beef
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190131_11_33_45_Pro.jpg,976,118,1087,212,catfood_beef
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190131_11_33_50_Pro.jpg,976,119,1088,213,catfood_beef
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190131_11_34_01_Pro.jpg,229,257,333,335,catfood_beef
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190131_11_34_05_Pro.jpg,126,211,239,294,catfood_beef
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190131_11_34_23_Pro.jpg,394,369,483,448,catfood_beef
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190131_11_34_31_Pro.jpg,90,450,203,536,catfood_beef
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190131_11_34_33_Pro.jpg,102,438,215,524,catfood_beef
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190131_11_34_45_Pro.jpg,105,281,217,403,catfood_beef
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190131_11_34_56_Pro.jpg,560,498,639,590,catfood_beef
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190131_11_35_08_Pro.jpg,808,522,902,619,catfood_beef
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190131_11_35_30_Pro.jpg,1032,103,1140,232,catfood_beef
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190131_11_35_57_Pro.jpg,1172,181,1279,309,catfood_beef
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190131_11_36_25_Pro.jpg,695,160,810,237,catfood_beef
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190131_11_36_27_Pro.jpg,493,340,575,421,catfood_beef
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190131_11_36_33_Pro.jpg,290,290,388,367,catfood_beef
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190131_11_36_45_Pro.jpg,1007,480,1121,575,catfood_beef
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190131_11_36_47_Pro.jpg,997,488,1109,583,catfood_beef
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190322_10_19_35_Pro.jpg,897,396,1003,487,catfood_beef
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190322_10_19_39_Pro.jpg,627,132,708,221,catfood_beef
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190322_10_20_16_Pro.jpg,337,37,435,135,catfood_beef
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190322_10_20_35_Pro.jpg,767,0,865,85,catfood_beef
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190322_10_20_49_Pro.jpg,956,637,1066,720,catfood_beef
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190322_10_21_10_Pro.jpg,313,416,409,502,catfood_beef
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190322_10_21_28_Pro.jpg,1180,359,1280,482,catfood_beef
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190322_10_21_37_Pro (2).jpg,591,203,706,284,catfood_beef
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190322_10_21_38_Pro.jpg,597,387,714,471,catfood_beef
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190322_10_22_35_Pro.jpg,490,358,569,433,catfood_beef
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190322_10_22_59_Pro.jpg,741,367,837,493,catfood_beef
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190322_10_23_00_Pro.jpg,438,432,530,555,catfood_beef
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190322_10_23_10_Pro (2).jpg,224,459,331,585,catfood_beef
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190322_10_23_11_Pro.jpg,397,404,502,526,catfood_beef
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190322_10_23_14_Pro.jpg,756,264,865,392,catfood_beef
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190322_10_23_15_Pro.jpg,484,374,584,498,catfood_beef
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190322_10_23_25_Pro (2).jpg,26,243,115,356,catfood_beef
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190322_10_23_36_Pro.jpg,187,343,291,417,catfood_beef
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190322_10_23_38_Pro.jpg,301,323,398,401,catfood_beef
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190322_10_23_42_Pro.jpg,207,177,314,263,catfood_beef
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190322_10_23_54_Pro.jpg,258,456,356,544,catfood_beef
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190322_10_24_47_Pro.jpg,74,512,195,641,catfood_beef
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190322_10_25_07_Pro.jpg,671,165,755,249,catfood_beef
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190322_10_25_19_Pro.jpg,816,402,912,491,catfood_beef
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190322_10_25_21_Pro.jpg,639,357,716,435,catfood_beef
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190322_10_25_25_Pro.jpg,631,81,711,171,catfood_beef
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190322_10_25_38_Pro.jpg,817,15,916,117,catfood_beef
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190322_10_25_45_Pro.jpg,249,100,351,192,catfood_beef
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190322_10_25_46_Pro.jpg,463,167,544,252,catfood_beef
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190322_10_25_53_Pro.jpg,560,89,640,182,catfood_beef
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190131_11_26_27_Pro.jpg,758,63,851,159,catfood_salmon
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190131_11_26_40_Pro.jpg,293,125,395,218,catfood_salmon
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190131_11_26_46_Pro.jpg,203,81,313,174,catfood_salmon
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190131_11_27_06_Pro.jpg,473,131,565,254,catfood_salmon
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190131_11_27_22_Pro.jpg,487,287,611,382,catfood_salmon
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190131_11_27_27_Pro.jpg,767,51,860,180,catfood_salmon
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190131_11_27_42_Pro.jpg,1133,169,1261,257,catfood_salmon
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190131_11_28_07_Pro.jpg,959,501,1069,598,catfood_salmon
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190131_11_28_26_Pro.jpg,878,187,978,272,catfood_salmon
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190131_11_28_33_Pro.jpg,784,455,876,545,catfood_salmon
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190131_11_28_35_Pro.jpg,777,437,866,528,catfood_salmon
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190131_11_28_39_Pro.jpg,701,547,785,644,catfood_salmon
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190131_11_29_09_Pro.jpg,468,234,552,311,catfood_salmon
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190131_11_29_19_Pro.jpg,0,247,78,324,catfood_salmon
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190131_11_29_21_Pro.jpg,0,244,71,320,catfood_salmon
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190131_11_29_32_Pro.jpg,576,17,656,116,catfood_salmon
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190131_11_29_34_Pro.jpg,615,80,694,173,catfood_salmon
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190131_11_30_22_Pro.jpg,839,302,936,385,catfood_salmon
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190322_09_08_40_Pro.jpg,621,180,697,263,catfood_salmon
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190322_09_09_41_Pro.jpg,356,458,449,547,catfood_salmon
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190322_09_10_19_Pro.jpg,568,1,646,84,catfood_salmon
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190322_09_10_35_Pro.jpg,228,425,329,512,catfood_salmon
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190322_09_10_53_Pro.jpg,444,139,531,227,catfood_salmon
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190322_09_11_04_Pro.jpg,812,385,909,470,catfood_salmon
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190322_09_11_19_Pro.jpg,187,155,293,239,catfood_salmon
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190322_09_11_28_Pro.jpg,662,500,743,593,catfood_salmon
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190322_09_12_11_Pro.jpg,461,79,546,172,catfood_salmon
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190322_09_12_20_Pro.jpg,243,418,344,504,catfood_salmon
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190322_09_12_53_Pro.jpg,844,449,945,542,catfood_salmon
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190322_09_13_04_Pro.jpg,729,196,809,308,catfood_salmon
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190322_09_13_22_Pro.jpg,799,347,885,465,catfood_salmon
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190322_09_13_49_Pro.jpg,869,340,969,465,catfood_salmon
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190322_09_13_54_Pro.jpg,744,388,873,495,catfood_salmon
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190322_09_14_10_Pro.jpg,985,200,1098,285,catfood_salmon
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190322_09_14_12_Pro.jpg,627,111,706,199,catfood_salmon
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190322_09_14_14_Pro.jpg,601,200,680,276,catfood_salmon
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190322_09_14_39_Pro.jpg,190,618,295,720,catfood_salmon
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190322_09_14_44_Pro.jpg,0,220,89,298,catfood_salmon
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190322_09_15_15_Pro.jpg,420,499,506,590,catfood_salmon
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190322_10_02_58_Pro.jpg,63,324,185,409,catfood_salmon
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190322_10_03_07_Pro.jpg,38,238,158,320,catfood_salmon
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190322_10_03_10_Pro.jpg,55,553,170,651,catfood_salmon
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190322_10_03_42_Pro.jpg,1072,258,1194,339,catfood_salmon
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190322_10_03_54_Pro.jpg,847,68,948,163,catfood_salmon
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190322_10_04_16_Pro.jpg,512,60,594,155,catfood_salmon
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190322_10_04_40_Pro.jpg,193,553,298,650,catfood_salmon
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190322_10_04_42_Pro.jpg,319,413,414,497,catfood_salmon
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190322_10_04_57_Pro.jpg,593,317,673,393,catfood_salmon
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190322_10_05_01_Pro.jpg,436,270,521,348,catfood_salmon
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190322_10_05_07_Pro.jpg,140,361,251,443,catfood_salmon
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190322_10_05_10_Pro.jpg,411,60,501,155,catfood_salmon
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190322_10_05_20_Pro.jpg,37,198,158,283,catfood_salmon
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190322_10_05_29_Pro.jpg,336,0,432,84,catfood_salmon
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190322_10_05_34_Pro.jpg,622,25,704,124,catfood_salmon
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190322_10_05_38_Pro.jpg,713,45,801,141,catfood_salmon
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190322_10_05_41_Pro.jpg,956,134,1068,226,catfood_salmon
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190322_10_05_45_Pro.jpg,1188,301,1280,388,catfood_salmon
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190322_10_05_56_Pro.jpg,1020,687,1105,720,catfood_salmon
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190322_10_06_13_Pro.jpg,1149,305,1246,425,catfood_salmon
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190322_10_06_15_Pro.jpg,1073,313,1166,431,catfood_salmon
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190322_10_06_21_Pro.jpg,546,138,665,222,catfood_salmon
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_37_02_Pro.jpg,986,377,1155,492,ketchup
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_37_14_Pro.jpg,721,497,821,622,ketchup
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_37_21_Pro.jpg,518,540,610,671,ketchup
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_37_24_Pro.jpg,418,553,515,688,ketchup
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_37_27_Pro.jpg,331,573,449,704,ketchup
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_37_50_Pro.jpg,77,115,239,229,ketchup
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_37_54_Pro.jpg,239,112,380,213,ketchup
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_38_05_Pro.jpg,647,45,729,165,ketchup
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_38_15_Pro.jpg,998,220,1158,327,ketchup
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_38_23_Pro.jpg,945,412,1099,504,ketchup
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_38_38_Pro.jpg,600,299,704,382,ketchup
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_38_43_Pro.jpg,809,203,939,305,ketchup
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_38_45_Pro.jpg,899,274,1052,368,ketchup
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_38_56_Pro.jpg,159,478,312,600,ketchup
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_39_08_Pro.jpg,479,56,594,171,ketchup
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_39_10_Pro.jpg,456,192,571,298,ketchup
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_39_19_Pro.jpg,402,479,515,603,ketchup
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_39_24_Pro.jpg,525,375,625,458,ketchup
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_39_27_Pro.jpg,543,319,645,417,ketchup
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_39_31_Pro.jpg,811,175,940,277,ketchup
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_39_54_Pro.jpg,472,14,705,241,ketchup
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_40_36_Pro.jpg,847,255,1019,520,ketchup
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_40_40_Pro.jpg,460,266,568,532,ketchup
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_40_51_Pro.jpg,743,47,1012,230,ketchup
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_40_57_Pro (2).jpg,401,269,595,516,ketchup
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_40_57_Pro.jpg,400,270,595,515,ketchup
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_41_03_Pro.jpg,719,0,977,183,ketchup
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_41_08_Pro.jpg,1063,379,1280,535,ketchup
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_41_23_Pro.jpg,689,548,963,666,ketchup
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_41_46_Pro.jpg,0,343,259,462,ketchup
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_41_48_Pro.jpg,22,391,257,618,ketchup
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_42_13_Pro.jpg,546,413,817,533,ketchup
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_42_18_Pro.jpg,1082,302,1280,457,ketchup
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_42_28_Pro.jpg,930,310,1058,584,ketchup
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_42_34_Pro.jpg,623,124,853,359,ketchup
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_42_54_Pro.jpg,634,208,782,481,ketchup
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_43_01_Pro.jpg,126,138,398,319,ketchup
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_43_18_Pro.jpg,855,182,1120,394,ketchup
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_43_22_Pro.jpg,1078,253,1218,530,ketchup
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_43_44_Pro.jpg,269,467,410,719,ketchup
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_43_47_Pro.jpg,24,448,297,584,ketchup
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_43_52_Pro.jpg,91,48,274,307,ketchup
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_44_15_Pro.jpg,209,389,422,618,ketchup
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_44_17_Pro.jpg,360,476,623,573,ketchup
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_44_27_Pro.jpg,924,345,1176,568,ketchup
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_44_37_Pro.jpg,620,24,853,262,ketchup
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_45_02_Pro.jpg,521,410,796,550,ketchup
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_45_26_Pro.jpg,96,118,339,344,ketchup
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_45_33_Pro.jpg,861,103,1123,322,ketchup
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_45_41_Pro.jpg,804,317,1015,574,ketchup
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_46_01_Pro.jpg,271,235,420,505,ketchup
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_10_07_36_Pro.jpg,543,54,645,170,ketchup
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_10_08_10_Pro.jpg,525,109,603,221,ketchup
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_10_08_15_Pro.jpg,182,309,327,386,ketchup
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_10_09_08_Pro.jpg,740,378,1012,552,ketchup
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_10_09_12_Pro.jpg,274,55,444,323,ketchup
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_10_09_14_Pro.jpg,20,252,301,399,ketchup
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_10_09_20_Pro.jpg,544,426,810,522,ketchup
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_10_09_24_Pro.jpg,633,339,741,611,ketchup
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_10_09_35_Pro.jpg,499,426,752,604,ketchup
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_10_09_48_Pro.jpg,603,528,875,637,ketchup
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_10_10_00_Pro.jpg,281,0,438,233,ketchup
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_10_10_04_Pro.jpg,112,49,319,304,ketchup
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_10_10_09_Pro.jpg,763,0,862,272,ketchup
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_10_10_15_Pro.jpg,791,478,1035,689,ketchup
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_10_10_40_Pro.jpg,517,321,783,416,ketchup
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/potato/WIN_20190131_11_15_20_Pro.jpg,758,130,983,434,potato
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/potato/WIN_20190131_11_15_28_Pro.jpg,944,572,1178,719,potato
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/potato/WIN_20190131_11_15_47_Pro.jpg,538,240,850,575,potato
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/potato/WIN_20190131_11_15_50_Pro.jpg,649,84,936,411,potato
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/potato/WIN_20190131_11_15_52_Pro.jpg,473,11,807,308,potato
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/potato/WIN_20190131_11_15_55_Pro.jpg,326,54,609,373,potato
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/potato/WIN_20190131_11_15_58_Pro.jpg,117,347,415,635,potato
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/potato/WIN_20190131_11_15_59_Pro.jpg,158,175,482,494,potato
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/potato/WIN_20190131_11_16_00_Pro.jpg,255,61,592,391,potato
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/potato/WIN_20190131_11_16_05_Pro.jpg,380,256,696,609,potato
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/potato/WIN_20190131_11_16_10_Pro.jpg,0,292,197,576,potato
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/potato/WIN_20190131_11_16_17_Pro.jpg,0,365,304,706,potato
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/potato/WIN_20190131_11_16_25_Pro.jpg,261,465,577,720,potato
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/potato/WIN_20190131_11_16_27_Pro.jpg,464,392,717,666,potato
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/potato/WIN_20190131_11_16_30_Pro.jpg,612,469,937,719,potato
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/potato/WIN_20190131_11_16_54_Pro.jpg,1072,274,1278,631,potato
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/potato/WIN_20190131_11_17_15_Pro.jpg,358,364,723,699,potato
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/potato/WIN_20190131_11_17_34_Pro.jpg,829,443,1211,718,potato
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/potato/WIN_20190131_11_17_37_Pro.jpg,687,286,1012,630,potato
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/potato/WIN_20190131_11_17_47_Pro.jpg,2,321,205,629,potato
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/potato/WIN_20190131_11_17_56_Pro.jpg,606,2,902,270,potato
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/potato/WIN_20190131_11_18_20_Pro.jpg,541,520,884,719,potato
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/potato/WIN_20190131_11_18_25_Pro.jpg,835,219,1234,601,potato
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/potato/WIN_20190131_11_18_29_Pro.jpg,739,383,1110,720,potato
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/potato/WIN_20190131_11_18_48_Pro.jpg,969,277,1280,669,potato
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/potato/WIN_20190131_11_19_08_Pro.jpg,0,286,225,596,potato
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/potato/WIN_20190131_11_19_18_Pro.jpg,167,501,448,719,potato
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/potato/WIN_20190131_11_19_47_Pro.jpg,826,64,1164,393,potato
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/potato/WIN_20190131_11_19_54_Pro.jpg,845,99,1186,453,potato
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/potato/WIN_20190131_11_20_02_Pro.jpg,454,36,770,383,potato
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/potato/WIN_20190131_11_20_29_Pro.jpg,336,508,601,718,potato
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/potato/WIN_20190131_11_20_57_Pro.jpg,668,46,1005,374,potato
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/potato/WIN_20190131_11_21_23_Pro.jpg,104,474,380,718,potato
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/potato/WIN_20190131_11_21_26_Pro.jpg,420,297,698,596,potato
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/potato/WIN_20190131_11_22_00_Pro.jpg,742,445,1014,699,potato
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/potato/WIN_20190131_11_22_44_Pro.jpg,770,118,1149,499,potato
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/potato/WIN_20190131_11_23_05_Pro.jpg,426,138,732,337,potato
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/potato/WIN_20190131_11_23_21_Pro.jpg,82,434,461,719,potato
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/potato/WIN_20190131_11_23_31_Pro.jpg,636,415,919,607,potato
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/potato/WIN_20190131_11_23_56_Pro.jpg,357,185,547,487,potato
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/potato/WIN_20190131_11_24_09_Pro.jpg,1,433,275,650,potato
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/potato/WIN_20190131_11_24_44_Pro.jpg,609,383,917,717,potato
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/potato/WIN_20190322_09_53_17_Pro.jpg,284,53,621,419,potato
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/potato/WIN_20190322_09_53_55_Pro.jpg,99,411,385,719,potato
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/potato/WIN_20190322_09_54_04_Pro.jpg,356,0,747,379,potato
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/potato/WIN_20190322_09_54_24_Pro.jpg,616,79,1010,462,potato
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/potato/WIN_20190322_09_54_29_Pro.jpg,748,130,1128,522,potato
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/potato/WIN_20190322_09_54_58_Pro.jpg,111,162,464,479,potato
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/potato/WIN_20190322_09_54_59_Pro.jpg,34,178,374,547,potato
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/potato/WIN_20190322_09_55_09_Pro.jpg,497,218,878,609,potato
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/potato/WIN_20190322_09_55_32_Pro.jpg,468,347,835,719,potato
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/potato/WIN_20190322_09_55_34_Pro.jpg,353,334,722,682,potato
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/potato/WIN_20190322_09_56_02_Pro.jpg,371,340,751,699,potato
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/potato/WIN_20190322_09_56_04_Pro.jpg,347,363,604,687,potato
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/potato/WIN_20190322_09_56_18_Pro.jpg,728,387,1047,651,potato
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/potato/WIN_20190322_09_56_33_Pro.jpg,560,91,773,377,potato
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/potato/WIN_20190322_09_57_01_Pro.jpg,73,259,335,512,potato
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/potato/WIN_20190322_09_57_03_Pro.jpg,219,104,421,410,potato
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/potato/WIN_20190322_09_57_07_Pro.jpg,404,78,715,277,potato
-C:/Users/mikke/Documents/GitHub/BSc-PRO/dataset3/res_still/test/potato/WIN_20190322_09_57_13_Pro.jpg,813,160,1031,475,potato
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/background/WIN_20190131_10_32_14_Pro.jpg,591,176,688,263,background
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/background/WIN_20190131_10_31_54_Pro (2).jpg,201,273,261,319,background
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/background/WIN_20190131_11_02_24_Pro (2).jpg,205,285,345,375,background
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/background/WIN_20190131_11_02_04_Pro (2).jpg,516,397,563,425,background
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/background/WIN_20190131_11_02_37_Pro (2).jpg,516,391,584,441,background
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/background/WIN_20190131_11_02_32_Pro.jpg,133,235,167,283,background
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/background/WIN_20190131_11_02_16_Pro.jpg,269,156,350,190,background
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/background/WIN_20190131_10_32_11_Pro.jpg,314,343,454,451,background
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/background/WIN_20190131_10_32_07_Pro.jpg,500,261,575,349,background
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/background/WIN_20190131_10_32_06_Pro (3).jpg,386,280,477,360,background
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/background/WIN_20190131_10_31_43_Pro.jpg,208,267,260,312,background
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/background/WIN_20190131_10_32_39_Pro.jpg,509,374,559,414,background
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/background/WIN_20190131_11_02_09_Pro (2).jpg,192,259,254,295,background
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/background/WIN_20190131_11_02_10_Pro (2).jpg,182,254,224,299,background
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/background/WIN_20190131_10_31_46_Pro.jpg,184,255,216,286,background
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/background/WIN_20190131_10_32_02_Pro.jpg,510,373,593,420,background
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/background/WIN_20190131_10_31_47_Pro (2).jpg,189,261,242,308,background
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/background/WIN_20190131_10_32_03_Pro.jpg,282,247,357,334,background
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/background/WIN_20190131_11_02_39_Pro (2).jpg,465,365,515,391,background
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/background/WIN_20190131_10_31_40_Pro.jpg,204,266,252,320,background
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/background/WIN_20190131_10_32_02_Pro (2).jpg,251,214,357,322,background
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/background/WIN_20190131_10_32_40_Pro.jpg,505,368,560,416,background
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/background/WIN_20190131_10_31_56_Pro (3).jpg,404,314,592,420,background
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/background/WIN_20190131_10_32_45_Pro.jpg,506,368,562,423,background
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/background/WIN_20190131_10_32_21_Pro.jpg,494,404,594,500,background
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/background/WIN_20190131_11_02_31_Pro (2).jpg,170,310,205,402,background
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/background/WIN_20190131_10_31_36_Pro.jpg,118,276,150,299,background
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/background/WIN_20190131_11_02_43_Pro (2).jpg,458,385,538,435,background
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/background/WIN_20190131_11_02_37_Pro.jpg,470,368,582,440,background
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/background/WIN_20190131_11_02_07_Pro (2).jpg,220,266,246,301,background
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/background/WIN_20190131_10_32_12_Pro.jpg,303,408,426,524,background
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/background/WIN_20190131_11_02_10_Pro.jpg,172,222,215,276,background
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/background/WIN_20190131_11_02_35_Pro (2).jpg,471,368,515,398,background
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/background/WIN_20190131_11_02_32_Pro (2).jpg,179,242,250,306,background
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/background/WIN_20190131_11_02_06_Pro (2).jpg,213,272,251,304,background
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/background/WIN_20190131_10_31_55_Pro.jpg,404,314,495,404,background
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/background/WIN_20190131_11_02_13_Pro.jpg,177,257,218,290,background
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/background/WIN_20190131_10_31_42_Pro.jpg,186,241,241,299,background
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/background/WIN_20190131_10_32_15_Pro (2).jpg,468,285,536,416,background
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/background/WIN_20190131_10_32_16_Pro (2).jpg,528,418,594,499,background
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/potato/WIN_20190322_09_54_58_Pro.jpg,111,162,464,479,potato
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/potato/WIN_20190131_11_19_18_Pro.jpg,167,501,448,719,potato
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/potato/WIN_20190131_11_21_26_Pro.jpg,420,297,698,596,potato
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/potato/WIN_20190322_09_53_55_Pro.jpg,99,411,385,719,potato
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/potato/WIN_20190322_09_57_01_Pro.jpg,73,259,335,512,potato
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/potato/WIN_20190131_11_17_56_Pro.jpg,606,2,902,270,potato
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/potato/WIN_20190131_11_17_15_Pro.jpg,358,364,723,699,potato
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/potato/WIN_20190322_09_54_24_Pro.jpg,616,79,1010,462,potato
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/potato/WIN_20190322_09_53_17_Pro.jpg,284,53,621,419,potato
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/potato/WIN_20190131_11_16_00_Pro.jpg,255,61,592,391,potato
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/potato/WIN_20190322_09_56_18_Pro.jpg,728,387,1047,651,potato
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/potato/WIN_20190322_09_54_29_Pro.jpg,748,130,1128,522,potato
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/potato/WIN_20190131_11_18_29_Pro.jpg,739,383,1110,720,potato
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/potato/WIN_20190131_11_24_44_Pro.jpg,609,383,917,717,potato
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/potato/WIN_20190131_11_19_54_Pro.jpg,845,99,1186,453,potato
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/potato/WIN_20190131_11_15_55_Pro.jpg,326,54,609,373,potato
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/potato/WIN_20190322_09_55_09_Pro.jpg,497,218,878,609,potato
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/potato/WIN_20190131_11_22_44_Pro.jpg,770,118,1149,499,potato
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/potato/WIN_20190131_11_16_27_Pro.jpg,464,392,717,666,potato
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/potato/WIN_20190131_11_23_21_Pro.jpg,82,434,461,719,potato
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/potato/WIN_20190131_11_20_57_Pro.jpg,668,46,1005,374,potato
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/potato/WIN_20190131_11_18_20_Pro.jpg,541,520,884,719,potato
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/potato/WIN_20190131_11_21_23_Pro.jpg,104,474,380,718,potato
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/potato/WIN_20190131_11_15_28_Pro.jpg,944,572,1178,719,potato
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/potato/WIN_20190131_11_20_29_Pro.jpg,336,508,601,718,potato
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/potato/WIN_20190131_11_15_58_Pro.jpg,117,347,415,635,potato
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/potato/WIN_20190131_11_24_09_Pro.jpg,1,433,275,650,potato
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/potato/WIN_20190322_09_56_33_Pro.jpg,560,91,773,377,potato
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/potato/WIN_20190131_11_16_17_Pro.jpg,0,365,304,706,potato
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/potato/WIN_20190322_09_55_34_Pro.jpg,353,334,722,682,potato
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/potato/WIN_20190322_09_57_03_Pro.jpg,219,104,421,410,potato
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/potato/WIN_20190131_11_17_37_Pro.jpg,687,286,1012,630,potato
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/potato/WIN_20190131_11_16_54_Pro.jpg,1072,274,1278,631,potato
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/potato/WIN_20190131_11_16_25_Pro.jpg,261,465,577,720,potato
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/potato/WIN_20190131_11_22_00_Pro.jpg,742,445,1014,699,potato
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/potato/WIN_20190131_11_23_31_Pro.jpg,636,415,919,607,potato
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/potato/WIN_20190131_11_15_52_Pro.jpg,473,11,807,308,potato
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/potato/WIN_20190131_11_15_59_Pro.jpg,158,175,482,494,potato
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/potato/WIN_20190322_09_56_02_Pro.jpg,371,340,751,699,potato
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/potato/WIN_20190131_11_17_34_Pro.jpg,829,443,1211,718,potato
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/potato/WIN_20190131_11_18_48_Pro.jpg,969,277,1280,669,potato
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/potato/WIN_20190322_09_54_59_Pro.jpg,34,178,374,547,potato
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/potato/WIN_20190131_11_17_47_Pro.jpg,2,321,205,629,potato
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/potato/WIN_20190131_11_15_50_Pro.jpg,649,84,936,411,potato
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/potato/WIN_20190322_09_57_07_Pro.jpg,404,78,715,277,potato
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/potato/WIN_20190131_11_19_47_Pro.jpg,826,64,1164,393,potato
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/potato/WIN_20190131_11_16_05_Pro.jpg,380,256,696,609,potato
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/potato/WIN_20190131_11_15_47_Pro.jpg,538,240,850,575,potato
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/potato/WIN_20190131_11_23_56_Pro.jpg,357,185,547,487,potato
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/potato/WIN_20190322_09_54_04_Pro.jpg,356,0,747,379,potato
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/potato/WIN_20190131_11_18_25_Pro.jpg,835,219,1234,601,potato
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/potato/WIN_20190131_11_23_05_Pro.jpg,426,138,732,337,potato
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/potato/WIN_20190131_11_19_08_Pro.jpg,0,286,225,596,potato
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/potato/WIN_20190131_11_20_02_Pro.jpg,454,36,770,383,potato
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/potato/WIN_20190131_11_15_20_Pro.jpg,758,130,983,434,potato
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/potato/WIN_20190131_11_16_30_Pro.jpg,612,469,937,719,potato
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/potato/WIN_20190322_09_56_04_Pro.jpg,347,363,604,687,potato
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/potato/WIN_20190322_09_55_32_Pro.jpg,468,347,835,719,potato
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/potato/WIN_20190131_11_16_10_Pro.jpg,0,292,197,576,potato
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/potato/WIN_20190322_09_57_13_Pro.jpg,813,160,1031,475,potato
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190322_10_02_58_Pro.jpg,63,324,185,409,catfood_salmon
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190131_11_26_27_Pro.jpg,758,63,851,159,catfood_salmon
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190131_11_28_26_Pro.jpg,878,187,978,272,catfood_salmon
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190131_11_30_22_Pro.jpg,839,302,936,385,catfood_salmon
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190322_09_13_54_Pro.jpg,744,388,873,495,catfood_salmon
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190131_11_28_39_Pro.jpg,701,547,785,644,catfood_salmon
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190131_11_26_40_Pro.jpg,293,125,395,218,catfood_salmon
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190131_11_28_35_Pro.jpg,777,437,866,528,catfood_salmon
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190322_09_14_12_Pro.jpg,627,111,706,199,catfood_salmon
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190322_09_13_22_Pro.jpg,799,347,885,465,catfood_salmon
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190322_09_13_04_Pro.jpg,729,196,809,308,catfood_salmon
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190322_10_03_54_Pro.jpg,847,68,948,163,catfood_salmon
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190322_09_11_19_Pro.jpg,187,155,293,239,catfood_salmon
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190322_09_13_49_Pro.jpg,869,340,969,465,catfood_salmon
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190322_10_05_34_Pro.jpg,622,25,704,124,catfood_salmon
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190322_09_14_39_Pro.jpg,190,618,295,720,catfood_salmon
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190322_10_06_15_Pro.jpg,1073,313,1166,431,catfood_salmon
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190322_09_11_04_Pro.jpg,812,385,909,470,catfood_salmon
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190322_10_04_40_Pro.jpg,193,553,298,650,catfood_salmon
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190131_11_29_21_Pro.jpg,0,244,71,320,catfood_salmon
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190322_10_05_20_Pro.jpg,37,198,158,283,catfood_salmon
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190322_10_04_42_Pro.jpg,319,413,414,497,catfood_salmon
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190322_10_05_29_Pro.jpg,336,0,432,84,catfood_salmon
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190322_10_05_45_Pro.jpg,1188,301,1280,388,catfood_salmon
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190322_09_10_19_Pro.jpg,568,1,646,84,catfood_salmon
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190322_10_06_21_Pro.jpg,546,138,665,222,catfood_salmon
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190322_09_12_20_Pro.jpg,243,418,344,504,catfood_salmon
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190322_10_05_56_Pro.jpg,1020,687,1105,720,catfood_salmon
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190322_10_04_57_Pro.jpg,593,317,673,393,catfood_salmon
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190322_09_10_53_Pro.jpg,444,139,531,227,catfood_salmon
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190322_10_03_07_Pro.jpg,38,238,158,320,catfood_salmon
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190322_09_09_41_Pro.jpg,356,458,449,547,catfood_salmon
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190131_11_28_33_Pro.jpg,784,455,876,545,catfood_salmon
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190131_11_29_32_Pro.jpg,576,17,656,116,catfood_salmon
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190322_10_04_16_Pro.jpg,512,60,594,155,catfood_salmon
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190322_10_05_38_Pro.jpg,713,45,801,141,catfood_salmon
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190322_09_10_35_Pro.jpg,228,425,329,512,catfood_salmon
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190322_10_03_10_Pro.jpg,55,553,170,651,catfood_salmon
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190131_11_27_22_Pro.jpg,487,287,611,382,catfood_salmon
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190131_11_27_06_Pro.jpg,473,131,565,254,catfood_salmon
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190322_09_14_14_Pro.jpg,601,200,680,276,catfood_salmon
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190131_11_27_42_Pro.jpg,1133,169,1261,257,catfood_salmon
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190322_09_12_53_Pro.jpg,844,449,945,542,catfood_salmon
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190322_09_15_15_Pro.jpg,420,499,506,590,catfood_salmon
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190131_11_28_07_Pro.jpg,959,501,1069,598,catfood_salmon
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190131_11_26_46_Pro.jpg,203,81,313,174,catfood_salmon
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190322_09_14_44_Pro.jpg,0,220,89,298,catfood_salmon
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190322_10_03_42_Pro.jpg,1072,258,1194,339,catfood_salmon
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190322_10_05_01_Pro.jpg,436,270,521,348,catfood_salmon
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190322_09_08_40_Pro.jpg,621,180,697,263,catfood_salmon
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190322_10_05_10_Pro.jpg,411,60,501,155,catfood_salmon
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190131_11_27_27_Pro.jpg,767,51,860,180,catfood_salmon
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190322_10_05_07_Pro.jpg,140,361,251,443,catfood_salmon
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190322_09_14_10_Pro.jpg,985,200,1098,285,catfood_salmon
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190322_10_06_13_Pro.jpg,1149,305,1246,425,catfood_salmon
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190322_09_12_11_Pro.jpg,461,79,546,172,catfood_salmon
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190322_10_05_41_Pro.jpg,956,134,1068,226,catfood_salmon
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190131_11_29_19_Pro.jpg,0,247,78,324,catfood_salmon
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190322_09_11_28_Pro.jpg,662,500,743,593,catfood_salmon
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190131_11_29_09_Pro.jpg,468,234,552,311,catfood_salmon
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/catfood_salmon/WIN_20190131_11_29_34_Pro.jpg,615,80,694,173,catfood_salmon
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_13_36_Pro.jpg,930,564,1249,720,carrots
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_03_22_Pro.jpg,563,114,834,402,carrots
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_07_22_Pro.jpg,842,400,1058,592,carrots
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_11_48_Pro.jpg,609,237,890,568,carrots
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_06_33_Pro.jpg,342,145,638,432,carrots
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_13_28_Pro.jpg,899,269,1243,483,carrots
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_08_43_Pro.jpg,561,492,907,650,carrots
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190322_10_17_28_Pro.jpg,873,371,1223,666,carrots
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190322_10_17_19_Pro.jpg,399,234,763,602,carrots
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_13_38_Pro.jpg,591,478,908,720,carrots
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_08_55_Pro.jpg,592,108,816,426,carrots
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_05_05_Pro.jpg,642,317,865,647,carrots
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_06_27_Pro.jpg,995,487,1280,720,carrots
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_05_50_Pro.jpg,236,292,563,642,carrots
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_12_13_Pro.jpg,918,20,1216,277,carrots
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_09_33_Pro.jpg,504,1,842,241,carrots
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_03_25_Pro.jpg,720,191,995,451,carrots
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_13_06_Pro.jpg,828,276,1140,480,carrots
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_13_21_Pro.jpg,480,131,797,302,carrots
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_13_32_Pro.jpg,856,179,1163,511,carrots
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_09_54_Pro.jpg,361,191,618,570,carrots
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190322_10_17_32_Pro.jpg,925,205,1172,531,carrots
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190322_10_15_26_Pro.jpg,1037,0,1280,192,carrots
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_10_18_Pro.jpg,968,431,1278,719,carrots
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_09_27_Pro.jpg,1041,332,1280,720,carrots
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_06_01_Pro.jpg,300,388,615,623,carrots
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_13_23_Pro.jpg,497,31,781,263,carrots
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_07_47_Pro.jpg,508,518,880,720,carrots
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190322_10_15_34_Pro.jpg,375,30,629,375,carrots
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_09_47_Pro.jpg,0,254,225,629,carrots
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_14_01_Pro.jpg,283,115,533,407,carrots
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_08_52_Pro.jpg,535,372,839,634,carrots
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_07_26_Pro.jpg,938,227,1253,444,carrots
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_13_08_Pro.jpg,836,293,1143,521,carrots
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190322_10_17_12_Pro.jpg,87,288,471,622,carrots
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_07_24_Pro.jpg,846,389,1066,598,carrots
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_12_35_Pro.jpg,213,553,495,720,carrots
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_05_36_Pro.jpg,494,300,842,612,carrots
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_08_12_Pro.jpg,811,181,1154,421,carrots
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_08_35_Pro.jpg,999,549,1194,720,carrots
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_05_48_Pro.jpg,380,395,643,720,carrots
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_07_30_Pro.jpg,319,284,626,523,carrots
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190322_10_17_47_Pro.jpg,316,236,668,540,carrots
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_13_44_Pro.jpg,593,0,903,177,carrots
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_12_25_Pro.jpg,111,68,437,403,carrots
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_14_04_Pro.jpg,108,228,400,448,carrots
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_11_35_Pro.jpg,933,340,1211,531,carrots
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190322_10_16_53_Pro.jpg,635,72,1043,409,carrots
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_05_29_Pro.jpg,514,157,821,387,carrots
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_12_15_Pro.jpg,636,152,881,383,carrots
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_06_17_Pro.jpg,246,401,584,640,carrots
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190322_10_17_33_Pro.jpg,957,155,1280,521,carrots
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190322_10_17_01_Pro.jpg,353,53,629,418,carrots
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_07_20_Pro.jpg,712,331,1000,587,carrots
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190322_10_17_57_Pro.jpg,528,203,815,560,carrots
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_09_22_Pro.jpg,683,389,1026,636,carrots
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_14_18_Pro.jpg,341,264,716,450,carrots
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190322_10_17_18_Pro.jpg,271,146,567,503,carrots
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/carrots/WIN_20190131_11_07_07_Pro.jpg,165,194,389,486,carrots
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_27_17_Pro.jpg,0,30,334,446,arm
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_29_48_Pro (3).jpg,556,0,868,296,arm
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_27_06_Pro (2).jpg,0,362,427,592,arm
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_26_49_Pro (3).jpg,0,0,236,546,arm
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_29_50_Pro (2).jpg,619,0,901,348,arm
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_29_13_Pro (3).jpg,308,0,510,420,arm
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_27_12_Pro (2).jpg,0,560,68,673,arm
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_29_20_Pro.jpg,630,0,861,360,arm
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_27_52_Pro.jpg,602,0,881,326,arm
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_26_43_Pro (3).jpg,722,0,923,578,arm
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_28_21_Pro (2).jpg,1000,156,1280,525,arm
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_27_50_Pro.jpg,346,0,544,415,arm
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_27_18_Pro.jpg,0,21,220,440,arm
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_28_11_Pro (2).jpg,0,469,274,617,arm
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_29_00_Pro.jpg,155,0,341,345,arm
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_26_50_Pro (2).jpg,181,0,457,391,arm
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_27_12_Pro.jpg,0,556,198,693,arm
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_29_55_Pro.jpg,607,0,866,373,arm
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_26_47_Pro.jpg,570,0,841,367,arm
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_29_07_Pro (2).jpg,639,0,831,274,arm
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_26_44_Pro (3).jpg,943,0,1224,377,arm
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_26_52_Pro (2).jpg,683,0,1096,327,arm
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_29_48_Pro (2).jpg,679,0,964,271,arm
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_29_17_Pro.jpg,0,0,338,420,arm
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_27_28_Pro (2).jpg,715,0,987,528,arm
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_29_11_Pro (2).jpg,600,1,828,266,arm
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_29_18_Pro.jpg,215,0,414,575,arm
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_27_37_Pro.jpg,142,0,393,561,arm
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_28_19_Pro.jpg,866,0,1280,375,arm
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_29_09_Pro (2).jpg,731,0,965,488,arm
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_26_41_Pro (2).jpg,77,0,282,490,arm
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_29_04_Pro.jpg,443,0,733,375,arm
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_28_54_Pro (3).jpg,936,0,1056,306,arm
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_27_03_Pro (3).jpg,0,625,371,720,arm
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_28_21_Pro.jpg,940,0,1280,447,arm
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_29_10_Pro.jpg,502,0,764,424,arm
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_27_27_Pro (2).jpg,325,0,532,440,arm
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_29_53_Pro.jpg,448,0,794,306,arm
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_27_58_Pro (2).jpg,282,0,477,421,arm
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_28_12_Pro (2).jpg,0,308,286,457,arm
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_29_58_Pro (2).jpg,1121,0,1280,340,arm
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_29_57_Pro.jpg,744,0,957,506,arm
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_27_20_Pro.jpg,630,0,856,292,arm
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_28_59_Pro.jpg,331,0,463,421,arm
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_27_39_Pro (2).jpg,340,0,521,158,arm
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_28_54_Pro (2).jpg,839,0,1004,298,arm
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_29_04_Pro (2).jpg,174,0,524,241,arm
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_29_03_Pro (3).jpg,568,0,851,341,arm
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_26_36_Pro.jpg,447,0,617,407,arm
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_27_43_Pro (2).jpg,159,0,505,176,arm
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_29_46_Pro.jpg,944,0,1280,420,arm
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_29_51_Pro.jpg,920,0,1165,365,arm
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_28_57_Pro (2).jpg,540,0,779,298,arm
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_27_54_Pro (2).jpg,509,0,676,181,arm
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_28_58_Pro (2).jpg,424,0,562,384,arm
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_27_02_Pro.jpg,0,518,346,652,arm
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_29_58_Pro (3).jpg,983,0,1219,336,arm
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_28_55_Pro (2).jpg,1051,0,1166,292,arm
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_26_41_Pro.jpg,0,0,288,448,arm
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/arm/WIN_20190322_10_29_27_Pro (2).jpg,642,0,921,502,arm
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_43_22_Pro.jpg,1078,253,1218,530,ketchup
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_10_09_24_Pro.jpg,633,339,741,611,ketchup
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_41_23_Pro.jpg,689,548,963,666,ketchup
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_38_23_Pro.jpg,945,412,1099,504,ketchup
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_37_54_Pro.jpg,239,112,380,213,ketchup
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_40_57_Pro.jpg,400,270,595,515,ketchup
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_43_44_Pro.jpg,269,467,410,719,ketchup
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_43_18_Pro.jpg,855,182,1120,394,ketchup
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_38_43_Pro.jpg,809,203,939,305,ketchup
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_37_27_Pro.jpg,331,573,449,704,ketchup
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_39_10_Pro.jpg,456,192,571,298,ketchup
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_10_09_48_Pro.jpg,603,528,875,637,ketchup
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_44_27_Pro.jpg,924,345,1176,568,ketchup
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_10_09_20_Pro.jpg,544,426,810,522,ketchup
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_44_37_Pro.jpg,620,24,853,262,ketchup
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_39_08_Pro.jpg,479,56,594,171,ketchup
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_40_36_Pro.jpg,847,255,1019,520,ketchup
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_10_09_35_Pro.jpg,499,426,752,604,ketchup
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_43_01_Pro.jpg,126,138,398,319,ketchup
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_40_40_Pro.jpg,460,266,568,532,ketchup
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_42_13_Pro.jpg,546,413,817,533,ketchup
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_42_34_Pro.jpg,623,124,853,359,ketchup
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_37_21_Pro.jpg,518,540,610,671,ketchup
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_42_18_Pro.jpg,1082,302,1280,457,ketchup
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_37_24_Pro.jpg,418,553,515,688,ketchup
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_38_05_Pro.jpg,647,45,729,165,ketchup
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_10_09_12_Pro.jpg,274,55,444,323,ketchup
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_39_54_Pro.jpg,472,14,705,241,ketchup
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_10_09_08_Pro.jpg,740,378,1012,552,ketchup
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_10_08_10_Pro.jpg,525,109,603,221,ketchup
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_41_46_Pro.jpg,0,343,259,462,ketchup
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_39_24_Pro.jpg,525,375,625,458,ketchup
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_40_57_Pro (2).jpg,401,269,595,516,ketchup
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_45_02_Pro.jpg,521,410,796,550,ketchup
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_41_48_Pro.jpg,22,391,257,618,ketchup
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_39_27_Pro.jpg,543,319,645,417,ketchup
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_45_41_Pro.jpg,804,317,1015,574,ketchup
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_10_09_14_Pro.jpg,20,252,301,399,ketchup
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_10_10_40_Pro.jpg,517,321,783,416,ketchup
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_41_03_Pro.jpg,719,0,977,183,ketchup
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_38_38_Pro.jpg,600,299,704,382,ketchup
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_42_28_Pro.jpg,930,310,1058,584,ketchup
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_10_07_36_Pro.jpg,543,54,645,170,ketchup
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_44_15_Pro.jpg,209,389,422,618,ketchup
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_43_47_Pro.jpg,24,448,297,584,ketchup
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_40_51_Pro.jpg,743,47,1012,230,ketchup
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_38_45_Pro.jpg,899,274,1052,368,ketchup
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_37_02_Pro.jpg,986,377,1155,492,ketchup
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_10_10_04_Pro.jpg,112,49,319,304,ketchup
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_37_50_Pro.jpg,77,115,239,229,ketchup
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_10_10_09_Pro.jpg,763,0,862,272,ketchup
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_10_10_15_Pro.jpg,791,478,1035,689,ketchup
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_39_31_Pro.jpg,811,175,940,277,ketchup
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_43_52_Pro.jpg,91,48,274,307,ketchup
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_41_08_Pro.jpg,1063,379,1280,535,ketchup
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_10_08_15_Pro.jpg,182,309,327,386,ketchup
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_38_56_Pro.jpg,159,478,312,600,ketchup
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_45_33_Pro.jpg,861,103,1123,322,ketchup
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_39_19_Pro.jpg,402,479,515,603,ketchup
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_42_54_Pro.jpg,634,208,782,481,ketchup
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_45_26_Pro.jpg,96,118,339,344,ketchup
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_38_15_Pro.jpg,998,220,1158,327,ketchup
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_37_14_Pro.jpg,721,497,821,622,ketchup
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_44_17_Pro.jpg,360,476,623,573,ketchup
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_09_46_01_Pro.jpg,271,235,420,505,ketchup
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/ketchup/WIN_20190322_10_10_00_Pro.jpg,281,0,438,233,ketchup
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190131_11_34_33_Pro.jpg,102,438,215,524,catfood_beef
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190322_10_25_45_Pro.jpg,249,100,351,192,catfood_beef
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190131_11_31_46_Pro.jpg,50,220,168,304,catfood_beef
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190131_11_36_25_Pro.jpg,695,160,810,237,catfood_beef
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190322_10_23_54_Pro.jpg,258,456,356,544,catfood_beef
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190131_11_32_33_Pro.jpg,1079,71,1198,166,catfood_beef
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190322_10_23_00_Pro.jpg,438,432,530,555,catfood_beef
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190322_10_25_21_Pro.jpg,639,357,716,435,catfood_beef
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190131_11_34_56_Pro.jpg,560,498,639,590,catfood_beef
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190131_11_36_33_Pro.jpg,290,290,388,367,catfood_beef
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190322_10_20_35_Pro.jpg,767,0,865,85,catfood_beef
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190131_11_36_47_Pro.jpg,997,488,1109,583,catfood_beef
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190322_10_25_46_Pro.jpg,463,167,544,252,catfood_beef
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190322_10_25_07_Pro.jpg,671,165,755,249,catfood_beef
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190131_11_32_26_Pro.jpg,1069,72,1191,170,catfood_beef
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190131_11_34_05_Pro.jpg,126,211,239,294,catfood_beef
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190322_10_23_25_Pro (2).jpg,26,243,115,356,catfood_beef
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190322_10_23_42_Pro.jpg,207,177,314,263,catfood_beef
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190322_10_25_38_Pro.jpg,817,15,916,117,catfood_beef
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190322_10_21_37_Pro (2).jpg,591,203,706,284,catfood_beef
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190322_10_19_35_Pro.jpg,897,396,1003,487,catfood_beef
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190131_11_31_31_Pro.jpg,279,87,380,180,catfood_beef
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190322_10_23_10_Pro (2).jpg,224,459,331,585,catfood_beef
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190131_11_34_45_Pro.jpg,105,281,217,403,catfood_beef
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190131_11_34_23_Pro.jpg,394,369,483,448,catfood_beef
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190131_11_33_30_Pro.jpg,993,256,1108,344,catfood_beef
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190131_11_36_45_Pro.jpg,1007,480,1121,575,catfood_beef
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190131_11_35_30_Pro.jpg,1032,103,1140,232,catfood_beef
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190131_11_32_35_Pro.jpg,1068,70,1186,166,catfood_beef
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190322_10_25_53_Pro.jpg,560,89,640,182,catfood_beef
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190322_10_22_59_Pro.jpg,741,367,837,493,catfood_beef
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190131_11_36_27_Pro.jpg,493,340,575,421,catfood_beef
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190131_11_33_03_Pro.jpg,906,331,1012,415,catfood_beef
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190131_11_33_50_Pro.jpg,976,119,1088,213,catfood_beef
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190322_10_23_38_Pro.jpg,301,323,398,401,catfood_beef
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190322_10_20_49_Pro.jpg,956,637,1066,720,catfood_beef
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190322_10_23_15_Pro.jpg,484,374,584,498,catfood_beef
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190131_11_32_09_Pro.jpg,894,372,997,458,catfood_beef
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190131_11_33_45_Pro.jpg,976,118,1087,212,catfood_beef
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190131_11_35_08_Pro.jpg,808,522,902,619,catfood_beef
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190322_10_21_10_Pro.jpg,313,416,409,502,catfood_beef
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190131_11_34_31_Pro.jpg,90,450,203,536,catfood_beef
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190322_10_21_38_Pro.jpg,597,387,714,471,catfood_beef
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190131_11_33_00_Pro.jpg,907,333,1010,414,catfood_beef
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190131_11_31_34_Pro.jpg,251,115,355,205,catfood_beef
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190131_11_35_57_Pro.jpg,1172,181,1279,309,catfood_beef
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190322_10_25_19_Pro.jpg,816,402,912,491,catfood_beef
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190131_11_32_50_Pro.jpg,968,511,1078,609,catfood_beef
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190322_10_21_28_Pro.jpg,1180,359,1280,482,catfood_beef
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190131_11_31_59_Pro.jpg,597,276,717,407,catfood_beef
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190322_10_19_39_Pro.jpg,627,132,708,221,catfood_beef
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190322_10_20_16_Pro.jpg,337,37,435,135,catfood_beef
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190131_11_34_01_Pro.jpg,229,257,333,335,catfood_beef
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190322_10_23_11_Pro.jpg,397,404,502,526,catfood_beef
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190322_10_23_14_Pro.jpg,756,264,865,392,catfood_beef
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190322_10_24_47_Pro.jpg,74,512,195,641,catfood_beef
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190322_10_23_36_Pro.jpg,187,343,291,417,catfood_beef
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190322_10_22_35_Pro.jpg,490,358,569,433,catfood_beef
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/catfood_beef/WIN_20190322_10_25_25_Pro.jpg,631,81,711,171,catfood_beef
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_31_30_Pro.jpg,294,332,651,634,bun
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_29_39_Pro.jpg,335,198,529,540,bun
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_27_04_Pro.jpg,879,257,1148,638,bun
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_10_12_41_Pro.jpg,223,259,565,603,bun
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_26_07_Pro.jpg,256,293,607,651,bun
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_29_01_Pro.jpg,129,0,495,316,bun
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_10_13_24_Pro.jpg,375,252,743,456,bun
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_22_44_Pro.jpg,327,18,671,390,bun
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_24_17_Pro.jpg,284,257,595,629,bun
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_23_03_Pro.jpg,748,80,1064,480,bun
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_30_59_Pro.jpg,30,274,390,494,bun
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_10_13_03_Pro.jpg,792,102,1139,462,bun
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_22_08_Pro.jpg,419,204,786,559,bun
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_10_12_20_Pro.jpg,462,173,792,452,bun
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_23_35_Pro.jpg,399,154,763,457,bun
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_28_42_Pro.jpg,492,393,862,720,bun
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_10_13_27_Pro.jpg,148,57,488,375,bun
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_32_33_Pro.jpg,851,0,1167,367,bun
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_31_04_Pro.jpg,232,320,492,666,bun
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_26_58_Pro.jpg,582,96,968,399,bun
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_30_25_Pro.jpg,796,488,1169,720,bun
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_31_48_Pro.jpg,390,153,746,487,bun
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_10_12_11_Pro.jpg,261,0,580,189,bun
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_28_22_Pro.jpg,452,109,838,420,bun
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_10_11_52_Pro.jpg,662,309,868,666,bun
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_10_12_29_Pro.jpg,693,11,1051,342,bun
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_10_13_09_Pro.jpg,654,125,952,489,bun
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_31_41_Pro.jpg,56,260,425,536,bun
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_24_50_Pro.jpg,87,548,447,720,bun
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_29_09_Pro.jpg,897,17,1171,393,bun
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_10_13_44_Pro.jpg,348,153,698,355,bun
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_10_11_38_Pro.jpg,478,156,711,512,bun
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_10_12_14_Pro.jpg,0,77,339,385,bun
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_24_11_Pro.jpg,674,153,936,548,bun
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_23_28_Pro.jpg,102,406,455,720,bun
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_25_38_Pro.jpg,587,35,951,402,bun
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_27_35_Pro.jpg,344,414,615,720,bun
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_10_12_18_Pro.jpg,342,105,606,436,bun
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_28_47_Pro.jpg,297,101,672,447,bun
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_31_25_Pro.jpg,534,305,795,659,bun
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_24_33_Pro.jpg,109,0,509,187,bun
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_23_18_Pro.jpg,443,0,814,249,bun
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_10_13_04_Pro.jpg,895,130,1183,501,bun
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_10_11_44_Pro.jpg,554,100,905,425,bun
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_26_59_Pro.jpg,710,156,1091,395,bun
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_23_49_Pro.jpg,248,293,600,609,bun
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_25_29_Pro.jpg,290,205,578,567,bun
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_25_50_Pro.jpg,723,335,1118,669,bun
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_10_12_47_Pro.jpg,223,44,535,375,bun
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_10_12_04_Pro.jpg,505,136,813,505,bun
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_32_29_Pro.jpg,835,409,1077,720,bun
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_10_13_13_Pro.jpg,441,312,755,655,bun
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_23_21_Pro.jpg,266,0,489,303,bun
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_28_18_Pro.jpg,372,26,640,404,bun
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_29_47_Pro.jpg,6,237,210,595,bun
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_26_41_Pro.jpg,519,312,782,670,bun
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_30_43_Pro.jpg,853,0,1215,232,bun
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_10_12_52_Pro.jpg,109,206,331,550,bun
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_31_46_Pro.jpg,259,245,631,521,bun
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_21_12_Pro.jpg,458,131,790,502,bun
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_28_17_Pro.jpg,327,102,692,413,bun
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_25_21_Pro.jpg,401,180,635,543,bun
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_22_50_Pro.jpg,404,309,768,579,bun
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_30_22_Pro.jpg,804,396,1180,662,bun
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_30_34_Pro.jpg,985,297,1280,535,bun
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_24_09_Pro.jpg,736,217,1119,560,bun
+/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/dataset3/res_still/test/bun/WIN_20190322_09_25_01_Pro.jpg,407,488,759,720,bun
