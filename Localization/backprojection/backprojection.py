@@ -1,11 +1,28 @@
-""" Module for Back-projection """
+#!/mnt/sdb1/Anaconda/envs/BScPRO/bin/python
 
+"""
+Module for Back-projection
+"""
+
+###### IMPORTS ######
 import glob
+from pathlib import Path
+import random
 import cv2
 import numpy as np
 from matplotlib import pyplot as plt
 
-def show_img(img, window_name, width=640, height=480, wait_key=False):
+###### GLOBAL VARIABLES ######
+
+###### FUNCTIONS ######
+def random_color():
+    """ Generate random color """
+    rgbl = [255, 0, 0]
+    random.shuffle(rgbl)
+
+    return tuple(rgbl)
+
+def show_img(img, window_name, width=352, height=240, wait_key=False):
     """ Show image in certain size """
 
     resized = cv2.resize(img,
@@ -19,69 +36,47 @@ def show_img(img, window_name, width=640, height=480, wait_key=False):
 
     return 0
 
-def remove_background():
-    """ returns image with no background, only table """
-
-    # Get background
-    path = '/home/emil/Documents/github/BSc-PRO/images_1280x720/baggrund/bevægelse/WIN_20190131_10_31_36_Pro.jpg'
-    background = cv2.imread(path, cv2.IMREAD_COLOR)
-
-    # Find background pixels coordinates
-    hsv = cv2.cvtColor(background, cv2.COLOR_BGR2HSV)
-    mask = cv2.inRange(hsv, (0, 0, 64), (179, 51, 255))
-    result = cv2.bitwise_and(background, background, mask=mask)
-
-    return mask, result
-
-def backproject(roi_hist, img):
+def backproject_single(hist, img, bgd_mask):
     """
-    returns backprojected image
-    @roi_hist, histogram of region of interest to find
-    @img, image to search in
+    Performs backprojection on img\n
+    Returns region of interest (448 x 448) and bounding rect of found contour\n
+    @hist is the normalized histogram of your template converted to hsv\n
+    @img is the input image\n
+    @bgd_mask is the mask to remove unnessary background\n
     """
 
-    # Remove unessesary background
-    _mask, _ = remove_background()
-    _img = cv2.bitwise_and(img, img, mask=_mask)
-
-    # Convert to HSV
+    ################# BACK-PROJECTION #################
+    _img = cv2.blur(img, (5, 5))
     img_hsv = cv2.cvtColor(_img, cv2.COLOR_BGR2HSV)
+    mask = cv2.calcBackProject([img_hsv], [0, 1], hist, [0, 180, 0, 256], scale=1)
 
-    # Create Histogram of roi and create mask from the histogram
-    mask = cv2.calcBackProject([img_hsv], [0, 1], roi_hist, [0, 180, 0, 256], scale=1)
-
-    # Remove noise
-    kernel = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (5, 5))
-    mask = cv2.filter2D(mask, -1, kernel)
-    _, mask = cv2.threshold(mask, 127, 200, cv2.THRESH_BINARY)
-
+    ################# REMOVE NOISE #################
+    _, mask = cv2.threshold(mask, 60, 255, cv2.THRESH_BINARY)
+    kernel = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (30, 30))
+    mask = cv2.morphologyEx(mask, cv2.MORPH_CLOSE, kernel)
     mask = cv2.merge((mask, mask, mask))
     result = cv2.bitwise_and(_img, mask)
+    result = cv2.bitwise_and(result, bgd_mask)
 
-    kernel = np.ones((12, 12), np.uint8)
-    result = cv2.morphologyEx(result, cv2.MORPH_OPEN, kernel)
-
-    # Find contours
+    ################# FIND CONTOURS #################
     img_gray = cv2.cvtColor(result, cv2.COLOR_BGR2GRAY)
     _, thresh = cv2.threshold(img_gray, 0, 127, cv2.THRESH_BINARY)
-    contours, _ = cv2.findContours(thresh, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+    contours, _ = cv2.findContours(thresh, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+    areas = [cv2.contourArea(cnt) for cnt in contours]
 
-    # #################
-    # # DRAW CONTOURS #
-    # #################
-    # cnt_img = img.copy()
-    # cv2.drawContours(cnt_img, contours, -1, (0, 255, 0), 3)
-    # show_img(cnt_img, 'test 2')
+    if not areas:
+        rows, cols = img.shape[:2]
+        x = int(cols / 2)
+        y = int(rows / 2)
+        width = 50
+        height = 50
+    else:
+        index = np.argmax(areas)
+        cnt = contours[index]
+        x, y, width, height = cv2.boundingRect(cnt)
 
-    # Find biggest contour
-    areas = [cv2.contourArea(c) for c in contours]
-    max_index = np.argmax(areas)
-    cnt = contours[max_index]
-
-    # Crop contour form image
-    _x, _y, _w, _h = cv2.boundingRect(cnt)
-    x_ctr = int((_x + (_x + _w)) / 2)
-    y_ctr = int((_y + (_y + _h)) / 2)
+    x_ctr = int((x + (x + width)) / 2)
+    y_ctr = int((y + (y + height)) / 2)
     radius = 224
     x_left = x_ctr - radius
     x_right = x_ctr + radius
@@ -106,72 +101,183 @@ def backproject(roi_hist, img):
         y_down -= margin
         y_up -= margin
 
-    img_crop = img[y_up : y_down, x_left : x_right]
+    # Return region (448 x 448) and bounding rect of found contour
+    return (x_left, x_right, y_up, y_down), (x, y, width, height)
 
-    # # Display detected area
-    # img_rect = img.copy()
-    # cv2.rectangle(img_rect, (x_left, y_up), (x_right, y_down), (0, 0, 255), 4)
-    # # cv2.imwrite('/home/mathi/Desktop/detected_rect.jpg', img_rect)
-    # # show_img(img_rect, 'Region of interest', wait_key=True)
+def backproject_multi(hist, img, bgd_mask):
+    """
+    Performs backprojection on img\n
+    Returns region of interest (448 x 448) and bounding rect of found contour\n
+    @hist is the normalized histogram of your template converted to hsv\n
+    @img is the input image\n
+    @bgd_mask is the mask to remove unnessary background\n
+    """
 
-    return img_crop, (_x, _y, _w, _h)
+    ################# BACK-PROJECTION #################
+    _img = cv2.blur(img, (5, 5))
+    img_hsv = cv2.cvtColor(_img, cv2.COLOR_BGR2HSV)
+    mask = cv2.calcBackProject([img_hsv], [0, 1], hist, [0, 180, 0, 256], scale=1)
 
+    ################# REMOVE NOISE #################
+    _, mask = cv2.threshold(mask, 60, 255, cv2.THRESH_BINARY)
+    kernel = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (30, 30))
+    mask = cv2.morphologyEx(mask, cv2.MORPH_CLOSE, kernel)
+    mask = cv2.merge((mask, mask, mask))
+    result = cv2.bitwise_and(_img, mask)
+    result = cv2.bitwise_and(result, bgd_mask)
+
+    ################# FIND CONTOURS #################
+    img_gray = cv2.cvtColor(result, cv2.COLOR_BGR2GRAY)
+    _, thresh = cv2.threshold(img_gray, 0, 127, cv2.THRESH_BINARY)
+    contours, _ = cv2.findContours(thresh, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+
+    regions = []
+    cnts = []
+    if not contours:
+        # If nothing found return center of image
+        rows, cols = img.shape[:2]
+        x = int(cols / 2)
+        y = int(rows / 2)
+        width = 50
+        height = 50
+
+        cnt = (x, y, width, height)
+        cnts.append(cnt)
+
+        # Find region 448 x 448
+        x_ctr = int((x + (x + width)) / 2)
+        y_ctr = int((y + (y + height)) / 2)
+        radius = 224
+        x_left = x_ctr - radius
+        x_right = x_ctr + radius
+        y_up = y_ctr - radius
+        y_down = y_ctr + radius
+
+        if x_right > img.shape[1]:
+            margin = -1 * (img.shape[1] - x_right)
+            x_right -= margin
+            x_left -= margin
+        elif x_left < 0:
+            margin = -1 * x_left
+            x_right += margin
+            x_left += margin
+
+        if y_up < 0:
+            margin = -1 * y_up
+            y_down += margin
+            y_up += margin
+        elif y_down > img.shape[0]:
+            margin = -1 * (img.shape[0] - y_down)
+            y_down -= margin
+            y_up -= margin
+
+        region = (x_left, x_right, y_up, y_down)
+        regions.append(region)
+    else:
+        areas = [cv2.contourArea(cnt) for cnt in contours]
+        print(areas)
+
+        for i, area in enumerate(areas):
+            if area < 750:
+                continue
+
+            # Find bounding rect of contour
+            contour = contours[i]
+            x, y, width, height = cv2.boundingRect(contour)
+            cnt = (x, y, width, height)
+            cnts.append(cnt)
+
+            # Find region 448 x 448
+            x_ctr = int((x + (x + width)) / 2)
+            y_ctr = int((y + (y + height)) / 2)
+            radius = 224
+            x_left = x_ctr - radius
+            x_right = x_ctr + radius
+            y_up = y_ctr - radius
+            y_down = y_ctr + radius
+
+            if x_right > img.shape[1]:
+                margin = -1 * (img.shape[1] - x_right)
+                x_right -= margin
+                x_left -= margin
+            elif x_left < 0:
+                margin = -1 * x_left
+                x_right += margin
+                x_left += margin
+
+            if y_up < 0:
+                margin = -1 * y_up
+                y_down += margin
+                y_up += margin
+            elif y_down > img.shape[0]:
+                margin = -1 * (img.shape[0] - y_down)
+                y_down -= margin
+                y_up -= margin
+
+            region = (x_left, x_right, y_up, y_down)
+            regions.append(region)
+
+    # Return region (448 x 448) and bounding rect of found contour
+    return regions, cnts
+
+###### MAIN ######
 def main():
     """ Main function """
 
-    roi_img = cv2.imread('/mnt/sdb1/Robtek/6semester/\
-Bachelorproject/BSc-PRO/preprocessing/backprojection/template_all.jpg')
-    roi_hsv = cv2.cvtColor(roi_img, cv2.COLOR_BGR2HSV)
-    roi_hist = cv2.calcHist([roi_hsv], [0, 1], None, [180, 256], [0, 180, 0, 256])
-    roi_hist = cv2.normalize(roi_hist, roi_hist, 0, 255, cv2.NORM_MINMAX)
+    ####### IMPORT IMAGES #######
+    path_images = [
+        # str(Path('dataset3/res_still/test/background/*.jpg').resolve()),
+        str(Path('dataset3/res_still/test/potato/*.jpg').resolve()),
+        # str(Path('dataset3/res_still/test/carrots/*.jpg').resolve()),
+        # str(Path('dataset3/res_still/test/catfood_salmon/*.jpg').resolve()),
+        # str(Path('dataset3/res_still/test/catfood_beef/*.jpg').resolve()),
+        # str(Path('dataset3/res_still/test/bun/*.jpg').resolve()),
+        # str(Path('dataset3/res_still/test/arm/*.jpg').resolve()),
+        # str(Path('dataset3/res_still/test/kethchup/*.jpg').resolve()),
+        # str(Path('dataset3/images/All/*.jpg').resolve())
+    ]
 
-    # # HSV histogram of template
-    # color = ('Huminance', 'Saturation', 'Value')
-    # for i, col in enumerate(color):
-    #     hist = cv2.calcHist([roi_hsv], [i], None, [256], [0, 256])
-    #     plt.plot(hist, label=col)
-    #     plt.xlim([0, 256])
+    ################## Back-projection ##################
+    # Create template histogram
+    path = str(Path('preprocessing/template.jpg').resolve())
+    template = cv2.imread(path, cv2.IMREAD_COLOR)
+    template = cv2.blur(template, (5, 5))
+    template_hsv = cv2.cvtColor(template, cv2.COLOR_BGR2HSV)
+    template_hist = cv2.calcHist(images=[template_hsv],
+                                 channels=[0, 1],
+                                 mask=None,
+                                 histSize=[180, 256],
+                                 ranges=[0, 180, 0, 256])
+    cv2.normalize(src=template_hist,
+                  dst=template_hist,
+                  alpha=0,
+                  beta=255,
+                  norm_type=cv2.NORM_MINMAX)
 
-    # leg = plt.legend(loc='best', ncol=1, shadow=True, fancybox=True)
-    # leg.get_frame().set_alpha(0.5)
+    # Import background mask
+    path = str(Path('preprocessing/bgd_mask.jpg').resolve())
+    mask = cv2.imread(path, cv2.IMREAD_COLOR)
 
-    # plt.show()
+    images_fil = glob.glob(path_images[0])
+    images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in images_fil]
 
-    # Baggrund
-    background_fil = glob.glob('/mnt/sdb1/Robtek/6semester/\
-Bachelorproject/BSc-PRO/images_1280x720/baggrund/bevægelse/*.jpg')
-    background_images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in background_fil]
+    for img in images:
+        region, cnt = backproject_single(hist=template_hist,
+                                         img=img,
+                                         bgd_mask=mask)
 
-    # Guleroedder
-    carrot_fil = glob.glob('/mnt/sdb1/Robtek/6semester/\
-Bachelorproject/BSc-PRO/images_1280x720/gulerod/still/*.jpg')
-    carrot_images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in carrot_fil]
+        (x, y, width, height) = cnt
+        cv2.rectangle(img=img,
+                      pt1=(x, y),
+                      pt2=(x + width, y + height),
+                      color=(0, 0, 255),
+                      thickness=3)
 
-    # Kartofler
-    potato_fil = glob.glob('/mnt/sdb1/Robtek/6semester/\
-Bachelorproject/BSc-PRO/potato_and_catfood/train/potato/*.jpg')
-    potato_images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in potato_fil]
+        cv2.imshow('Image', img)
+        cv2.waitKey(0)
 
-    # Kat laks
-    cat_sal_fil = glob.glob('/mnt/sdb1/Robtek/6semester/\
-Bachelorproject/BSc-PRO/images_1280x720/kat_laks/still/*.jpg')
-    cat_sal_images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in cat_sal_fil]
-
-    # Kat okse
-    cat_beef_fil = glob.glob('/mnt/sdb1/Robtek/6semester/\
-Bachelorproject/BSc-PRO/images_1280x720/kat_okse/still/*.jpg')
-    cat_beef_images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in cat_beef_fil]
-
-    _d = 0
-    for img in cat_beef_images:
-        roi = backproject(roi_hist, img)
-
-        path = '/mnt/sdb1/Robtek/6semester/Bachelorproject/BSc-PRO/preprocessing/backprojection/cat_beef/cat_beef_%d.jpg' %_d
-        cv2.imwrite(path, roi)
-
-        _d += 1
-
-    cv2.destroyAllWindows()
+    return 0
 
 if __name__ == "__main__":
     main()
+    cv2.destroyAllWindows()
