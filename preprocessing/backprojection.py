@@ -227,7 +227,7 @@ def main():
     ####### IMPORT IMAGES #######
     path_images = [
         # str(Path('dataset3/res_still/test/background/*.jpg').resolve()),
-        str(Path('dataset3/res_still/test/potato/*.jpg').resolve()),
+        str(Path('dataset3/res_still/train/potato/*.jpg').resolve()),
         # str(Path('dataset3/res_still/test/carrots/*.jpg').resolve()),
         # str(Path('dataset3/res_still/test/catfood_salmon/*.jpg').resolve()),
         # str(Path('dataset3/res_still/test/catfood_beef/*.jpg').resolve()),
@@ -248,6 +248,7 @@ def main():
                                  mask=None,
                                  histSize=[180, 256],
                                  ranges=[0, 180, 0, 256])
+
     cv2.normalize(src=template_hist,
                   dst=template_hist,
                   alpha=0,
