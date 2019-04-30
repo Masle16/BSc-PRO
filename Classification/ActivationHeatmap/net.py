@@ -16,7 +16,7 @@ def cnn_net():
     model.add(Dense(32))
     model.add(Activation('relu'))
     model.add(Dropout(0.5))
-    model.add(Dense(3))
+    model.add(Dense(8))
     model.add(Activation('softmax'))
 
     model.compile(loss='categorical_crossentropy',
