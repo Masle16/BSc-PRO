@@ -6,7 +6,7 @@ from os import listdir
 # Own .py functions
 import util.image_import as ii
 
-def make_data_generator(train_path, test_path, val_path="", load_ram=False, ignore=[]):
+def make_data_generator(train_path, test_path, val_path="", load_ram=False, ignore=[], augmentation=True):
 
     
     mean_image_train = ii.calulate_mean(train_path, ignore) # Calculates mean for each channel for every pixel
@@ -21,17 +21,22 @@ def make_data_generator(train_path, test_path, val_path="", load_ram=False, igno
     for i in ignore:
         list_sub_dir.remove(i)
     num_classes = len(list_sub_dir)    
-        
+    
+    if augmentation:    
+        train_datagen = ImageDataGenerator(
+        rescale=1./255,
+        rotation_range=10,
+        vertical_flip=True,
+        horizontal_flip=True,
+        brightness_range=(0.65, 1.35),
+        preprocessing_function=subtract_mean)
+    else:
+        train_datagen = ImageDataGenerator(
+        rescale=1./255,
+        preprocessing_function=subtract_mean)        
+    
     if val_path == "":
         if not load_ram:
-            train_datagen = ImageDataGenerator(
-                rescale=1./255,
-                rotation_range=10,
-                vertical_flip=True,
-                horizontal_flip=True,
-                brightness_range=(0.65, 1.35),
-                preprocessing_function=subtract_mean)
-
             test_datagen = ImageDataGenerator(
                 rescale=1./255,
                 preprocessing_function=subtract_mean)
@@ -55,14 +60,6 @@ def make_data_generator(train_path, test_path, val_path="", load_ram=False, igno
             X_train, y_train = ii.images_to_numpy_full_class(train_path, ignore)
             X_test, y_test = ii.images_to_numpy_full_class(test_path, ignore)
 
-            train_datagen = ImageDataGenerator(
-                rescale=1./255,
-                rotation_range=10,
-                vertical_flip=True,
-                horizontal_flip=True,
-                brightness_range=(0.65, 1.35),
-                preprocessing_function=subtract_mean)
-
             test_datagen = ImageDataGenerator(
                 rescale=1./255,
                 preprocessing_function=subtract_mean)
@@ -84,14 +81,6 @@ def make_data_generator(train_path, test_path, val_path="", load_ram=False, igno
             return train_generator, test_generator        
     else:
         if not load_ram:
-            train_datagen = ImageDataGenerator(
-                rescale=1./255,
-                rotation_range=10,
-                vertical_flip=True,
-                horizontal_flip=True,
-                brightness_range=(0.65, 1.35),
-                preprocessing_function=subtract_mean)
-
             valid_datagen = ImageDataGenerator(
                 rescale=1./255,
                 preprocessing_function=subtract_mean)
@@ -120,14 +109,6 @@ def make_data_generator(train_path, test_path, val_path="", load_ram=False, igno
             X_train, y_train = ii.images_to_numpy_full_class(train_path, ignore)
             X_valid, y_valid = ii.images_to_numpy_full_class(val_path, ignore)
             X_test, y_test = ii.images_to_numpy_full_class(test_path, ignore)
-
-            train_datagen = ImageDataGenerator(
-                rescale=1./255,
-                rotation_range=10,
-                vertical_flip=True,
-                horizontal_flip=True,
-                brightness_range=(0.65, 1.35),
-                preprocessing_function=subtract_mean)
 
             # Making datagen for validation and test with normilization
             valid_datagen = ImageDataGenerator( 
