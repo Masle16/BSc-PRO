@@ -1,0 +1,12 @@
+Average time for selective search
+-------------
+    Background: 5.3468213140964505
+    Potato: 6.042938009897868
+    Carrot: 5.951473676552207
+    Cat food salmon: 5.4014422541759055
+    Cat food beef: 5.324248095690193
+    Arm: 4.962462182839712
+    Bun: 5.905899805809135
+    Ketchup: 5.312040065274094
+
+    Over all: 5.450255866778099
