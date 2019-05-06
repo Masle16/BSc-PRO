@@ -1,0 +1,7 @@
+Parameters for selective search:
+-------------
+    scale: 130
+    sigma: 0.75
+    min_size: 50
+
+    Average time: 9.560311144691402
