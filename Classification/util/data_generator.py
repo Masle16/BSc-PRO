@@ -6,13 +6,12 @@ from os import listdir
 # Own .py functions
 import util.image_import as ii
 
-def make_data_generator(train_path, test_path, val_path="", load_ram=False, ignore=[], augmentation=True):
+def make_data_generator(train_path, test_path, val_path="", load_ram=False, ignore=[], augmentation=True, preprocessing=[True, True]):
 
     
     mean_image_train = ii.calulate_mean(train_path, ignore) # Calculates mean for each channel for every pixel
     def subtract_mean(img):
         return img - mean_image_train
-    
     
     batch_size = 32
     # Calculate classes 
@@ -22,25 +21,40 @@ def make_data_generator(train_path, test_path, val_path="", load_ram=False, igno
         list_sub_dir.remove(i)
     num_classes = len(list_sub_dir)    
     
-    if augmentation:    
-        train_datagen = ImageDataGenerator(
-        rescale=1./255,
-        rotation_range=10,
-        vertical_flip=True,
-        horizontal_flip=True,
-        brightness_range=(0.65, 1.35),
-        preprocessing_function=subtract_mean)
-    else:
-        train_datagen = ImageDataGenerator(
-        rescale=1./255,
-        preprocessing_function=subtract_mean)        
+    # Dataugmentation and preprocessing variables initilization
+    rescale=None
+    rotation_range=0
+    vertical_flip=False
+    horizontal_flip=False
+    brightness_range=None
+    preprocessing_function=None
+       
+    if augmentation: # sets varibles for augmentation
+        rotation_range=10
+        vertical_flip=True
+        horizontal_flip=True
+        brightness_range=(0.65, 1.35)
+   
+    if preprocessing[0]: # Rescale preprocessing
+        rescale=1./255
+    if preprocessing[1]: # subtract mean preprocessing function
+        preprocessing_function=subtract_mean
     
+    # Declare different datagenerator with parameter from above
+    train_datagen = ImageDataGenerator(
+    rescale=rescale
+    rotation_range=rotation_range,
+    vertical_flip=vertical_flip,
+    horizontal_flip=horizontal_flip,
+    brightness_range=brightness_range,
+    preprocessing_function=preprocessing_function)
+    # Test
+    test_datagen = ImageDataGenerator(
+    rescale=rescale,
+    preprocessing_function=preprocessing_function)
+   
     if val_path == "":
         if not load_ram:
-            test_datagen = ImageDataGenerator(
-                rescale=1./255,
-                preprocessing_function=subtract_mean)
-
             # Train data generator
             train_generator = train_datagen.flow_from_directory(
                 train_path,
@@ -60,10 +74,6 @@ def make_data_generator(train_path, test_path, val_path="", load_ram=False, igno
             X_train, y_train = ii.images_to_numpy_full_class(train_path, ignore)
             X_test, y_test = ii.images_to_numpy_full_class(test_path, ignore)
 
-            test_datagen = ImageDataGenerator(
-                rescale=1./255,
-                preprocessing_function=subtract_mean)
-
             y_train = to_categorical(y_train, num_classes)
             y_test = to_categorical(y_test, num_classes)
 
@@ -81,10 +91,7 @@ def make_data_generator(train_path, test_path, val_path="", load_ram=False, igno
             return train_generator, test_generator        
     else:
         if not load_ram:
-            valid_datagen = ImageDataGenerator(
-                rescale=1./255,
-                preprocessing_function=subtract_mean)
-
+            
             # Train data generator
             train_generator = train_datagen.flow_from_directory(
                 train_path,
@@ -109,11 +116,6 @@ def make_data_generator(train_path, test_path, val_path="", load_ram=False, igno
             X_train, y_train = ii.images_to_numpy_full_class(train_path, ignore)
             X_valid, y_valid = ii.images_to_numpy_full_class(val_path, ignore)
             X_test, y_test = ii.images_to_numpy_full_class(test_path, ignore)
-
-            # Making datagen for validation and test with normilization
-            valid_datagen = ImageDataGenerator( 
-                rescale=1./255,
-                preprocessing_function=subtract_mean)
 
             y_train = to_categorical(y_train, num_classes)
             y_valid = to_categorical(y_valid, num_classes)
