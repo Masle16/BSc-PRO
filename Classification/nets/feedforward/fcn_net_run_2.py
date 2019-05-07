@@ -7,7 +7,7 @@ def fcn_net():
     model.add(Flatten(input_shape=(224,224,3)))
     model.add(Dense(256))
     model.add(Activation('relu'))
-    model.add(Dense(8))
+    model.add(Dense(3))
     model.add(Activation('softmax'))
     model.compile(loss='categorical_crossentropy',
                         optimizer=Adam(lr=1e-4),

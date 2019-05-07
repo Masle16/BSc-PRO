@@ -42,7 +42,7 @@ def make_data_generator(train_path, test_path, val_path="", load_ram=False, igno
     
     # Declare different datagenerator with parameter from above
     train_datagen = ImageDataGenerator(
-    rescale=rescale
+    rescale=rescale,
     rotation_range=rotation_range,
     vertical_flip=vertical_flip,
     horizontal_flip=horizontal_flip,
