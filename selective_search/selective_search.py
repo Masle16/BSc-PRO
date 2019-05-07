@@ -365,60 +365,66 @@ def main():
 
     times = []
 
-    for path_image in path_images:
-        images_fil = glob.glob(path_image)
-        images = [skimage.io.imread(img) for img in images_fil]
+    # for path_image in path_images:
 
-        for i, img in enumerate(images):
-            # Measure time
-            tic = time.time()
+    # img = skimage.io.imread('/home/mathi/Desktop/input_image.jpg')
+    images_fil = glob.glob(path_images[7])
+    images = [skimage.io.imread(img) for img in images_fil]
+    # img = images[1]
 
-            # Perform selective search
-            img_lbl, regions = selective_search(
-                src=img,
-                scale=500,
-                sigma=0.9,
-                min_size=10
+    for i, img in enumerate(images):
+        print(i)
+
+        # Measure time
+        tic = time.time()
+
+        # Perform selective search
+        img_lbl, regions = selective_search(
+            src=img,
+            scale=130,
+            sigma=0.75,
+            min_size=50
+        )
+
+        candidates = set()
+        for r in regions:
+            # Excluding same rectangle (with different segments)
+            if r['rect'] in candidates:
+                continue
+
+            # Excluding regions smaller than an specific number pixels
+            if r['size'] < 1550:
+                continue
+
+            # Distorted rects
+            x, y, w, h = r['rect']
+            if w / h > 1.2 or h / w > 1.2:
+                continue
+
+            candidates.add(r['rect'])
+
+        toc = time.time()
+        times.append(toc - tic)
+
+        # Draw rectangles on the original image and save it
+        fig, ax = plt.subplots(ncols=1, nrows=1, figsize=(6, 6))
+        ax.imshow(img)
+        ax.axis('off')
+        for x, y, w, h in candidates:
+            #print(x, y, w, h)
+            rect = mpatches.Rectangle(
+                xy=(x, y),
+                width=w,
+                height=h,
+                fill=False,
+                edgecolor='red',
+                linewidth=1
             )
-
-            candidates = set()
-            for r in regions:
-                # Excluding same rectangle (with different segments)
-                if r['rect'] in candidates:
-                    continue
-
-                # Excluding regions smaller than an specific number pixels
-                if r['size'] < 1550:
-                    continue
-
-                # Distorted rects
-                x, y, w, h = r['rect']
-                if w / h > 1.2 or h / w > 1.2:
-                    continue
-
-                candidates.add(r['rect'])
-
-            toc = time.time()
-            times.append(toc - tic)
-
-            # # Draw rectangles on the original image and save it
-            # fig, ax = plt.subplots(ncols=1, nrows=1, figsize=(6, 6))
-            # ax.imshow(img)
-            # ax.axis('off')
-            # for x, y, w, h in candidates:
-            #     #print(x, y, w, h)
-            #     rect = mpatches.Rectangle(
-            #         xy=(x, y),
-            #         width=w,
-            #         height=h,
-            #         fill=False,
-            #         edgecolor='red',
-            #         linewidth=1
-            #     )
-            #     ax.add_patch(rect)
-            # path = str(Path('selective_search/test_images/ketchup/ketchup'+str(i)+'.png').resolve())
-            # plt.savefig(path)
-            # plt.close()
+            ax.add_patch(rect)
+        # path = str(Path('selective_search/test_images/ketchup/ketchup_'+str(i)+'.png').resolve())
+        # plt.savefig(path)
+        plt.show()
+        plt.close()
 
     print('Average time performance:', (sum(times) / len(times)))
 
