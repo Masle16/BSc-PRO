@@ -15,7 +15,7 @@ def fcn_net_small_dataset():
                         metrics=['accuracy'])
     return model
 
-def fcn_net():
+def fcn_net_large_dataset():
     model = Sequential()
     model.add(Flatten(input_shape=(224,224,3)))
     model.add(Dense(64))
