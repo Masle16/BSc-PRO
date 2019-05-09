@@ -38,7 +38,7 @@ def make_data_generator(train_path, test_path, val_path="", load_ram=False, igno
     if preprocessing[0]: # Rescale preprocessing
         rescale=1./255
     if preprocessing[1]: # subtract mean preprocessing function
-        if mobilenet
+        if mobilenet:
             preprocessing_function=keras.applications.mobilenet.preprocess_input
         else:
             preprocessing_function=subtract_mean
