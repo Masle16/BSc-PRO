@@ -48,7 +48,7 @@ def plot_history(history, save=False, path='', name='history', mean_N=0, ylim_ac
         fig_loss.savefig(path+name+'_loss.png', dpi=fig.dpi)
 
 
-def plot_from_csv(path_csv, save=False, path=''):
+def plot_from_csv(path_csv, save=False, path='', name='history'):
     # summarize history for acc
     my_csv = pd.read_csv(path_csv)
     fig = mplot.figure()
