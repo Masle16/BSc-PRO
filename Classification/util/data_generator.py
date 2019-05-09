@@ -1,4 +1,5 @@
 # Keras imports
+import keras
 from keras.preprocessing.image import ImageDataGenerator
 from keras.utils.np_utils import to_categorical
 # General imports
