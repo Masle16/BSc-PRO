@@ -71,7 +71,7 @@ def plot_from_csv(path_csv, save=False, path=''):
     mplot.legend(['train', 'val'], loc='upper left')
     mplot.show()
 
-     if (save == True):
+    if (save == True):
         fig.savefig(path+name+'_acc.png', dpi=fig.dpi)
         fig_loss.savefig(path+name+'_loss.png', dpi=fig.dpi)
 
