@@ -7,7 +7,7 @@ from os import listdir
 # Own .py functions
 import util.image_import as ii
 
-def make_data_generator(train_path, test_path, val_path="", load_ram=False, ignore=[], augmentation=True, preprocessing=[True, True], transfer_learning=""):
+def make_data_generator(train_path, test_path, val_path="", load_ram=False, ignore=[], augmentation=True, preprocessing=[True, True], transfer_learning=True):
 
     
     mean_image_train = ii.calulate_mean(train_path, ignore) # Calculates mean for each channel for every pixel
@@ -39,9 +39,8 @@ def make_data_generator(train_path, test_path, val_path="", load_ram=False, igno
     if preprocessing[0]: # Rescale preprocessing
         rescale=1./255
     if preprocessing[1]: # subtract mean preprocessing function
-        if not transfer_learning == "":
-            transfer_preprocess = 'keras.applications.' + transfer_learning + '.preprocess_input'
-            preprocessing_function=transfer_preprocess
+        if transfer_learning
+            preprocessing_function=keras.applications.mobilenet_v2.preprocess_input
         else:
             preprocessing_function=subtract_mean
     
