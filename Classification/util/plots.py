@@ -52,9 +52,9 @@ def plot_from_csv(path_csv, save=False, path='', name='history'):
     # summarize history for acc
     my_csv = pd.read_csv(path_csv)
     fig = mplot.figure()
-    mplot.plot(my_csv['val_acc'])
     mplot.plot(my_csv['acc'])
-    
+    mplot.plot(my_csv['val_acc'])
+
     mplot.title('model accuracy')
     mplot.ylabel('accuracy')
     mplot.xlabel('epoch')

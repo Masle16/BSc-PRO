@@ -7,7 +7,7 @@ from os import listdir
 # Own .py functions
 import util.image_import as ii
 
-def make_data_generator(train_path, test_path, val_path="", load_ram=False, ignore=[], augmentation=True, preprocessing=[True, True], transfer_learning=""):
+def make_data_generator(train_path, test_path, val_path="", load_ram=False, ignore=[], augmentation=True, preprocessing=[True, True], transfer_learning="", keras_featurewise_center=False, keras_zca_whitening=False):
 
     
     mean_image_train = ii.calulate_mean(train_path, ignore) # Calculates mean for each channel for every pixel
@@ -29,6 +29,10 @@ def make_data_generator(train_path, test_path, val_path="", load_ram=False, igno
     horizontal_flip=False
     brightness_range=None
     preprocessing_function=None
+
+    if featurewise_center or zca_whitening:
+        print("Warning: only works if load_ram = True !")
+        
        
     if augmentation: # sets varibles for augmentation
         rotation_range=10
@@ -80,11 +84,15 @@ def make_data_generator(train_path, test_path, val_path="", load_ram=False, igno
     vertical_flip=vertical_flip,
     horizontal_flip=horizontal_flip,
     brightness_range=brightness_range,
-    preprocessing_function=preprocessing_function)
+    preprocessing_function=preprocessing_function,
+    featurewise_center=keras_featurewise_center,
+    zca_whitening=keras_zca_whitening)
     # Test
     test_datagen = ImageDataGenerator(
     rescale=rescale,
-    preprocessing_function=preprocessing_function)
+    preprocessing_function=preprocessing_function,
+    featurewise_center=keras_featurewise_center,
+    zca_whitening=keras_zca_whitening)
    
     if val_path == "":
         if not load_ram:
@@ -109,14 +117,18 @@ def make_data_generator(train_path, test_path, val_path="", load_ram=False, igno
 
             y_train = to_categorical(y_train, num_classes)
             y_test = to_categorical(y_test, num_classes)
+            
+            f featurewise_center or zca_whitening:
+                train_datagen.fit(x_train)
+                test_datagen.fit(x_test)
 
             train_generator = train_datagen.flow(X_train,
                                                  y_train,
                                                  batch_size=batch_size, shuffle=True)
 
             test_generator = test_datagen.flow(X_test,
-                                                 y_test,
-                                                 batch_size=batch_size, shuffle=True)
+                                               y_test,
+                                               batch_size=batch_size, shuffle=True)
 
             print("Found Training " + str(X_train.shape[0]) + " images belonging to " + str(num_classes) + " classes")
             print("Found Test " + str(X_test.shape[0]) + " images belonging to " + str(num_classes) + " classes")
@@ -154,6 +166,9 @@ def make_data_generator(train_path, test_path, val_path="", load_ram=False, igno
             y_valid = to_categorical(y_valid, num_classes)
             y_test = to_categorical(y_test, num_classes)
 
+            if featurewise_center or zca_whitening:
+                train_datagen.fit(x_train)
+                valid_datagen.fit(x_test)
             
             train_generator = train_datagen.flow(X_train,
                                                  y_train,
