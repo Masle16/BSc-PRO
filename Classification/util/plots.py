@@ -1,6 +1,8 @@
 # This is utility functions used to generate plots.
 import matplotlib.pyplot as mplot
 import numpy
+import pandas as pd
+
 
 
 def running_mean(x, N):
@@ -44,3 +46,34 @@ def plot_history(history, save=False, path='', name='history', mean_N=0, ylim_ac
     if (save == True):
         fig.savefig(path+name+'_acc.png', dpi=fig.dpi)
         fig_loss.savefig(path+name+'_loss.png', dpi=fig.dpi)
+
+
+def plot_from_csv(path_csv, save=False, path='', name='history'):
+    # summarize history for acc
+    my_csv = pd.read_csv(path_csv)
+    fig = mplot.figure()
+    mplot.plot(my_csv['val_acc'])
+    mplot.plot(my_csv['acc'])
+    
+    mplot.title('model accuracy')
+    mplot.ylabel('accuracy')
+    mplot.xlabel('epoch')
+    mplot.legend(['train', 'val'], loc='upper left')
+    mplot.show()
+
+    # summarize history for loss
+    fig_loss = mplot.figure()
+    mplot.plot(my_csv['loss'])
+    mplot.plot(my_csv['val_loss'])
+    mplot.title('model loss')
+    mplot.ylabel('loss')
+    mplot.xlabel('epoch')
+    mplot.legend(['train', 'val'], loc='upper left')
+    mplot.show()
+
+    if (save == True):
+        fig.savefig(path+name+'_acc.png', dpi=fig.dpi)
+        fig_loss.savefig(path+name+'_loss.png', dpi=fig.dpi)
+
+
+  
