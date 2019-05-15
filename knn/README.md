@@ -2,23 +2,72 @@
 
 ## Pixel
 
-## Histogram
+### Full images
 
-### Fulle images
+| Image type | Image size | Memory usage | Prediction time | Accuracy|
+|:----------:|:----------:|:------------:|:---------------:|:-------:|
+| Normal | 32x32 | 46.08 [MB] | 0.0605 [s] | 63.1 % |
+| Normal | 64x64 | 184.32 [MB] | 0.241 [s] | 64.6 % |
+| Normal | 128x128 | 737.28 [MB] | 0.928 [s] | 65.0 % |
+| Smoothed | 32x32 | 46.08 [MB] | 0.0578 [s] | 65.7 % |
+| Smoothed | 64x64 | 184.32 [MB] | 0.207 [s] | 66.3 % |
+| Smoothed | 128x128 | 737.28 [MB] | 0.784 [s] | 65.7 % |
+| Filtered | 32x32 | 46.08 [MB] | 0.0616 [s] | 44.9 % |
+| Filtered | 64x64 | 184.32 [MB] | 0.235 [s] | 45.7 % |
+| Filtered | 128x128 | 737.28 [MB] | 0.859 [s] | 47.7 % |
+| Smoothed and filtered | 32x32 | 46.08 [MB] | 0.0774 [s] | 51.3 % |
+| Smoothed and filtered | 64x64 | 184.32 [MB] | 0.211 [s] | 49.4 % |
+| Smoothed and filtered | 128x128 | 737.28 [MB] | 0.859 [s] | 50.6 % |
 
 ### Cropped images
 
-| Image type | Memory usage | Prediction time | Accuracy|
-|:----------:|:------------:|:---------------:|:-------:|
-| Normal | 3.84 [MB] (bin size=(8, 8, 8)) | 0.00706 [s] | 73.7 % |
-| Normal | 30.72 [MB] (bin size=(16, 16, 16)) | 0.0441 [s] | 70.8 % |
-| Normal | 245.76 [MB] (bin size=(32, 32, 32)) | 0.306 [s] | 71.0 % |
-| Smoothed | 3.84 [MB] (bin size=(8, 8, 8)) | 0.00876 [s] | 71.8 % |
-| Smoothed | 30.72 [MB] (bin size=(16, 16, 16)) | 0.0628 [s] | 70.3 % |
-| Smoothed | 245.76 [MB] (bin size=(32, 32, 32)) | 0.520 [s] | 70.6 % |
-| Filtered | 3.84 [MB] (bin size=(8, 8, 8)) | 0.0104 [s] | 95.3 % |
-| Filtered | 30.72 [MB] (bin size=(16, 16, 16)) | 0.0930 [s] | 93.6 % |
-| Filtered | 245.76 [MB] (bin size=(32, 32, 32)) | 0.312 [s] | 91.3 % |
-| Smoothed and filtered | 3.84 [MB] (bin size=(8, 8, 8)) | 0.00691 [s] | 93.9 % |
-| Smoothed and filtered | 30.72 [MB] (bin size=(16, 16, 16)) | 0.0441 [s] | 94.1 % |
-| Smoothed and filtered | 245.76 [MB] (bin size=(32, 32, 32)) | 0.306 [s] | 91.7 % |
+| Image type | Image size | Memory usage | Prediction time | Accuracy|
+|:----------:|:----------:|:------------:|:---------------:|:-------:|
+| Normal | 32x32 | 46.08 [MB] |  [s] |  % |
+| Normal | 64x64 | 184.32 [MB] |  [s] |  % |
+| Normal | 128x128 | 737.28 [MB] |  [s] |  % |
+| Smoothed | 32x32 | 46.08 [MB] |  [s] |  % |
+| Smoothed | 64x64 | 184.32 [MB] |  [s] |  % |
+| Smoothed | 128x128 | 737.28 [MB] |  [s] |  % |
+| Filtered | 32x32 | 46.08 [MB] |  [s] |  % |
+| Filtered | 64x64 | 184.32 [MB] |  [s] |  % |
+| Filtered | 128x128 | 737.28 [MB] |  [s] |  % |
+| Smoothed and filtered | 32x32 | 46.08 [MB] |  [s] |  % |
+| Smoothed and filtered | 64x64 | 184.32 [MB] |  [s] |  % |
+| Smoothed and filtered | 128x128 | 737.28 [MB] |  [s] |  % |
+
+## Histogram
+
+### Full images
+
+| Image type | Bin size | Memory usage | Prediction time | Accuracy|
+|:----------:|:--------:|:------------:|:---------------:|:-------:|
+| Normal | (8, 8, 8) | 7.68 [MB] | 0.0207 [s] | 85.2 % |
+| Normal | (16, 16, 16) | 61.44 [MB] | 0.0954 [s] | 87.7 % |
+| Normal | (32, 32, 32) | 491.52 [MB] | 0.569 [s] | 90.0 % |
+| Smoothed | (8, 8, 8) | 7.68 [MB] | 0.0141 [s] | 84.1 % |
+| Smoothed | (16, 16, 16) | 61.44 [MB] | 0.0769 [s] | 87.0 % |
+| Smoothed | (32, 32, 32) | 491.52 [MB] | 0.520 [s] | 89.0 % |
+| Filtered | (8, 8, 8) | 7.68 [MB] | 0.0238 [s] | 95.6 % |
+| Filtered | (16, 16, 16) | 61.44 [MB] | 0.113 [s] | 95.6 % |
+| Filtered | (32, 32, 32) | 491.52 [MB] | 0.823 [s] | 93.6 % |
+| Smoothed and filtered | (8, 8, 8) | 7.68 [MB] | 0.0165 [s] | 94.1 % |
+| Smoothed and filtered | (16, 16, 16) | 61.44 [MB] | 0.0817 [s] | 94.9 % |
+| Smoothed and filtered | (32, 32, 32) | 491.52 [MB] | 0.524 [s] | 95.3 % |
+
+### Cropped images
+
+| Image type | Bin size | Memory usage | Prediction time | Accuracy|
+|:----------:|:--------:|:------------:|:---------------:|:-------:|
+| Normal | (8, 8, 8) | 7.68 [MB] |  [s] |  % |
+| Normal | (16, 16, 16) | 61.44 [MB] |  [s] |  % |
+| Normal | (32, 32, 32) | 491.52 [MB] |  [s] |  % |
+| Smoothed | (8, 8, 8) | 7.68 [MB] |  [s] |  % |
+| Smoothed | (16, 16, 16) | 61.44 [MB] |  [s] |  % |
+| Smoothed | (32, 32, 32) | 491.52 [MB] |  [s] |  % |
+| Filtered | (8, 8, 8) | 7.68 [MB] |  [s] |  % |
+| Filtered | (16, 16, 16) | 61.44 [MB] |  [s] |  % |
+| Filtered | (32, 32, 32) | 491.52 [MB] |  [s] |  % |
+| Smoothed and filtered | (8, 8, 8) | 7.68 [MB] |  [s] |  % |
+| Smoothed and filtered | (16, 16, 16) | 61.44 [MB] |  [s] |  % |
+| Smoothed and filtered | (32, 32, 32) | 491.52 [MB] |  [s] |  % |
