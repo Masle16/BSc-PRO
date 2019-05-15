@@ -16,16 +16,13 @@ Bin size:
   
   (Width * Height * Depth * Computer number format * Total images) / 1000000 = Number of Mega Bytes
   
-  
   (8 * 8 * 8 * 8 * 1875) / 1000000 = 7.68 [MB]
   
   (16 * 16 * 16 * 8 * 1875) / 1000000 = 61.44 [MB]
   
   (32 * 32 * 32 * 8 * 1875) / 1000000 = 491.62 [MB]
 
-## Pixel
-
-### Full images
+### Pixel feature on full images
 
 | Image type | Image size | Memory usage | Prediction time | Accuracy|
 |:----------:|:----------:|:------------:|:---------------:|:-------:|
@@ -42,7 +39,7 @@ Bin size:
 | Smoothed and filtered | 64x64 | 184.32 [MB] | 0.211 [s] | 49.4 % |
 | Smoothed and filtered | 128x128 | 737.28 [MB] | 0.859 [s] | 50.6 % |
 
-### Cropped images
+### Pixel feature on cropped images
 
 | Image type | Image size | Memory usage | Prediction time | Accuracy|
 |:----------:|:----------:|:------------:|:---------------:|:-------:|
@@ -59,9 +56,7 @@ Bin size:
 | Smoothed and filtered | 64x64 | 184.32 [MB] | 0.212 [s] | 72.2 % |
 | Smoothed and filtered | 128x128 | 737.28 [MB] | 0.817 [s] | 73.1 % |
 
-## Histogram
-
-### Full images
+### Histogram feature on full images
 
 | Image type | Bin size | Memory usage | Prediction time | Accuracy|
 |:----------:|:--------:|:------------:|:---------------:|:-------:|
@@ -78,7 +73,7 @@ Bin size:
 | Smoothed and filtered | (16, 16, 16) | 61.44 [MB] | 0.0817 [s] | 94.9 % |
 | Smoothed and filtered | (32, 32, 32) | 491.52 [MB] | 0.524 [s] | 95.3 % |
 
-### Cropped images
+### Histogram feature on cropped images
 
 | Image type | Bin size | Memory usage | Prediction time | Accuracy|
 |:----------:|:--------:|:------------:|:---------------:|:-------:|
