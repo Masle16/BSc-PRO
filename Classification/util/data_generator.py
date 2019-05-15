@@ -30,8 +30,8 @@ def make_data_generator(train_path, test_path, val_path="", load_ram=False, igno
     brightness_range=None
     preprocessing_function=None
 
-    if featurewise_center or zca_whitening:
-        print("Warning: only works if load_ram = True !")
+    if keras_featurewise_center or keras_zca_whitening:
+        print("Warning: only works if load_ram = True, and only works without a validation path !")
         
        
     if augmentation: # sets varibles for augmentation
@@ -118,9 +118,9 @@ def make_data_generator(train_path, test_path, val_path="", load_ram=False, igno
             y_train = to_categorical(y_train, num_classes)
             y_test = to_categorical(y_test, num_classes)
             
-            f featurewise_center or zca_whitening:
-                train_datagen.fit(x_train)
-                test_datagen.fit(x_test)
+            if keras_featurewise_center or keras_zca_whitening:
+                train_datagen.fit(X_train)
+                test_datagen.fit(X_test)
 
             train_generator = train_datagen.flow(X_train,
                                                  y_train,
@@ -165,10 +165,6 @@ def make_data_generator(train_path, test_path, val_path="", load_ram=False, igno
             y_train = to_categorical(y_train, num_classes)
             y_valid = to_categorical(y_valid, num_classes)
             y_test = to_categorical(y_test, num_classes)
-
-            if featurewise_center or zca_whitening:
-                train_datagen.fit(x_train)
-                valid_datagen.fit(x_test)
             
             train_generator = train_datagen.flow(X_train,
                                                  y_train,
