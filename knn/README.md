@@ -1,5 +1,28 @@
 # Results
 
+#### Calculation of Memory usage
+
+Image size:
+  
+  (Width * Height * Channels * Computer number format * Total images) / 1000000 = Number of Mega Bytes
+  
+  (32 * 32 * 3 * 8 * 1875) / 1000000 = 46.08 [MB]
+  
+  (64 * 64 * 3 * 8 * 1875) / 1000000 = 184.32 [MB]
+  
+  (128 * 128 * 3 * 8 * 1875) / 1000000 = 737.28 [MB]
+ 
+Bin size:
+  
+  (Width * Height * Depth * Computer number format * Total images) / 1000000 = Number of Mega Bytes
+  
+  
+  (8 * 8 * 8 * 8 * 1875) / 1000000 = 7.68 [MB]
+  
+  (16 * 16 * 16 * 8 * 1875) / 1000000 = 61.44 [MB]
+  
+  (32 * 32 * 32 * 8 * 1875) / 1000000 = 491.62 [MB]
+
 ## Pixel
 
 ### Full images
