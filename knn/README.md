@@ -4,7 +4,7 @@
 
 ## Histogram
 
-### Fulle images
+### Full images
 
 ### Cropped images
 
