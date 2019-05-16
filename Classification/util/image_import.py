@@ -19,9 +19,7 @@ def get_sub_dir(path, ignore=[]):
         
     return sub_directories
 
-def calulate_mean(path_training_img, ignore=[]):
-    width = 224
-    height = 224
+def calulate_mean(path_training_img, ignore=[], height=224, width=224):
     mean_img = np.zeros((width, height, 3), dtype="float32")
     numbers_img = 0
     
@@ -67,12 +65,10 @@ def images_to_numpy(images_pot, images_cat, images_tab):
         y.append(2)
     return np.asarray(x), np.asarray(y)
 
-def images_to_numpy_full_class(image_path, ignore=[]):
+def images_to_numpy_full_class(image_path, ignore=[], height=224, width=224):
     x = []
     y = []
-    
-    width = 224
-    height = 224
+
     sub_dirs = get_sub_dir(image_path, ignore)
     for label, classes in enumerate(sub_dirs):
         for img in classes:
