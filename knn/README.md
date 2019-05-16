@@ -1,26 +1,4 @@
-# Results
-
-#### Calculation of Memory usage
-
-Image size:
-  
-  (Width * Height * Channels * Computer number format * Total images) / 1000000 = Number of Mega Bytes
-  
-  (32 * 32 * 3 * 8 * 1875) / 1000000 = 46.08 [MB]
-  
-  (64 * 64 * 3 * 8 * 1875) / 1000000 = 184.32 [MB]
-  
-  (128 * 128 * 3 * 8 * 1875) / 1000000 = 737.28 [MB]
- 
-Bin size:
-  
-  (Width * Height * Depth * Computer number format * Total images) / 1000000 = Number of Mega Bytes
-  
-  (8 * 8 * 8 * 8 * 1875) / 1000000 = 7.68 [MB]
-  
-  (16 * 16 * 16 * 8 * 1875) / 1000000 = 61.44 [MB]
-  
-  (32 * 32 * 32 * 8 * 1875) / 1000000 = 491.62 [MB]
+# Hyperparameter optimization for k-Nearest Neighbor
 
 ### Pixel feature on full images
 
@@ -89,3 +67,34 @@ Bin size:
 | Smoothed and filtered | (8, 8, 8) | 7.68 [MB] | 0.0151 [s] | 91.7 % |
 | Smoothed and filtered | (16, 16, 16) | 61.44 [MB] | 0.0784 [s] | 92.6 % |
 | Smoothed and filtered | (32, 32, 32) | 491.52 [MB] | 0.546 [s] | 93.9 % |
+
+#### Calculation of Memory usage
+
+Image size:
+  
+  (Width * Height * Channels * Computer number format * Total images) / 1000000 = Number of Mega Bytes
+  
+  (32 * 32 * 3 * 8 * 1875) / 1000000 = 46.08 [MB]
+  
+  (64 * 64 * 3 * 8 * 1875) / 1000000 = 184.32 [MB]
+  
+  (128 * 128 * 3 * 8 * 1875) / 1000000 = 737.28 [MB]
+ 
+Bin size:
+  
+  (Width * Height * Depth * Computer number format * Total images) / 1000000 = Number of Mega Bytes
+  
+  (8 * 8 * 8 * 8 * 1875) / 1000000 = 7.68 [MB]
+  
+  (16 * 16 * 16 * 8 * 1875) / 1000000 = 61.44 [MB]
+  
+  (32 * 32 * 32 * 8 * 1875) / 1000000 = 491.62 [MB]
+  
+# k-Nearest Neighbor without Cat Food Beef
+
+### Histogram feature on full images
+
+| Image type | Bin size | Memory usage | Prediction time | Accuracy|
+|:----------:|:--------:|:------------:|:---------------:|:-------:|
+| Normal | (32, 32, 32) | 430.18 [MB] | 0.452 [s] | 92.5 % |
+| Filtered | (8, 8, 8) | 6.72 [MB] | 0.0120 [s] | 98.5 % |
