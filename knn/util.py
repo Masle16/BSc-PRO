@@ -107,10 +107,10 @@ def cross_val(k_choices, num_folds, X_train_folds, y_train_folds, shape):
 def print_info(X_train, y_train, X_test, y_test):
     """ Prints information """
     
-    X_train = np.array(X_train, dtype=np.float32)
-    y_train = np.array(y_train, dtype=np.float32)
-    X_test = np.array(X_test, dtype=np.float32)
-    y_test = np.array(y_test, dtype=np.float32)
+    X_train = np.array(X_train, dtype=np.float64)
+    y_train = np.array(y_train, dtype=np.float64)
+    X_test = np.array(X_test, dtype=np.float64)
+    y_test = np.array(y_test, dtype=np.float64)
     print('Train matrix:', (X_train.nbytes / 1.0e6), 'MB')
     print('Test matrix:', (X_test.nbytes / 1.0e6), 'MB')
     print('Train data shape:', X_train.shape)
