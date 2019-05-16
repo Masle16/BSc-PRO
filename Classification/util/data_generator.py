@@ -7,7 +7,7 @@ from os import listdir
 # Own .py functions
 import util.image_import as ii
 
-def make_data_generator(train_path, test_path, val_path="", load_ram=False, ignore=[], augmentation=True, preprocessing=[True, True], transfer_learning="", keras_featurewise_center=False, keras_zca_whitening=False):
+def make_data_generator(train_path, test_path, val_path="", load_ram=False, ignore=[], augmentation=True, preprocessing=[True, True], transfer_learning=""):
 
     
     mean_image_train = ii.calulate_mean(train_path, ignore) # Calculates mean for each channel for every pixel
@@ -29,11 +29,7 @@ def make_data_generator(train_path, test_path, val_path="", load_ram=False, igno
     horizontal_flip=False
     brightness_range=None
     preprocessing_function=None
-
-    if keras_featurewise_center or keras_zca_whitening:
-        print("Warning: only works if load_ram = True, and only works without a validation path !")
-        
-       
+               
     if augmentation: # sets varibles for augmentation
         rotation_range=10
         vertical_flip=True
@@ -84,15 +80,11 @@ def make_data_generator(train_path, test_path, val_path="", load_ram=False, igno
     vertical_flip=vertical_flip,
     horizontal_flip=horizontal_flip,
     brightness_range=brightness_range,
-    preprocessing_function=preprocessing_function,
-    featurewise_center=keras_featurewise_center,
-    zca_whitening=keras_zca_whitening)
+    preprocessing_function=preprocessing_function)
     # Test
     test_datagen = ImageDataGenerator(
     rescale=rescale,
-    preprocessing_function=preprocessing_function,
-    featurewise_center=keras_featurewise_center,
-    zca_whitening=keras_zca_whitening)
+    preprocessing_function=preprocessing_function)
    
     if val_path == "":
         if not load_ram:
@@ -117,10 +109,6 @@ def make_data_generator(train_path, test_path, val_path="", load_ram=False, igno
 
             y_train = to_categorical(y_train, num_classes)
             y_test = to_categorical(y_test, num_classes)
-            
-            if keras_featurewise_center or keras_zca_whitening:
-                train_datagen.fit(X_train)
-                test_datagen.fit(X_test)
 
             train_generator = train_datagen.flow(X_train,
                                                  y_train,
