@@ -381,9 +381,9 @@ def main():
         # Perform selective search
         img_lbl, regions = selective_search(
             src=img,
-            scale=130,
-            sigma=0.75,
-            min_size=50
+            scale=500.0,
+            sigma=0.7,
+            min_size=10
         )
 
         candidates = set()

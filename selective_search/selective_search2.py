@@ -1,13 +1,25 @@
+#!/mnt/sdb1/Anaconda/envs/BScPRO/bin/python
+
 """ Selective search opencv implementation """
 
 from __future__ import division
 import glob
 # import sys
 from pathlib import Path
+import time
+import numpy as np
 import cv2
 
 def main():
     """ Main function """
+
+    # Load background mask
+    path = str(Path('preprocessing/bgd_mask.jpg').resolve())
+    bgd_mask = cv2.imread(path, cv2.IMREAD_COLOR)
+
+    # # Load average background
+    # path = str(Path('preprocessing/avg_background.jpg').resolve())
+    # avg_bgd = cv2.imread(path, cv2.IMREAD_COLOR)
 
     # Image paths
     path_images = [
@@ -23,49 +35,81 @@ def main():
 
     # Speed-up using multithreads
     cv2.setUseOptimized(True)
-    cv2.setNumThreads(4)
-
-    # read image
-    img_fil = glob.glob(path_images[7])
-    img = cv2.imread(img_fil[0], cv2.IMREAD_ANYCOLOR)
-
-    # # Resize image
-    # new_h = 200
-    # new_w = int((img.shape[1] * 200) / img.shape[0])
-    # img = cv2.resize(img, (new_w / new_h))
 
     # Create selective search segmentation object using default parameters
-    ss = cv2.ximgproc.segmentation.createSelectiveSerachSegmentation()
+    ss = cv2.ximgproc.segmentation.createSelectiveSearchSegmentation()
 
-    # Set input image on which we will run segmentation
-    ss.setBaseImage(img)
+    # # Load image
+    # img_fil = glob.glob(path_images[7])
+    # img = cv2.imread(img_fil[0], cv2.IMREAD_ANYCOLOR)
 
-    # Run selective search segmentation on input image
-    rects = ss.process()
-    print('Total number of region proposals:', len(rects))
+    times = []
+    rectangles = []
 
-    # Number of region proposals to show
-    num_show_rects = 100
+    for path in path_images:
+        # Load images
+        img_fil = glob.glob(path)
+        images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in img_fil]
 
-    # Increment to increase/descrease total number of reason proposals to be shown
-    # increment = 50
+        for img in images:
+            # Remove unnessary background
+            img = cv2.bitwise_and(img, bgd_mask)
 
-    while True:
-        # Create a copy of original image
-        img_out = img.copy()
+            # Set input image on which we will run segmentation
+            ss.setBaseImage(img)
 
-        # Iterate over all regions proposals
-        for i, rect in enumerate(rects):
-            # draw rectangle for region proposal till num_show_rects
-            if i < num_show_rects:
-                x, y, w, h, = rect
-                cv2.rectangle(img_out, (x, y), (x+w, y+h), (0, 255, 0), 1, cv2.LINE_AA)
-            else:
-                break
+            # Start counting time
+            tic = time.time()
 
-        # Show output
-        cv2.imshow('Output', img_out)
-        cv2.waitKey(0)
+            # # Switch to fast but low recall selective search method
+            # ss.switchToSelectiveSearchFast()
+
+            # Switch to high recall but slow selective search method
+            ss.switchToSelectiveSearchQuality()
+
+            # Run selective search segmentation on input image
+            results = ss.process()
+
+            # Remove rect with certain area
+            rects = []
+            for x, y, w, h in results:
+                area = (w * h)
+
+                if area < 1550:
+                    continue
+
+                if area > 160000:
+                    continue
+
+                rects.append((x, y, w, h))
+
+            # Print time spent on selective search
+            toc = time.time()
+            times.append((toc - tic))
+            print('Time:', (toc - tic))
+
+            # Print number of rects found
+            rectangles.append(len(rects))
+            print('Total number of region proposals:', len(rects))
+
+    print('\nAverage time:', np.mean(times))
+    print('\nAverage number of region proposals:', np.mean(rectangles))
+
+    # # Create a copy of original image
+    # img_out = img.copy()
+
+    # # Iterate over all regions proposals
+    # for i, rect in enumerate(rects):
+    #     if i < 100:
+    #         # draw rectangle for region proposal
+    #         x, y, w, h, = rect
+    #         cv2.rectangle(img_out, (x, y), (x+w, y+h), (0, 255, 0), 2, cv2.LINE_AA)
+    #     else:
+    #         break
+
+    # # Show output
+    # cv2.imshow('Output', img_out)
+    # cv2.waitKey(0)
 
     # Close image show windown
     cv2.destroyAllWindows()
