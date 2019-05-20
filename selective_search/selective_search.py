@@ -31,6 +31,11 @@ def generate_segments(src, scale, sigma, min_size):
         min_size=min_size
     )
 
+    plt.imshow(img_mask)
+    plt.axis('off')
+    plt.show()
+    plt.close()
+
     # Merge mask channel to the image as a 4th channel
     src = np.append(
         src, np.zeros(src.shape[:2])[:, :, np.newaxis], axis=2
@@ -186,8 +191,16 @@ def extract_regions(img):
 
     # Pass 2: calculate texture gradient
     tex_grad = calc_texture_gradient(img)
+    print(tex_grad.shape)
 
-    # Pass 3: calculate color histogram of each region
+    dst = tex_grad[:, :, :3]
+    print(dst.shape)
+    plt.imshow(dst)
+    plt.axis('off')
+    plt.show()
+    plt.close()
+
+    # Pass 3: calculate histograms of each region
     for k, v in list(R.items()):
         # Color histogram
         masked_pixels = hsv[:, :, :][img[:, :, 3] == k]
@@ -214,17 +227,6 @@ def extract_neighbours(region):
 
         if a["min_x"] < b["max_x"] < a["max_x"] and a["min_y"] < b["min_y"] < a["max_y"]:
             return True
-
-        # if (a["min_x"] < b["min_x"] < a["max_x"]
-        #         and a["min_y"] < b["min_y"] < a["max_y"]) or (
-        #             a["min_x"] < b["max_x"] < a["max_x"]
-        #             and a["min_y"] < b["max_y"] < a["max_y"]) or (
-        #                 a["min_x"] < b["min_x"] < a["max_x"]
-        #                 and a["min_y"] < b["max_y"] < a["max_y"]) or (
-        #                     a["min_x"] < b["max_x"] < a["max_x"]
-        #                     and a["min_y"] < b["min_y"] < a["max_y"]):
-
-        #     return True
 
         return False
 
@@ -365,14 +367,16 @@ def main():
 
     times = []
 
-    # for path_image in path_images:
-
-    # img = skimage.io.imread('/home/mathi/Desktop/input_image.jpg')
-    images_fil = glob.glob(path_images[7])
+    images_fil = glob.glob(path_images[1])
     images = [skimage.io.imread(img) for img in images_fil]
-    # img = images[1]
 
     for i, img in enumerate(images):
+
+        plt.imshow(img)
+        plt.axis('off')
+        plt.show()
+        plt.close()
+
         print(i)
 
         # Measure time
@@ -381,8 +385,8 @@ def main():
         # Perform selective search
         img_lbl, regions = selective_search(
             src=img,
-            scale=130,
-            sigma=0.75,
+            scale=100.0,
+            sigma=0.8,
             min_size=50
         )
 
