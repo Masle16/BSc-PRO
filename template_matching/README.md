@@ -8,5 +8,5 @@ The accuracy and time of the method is stated below.
 
 | Method | Accuracy [%] | time [s] |
 |:------:|:------------:|:--------:|
-| Template Matching with Multispectralband Thresholding | - | - |
+| Template Matching with Multispectralband Thresholding | 45.83 | 3.938 |
 | Template Matching without Multispectralband Thresholding | - | - |
