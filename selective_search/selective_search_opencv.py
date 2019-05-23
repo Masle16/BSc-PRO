@@ -40,8 +40,11 @@ def main():
     ss = cv2.ximgproc.segmentation.createSelectiveSearchSegmentation()
 
     # Load image
-    img_fil = glob.glob(path_images[2])
-    img = cv2.imread(img_fil[3], cv2.IMREAD_ANYCOLOR)
+    # img_fil = glob.glob(path_images[2])
+    # img = cv2.imread(img_fil[3], cv2.IMREAD_ANYCOLOR)
+    path = str(Path('/home/mathi/Downloads/potato.jpg').resolve())
+    img = cv2.imread(path, cv2.IMREAD_COLOR)
+    dst = img.copy()
 
     # Remove unnessary background
     img = cv2.bitwise_and(img, bgd_mask)
@@ -66,7 +69,7 @@ def main():
     for x, y, w, h in results:
         area = (w * h)
 
-        if area < 1550:
+        if area < 2500:
             continue
 
         if area > 160000:
@@ -82,19 +85,23 @@ def main():
     print('Total number of region proposals:', len(rects))
 
     # Create a copy of original image
-    img_out = img.copy()
+    overlay = dst.copy()
+    output = dst.copy()
 
     # Iterate over all regions proposals
     for i, rect in enumerate(rects):
-        if i < 100:
+        if i < 3:
             # draw rectangle for region proposal
             x, y, w, h, = rect
-            cv2.rectangle(img_out, (x, y), (x+w, y+h), (0, 255, 0), 2, cv2.LINE_AA)
+            cv2.rectangle(overlay, (x, y), (x+w, y+h), (0, 255, 0), -1)
+            cv2.rectangle(output, (x, y), (x+w, y+h), (0, 125, 0), 2)
         else:
             break
 
+    cv2.addWeighted(overlay, 0.5, output, 1 - 0.5, 0, output)
+
     # Show output
-    cv2.imshow('Output', img_out)
+    cv2.imshow('Output', output)
     cv2.waitKey(0)
 
     # Close image show windown
