@@ -9,4 +9,4 @@ The accuracy and time of the method is stated below.
 | Method | Accuracy [%] | time [s] |
 |:------:|:------------:|:--------:|
 | Template Matching with Multispectralband Thresholding | 46.30 | 4.136 |
-| Template Matching without Multispectralband Thresholding | - | - |
+| Template Matching without Multispectralband Thresholding | 14.38 | 4.0131 |
