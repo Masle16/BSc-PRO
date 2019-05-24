@@ -10,6 +10,7 @@ import random
 from pathlib import Path
 import cv2
 import numpy as np
+import time
 
 ###### GLOBAL VARIABLES ######
 DOWNSCALING = 4
@@ -341,12 +342,12 @@ def main():
     path_templates = [
         # str(Path('template_matching/templates/template_background.jpg').resolve()),
         str(Path('template_matching/templates/templ_potato.jpg').resolve()),
-        str(Path('template_matching/templates/template_carrot.jpg').resolve()),
-        str(Path('template_matching/templates/template_cat_sal.jpg').resolve()),
-        str(Path('template_matching/templates/template_cat_beef.jpg').resolve()),
-        str(Path('template_matching/templates/template_bun.jpg').resolve()),
-        str(Path('template_matching/templates/template_arm.jpg').resolve()),
-        str(Path('template_matching/templates/template_ketchup.jpg').resolve())
+        str(Path('template_matching/templates/templ_carrot.jpg').resolve()),
+        str(Path('template_matching/templates/templ_cat_sal.jpg').resolve()),
+        str(Path('template_matching/templates/templ_cat_beef.jpg').resolve()),
+        str(Path('template_matching/templates/templ_bun.jpg').resolve()),
+        str(Path('template_matching/templates/templ_arm.jpg').resolve()),
+        str(Path('template_matching/templates/templ_ketchup.jpg').resolve())
     ]
 
     ####### IMPORT BACKGROUND MASK #######
@@ -365,126 +366,62 @@ def main():
         'Ketchup'
     ]
 
-    cnts = []
-    rois = []
+    # cnts = []
+    # rois = []
     values = []
 
-    path = str(Path('/home/mathi/Desktop/input_image.jpg').resolve())
-    src = cv2.imread(path, cv2.IMREAD_COLOR)
+    correct = 0
+    times = []
 
-    for i, path_temp in enumerate(path_templates):
-        image = src.copy()
+    for i, path_img in enumerate(path_images):
+        images_fil = glob.glob(path_img)
+        images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in images_fil]
 
-        template = cv2.imread(path_temp, cv2.IMREAD_COLOR)
-        img = removeBackground(image, bgd_mask)
+        for j, src in enumerate(images):
+            t1 = time.time()
 
-        roi = getRegionOfInterest(i, template, img)
-        rois.append(roi)
-        (x_left, x_right, y_up, y_down) = roi
-        roi = img[y_up : y_down, x_left : x_right]
+            for k, path_temp in enumerate(path_templates):
+                template = cv2.imread(path_temp, cv2.IMREAD_COLOR)
 
-        value, cnt = findTemplate(i, template, roi)
-        cnts.append(cnt)
-        (x, y, width, height) = cnt
-        values.append(value)
+                # Remove unnessary background
+                # img = removeBackground(src, bgd_mask)
+                img = cv2.bitwise_and(src, bgd_mask)
 
-        cv2.rectangle(img=image,
-                      pt1=(x + x_left, y + y_up),
-                      pt2=(x + width + x_left, y + height + y_up),
-                      color=(0, 0, 255),
-                      thickness=10)
-        txt = text[i] + ': ' + str(round(value, 3))
-        cv2.putText(img=image,
-                    text=txt,
-                    org=(0, 150),
-                    fontFace=cv2.FONT_HERSHEY_SIMPLEX,
-                    fontScale=5,
-                    color=(255, 0, 0),
-                    thickness=4,
-                    lineType=cv2.LINE_AA)
-        cv2.imwrite('/home/mathi/Desktop/'+text[i]+'.jpg', image)
+                # Get region of interest
+                roi = getRegionOfInterest(category=k,
+                                          templ=template,
+                                          src=src)
+                # rois.append(roi)
+                (x_left, x_right, y_up, y_down) = roi
+                roi = img[y_up : y_down, x_left : x_right]
 
-    cv2.waitKey(0)
+                # Find template in region
+                value, _ = findTemplate(category=k,
+                                        templ=template,
+                                        src=roi)
 
-    # num = 0
-    # for path_img in path_images:
+                values.append(value)
 
-    #     images_fil = glob.glob(path_img)
-    #     images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in images_fil]
+            index = np.argmax(values)
 
-    #     for src in images:
-    #         # t1 = cv2.getTickCount()
-    #         cv2.imshow('Image', src)
+            t2 = time.time()
+            times.append(t2 - t1)
 
-    #         for i, path_temp in enumerate(path_templates):
-    #             template = cv2.imread(path_temp, cv2.IMREAD_COLOR)
+            if index == i:
+                correct += 1
 
-    #             # Remove unnessary background
-    #             img = removeBackground(src, bgd_mask)
+            print(
+                'Status:', text[i],
+                ', number:', j, '/', 431,
+                ', correct:', correct,
+                ', time used:', (t2 - t1), 'seconds'
+            )
 
-    #             # Get region of interest
-    #             roi = getRegionOfInterest(category=i,
-    #                                       templ=template,
-    #                                       src=src)
-    #             rois.append(roi)
-    #             (x_left, x_right, y_up, y_down) = roi
-    #             roi = img[y_up : y_down, x_left : x_right]
+            values.clear()
 
-    #             region = src[y_up : y_down, x_left : x_right]
-    #             cv2.imshow('Region of Interest', region)
-
-    #             # Find template in region
-    #             value, cnt = findTemplate(category=i,
-    #                                       templ=template,
-    #                                       src=roi)
-    #             cnts.append(cnt)
-    #             (x, y, width, height) = cnt
-    #             cnt = src[y : y + height, x : x + width]
-
-    #             cv2.imshow('Contour', cnt)
-    #             cv2.waitKey(0)
-
-    #             values.append(value)
-
-    #         index = np.argmax(values)
-
-    #         # t2 = cv2.getTickCount()
-
-    #         # clock_cycles = (t2 - t1)
-    #         # f = open('template_matching/output_tm/clock_cycles.txt', 'a')
-    #         # txt = str(clock_cycles) + '\n'
-    #         # f.write(txt)
-    #         # f.close()
-
-    #         # time = clock_cycles / cv2.getTickFrequency()
-    #         # f = open('template_matching/output_tm/time.txt', 'a+')
-    #         # txt = str(time) + '\n'
-    #         # f.write(txt)
-    #         # f.close()
-
-    #         (x_left, x_right, y_up, y_down) = rois[index]
-    #         (x, y, width, height) = cnts[index]
-    #         cv2.rectangle(img=src,
-    #                       pt1=(x + x_left, y + y_up),
-    #                       pt2=(x + width + x_left, y + height + y_up),
-    #                       color=(0, 0, 255),
-    #                       thickness=3)
-    #         cv2.putText(img=src,
-    #                     text=text[index],
-    #                     org=(0, 700),
-    #                     fontFace=cv2.FONT_HERSHEY_SIMPLEX,
-    #                     fontScale=2,
-    #                     color=(255, 0, 0),
-    #                     thickness=2,
-    #                     lineType=cv2.LINE_AA)
-
-    #         print(num)
-
-    #         rois.clear()
-    #         cnts.clear()
-    #         values.clear()
-
-    #         num += 1
+    print('Number of correct:', correct, '/', 431)
+    print('Accuracy:', (correct / 431))
+    print('Average time:', np.mean(times))
 
     return 0
 
