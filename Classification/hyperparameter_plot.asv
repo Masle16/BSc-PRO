@@ -1,0 +1,22 @@
+%% FCN hyperparameter plot
+hidden_size = [32, 64, 128, 256, 512]
+validation_acc = [90.4545, 90.6818, 89.0909, 88.1818, 88.8636]
+
+plot(hidden_size, validation_acc)
+title('Validation accuracy versus hidden size with Learning rate = 1e-4')
+xlabel('Hidden size')
+ylabel('Accuracy in percent')
+xticks([32, 64, 128, 256, 512])
+legend('Hidden size')
+
+%% CNN hyperparameter plot
+
+conv_size = [3, 3, 5, 5]
+pool_size  = [2, 4, 2, 4]
+validation_acc = [97.9545, 96.3636, 97.0455, 96.1364]
+
+plot3(conv_size, pool_size, validation_acc)
+title('Validation accuracy versus hidden size with Learning rate = 1e-3')
+xlabel('Conv size')
+ylabel('')
+zlabel('Accuracy in percent')
