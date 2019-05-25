@@ -202,43 +202,24 @@ def background_sub2(img, avg_bgd, bgd_mask):
 def main():
     """ Main function """
 
-    # ################## IMPORT IMAGES ##################
-    # path_images = [
-    #     str(Path('dataset3/res_still/test/background/*.jpg').resolve()),
-    #     str(Path('dataset3/res_still/test/potato/*.jpg').resolve()),
-    #     str(Path('dataset3/res_still/test/carrots/*.jpg').resolve()),
-    #     str(Path('dataset3/res_still/test/catfood_salmon/*.jpg').resolve()),
-    #     str(Path('dataset3/res_still/test/catfood_beef/*.jpg').resolve()),
-    #     str(Path('dataset3/res_still/test/bun/*.jpg').resolve()),
-    #     str(Path('dataset3/res_still/test/arm/*.jpg').resolve()),
-    #     str(Path('dataset3/res_still/test/ketchup/*.jpg').resolve())
-    # ]
-
     ################## BACKGROUND SUBTRACTION ##################
 
-    # # Background mask
-    # path = str(Path('preprocessing/bgd_mask.jpg').resolve())
-    # bgd_mask = cv2.imread(path, cv2.IMREAD_COLOR)
-    # bgd_mask_gray = cv2.cvtColor(bgd_mask, cv2.COLOR_BGR2GRAY)
+    # Background mask
+    path = str(Path('preprocessing/bgd_mask.jpg').resolve())
+    bgd_mask = cv2.imread(path, cv2.IMREAD_COLOR)
+    bgd_mask_gray = cv2.cvtColor(bgd_mask, cv2.COLOR_BGR2GRAY)
 
-    # # Average background image
-    # path = str(Path('preprocessing/avg_background.jpg').resolve())
-    # background_img = cv2.imread(path, cv2.IMREAD_COLOR)
+    # Average background image
+    path = str(Path('preprocessing/avg_background.jpg').resolve())
+    background_img = cv2.imread(path, cv2.IMREAD_COLOR)
 
-    # path = str(Path('dataset3/res_still/test/carrots/*.jpg').resolve())
-    # images_fil = glob.glob(path)
-    # images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in images_fil]
+    img = cv2.bitwise_and(img, bgd_mask)
+    regions, _ = background_sub2(img, background_img, bgd_mask_gray)
+    for j, region in enumerate(regions):
+        (x_left, x_right, y_up, y_down) = region
+        roi = img[y_up : y_down, x_left : x_right]
 
-    # for i, img in enumerate(images):
-    #     img = cv2.bitwise_and(img, bgd_mask)
-    #     regions, _ = background_sub2(img, background_img, bgd_mask_gray)
-    #     for j, region in enumerate(regions):
-    #         (x_left, x_right, y_up, y_down) = region
-    #         roi = img[y_up : y_down, x_left : x_right]
-    #         path = 'knn/cropped_images/test/carrot_' + str(i) + '_' + str(j) + '.jpg'
-    #         cv2.imwrite(path, roi)
-
-    # return 0
+    return 0
 
 if __name__ == "__main__":
     main()

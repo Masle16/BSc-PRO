@@ -159,7 +159,7 @@ def background_sub2(img, bgd, bgd_mask):
         regions.append(region)
     else:
         areas = [cv2.contourArea(cnt) for cnt in contours]
-        print(areas)
+        # print(areas)
 
         for i, area in enumerate(areas):
             # Find bounding rect of contour
