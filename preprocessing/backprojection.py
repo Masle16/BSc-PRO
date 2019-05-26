@@ -131,6 +131,13 @@ def backproject_multi(hist, img, bgd_mask):
     _, thresh = cv2.threshold(img_gray, 0, 127, cv2.THRESH_BINARY)
     contours, _ = cv2.findContours(thresh, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
 
+    # # Plot filled contours 
+    # im = np.zeros(img.shape)
+    # for cnt in contours:
+    #     cv2.drawContours(im, [cnt], -1, (255, 255, 255), -1)
+    # cv2.imshow('Contours', im)
+    # cv2.waitKey()
+
     regions = []
     cnts = []
     if not contours:
@@ -225,17 +232,17 @@ def main():
     """ Main function """
 
     ####### IMPORT IMAGES #######
-    path_images = [
-        # str(Path('dataset3/res_still/test/background/*.jpg').resolve()),
-        str(Path('dataset3/res_still/train/potato/*.jpg').resolve()),
-        # str(Path('dataset3/res_still/test/carrots/*.jpg').resolve()),
-        # str(Path('dataset3/res_still/test/catfood_salmon/*.jpg').resolve()),
-        # str(Path('dataset3/res_still/test/catfood_beef/*.jpg').resolve()),
-        # str(Path('dataset3/res_still/test/bun/*.jpg').resolve()),
-        # str(Path('dataset3/res_still/test/arm/*.jpg').resolve()),
-        # str(Path('dataset3/res_still/test/kethchup/*.jpg').resolve()),
-        # str(Path('dataset3/images/All/*.jpg').resolve())
-    ]
+    # path_images = [
+    #     str(Path('dataset3/res_still/test/background/*.jpg').resolve()),
+    #     str(Path('dataset3/res_still/train/potato/*.jpg').resolve()),
+    #     str(Path('dataset3/res_still/test/carrots/*.jpg').resolve()),
+    #     str(Path('dataset3/res_still/test/catfood_salmon/*.jpg').resolve()),
+    #     str(Path('dataset3/res_still/test/catfood_beef/*.jpg').resolve()),
+    #     str(Path('dataset3/res_still/test/bun/*.jpg').resolve()),
+    #     str(Path('dataset3/res_still/test/arm/*.jpg').resolve()),
+    #     str(Path('dataset3/res_still/test/kethchup/*.jpg').resolve()),
+    #     str(Path('dataset3/images/All/*.jpg').resolve())
+    # ]
 
     ################## Back-projection ##################
     # Create template histogram
@@ -259,14 +266,13 @@ def main():
     path = str(Path('preprocessing/bgd_mask.jpg').resolve())
     mask = cv2.imread(path, cv2.IMREAD_COLOR)
 
-    images_fil = glob.glob(path_images[0])
-    images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in images_fil]
+    path = str(Path('/home/mathi/Desktop/all.jpg').resolve())
+    img = cv2.imread(path, cv2.IMREAD_COLOR)
 
-    for img in images:
-        region, cnt = backproject_single(hist=template_hist,
-                                         img=img,
-                                         bgd_mask=mask)
-
+    regions, cnts = backproject_multi(hist=template_hist,
+                                      img=img,
+                                      bgd_mask=mask)
+    for cnt in cnts:
         (x, y, width, height) = cnt
         cv2.rectangle(img=img,
                       pt1=(x, y),
@@ -274,8 +280,8 @@ def main():
                       color=(0, 0, 255),
                       thickness=3)
 
-        cv2.imshow('Image', img)
-        cv2.waitKey(0)
+    cv2.imshow('Image', img)
+    cv2.waitKey(0)
 
     return 0
 
