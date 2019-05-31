@@ -103,7 +103,7 @@ def removeBackground(src, bgd_mask):
 
     return result
 
-def findTemplate(category, templ, src):
+def findTemplate(templ, src):
     """
     returns region of found template\n
         @param category is the category to search for\n
@@ -111,30 +111,16 @@ def findTemplate(category, templ, src):
         @param src the source image to search in
     """
 
-    # # Customized setting
-    # if category == POTATO:
-    #     method = cv2.TM_SQDIFF
-    # elif category == CARROT:
-    #     method = cv2.TM_SQDIFF
-    # elif category == CAT_SAL:
-    #     method = cv2.TM_CCOEFF
-    # elif category == CAT_BEEF:
-    #     method = cv2.TM_CCOEFF
-    # # elif category == ARM:
-    # #     method = cv2.TM_CCORR
-    # elif category == KETCHUP:
-    #     method = cv2.TM_CCOEFF
-    # elif category == BUN:
-    #     method = cv2.TM_SQDIFF
-    # # elif category == BACKGROUND:
-    # #     method = cv2.TM_SQDIFF
-    # else:
-    #     method = cv2.TM_SQDIFF
-
+    kernel_img = (10, 10)
+    kernel_templ = (5, 5)
     method = cv2.TM_CCORR_NORMED
 
     # Store rows and cols for template
     rows, cols = templ.shape[:2]
+
+    # Blur image
+    img = cv2.blur(src=src, ksize=kernel_img)
+    template = cv2.blur(src=templ, ksize=kernel_templ)
 
     value = None
     for angle in np.linspace(start=0, stop=360, num=24):
@@ -142,11 +128,11 @@ def findTemplate(category, templ, src):
                                                   angle=angle,
                                                   scale=1)
 
-        template_rotate = cv2.warpAffine(src=templ,
+        template_rotate = cv2.warpAffine(src=template,
                                          M=rotation_matrix,
                                          dsize=(cols, rows))
 
-        res = cv2.matchTemplate(image=src,
+        res = cv2.matchTemplate(image=img,
                                 templ=template_rotate,
                                 method=method)
 
@@ -158,19 +144,32 @@ def findTemplate(category, templ, src):
                 value = min_val
                 top_left = min_loc
                 rows_rotate, cols_rotate = template_rotate.shape[:2]
+                match_space = res.copy()
             elif value > min_val:
                 value = min_val
                 top_left = min_loc
                 rows_rotate, cols_rotate = template_rotate.shape[:2]
+                match_space = res.copy()
         else:
             if value is None:
                 value = max_val
                 top_left = max_loc
                 rows_rotate, cols_rotate = template_rotate.shape[:2]
+                match_space = res.copy()
             elif value < max_val:
                 value = max_val
                 top_left = max_loc
                 rows_rotate, cols_rotate = template_rotate.shape[:2]
+                match_space = res.copy()
+
+    # # Display matching space
+    # print('Matching space size:', match_space.shape)
+    # cv2.imshow('Matching space', cv2.normalize(match_space,
+    #                                            None,
+    #                                            alpha=0,
+    #                                            beta=1,
+    #                                            norm_type=cv2.NORM_MINMAX))
+    # cv2.waitKey()
 
     (x, y) = top_left
     width = cols_rotate
@@ -178,7 +177,7 @@ def findTemplate(category, templ, src):
 
     return value, (x, y, width, height)
 
-def getRegionOfInterest(category, templ, src):
+def getRegionOfInterest(templ, src):
     """
     returns a region of interest (448 x 448)\n
         @param category is the category to look for (potato, carrot ...)\n
@@ -186,43 +185,9 @@ def getRegionOfInterest(category, templ, src):
         @param src is the source image to search in\n
     """
 
-    # Customized setting
-    if category == POTATO:
-        kernel_img = (10, 10)
-        kernel_templ = (5, 5)
-        method = cv2.TM_SQDIFF
-    elif category == CARROT:
-        kernel_img = (10, 10)
-        kernel_templ = (5, 5)
-        method = cv2.TM_SQDIFF
-    elif category == CAT_SAL:
-        kernel_img = (10, 10)
-        kernel_templ = (5, 5)
-        method = cv2.TM_CCORR_NORMED
-    elif category == CAT_BEEF:
-        kernel_img = (10, 10)
-        kernel_templ = (5, 5)
-        method = cv2.TM_CCORR_NORMED
-    # elif category == ARM:
-    #     kernel_img = (10, 10)
-    #     kernel_templ = (5, 5)
-    #     method = cv2.TM_CCOEFF_NORMED
-    elif category == KETCHUP:
-        kernel_img = (10, 10)
-        kernel_templ = (5, 5)
-        method = cv2.TM_CCORR_NORMED
-    elif category == BUN:
-        kernel_img = (10, 10)
-        kernel_templ = (5, 5)
-        method = cv2.TM_SQDIFF
-    # elif category == BACKGROUND:
-    #     kernel_img = (10, 10)
-    #     kernel_templ = (5, 5)
-    #     method = cv2.TM_SQDIFF
-    else:
-        kernel_img = (8, 8)
-        kernel_templ = (4, 4)
-        method = cv2.TM_SQDIFF
+    kernel_img = (10, 10)
+    kernel_templ = (5, 5)
+    method = cv2.TM_CCORR_NORMED
 
     # Make private copies
     img = src.copy()
@@ -244,6 +209,9 @@ def getRegionOfInterest(category, templ, src):
     template = cv2.resize(src=template,
                           dsize=templ_dim,
                           interpolation=cv2.INTER_CUBIC)
+
+    # print('Image size:', img.shape)
+    # print('Template size:', template.shape)
 
     # Blur image
     img = cv2.blur(src=img, ksize=kernel_img)
@@ -272,16 +240,28 @@ def getRegionOfInterest(category, templ, src):
             if value is None:
                 value = min_val
                 top_left = min_loc
+                match_space = res.copy()
             elif value > min_val:
                 value = min_val
                 top_left = min_loc
+                match_space = res.copy()
         else:
             if value is None:
                 value = max_val
                 top_left = max_loc
+                match_space = res.copy()
             elif value < max_val:
                 value = max_val
                 top_left = max_loc
+                match_space = res.copy()
+
+    # print('Matching space size:', match_space.shape)
+    # cv2.imshow('Matching space', cv2.normalize(match_space,
+    #                                            None,
+    #                                            alpha=0,
+    #                                            beta=1,
+    #                                            norm_type=cv2.NORM_MINMAX))
+    # cv2.waitKey()
 
     (x, y) = top_left
     x *= DOWNSCALING
@@ -341,13 +321,13 @@ def main():
 
     path_templates = [
         # str(Path('template_matching/templates/template_background.jpg').resolve()),
-        str(Path('template_matching/templates/templ_potato.jpg').resolve()),
-        str(Path('template_matching/templates/templ_carrot.jpg').resolve()),
-        str(Path('template_matching/templates/templ_cat_sal.jpg').resolve()),
-        str(Path('template_matching/templates/templ_cat_beef.jpg').resolve()),
-        str(Path('template_matching/templates/templ_bun.jpg').resolve()),
-        str(Path('template_matching/templates/templ_arm.jpg').resolve()),
-        str(Path('template_matching/templates/templ_ketchup.jpg').resolve())
+        str(Path('template_matching/templates/template_potato.jpg').resolve()),
+        str(Path('template_matching/templates/template_carrot.jpg').resolve()),
+        str(Path('template_matching/templates/template_cat_sal.jpg').resolve()),
+        str(Path('template_matching/templates/template_cat_beef.jpg').resolve()),
+        str(Path('template_matching/templates/template_bun.jpg').resolve()),
+        str(Path('template_matching/templates/template_arm.jpg').resolve()),
+        str(Path('template_matching/templates/template_ketchup.jpg').resolve())
     ]
 
     ####### IMPORT BACKGROUND MASK #######
@@ -369,7 +349,6 @@ def main():
     # cnts = []
     # rois = []
     values = []
-
     correct = 0
     times = []
 
@@ -388,16 +367,14 @@ def main():
                 img = cv2.bitwise_and(src, bgd_mask)
 
                 # Get region of interest
-                roi = getRegionOfInterest(category=k,
-                                          templ=template,
+                roi = getRegionOfInterest(templ=template,
                                           src=src)
                 # rois.append(roi)
                 (x_left, x_right, y_up, y_down) = roi
                 roi = img[y_up : y_down, x_left : x_right]
 
                 # Find template in region
-                value, _ = findTemplate(category=k,
-                                        templ=template,
+                value, _ = findTemplate(templ=template,
                                         src=roi)
 
                 values.append(value)
