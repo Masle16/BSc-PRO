@@ -346,59 +346,76 @@ def main():
         'Ketchup'
     ]
 
-    # cnts = []
-    # rois = []
+    cnts = []
+    rois = []
     values = []
-    correct = 0
-    times = []
+    # correct = 0
+    # times = []
 
-    for i, path_img in enumerate(path_images):
-        images_fil = glob.glob(path_img)
-        images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in images_fil]
+    # for i, path_img in enumerate(path_images):
+    #     images_fil = glob.glob(path_img)
+    #     images = [cv2.imread(img, cv2.IMREAD_COLOR) for img in images_fil]
 
-        for j, src in enumerate(images):
-            t1 = time.time()
+    # for j, src in enumerate(images):
+    #     t1 = time.time()
 
-            for k, path_temp in enumerate(path_templates):
-                template = cv2.imread(path_temp, cv2.IMREAD_COLOR)
+    img = cv2.imread('/home/mathi/Desktop/input_image.jpg', cv2.IMREAD_COLOR)
+    output = img.copy()
 
-                # Remove unnessary background
-                # img = removeBackground(src, bgd_mask)
-                img = cv2.bitwise_and(src, bgd_mask)
+    for k, path_temp in enumerate(path_templates):
+        template = cv2.imread(path_temp, cv2.IMREAD_COLOR)
 
-                # Get region of interest
-                roi = getRegionOfInterest(templ=template,
-                                          src=src)
-                # rois.append(roi)
-                (x_left, x_right, y_up, y_down) = roi
-                roi = img[y_up : y_down, x_left : x_right]
+        # Remove unnessary background
+        img = removeBackground(img, bgd_mask)
+        # img = cv2.bitwise_and(img, bgd_mask)
 
-                # Find template in region
-                value, _ = findTemplate(templ=template,
-                                        src=roi)
+        # Get region of interest
+        roi = getRegionOfInterest(templ=template,
+                                  src=img)
+        rois.append(roi)
 
-                values.append(value)
+        # rois.append(roi)
+        (x_left, x_right, y_up, y_down) = roi
+        roi = img[y_up : y_down, x_left : x_right]
 
-            index = np.argmax(values)
+        # Find template in region
+        value, cnt = findTemplate(templ=template,
+                                  src=roi)
 
-            t2 = time.time()
-            times.append(t2 - t1)
+        values.append(value)
+        cnts.append(cnt)
 
-            if index == i:
-                correct += 1
+    index = np.argmax(values)
 
-            print(
-                'Status:', text[i],
-                ', number:', j, '/', 431,
-                ', correct:', correct,
-                ', time used:', (t2 - t1), 'seconds'
-            )
+    (x_left, x_right, y_up, y_down) = rois[index]
+    (x, y, w, h) = cnts[index]
+    cv2.rectangle(output, (x_left + x, y_up + y), (x_left + x + w, y_up + y + h), (0, 0, 255), 8)
 
-            values.clear()
+    score = str(round(values[index], 3))
+    txt = text[index] + ': ' + score
+    cv2.putText(output, txt, (10, 115), cv2.FONT_HERSHEY_SIMPLEX, 5, (0, 0,255), 4, cv2.LINE_AA)
 
-    print('Number of correct:', correct, '/', 431)
-    print('Accuracy:', (correct / 431))
-    print('Average time:', np.mean(times))
+    cv2.imshow('Output', output)
+    cv2.waitKey()
+
+    # t2 = time.time()
+    # times.append(t2 - t1)
+
+    # if index == i:
+    #     correct += 1
+
+    # print(
+    #     'Status:', text[i],
+    #     ', number:', j, '/', 431,
+    #     ', correct:', correct,
+    #     ', time used:', (t2 - t1), 'seconds'
+    # )
+
+    # values.clear()
+
+    # print('Number of correct:', correct, '/', 431)
+    # print('Accuracy:', (correct / 431))
+    # print('Average time:', np.mean(times))
 
     return 0
 
